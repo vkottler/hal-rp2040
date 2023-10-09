@@ -2,7 +2,7 @@
     =====================================
     generator=datazen
     version=3.1.4
-    hash=b5ade7700391aa51fc34fae97d3c147a
+    hash=8396e88aa355789afe4457db9d94f325
     =====================================
 -->
 
@@ -12,6 +12,15 @@
 ![Build Status](https://github.com/vkottler/hal-rp2040/actions/workflows/yambs-project.yml/badge.svg)
 
 *A hardware abstraction layer generated from the RP2040's SVD.*
+
+## Documentation
+
+### Generated
+
+* By [sphinx+breathe+exhale](https://vkottler.github.io/cpp/sphinx/hal-rp2040/)
+(What's [sphinx](https://www.sphinx-doc.org/en/master/) /
+[breathe](https://breathe.readthedocs.io/en/latest/) /
+[exhale](https://exhale.readthedocs.io/en/latest/)?)
 
 ## Workflow
 
