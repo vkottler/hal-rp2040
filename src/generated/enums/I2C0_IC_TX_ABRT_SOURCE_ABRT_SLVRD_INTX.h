@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX : uint8_t
 {
-    ABRT_SLVRD_INTX_VOID /*!< Slave trying to transmit to remote master in read mode- scenario not present */,
-    ABRT_SLVRD_INTX_GENERATED = 1 /*!< Slave trying to transmit to remote master in read mode */
+    ABRT_SLVRD_INTX_VOID /*!< Slave trying to transmit to remote master in read
+                            mode- scenario not present */
+        ,
+    ABRT_SLVRD_INTX_GENERATED =
+        1 /*!< Slave trying to transmit to remote master in read mode */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX) == 1);
 
@@ -49,7 +52,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX &output)
 {
     bool result = false;
 
@@ -59,7 +63,8 @@ inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX
     }
     else if ((result = !strncmp(data, "ABRT_SLVRD_INTX_GENERATED", 25)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX::ABRT_SLVRD_INTX_GENERATED;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX::ABRT_SLVRD_INTX_GENERATED;
     }
 
     return result;

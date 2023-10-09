@@ -16,10 +16,14 @@ struct [[gnu::packed]] psm
     static constexpr std::size_t size = 16; /*!< psm's size in bytes. */
 
     /* Fields. */
-    uint32_t FRCE_ON;         /*!< (read-write) Force block out of reset (i.e. power it on) */
-    uint32_t FRCE_OFF;        /*!< (read-write) Force into reset (i.e. power it off) */
-    uint32_t WDSEL;           /*!< (read-write) Set to 1 if this peripheral should be reset when the watchdog fires. */
-    const uint32_t DONE = {}; /*!< (read-only) Indicates the peripheral's registers are ready to access. */
+    uint32_t FRCE_ON; /*!< (read-write) Force block out of reset (i.e. power it
+                         on) */
+    uint32_t
+        FRCE_OFF;   /*!< (read-write) Force into reset (i.e. power it off) */
+    uint32_t WDSEL; /*!< (read-write) Set to 1 if this peripheral should be
+                       reset when the watchdog fires. */
+    const uint32_t DONE = {}; /*!< (read-only) Indicates the peripheral's
+                                 registers are ready to access. */
 
     /* Methods. */
 

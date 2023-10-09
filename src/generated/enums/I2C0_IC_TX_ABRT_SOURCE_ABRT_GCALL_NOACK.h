@@ -12,7 +12,9 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK : uint8_t
 {
-    ABRT_GCALL_NOACK_VOID /*!< GCALL not ACKed by any slave-scenario not present */,
+    ABRT_GCALL_NOACK_VOID /*!< GCALL not ACKed by any slave-scenario not
+                             present */
+        ,
     ABRT_GCALL_NOACK_GENERATED = 1 /*!< GCALL not ACKed by any slave */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK) == 1);
@@ -49,17 +51,20 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "ABRT_GCALL_NOACK_VOID", 21)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK::ABRT_GCALL_NOACK_VOID;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK::ABRT_GCALL_NOACK_VOID;
     }
     else if ((result = !strncmp(data, "ABRT_GCALL_NOACK_GENERATED", 26)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK::ABRT_GCALL_NOACK_GENERATED;
+        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK::
+            ABRT_GCALL_NOACK_GENERATED;
     }
 
     return result;

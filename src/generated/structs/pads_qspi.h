@@ -23,7 +23,8 @@ struct [[gnu::packed]] pads_qspi
     static constexpr std::size_t size = 28; /*!< pads_qspi's size in bytes. */
 
     /* Fields. */
-    uint32_t VOLTAGE_SELECT; /*!< (read-write) Voltage select. Per bank control */
+    uint32_t
+        VOLTAGE_SELECT; /*!< (read-write) Voltage select. Per bank control */
     uint32_t GPIO_QSPI_SCLK; /*!< (read-write) Pad control register */
     uint32_t GPIO_QSPI_SD0;  /*!< (read-write) Pad control register */
     uint32_t GPIO_QSPI_SD1;  /*!< (read-write) Pad control register */
@@ -38,7 +39,8 @@ struct [[gnu::packed]] pads_qspi
      */
     PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT get_VOLTAGE_SELECT_VOLTAGE_SELECT()
     {
-        return PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT & (1u << 0u));
+        return PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT &
+                                                       (1u << 0u));
     }
 
     /**
@@ -1346,6 +1348,7 @@ struct [[gnu::packed]] pads_qspi
 
 static_assert(sizeof(pads_qspi) == pads_qspi::size);
 
-static volatile pads_qspi *const PADS_QSPI = reinterpret_cast<pads_qspi *>(0x40020000);
+static volatile pads_qspi *const PADS_QSPI =
+    reinterpret_cast<pads_qspi *>(0x40020000);
 
 }; // namespace RP2040

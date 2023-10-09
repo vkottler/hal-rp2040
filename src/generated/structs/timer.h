@@ -15,11 +15,12 @@ namespace RP2040
  *         timeh is the top 32 bits of time & timel is the bottom 32 bits\n
  *         to change time write to timelw before timehw\n
  *         to read time read from timelr before timehr\n
- *         An alarm is set by setting alarm_enable and writing to the corresponding alarm register\n
- *         When an alarm is pending, the corresponding alarm_running signal will be high\n
- *         An alarm can be cancelled before it has finished by clearing the alarm_enable\n
- *         When an alarm fires, the corresponding alarm_irq is set and alarm_running is cleared\n
- *         To clear the interrupt write a 1 to the corresponding alarm_irq
+ *         An alarm is set by setting alarm_enable and writing to the
+ * corresponding alarm register\n When an alarm is pending, the corresponding
+ * alarm_running signal will be high\n An alarm can be cancelled before it has
+ * finished by clearing the alarm_enable\n When an alarm fires, the
+ * corresponding alarm_irq is set and alarm_running is cleared\n To clear the
+ * interrupt write a 1 to the corresponding alarm_irq
  */
 struct [[gnu::packed]] timer
 {
@@ -28,41 +29,49 @@ struct [[gnu::packed]] timer
     static constexpr std::size_t size = 68; /*!< timer's size in bytes. */
 
     /* Fields. */
-    uint32_t TIMEHW;          /*!< (read-write) Write to bits 63:32 of time\n
-                always write timelw before timehw */
-    uint32_t TIMELW;          /*!< (read-write) Write to bits 31:0 of time\n
-                writes do not get copied to time until timehw is written */
-    uint32_t TIMEHR;          /*!< (read-write) Read from bits 63:32 of time\n
-                always read timelr before timehr */
-    uint32_t TIMELR;          /*!< (read-write) Read from bits 31:0 of time */
-    uint32_t ALARM0;          /*!< (read-write) Arm alarm 0, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
-                be disarmed early using the ARMED status register. */
-    uint32_t ALARM1;          /*!< (read-write) Arm alarm 1, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
-                be disarmed early using the ARMED status register. */
-    uint32_t ALARM2;          /*!< (read-write) Arm alarm 2, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
-                be disarmed early using the ARMED status register. */
-    uint32_t ALARM3;          /*!< (read-write) Arm alarm 3, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
-                be disarmed early using the ARMED status register. */
-    uint32_t ARMED;           /*!< (read-write) Indicates the armed/disarmed status of each alarm.\n
-                A write to the corresponding ALARMx register arms the alarm.\n
-                Alarms automatically disarm upon firing, but writing ones here\n
-                will disarm immediately without waiting to fire. */
-    uint32_t TIMERAWH;        /*!< (read-write) Raw read from bits 63:32 of time (no side effects) */
-    uint32_t TIMERAWL;        /*!< (read-write) Raw read from bits 31:0 of time (no side effects) */
-    uint32_t DBGPAUSE;        /*!< (read-write) Set bits high to enable pause when the corresponding debug ports are active */
-    uint32_t PAUSE;           /*!< (read-write) Set high to pause the timer */
-    uint32_t INTR;            /*!< (read-write) Raw Interrupts */
-    uint32_t INTE;            /*!< (read-write) Interrupt Enable */
-    uint32_t INTF;            /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {}; /*!< (read-only) Interrupt status after masking & forcing */
+    uint32_t TIMEHW; /*!< (read-write) Write to bits 63:32 of time\n
+       always write timelw before timehw */
+    uint32_t TIMELW; /*!< (read-write) Write to bits 31:0 of time\n
+       writes do not get copied to time until timehw is written */
+    uint32_t TIMEHR; /*!< (read-write) Read from bits 63:32 of time\n
+       always read timelr before timehr */
+    uint32_t TIMELR; /*!< (read-write) Read from bits 31:0 of time */
+    uint32_t
+        ALARM0; /*!< (read-write) Arm alarm 0, and configure the time it
+  will fire.\n   Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.\n
+  The alarm will disarm itself once it fires, and can\n
+  be disarmed early using the ARMED status register. */
+    uint32_t
+        ALARM1; /*!< (read-write) Arm alarm 1, and configure the time it
+  will fire.\n   Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.\n
+  The alarm will disarm itself once it fires, and can\n
+  be disarmed early using the ARMED status register. */
+    uint32_t
+        ALARM2; /*!< (read-write) Arm alarm 2, and configure the time it
+  will fire.\n   Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.\n
+  The alarm will disarm itself once it fires, and can\n
+  be disarmed early using the ARMED status register. */
+    uint32_t
+        ALARM3;        /*!< (read-write) Arm alarm 3, and configure the time it
+         will fire.\n   Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.\n
+         The alarm will disarm itself once it fires, and can\n
+         be disarmed early using the ARMED status register. */
+    uint32_t ARMED;    /*!< (read-write) Indicates the armed/disarmed status of
+         each alarm.\n    A write to the corresponding ALARMx register arms the
+         alarm.\n    Alarms automatically disarm upon firing, but writing ones
+         here\n    will disarm immediately without waiting to fire. */
+    uint32_t TIMERAWH; /*!< (read-write) Raw read from bits 63:32 of time (no
+                          side effects) */
+    uint32_t TIMERAWL; /*!< (read-write) Raw read from bits 31:0 of time (no
+                          side effects) */
+    uint32_t DBGPAUSE; /*!< (read-write) Set bits high to enable pause when the
+                          corresponding debug ports are active */
+    uint32_t PAUSE;    /*!< (read-write) Set high to pause the timer */
+    uint32_t INTR;     /*!< (read-write) Raw Interrupts */
+    uint32_t INTE;     /*!< (read-write) Interrupt Enable */
+    uint32_t INTF;     /*!< (read-write) Interrupt Force */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 

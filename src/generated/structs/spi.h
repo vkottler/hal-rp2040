@@ -16,26 +16,51 @@ struct [[gnu::packed]] spi
     static constexpr std::size_t size = 4096; /*!< spi's size in bytes. */
 
     /* Fields. */
-    uint32_t SSPCR0;                                                 /*!< (read-write) Control register 0, SSPCR0 on page 3-4 */
-    uint32_t SSPCR1;                                                 /*!< (read-write) Control register 1, SSPCR1 on page 3-5 */
-    uint32_t SSPDR;                                                  /*!< (read-write) Data register, SSPDR on page 3-6 */
-    const uint32_t SSPSR = {};                                       /*!< (read-only) Status register, SSPSR on page 3-7 */
-    uint32_t SSPCPSR;                                                /*!< (read-write) Clock prescale register, SSPCPSR on page 3-8 */
-    uint32_t SSPIMSC;                                                /*!< (read-write) Interrupt mask set or clear register, SSPIMSC on page 3-9 */
-    const uint32_t SSPRIS = {};                                      /*!< (read-only) Raw interrupt status register, SSPRIS on page 3-10 */
-    const uint32_t SSPMIS = {};                                      /*!< (read-only) Masked interrupt status register, SSPMIS on page 3-11 */
-    uint32_t SSPICR;                                                 /*!< (read-write) Interrupt clear register, SSPICR on page 3-11 */
-    uint32_t SSPDMACR;                                               /*!< (read-write) DMA control register, SSPDMACR on page 3-12 */
+    uint32_t
+        SSPCR0; /*!< (read-write) Control register 0, SSPCR0 on page 3-4 */
+    uint32_t
+        SSPCR1;     /*!< (read-write) Control register 1, SSPCR1 on page 3-5 */
+    uint32_t SSPDR; /*!< (read-write) Data register, SSPDR on page 3-6 */
+    const uint32_t SSPSR =
+        {};           /*!< (read-only) Status register, SSPSR on page 3-7 */
+    uint32_t SSPCPSR; /*!< (read-write) Clock prescale register, SSPCPSR on
+                         page 3-8 */
+    uint32_t SSPIMSC; /*!< (read-write) Interrupt mask set or clear register,
+                         SSPIMSC on page 3-9 */
+    const uint32_t SSPRIS = {}; /*!< (read-only) Raw interrupt status register,
+                                   SSPRIS on page 3-10 */
+    const uint32_t SSPMIS = {}; /*!< (read-only) Masked interrupt status
+                                   register, SSPMIS on page 3-11 */
+    uint32_t SSPICR; /*!< (read-write) Interrupt clear register, SSPICR on page
+                        3-11 */
+    uint32_t SSPDMACR; /*!< (read-write) DMA control register, SSPDMACR on page
+                          3-12 */
     static constexpr std::size_t reserved_padding0_length = 1006;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    const uint32_t SSPPERIPHID0 = {};                                /*!< (read-only) Peripheral identification registers, SSPPeriphID0-3 on page 3-13 */
-    const uint32_t SSPPERIPHID1 = {};                                /*!< (read-only) Peripheral identification registers, SSPPeriphID0-3 on page 3-13 */
-    const uint32_t SSPPERIPHID2 = {};                                /*!< (read-only) Peripheral identification registers, SSPPeriphID0-3 on page 3-13 */
-    const uint32_t SSPPERIPHID3 = {};                                /*!< (read-only) Peripheral identification registers, SSPPeriphID0-3 on page 3-13 */
-    const uint32_t SSPPCELLID0 = {};                                 /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3 on page 3-16 */
-    const uint32_t SSPPCELLID1 = {};                                 /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3 on page 3-16 */
-    const uint32_t SSPPCELLID2 = {};                                 /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3 on page 3-16 */
-    const uint32_t SSPPCELLID3 = {};                                 /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3 on page 3-16 */
+    const uint32_t SSPPERIPHID0 =
+        {}; /*!< (read-only) Peripheral identification registers,
+               SSPPeriphID0-3 on page 3-13 */
+    const uint32_t SSPPERIPHID1 =
+        {}; /*!< (read-only) Peripheral identification registers,
+               SSPPeriphID0-3 on page 3-13 */
+    const uint32_t SSPPERIPHID2 =
+        {}; /*!< (read-only) Peripheral identification registers,
+               SSPPeriphID0-3 on page 3-13 */
+    const uint32_t SSPPERIPHID3 =
+        {}; /*!< (read-only) Peripheral identification registers,
+               SSPPeriphID0-3 on page 3-13 */
+    const uint32_t SSPPCELLID0 =
+        {}; /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3
+               on page 3-16 */
+    const uint32_t SSPPCELLID1 =
+        {}; /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3
+               on page 3-16 */
+    const uint32_t SSPPCELLID2 =
+        {}; /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3
+               on page 3-16 */
+    const uint32_t SSPPCELLID3 =
+        {}; /*!< (read-only) PrimeCell identification registers, SSPPCellID0-3
+               on page 3-16 */
 
     /* Methods. */
 

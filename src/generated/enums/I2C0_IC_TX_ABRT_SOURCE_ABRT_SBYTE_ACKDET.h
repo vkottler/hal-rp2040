@@ -12,7 +12,9 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET : uint8_t
 {
-    ABRT_SBYTE_ACKDET_VOID /*!< ACK detected for START byte- scenario not present */,
+    ABRT_SBYTE_ACKDET_VOID /*!< ACK detected for START byte- scenario not
+                              present */
+        ,
     ABRT_SBYTE_ACKDET_GENERATED = 1 /*!< ACK detected for START byte */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET) == 1);
@@ -49,17 +51,20 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "ABRT_SBYTE_ACKDET_VOID", 22)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET::ABRT_SBYTE_ACKDET_VOID;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET::ABRT_SBYTE_ACKDET_VOID;
     }
     else if ((result = !strncmp(data, "ABRT_SBYTE_ACKDET_GENERATED", 27)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET::ABRT_SBYTE_ACKDET_GENERATED;
+        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET::
+            ABRT_SBYTE_ACKDET_GENERATED;
     }
 
     return result;

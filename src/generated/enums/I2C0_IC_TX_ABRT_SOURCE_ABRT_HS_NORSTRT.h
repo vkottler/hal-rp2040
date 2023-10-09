@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT : uint8_t
 {
-    ABRT_HS_NORSTRT_VOID /*!< User trying to switch Master to HS mode when RESTART disabled- scenario not present */,
-    ABRT_HS_NORSTRT_GENERATED = 1 /*!< User trying to switch Master to HS mode when RESTART disabled */
+    ABRT_HS_NORSTRT_VOID /*!< User trying to switch Master to HS mode when
+                            RESTART disabled- scenario not present */
+        ,
+    ABRT_HS_NORSTRT_GENERATED =
+        1 /*!< User trying to switch Master to HS mode when RESTART disabled */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT) == 1);
 
@@ -49,7 +52,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT &output)
 {
     bool result = false;
 
@@ -59,7 +63,8 @@ inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT
     }
     else if ((result = !strncmp(data, "ABRT_HS_NORSTRT_GENERATED", 25)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT::ABRT_HS_NORSTRT_GENERATED;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT::ABRT_HS_NORSTRT_GENERATED;
     }
 
     return result;

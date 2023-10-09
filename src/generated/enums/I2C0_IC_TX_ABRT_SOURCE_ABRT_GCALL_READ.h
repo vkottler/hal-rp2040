@@ -12,7 +12,9 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ : uint8_t
 {
-    ABRT_GCALL_READ_VOID /*!< GCALL is followed by read from bus-scenario not present */,
+    ABRT_GCALL_READ_VOID /*!< GCALL is followed by read from bus-scenario not
+                            present */
+        ,
     ABRT_GCALL_READ_GENERATED = 1 /*!< GCALL is followed by read from bus */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ) == 1);
@@ -49,7 +51,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ &output)
 {
     bool result = false;
 
@@ -59,7 +62,8 @@ inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ
     }
     else if ((result = !strncmp(data, "ABRT_GCALL_READ_GENERATED", 25)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ::ABRT_GCALL_READ_GENERATED;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ::ABRT_GCALL_READ_GENERATED;
     }
 
     return result;

@@ -49,7 +49,8 @@ inline const char *to_string(PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT &output)
+inline bool from_string(const char *data,
+                        PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT &output)
 {
     bool result = false;
 

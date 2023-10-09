@@ -32,10 +32,11 @@ struct [[gnu::packed]] xip_ctrl
                 Write any value to clear. */
     uint32_t STREAM_ADDR;     /*!< (read-write) FIFO stream address */
     uint32_t STREAM_CTR;      /*!< (read-write) FIFO stream control */
-    uint32_t STREAM_FIFO;     /*!< (read-write) FIFO stream data\n
-                Streamed data is buffered here, for retrieval by the system DMA.\n
-                This FIFO can also be accessed via the XIP_AUX slave, to avoid exposing\n
-                the DMA to bus stalls caused by other XIP traffic. */
+    uint32_t
+        STREAM_FIFO; /*!< (read-write) FIFO stream data\n
+       Streamed data is buffered here, for retrieval by the system DMA.\n
+       This FIFO can also be accessed via the XIP_AUX slave, to avoid
+       exposing\n     the DMA to bus stalls caused by other XIP traffic. */
 
     /* Methods. */
 
@@ -236,6 +237,7 @@ struct [[gnu::packed]] xip_ctrl
 
 static_assert(sizeof(xip_ctrl) == xip_ctrl::size);
 
-static volatile xip_ctrl *const XIP_CTRL = reinterpret_cast<xip_ctrl *>(0x14000000);
+static volatile xip_ctrl *const XIP_CTRL =
+    reinterpret_cast<xip_ctrl *>(0x14000000);
 
 }; // namespace RP2040

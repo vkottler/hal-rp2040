@@ -16,20 +16,33 @@ struct [[gnu::packed]] watchdog
     static constexpr std::size_t size = 48; /*!< watchdog's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;              /*!< (read-write) Watchdog control\n
-                The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
-                The watchdog can be triggered in software. */
-    uint32_t LOAD;              /*!< (write-only) Load the watchdog timer. The maximum setting is 0xffffff which corresponds to 0xffffff / 2 ticks before triggering a watchdog reset (see errata RP2040-E1). */
-    const uint32_t REASON = {}; /*!< (read-only) Logs the reason for the last reset. Both bits are zero for the case of a hardware reset. */
-    uint32_t SCRATCH0;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH1;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH2;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH3;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH4;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH5;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH6;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH7;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t TICK;              /*!< (read-write) Controls the tick generator */
+    uint32_t CTRL; /*!< (read-write) Watchdog control\n
+   The rst_wdsel register determines which subsystems are reset when the
+   watchdog is triggered.\n The watchdog can be triggered in software. */
+    uint32_t
+        LOAD; /*!< (write-only) Load the watchdog timer. The maximum setting is
+                 0xffffff which corresponds to 0xffffff / 2 ticks before
+                 triggering a watchdog reset (see errata RP2040-E1). */
+    const uint32_t REASON =
+        {}; /*!< (read-only) Logs the reason for the last reset. Both bits are
+               zero for the case of a hardware reset. */
+    uint32_t SCRATCH0; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH1; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH2; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH3; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH4; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH5; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH6; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH7; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t TICK;     /*!< (read-write) Controls the tick generator */
 
     /* Methods. */
 
@@ -302,6 +315,7 @@ struct [[gnu::packed]] watchdog
 
 static_assert(sizeof(watchdog) == watchdog::size);
 
-static volatile watchdog *const WATCHDOG = reinterpret_cast<watchdog *>(0x40058000);
+static volatile watchdog *const WATCHDOG =
+    reinterpret_cast<watchdog *>(0x40058000);
 
 }; // namespace RP2040

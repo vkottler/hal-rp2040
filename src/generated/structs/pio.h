@@ -23,100 +23,212 @@ struct [[gnu::packed]] pio
     static constexpr std::size_t size = 324; /*!< pio's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;                   /*!< (read-write) PIO control register */
-    const uint32_t FSTAT = {};       /*!< (read-only) FIFO status register */
-    uint32_t FDEBUG;                 /*!< (read-write) FIFO debug register */
-    const uint32_t FLEVEL = {};      /*!< (read-only) FIFO levels */
-    uint32_t TXF0;                   /*!< (read-write) Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO. */
-    uint32_t TXF1;                   /*!< (read-write) Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO. */
-    uint32_t TXF2;                   /*!< (read-write) Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO. */
-    uint32_t TXF3;                   /*!< (read-write) Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO. */
-    uint32_t RXF0;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
-    uint32_t RXF1;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
-    uint32_t RXF2;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
-    uint32_t RXF3;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
-    uint32_t IRQ;                    /*!< (read-write) State machine IRQ flags register. Write 1 to clear. There are 8 state machine IRQ flags, which can be set, cleared, and waited on by the state machines. There's no fixed association between flags and state machines -- any state machine can use any flag.\n\n
-                Any of the 8 flags can be used for timing synchronisation between state machines, using IRQ and WAIT instructions. The lower four of these flags are also routed out to system-level interrupt requests, alongside FIFO status interrupts -- see e.g. IRQ0_INTE. */
-    uint32_t IRQ_FORCE;              /*!< (write-only) Writing a 1 to each of these bits will forcibly assert the corresponding IRQ. Note this is different to the INTF register: writing here affects PIO internal state. INTF just asserts the processor-facing IRQ signal for testing ISRs, and is not visible to the state machines. */
-    uint32_t INPUT_SYNC_BYPASS;      /*!< (read-write) There is a 2-flipflop synchronizer on each GPIO input, which protects PIO logic from metastabilities. This increases input delay, and for fast synchronous IO (e.g. SPI) these synchronizers may need to be bypassed. Each bit in this register corresponds to one GPIO.\n
-                0 -> input is synchronized (default)\n
-                1 -> synchronizer is bypassed\n
-                If in doubt, leave this register as all zeroes. */
-    uint32_t DBG_PADOUT;             /*!< (read-write) Read to sample the pad output values PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0. */
-    uint32_t DBG_PADOE;              /*!< (read-write) Read to sample the pad output enables (direction) PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0. */
-    const uint32_t DBG_CFGINFO = {}; /*!< (read-only) The PIO hardware has some free parameters that may vary between chip products.\n
-                These should be provided in the chip datasheet, but are also exposed here. */
-    uint32_t INSTR_MEM0;             /*!< (write-only) Write-only access to instruction memory location 0 */
-    uint32_t INSTR_MEM1;             /*!< (write-only) Write-only access to instruction memory location 1 */
-    uint32_t INSTR_MEM2;             /*!< (write-only) Write-only access to instruction memory location 2 */
-    uint32_t INSTR_MEM3;             /*!< (write-only) Write-only access to instruction memory location 3 */
-    uint32_t INSTR_MEM4;             /*!< (write-only) Write-only access to instruction memory location 4 */
-    uint32_t INSTR_MEM5;             /*!< (write-only) Write-only access to instruction memory location 5 */
-    uint32_t INSTR_MEM6;             /*!< (write-only) Write-only access to instruction memory location 6 */
-    uint32_t INSTR_MEM7;             /*!< (write-only) Write-only access to instruction memory location 7 */
-    uint32_t INSTR_MEM8;             /*!< (write-only) Write-only access to instruction memory location 8 */
-    uint32_t INSTR_MEM9;             /*!< (write-only) Write-only access to instruction memory location 9 */
-    uint32_t INSTR_MEM10;            /*!< (write-only) Write-only access to instruction memory location 10 */
-    uint32_t INSTR_MEM11;            /*!< (write-only) Write-only access to instruction memory location 11 */
-    uint32_t INSTR_MEM12;            /*!< (write-only) Write-only access to instruction memory location 12 */
-    uint32_t INSTR_MEM13;            /*!< (write-only) Write-only access to instruction memory location 13 */
-    uint32_t INSTR_MEM14;            /*!< (write-only) Write-only access to instruction memory location 14 */
-    uint32_t INSTR_MEM15;            /*!< (write-only) Write-only access to instruction memory location 15 */
-    uint32_t INSTR_MEM16;            /*!< (write-only) Write-only access to instruction memory location 16 */
-    uint32_t INSTR_MEM17;            /*!< (write-only) Write-only access to instruction memory location 17 */
-    uint32_t INSTR_MEM18;            /*!< (write-only) Write-only access to instruction memory location 18 */
-    uint32_t INSTR_MEM19;            /*!< (write-only) Write-only access to instruction memory location 19 */
-    uint32_t INSTR_MEM20;            /*!< (write-only) Write-only access to instruction memory location 20 */
-    uint32_t INSTR_MEM21;            /*!< (write-only) Write-only access to instruction memory location 21 */
-    uint32_t INSTR_MEM22;            /*!< (write-only) Write-only access to instruction memory location 22 */
-    uint32_t INSTR_MEM23;            /*!< (write-only) Write-only access to instruction memory location 23 */
-    uint32_t INSTR_MEM24;            /*!< (write-only) Write-only access to instruction memory location 24 */
-    uint32_t INSTR_MEM25;            /*!< (write-only) Write-only access to instruction memory location 25 */
-    uint32_t INSTR_MEM26;            /*!< (write-only) Write-only access to instruction memory location 26 */
-    uint32_t INSTR_MEM27;            /*!< (write-only) Write-only access to instruction memory location 27 */
-    uint32_t INSTR_MEM28;            /*!< (write-only) Write-only access to instruction memory location 28 */
-    uint32_t INSTR_MEM29;            /*!< (write-only) Write-only access to instruction memory location 29 */
-    uint32_t INSTR_MEM30;            /*!< (write-only) Write-only access to instruction memory location 30 */
-    uint32_t INSTR_MEM31;            /*!< (write-only) Write-only access to instruction memory location 31 */
-    uint32_t SM0_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 0\n
-                Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
-    uint32_t SM0_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 0 */
-    uint32_t SM0_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 0 */
-    const uint32_t SM0_ADDR = {};    /*!< (read-only) Current instruction address of state machine 0 */
-    uint32_t SM0_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 0's program counter\n
-                Write to execute an instruction immediately (including jumps) and then resume execution. */
-    uint32_t SM0_PINCTRL;            /*!< (read-write) State machine pin control */
-    uint32_t SM1_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 1\n
-                Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
-    uint32_t SM1_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 1 */
-    uint32_t SM1_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 1 */
-    const uint32_t SM1_ADDR = {};    /*!< (read-only) Current instruction address of state machine 1 */
-    uint32_t SM1_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 1's program counter\n
-                Write to execute an instruction immediately (including jumps) and then resume execution. */
-    uint32_t SM1_PINCTRL;            /*!< (read-write) State machine pin control */
-    uint32_t SM2_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 2\n
-                Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
-    uint32_t SM2_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 2 */
-    uint32_t SM2_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 2 */
-    const uint32_t SM2_ADDR = {};    /*!< (read-only) Current instruction address of state machine 2 */
-    uint32_t SM2_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 2's program counter\n
-                Write to execute an instruction immediately (including jumps) and then resume execution. */
-    uint32_t SM2_PINCTRL;            /*!< (read-write) State machine pin control */
-    uint32_t SM3_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 3\n
-                Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
-    uint32_t SM3_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 3 */
-    uint32_t SM3_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 3 */
-    const uint32_t SM3_ADDR = {};    /*!< (read-only) Current instruction address of state machine 3 */
-    uint32_t SM3_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 3's program counter\n
-                Write to execute an instruction immediately (including jumps) and then resume execution. */
-    uint32_t SM3_PINCTRL;            /*!< (read-write) State machine pin control */
-    const uint32_t INTR = {};        /*!< (read-only) Raw Interrupts */
-    uint32_t IRQ0_INTE;              /*!< (read-write) Interrupt Enable for irq0 */
-    uint32_t IRQ0_INTF;              /*!< (read-write) Interrupt Force for irq0 */
-    const uint32_t IRQ0_INTS = {};   /*!< (read-only) Interrupt status after masking & forcing for irq0 */
-    uint32_t IRQ1_INTE;              /*!< (read-write) Interrupt Enable for irq1 */
-    uint32_t IRQ1_INTF;              /*!< (read-write) Interrupt Force for irq1 */
-    const uint32_t IRQ1_INTS = {};   /*!< (read-only) Interrupt status after masking & forcing for irq1 */
+    uint32_t CTRL;              /*!< (read-write) PIO control register */
+    const uint32_t FSTAT = {};  /*!< (read-only) FIFO status register */
+    uint32_t FDEBUG;            /*!< (read-write) FIFO debug register */
+    const uint32_t FLEVEL = {}; /*!< (read-only) FIFO levels */
+    uint32_t TXF0; /*!< (read-write) Direct write access to the TX FIFO for
+                      this state machine. Each write pushes one word to the
+                      FIFO. Attempting to write to a full FIFO has no effect on
+                      the FIFO state or contents, and sets the sticky
+                      FDEBUG_TXOVER error flag for this FIFO. */
+    uint32_t TXF1; /*!< (read-write) Direct write access to the TX FIFO for
+                      this state machine. Each write pushes one word to the
+                      FIFO. Attempting to write to a full FIFO has no effect on
+                      the FIFO state or contents, and sets the sticky
+                      FDEBUG_TXOVER error flag for this FIFO. */
+    uint32_t TXF2; /*!< (read-write) Direct write access to the TX FIFO for
+                      this state machine. Each write pushes one word to the
+                      FIFO. Attempting to write to a full FIFO has no effect on
+                      the FIFO state or contents, and sets the sticky
+                      FDEBUG_TXOVER error flag for this FIFO. */
+    uint32_t TXF3; /*!< (read-write) Direct write access to the TX FIFO for
+                      this state machine. Each write pushes one word to the
+                      FIFO. Attempting to write to a full FIFO has no effect on
+                      the FIFO state or contents, and sets the sticky
+                      FDEBUG_TXOVER error flag for this FIFO. */
+    uint32_t RXF0; /*!< (read-write) Direct read access to the RX FIFO for this
+                      state machine. Each read pops one word from the FIFO.
+                      Attempting to read from an empty FIFO has no effect on
+                      the FIFO state, and sets the sticky FDEBUG_RXUNDER error
+                      flag for this FIFO. The data returned to the system on a
+                      read from an empty FIFO is undefined. */
+    uint32_t RXF1; /*!< (read-write) Direct read access to the RX FIFO for this
+                      state machine. Each read pops one word from the FIFO.
+                      Attempting to read from an empty FIFO has no effect on
+                      the FIFO state, and sets the sticky FDEBUG_RXUNDER error
+                      flag for this FIFO. The data returned to the system on a
+                      read from an empty FIFO is undefined. */
+    uint32_t RXF2; /*!< (read-write) Direct read access to the RX FIFO for this
+                      state machine. Each read pops one word from the FIFO.
+                      Attempting to read from an empty FIFO has no effect on
+                      the FIFO state, and sets the sticky FDEBUG_RXUNDER error
+                      flag for this FIFO. The data returned to the system on a
+                      read from an empty FIFO is undefined. */
+    uint32_t RXF3; /*!< (read-write) Direct read access to the RX FIFO for this
+                      state machine. Each read pops one word from the FIFO.
+                      Attempting to read from an empty FIFO has no effect on
+                      the FIFO state, and sets the sticky FDEBUG_RXUNDER error
+                      flag for this FIFO. The data returned to the system on a
+                      read from an empty FIFO is undefined. */
+    uint32_t IRQ;  /*!< (read-write) State machine IRQ flags register. Write 1
+ to clear. There are 8 state machine IRQ flags, which can be set, cleared, and
+ waited on by the state machines. There's no fixed association between flags and
+ state machines -- any state machine can use any flag.\n\n  Any of the 8 flags
+ can be used for timing synchronisation between state machines, using IRQ and
+ WAIT instructions. The lower four of these flags are also routed out to
+ system-level interrupt requests, alongside FIFO status interrupts -- see e.g.
+ IRQ0_INTE. */
+    uint32_t IRQ_FORCE; /*!< (write-only) Writing a 1 to each of these bits
+                           will forcibly assert the corresponding IRQ. Note
+                           this is different to the INTF register: writing here
+                           affects PIO internal state. INTF just asserts the
+                           processor-facing IRQ signal for testing ISRs, and is
+                           not visible to the state machines. */
+    uint32_t INPUT_SYNC_BYPASS; /*!< (read-write) There is a 2-flipflop
+           synchronizer on each GPIO input, which protects PIO logic from
+           metastabilities. This increases input delay, and for fast
+           synchronous IO (e.g. SPI) these synchronizers may need to be
+           bypassed. Each bit in this register corresponds to one GPIO.\n 0 ->
+           input is synchronized (default)\n 1 -> synchronizer is bypassed\n If
+           in doubt, leave this register as all zeroes. */
+    uint32_t DBG_PADOUT; /*!< (read-write) Read to sample the pad output values
+                            PIO is currently driving to the GPIOs. On RP2040
+                            there are 30 GPIOs, so the two most significant
+                            bits are hardwired to 0. */
+    uint32_t DBG_PADOE; /*!< (read-write) Read to sample the pad output enables
+                           (direction) PIO is currently driving to the GPIOs.
+                           On RP2040 there are 30 GPIOs, so the two most
+                           significant bits are hardwired to 0. */
+    const uint32_t DBG_CFGINFO =
+        {}; /*!< (read-only) The PIO hardware has some free parameters that may
+vary between chip products.\n These should be provided in the chip datasheet,
+but are also exposed here. */
+    uint32_t INSTR_MEM0;   /*!< (write-only) Write-only access to instruction
+                              memory location 0 */
+    uint32_t INSTR_MEM1;   /*!< (write-only) Write-only access to instruction
+                              memory location 1 */
+    uint32_t INSTR_MEM2;   /*!< (write-only) Write-only access to instruction
+                              memory location 2 */
+    uint32_t INSTR_MEM3;   /*!< (write-only) Write-only access to instruction
+                              memory location 3 */
+    uint32_t INSTR_MEM4;   /*!< (write-only) Write-only access to instruction
+                              memory location 4 */
+    uint32_t INSTR_MEM5;   /*!< (write-only) Write-only access to instruction
+                              memory location 5 */
+    uint32_t INSTR_MEM6;   /*!< (write-only) Write-only access to instruction
+                              memory location 6 */
+    uint32_t INSTR_MEM7;   /*!< (write-only) Write-only access to instruction
+                              memory location 7 */
+    uint32_t INSTR_MEM8;   /*!< (write-only) Write-only access to instruction
+                              memory location 8 */
+    uint32_t INSTR_MEM9;   /*!< (write-only) Write-only access to instruction
+                              memory location 9 */
+    uint32_t INSTR_MEM10;  /*!< (write-only) Write-only access to instruction
+                              memory location 10 */
+    uint32_t INSTR_MEM11;  /*!< (write-only) Write-only access to instruction
+                              memory location 11 */
+    uint32_t INSTR_MEM12;  /*!< (write-only) Write-only access to instruction
+                              memory location 12 */
+    uint32_t INSTR_MEM13;  /*!< (write-only) Write-only access to instruction
+                              memory location 13 */
+    uint32_t INSTR_MEM14;  /*!< (write-only) Write-only access to instruction
+                              memory location 14 */
+    uint32_t INSTR_MEM15;  /*!< (write-only) Write-only access to instruction
+                              memory location 15 */
+    uint32_t INSTR_MEM16;  /*!< (write-only) Write-only access to instruction
+                              memory location 16 */
+    uint32_t INSTR_MEM17;  /*!< (write-only) Write-only access to instruction
+                              memory location 17 */
+    uint32_t INSTR_MEM18;  /*!< (write-only) Write-only access to instruction
+                              memory location 18 */
+    uint32_t INSTR_MEM19;  /*!< (write-only) Write-only access to instruction
+                              memory location 19 */
+    uint32_t INSTR_MEM20;  /*!< (write-only) Write-only access to instruction
+                              memory location 20 */
+    uint32_t INSTR_MEM21;  /*!< (write-only) Write-only access to instruction
+                              memory location 21 */
+    uint32_t INSTR_MEM22;  /*!< (write-only) Write-only access to instruction
+                              memory location 22 */
+    uint32_t INSTR_MEM23;  /*!< (write-only) Write-only access to instruction
+                              memory location 23 */
+    uint32_t INSTR_MEM24;  /*!< (write-only) Write-only access to instruction
+                              memory location 24 */
+    uint32_t INSTR_MEM25;  /*!< (write-only) Write-only access to instruction
+                              memory location 25 */
+    uint32_t INSTR_MEM26;  /*!< (write-only) Write-only access to instruction
+                              memory location 26 */
+    uint32_t INSTR_MEM27;  /*!< (write-only) Write-only access to instruction
+                              memory location 27 */
+    uint32_t INSTR_MEM28;  /*!< (write-only) Write-only access to instruction
+                              memory location 28 */
+    uint32_t INSTR_MEM29;  /*!< (write-only) Write-only access to instruction
+                              memory location 29 */
+    uint32_t INSTR_MEM30;  /*!< (write-only) Write-only access to instruction
+                              memory location 30 */
+    uint32_t INSTR_MEM31;  /*!< (write-only) Write-only access to instruction
+                              memory location 31 */
+    uint32_t SM0_CLKDIV;   /*!< (read-write) Clock divisor register for state
+      machine 0\n   Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
+    uint32_t SM0_EXECCTRL; /*!< (read-write) Execution/behavioural settings for
+                              state machine 0 */
+    uint32_t
+        SM0_SHIFTCTRL; /*!< (read-write) Control behaviour of the input/output
+                          shift registers for state machine 0 */
+    const uint32_t SM0_ADDR =
+        {}; /*!< (read-only) Current instruction address of state machine 0 */
+    uint32_t SM0_INSTR; /*!< (read-write) Read to see the instruction currently
+   addressed by state machine 0's program counter\n Write to execute an
+   instruction immediately (including jumps) and then resume execution. */
+    uint32_t SM0_PINCTRL;  /*!< (read-write) State machine pin control */
+    uint32_t SM1_CLKDIV;   /*!< (read-write) Clock divisor register for state
+      machine 1\n   Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
+    uint32_t SM1_EXECCTRL; /*!< (read-write) Execution/behavioural settings for
+                              state machine 1 */
+    uint32_t
+        SM1_SHIFTCTRL; /*!< (read-write) Control behaviour of the input/output
+                          shift registers for state machine 1 */
+    const uint32_t SM1_ADDR =
+        {}; /*!< (read-only) Current instruction address of state machine 1 */
+    uint32_t SM1_INSTR; /*!< (read-write) Read to see the instruction currently
+   addressed by state machine 1's program counter\n Write to execute an
+   instruction immediately (including jumps) and then resume execution. */
+    uint32_t SM1_PINCTRL;  /*!< (read-write) State machine pin control */
+    uint32_t SM2_CLKDIV;   /*!< (read-write) Clock divisor register for state
+      machine 2\n   Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
+    uint32_t SM2_EXECCTRL; /*!< (read-write) Execution/behavioural settings for
+                              state machine 2 */
+    uint32_t
+        SM2_SHIFTCTRL; /*!< (read-write) Control behaviour of the input/output
+                          shift registers for state machine 2 */
+    const uint32_t SM2_ADDR =
+        {}; /*!< (read-only) Current instruction address of state machine 2 */
+    uint32_t SM2_INSTR; /*!< (read-write) Read to see the instruction currently
+   addressed by state machine 2's program counter\n Write to execute an
+   instruction immediately (including jumps) and then resume execution. */
+    uint32_t SM2_PINCTRL;  /*!< (read-write) State machine pin control */
+    uint32_t SM3_CLKDIV;   /*!< (read-write) Clock divisor register for state
+      machine 3\n   Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
+    uint32_t SM3_EXECCTRL; /*!< (read-write) Execution/behavioural settings for
+                              state machine 3 */
+    uint32_t
+        SM3_SHIFTCTRL; /*!< (read-write) Control behaviour of the input/output
+                          shift registers for state machine 3 */
+    const uint32_t SM3_ADDR =
+        {}; /*!< (read-only) Current instruction address of state machine 3 */
+    uint32_t SM3_INSTR; /*!< (read-write) Read to see the instruction currently
+   addressed by state machine 3's program counter\n Write to execute an
+   instruction immediately (including jumps) and then resume execution. */
+    uint32_t SM3_PINCTRL;     /*!< (read-write) State machine pin control */
+    const uint32_t INTR = {}; /*!< (read-only) Raw Interrupts */
+    uint32_t IRQ0_INTE;       /*!< (read-write) Interrupt Enable for irq0 */
+    uint32_t IRQ0_INTF;       /*!< (read-write) Interrupt Force for irq0 */
+    const uint32_t IRQ0_INTS = {}; /*!< (read-only) Interrupt status after
+                                      masking & forcing for irq0 */
+    uint32_t IRQ1_INTE; /*!< (read-write) Interrupt Enable for irq1 */
+    uint32_t IRQ1_INTF; /*!< (read-write) Interrupt Force for irq1 */
+    const uint32_t IRQ1_INTS = {}; /*!< (read-only) Interrupt status after
+                                      masking & forcing for irq1 */
 
     /* Methods. */
 

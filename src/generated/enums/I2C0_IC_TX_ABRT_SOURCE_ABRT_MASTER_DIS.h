@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS : uint8_t
 {
-    ABRT_MASTER_DIS_VOID /*!< User initiating master operation when MASTER disabled- scenario not present */,
-    ABRT_MASTER_DIS_GENERATED = 1 /*!< User initiating master operation when MASTER disabled */
+    ABRT_MASTER_DIS_VOID /*!< User initiating master operation when MASTER
+                            disabled- scenario not present */
+        ,
+    ABRT_MASTER_DIS_GENERATED =
+        1 /*!< User initiating master operation when MASTER disabled */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS) == 1);
 
@@ -49,7 +52,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS &output)
 {
     bool result = false;
 
@@ -59,7 +63,8 @@ inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS
     }
     else if ((result = !strncmp(data, "ABRT_MASTER_DIS_GENERATED", 25)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS::ABRT_MASTER_DIS_GENERATED;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS::ABRT_MASTER_DIS_GENERATED;
     }
 
     return result;

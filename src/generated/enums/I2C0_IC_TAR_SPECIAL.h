@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TAR_SPECIAL : uint8_t
 {
-    DISABLED /*!< Disables programming of GENERAL_CALL or START_BYTE transmission */,
-    ENABLED = 1 /*!< Enables programming of GENERAL_CALL or START_BYTE transmission */
+    DISABLED /*!< Disables programming of GENERAL_CALL or START_BYTE
+                transmission */
+        ,
+    ENABLED = 1 /*!< Enables programming of GENERAL_CALL or START_BYTE
+                   transmission */
 };
 static_assert(sizeof(I2C0_IC_TAR_SPECIAL) == 1);
 

@@ -57,7 +57,8 @@ inline const char *to_string(IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER &output)
+inline bool from_string(const char *data,
+                        IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER &output)
 {
     bool result = false;
 

@@ -27,7 +27,8 @@ static constexpr uint16_t USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE_id = 224;
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE instance)
+inline const char *to_string(
+    USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE instance)
 {
     const char *result = "UNKNOWN USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE";
 
@@ -57,7 +58,8 @@ inline const char *to_string(USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE instanc
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE &output)
+inline bool from_string(const char *data,
+                        USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE &output)
 {
     bool result = false;
 

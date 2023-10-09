@@ -19,7 +19,8 @@ enum class USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE : uint8_t
 };
 static_assert(sizeof(USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE) == 1);
 
-static constexpr uint16_t USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE_id = 225;
+static constexpr uint16_t USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE_id =
+    225;
 
 /**
  * Converts USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE to a C string.
@@ -27,9 +28,11 @@ static constexpr uint16_t USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE_id = 225;
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE instance)
+inline const char *to_string(
+    USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE instance)
 {
-    const char *result = "UNKNOWN USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE";
+    const char *result =
+        "UNKNOWN USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE";
 
     switch (instance)
     {
@@ -57,7 +60,8 @@ inline const char *to_string(USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE instan
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE &output)
+inline bool from_string(const char *data,
+                        USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE &output)
 {
     bool result = false;
 

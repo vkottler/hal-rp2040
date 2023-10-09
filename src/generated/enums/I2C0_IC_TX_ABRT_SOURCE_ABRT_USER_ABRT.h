@@ -12,7 +12,9 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT : uint8_t
 {
-    ABRT_USER_ABRT_VOID /*!< Transfer abort detected by master- scenario not present */,
+    ABRT_USER_ABRT_VOID /*!< Transfer abort detected by master- scenario not
+                           present */
+        ,
     ABRT_USER_ABRT_GENERATED = 1 /*!< Transfer abort detected by master */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT) == 1);
@@ -49,7 +51,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT &output)
 {
     bool result = false;
 
@@ -59,7 +62,8 @@ inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT 
     }
     else if ((result = !strncmp(data, "ABRT_USER_ABRT_GENERATED", 24)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT::ABRT_USER_ABRT_GENERATED;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT::ABRT_USER_ABRT_GENERATED;
     }
 
     return result;

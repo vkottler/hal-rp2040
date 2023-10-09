@@ -10,17 +10,19 @@ namespace RP2040
 {
 
 /**
- * control and status for on-chip voltage regulator and chip level reset subsystem
+ * control and status for on-chip voltage regulator and chip level reset
+ * subsystem
  */
 struct [[gnu::packed]] vreg_and_chip_reset
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< vreg_and_chip_reset's identifier. */
-    static constexpr std::size_t size = 12; /*!< vreg_and_chip_reset's size in bytes. */
+    static constexpr uint16_t id = 1; /*!< vreg_and_chip_reset's identifier. */
+    static constexpr std::size_t size =
+        12; /*!< vreg_and_chip_reset's size in bytes. */
 
     /* Fields. */
-    uint32_t VREG;       /*!< (read-write) Voltage regulator control and status */
-    uint32_t BOD;        /*!< (read-write) brown-out detection control */
+    uint32_t VREG; /*!< (read-write) Voltage regulator control and status */
+    uint32_t BOD;  /*!< (read-write) brown-out detection control */
     uint32_t CHIP_RESET; /*!< (read-write) Chip reset control and status */
 
     /* Methods. */
@@ -230,6 +232,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
 
 static_assert(sizeof(vreg_and_chip_reset) == vreg_and_chip_reset::size);
 
-static volatile vreg_and_chip_reset *const VREG_AND_CHIP_RESET = reinterpret_cast<vreg_and_chip_reset *>(0x40064000);
+static volatile vreg_and_chip_reset *const VREG_AND_CHIP_RESET =
+    reinterpret_cast<vreg_and_chip_reset *>(0x40064000);
 
 }; // namespace RP2040

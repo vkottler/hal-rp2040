@@ -49,7 +49,8 @@ inline const char *to_string(I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL &output)
 {
     bool result = false;
 

@@ -11,7 +11,8 @@ namespace RP2040
 
 /**
  * Single-cycle IO block\n
- *         Provides core-local and inter-core hardware for the two processors, with single-cycle access.
+ *         Provides core-local and inter-core hardware for the two processors,
+ * with single-cycle access.
  */
 struct [[gnu::packed]] sio
 {
@@ -20,295 +21,375 @@ struct [[gnu::packed]] sio
     static constexpr std::size_t size = 384; /*!< sio's size in bytes. */
 
     /* Fields. */
-    uint32_t CPUID;                        /*!< (read-write) Processor core identifier\n
-                Value is 0 when read from processor core 0, and 1 when read from processor core 1. */
-    const uint32_t GPIO_IN = {};           /*!< (read-only) Input value for GPIO pins */
-    const uint32_t GPIO_HI_IN = {};        /*!< (read-only) Input value for QSPI pins */
+    uint32_t CPUID;              /*!< (read-write) Processor core identifier\n
+      Value is 0 when read from processor core 0, and 1 when read from processor
+             core 1. */
+    const uint32_t GPIO_IN = {}; /*!< (read-only) Input value for GPIO pins */
+    const uint32_t GPIO_HI_IN =
+        {}; /*!< (read-only) Input value for QSPI pins */
     const uint32_t reserved_padding0 = {};
-    uint32_t GPIO_OUT;                     /*!< (read-write) GPIO output value */
-    uint32_t GPIO_OUT_SET;                 /*!< (write-only) GPIO output value set */
-    uint32_t GPIO_OUT_CLR;                 /*!< (write-only) GPIO output value clear */
-    uint32_t GPIO_OUT_XOR;                 /*!< (write-only) GPIO output value XOR */
-    uint32_t GPIO_OE;                      /*!< (read-write) GPIO output enable */
-    uint32_t GPIO_OE_SET;                  /*!< (write-only) GPIO output enable set */
-    uint32_t GPIO_OE_CLR;                  /*!< (write-only) GPIO output enable clear */
-    uint32_t GPIO_OE_XOR;                  /*!< (write-only) GPIO output enable XOR */
-    uint32_t GPIO_HI_OUT;                  /*!< (read-write) QSPI output value */
-    uint32_t GPIO_HI_OUT_SET;              /*!< (write-only) QSPI output value set */
-    uint32_t GPIO_HI_OUT_CLR;              /*!< (write-only) QSPI output value clear */
-    uint32_t GPIO_HI_OUT_XOR;              /*!< (write-only) QSPI output value XOR */
-    uint32_t GPIO_HI_OE;                   /*!< (read-write) QSPI output enable */
-    uint32_t GPIO_HI_OE_SET;               /*!< (write-only) QSPI output enable set */
-    uint32_t GPIO_HI_OE_CLR;               /*!< (write-only) QSPI output enable clear */
-    uint32_t GPIO_HI_OE_XOR;               /*!< (write-only) QSPI output enable XOR */
-    uint32_t FIFO_ST;                      /*!< (read-write) Status register for inter-core FIFOs (mailboxes).\n
-                There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.\n
-                Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).\n
-                Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).\n
-                The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register. */
-    uint32_t FIFO_WR;                      /*!< (read-write) Write access to this core's TX FIFO */
-    uint32_t FIFO_RD;                      /*!< (read-write) Read access to this core's RX FIFO */
-    uint32_t SPINLOCK_ST;                  /*!< (read-write) Spinlock state\n
-                A bitmap containing the state of all 32 spinlocks (1=locked).\n
-                Mainly intended for debugging. */
-    uint32_t DIV_UDIVIDEND;                /*!< (read-write) Divider unsigned dividend\n
-                Write to the DIVIDEND operand of the divider, i.e. the p in `p / q`.\n
-                Any operand write starts a new calculation. The results appear in QUOTIENT, REMAINDER.\n
-                UDIVIDEND/SDIVIDEND are aliases of the same internal register. The U alias starts an\n
-                unsigned calculation, and the S alias starts a signed calculation. */
-    uint32_t DIV_UDIVISOR;                 /*!< (read-write) Divider unsigned divisor\n
-                Write to the DIVISOR operand of the divider, i.e. the q in `p / q`.\n
-                Any operand write starts a new calculation. The results appear in QUOTIENT, REMAINDER.\n
-                UDIVISOR/SDIVISOR are aliases of the same internal register. The U alias starts an\n
-                unsigned calculation, and the S alias starts a signed calculation. */
-    uint32_t DIV_SDIVIDEND;                /*!< (read-write) Divider signed dividend\n
-                The same as UDIVIDEND, but starts a signed calculation, rather than unsigned. */
-    uint32_t DIV_SDIVISOR;                 /*!< (read-write) Divider signed divisor\n
-                The same as UDIVISOR, but starts a signed calculation, rather than unsigned. */
-    uint32_t DIV_QUOTIENT;                 /*!< (read-write) Divider result quotient\n
-                The result of `DIVIDEND / DIVISOR` (division). Contents undefined while CSR_READY is low.\n
-                For signed calculations, QUOTIENT is negative when the signs of DIVIDEND and DIVISOR differ.\n
-                This register can be written to directly, for context save/restore purposes. This halts any\n
-                in-progress calculation and sets the CSR_READY and CSR_DIRTY flags.\n
-                Reading from QUOTIENT clears the CSR_DIRTY flag, so should read results in the order\n
-                REMAINDER, QUOTIENT if CSR_DIRTY is used. */
-    uint32_t DIV_REMAINDER;                /*!< (read-write) Divider result remainder\n
-                The result of `DIVIDEND % DIVISOR` (modulo). Contents undefined while CSR_READY is low.\n
-                For signed calculations, REMAINDER is negative only when DIVIDEND is negative.\n
-                This register can be written to directly, for context save/restore purposes. This halts any\n
-                in-progress calculation and sets the CSR_READY and CSR_DIRTY flags. */
-    const uint32_t DIV_CSR = {};           /*!< (read-only) Control and status register for divider. */
+    uint32_t GPIO_OUT;        /*!< (read-write) GPIO output value */
+    uint32_t GPIO_OUT_SET;    /*!< (write-only) GPIO output value set */
+    uint32_t GPIO_OUT_CLR;    /*!< (write-only) GPIO output value clear */
+    uint32_t GPIO_OUT_XOR;    /*!< (write-only) GPIO output value XOR */
+    uint32_t GPIO_OE;         /*!< (read-write) GPIO output enable */
+    uint32_t GPIO_OE_SET;     /*!< (write-only) GPIO output enable set */
+    uint32_t GPIO_OE_CLR;     /*!< (write-only) GPIO output enable clear */
+    uint32_t GPIO_OE_XOR;     /*!< (write-only) GPIO output enable XOR */
+    uint32_t GPIO_HI_OUT;     /*!< (read-write) QSPI output value */
+    uint32_t GPIO_HI_OUT_SET; /*!< (write-only) QSPI output value set */
+    uint32_t GPIO_HI_OUT_CLR; /*!< (write-only) QSPI output value clear */
+    uint32_t GPIO_HI_OUT_XOR; /*!< (write-only) QSPI output value XOR */
+    uint32_t GPIO_HI_OE;      /*!< (read-write) QSPI output enable */
+    uint32_t GPIO_HI_OE_SET;  /*!< (write-only) QSPI output enable set */
+    uint32_t GPIO_HI_OE_CLR;  /*!< (write-only) QSPI output enable clear */
+    uint32_t GPIO_HI_OE_XOR;  /*!< (write-only) QSPI output enable XOR */
+    uint32_t FIFO_ST; /*!< (read-write) Status register for inter-core FIFOs
+(mailboxes).\n There is one FIFO in the core 0 -> core 1 direction, and one
+core 1 -> core 0. Both are 32 bits wide and 8 words deep.\n Core 0 can see the
+read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).\n Core 1
+can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO
+(TX).\n The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE
+fields of its FIFO_ST register. */
+    uint32_t FIFO_WR; /*!< (read-write) Write access to this core's TX FIFO */
+    uint32_t FIFO_RD; /*!< (read-write) Read access to this core's RX FIFO */
+    uint32_t SPINLOCK_ST;   /*!< (read-write) Spinlock state\n
+ A bitmap containing the state of all 32 spinlocks (1=locked).\n
+ Mainly intended for debugging. */
+    uint32_t DIV_UDIVIDEND; /*!< (read-write) Divider unsigned dividend\n
+ Write to the DIVIDEND operand of the divider, i.e. the p in `p / q`.\n
+ Any operand write starts a new calculation. The results appear in QUOTIENT,
+ REMAINDER.\n UDIVIDEND/SDIVIDEND are aliases of the same internal register.
+ The U alias starts an\n unsigned calculation, and the S alias starts a signed
+ calculation. */
+    uint32_t DIV_UDIVISOR;  /*!< (read-write) Divider unsigned divisor\n
+ Write to the DIVISOR operand of the divider, i.e. the q in `p / q`.\n
+ Any operand write starts a new calculation. The results appear in QUOTIENT,
+ REMAINDER.\n  UDIVISOR/SDIVISOR are aliases of the same internal register. The
+ U  alias starts an\n  unsigned calculation, and the S alias starts a signed
+ calculation. */
+    uint32_t DIV_SDIVIDEND; /*!< (read-write) Divider signed dividend\n
+ The same as UDIVIDEND, but starts a signed calculation, rather than unsigned.
+ */
+    uint32_t DIV_SDIVISOR;  /*!< (read-write) Divider signed divisor\n
+ The same as UDIVISOR, but starts a signed calculation, rather than unsigned. */
+    uint32_t DIV_QUOTIENT;  /*!< (read-write) Divider result quotient\n
+ The result of `DIVIDEND / DIVISOR` (division). Contents undefined while
+ CSR_READY is low.\n  For signed calculations, QUOTIENT is negative when the
+ signs of DIVIDEND and DIVISOR differ.\n  This register can be written to
+ directly, for context save/restore purposes. This halts any\n  in-progress
+ calculation and sets the CSR_READY and CSR_DIRTY flags.\n  Reading from
+ QUOTIENT  clears the CSR_DIRTY flag, so should read results in the order\n
+ REMAINDER,  QUOTIENT if CSR_DIRTY is used. */
+    uint32_t DIV_REMAINDER; /*!< (read-write) Divider result remainder\n
+ The result of `DIVIDEND % DIVISOR` (modulo). Contents undefined while
+ CSR_READY is low.\n For signed calculations, REMAINDER is negative only when
+ DIVIDEND is negative.\n This register can be written to directly, for context
+ save/restore purposes. This halts any\n in-progress calculation and sets the
+ CSR_READY and CSR_DIRTY flags. */
+    const uint32_t DIV_CSR =
+        {}; /*!< (read-only) Control and status register for divider. */
     const uint32_t reserved_padding1 = {};
-    uint32_t INTERP0_ACCUM0;               /*!< (read-write) Read/write access to accumulator 0 */
-    uint32_t INTERP0_ACCUM1;               /*!< (read-write) Read/write access to accumulator 1 */
-    uint32_t INTERP0_BASE0;                /*!< (read-write) Read/write access to BASE0 register. */
-    uint32_t INTERP0_BASE1;                /*!< (read-write) Read/write access to BASE1 register. */
-    uint32_t INTERP0_BASE2;                /*!< (read-write) Read/write access to BASE2 register. */
-    uint32_t INTERP0_POP_LANE0;            /*!< (read-write) Read LANE0 result, and simultaneously write lane results to both accumulators (POP). */
-    uint32_t INTERP0_POP_LANE1;            /*!< (read-write) Read LANE1 result, and simultaneously write lane results to both accumulators (POP). */
-    uint32_t INTERP0_POP_FULL;             /*!< (read-write) Read FULL result, and simultaneously write lane results to both accumulators (POP). */
-    uint32_t INTERP0_PEEK_LANE0;           /*!< (read-write) Read LANE0 result, without altering any internal state (PEEK). */
-    uint32_t INTERP0_PEEK_LANE1;           /*!< (read-write) Read LANE1 result, without altering any internal state (PEEK). */
-    uint32_t INTERP0_PEEK_FULL;            /*!< (read-write) Read FULL result, without altering any internal state (PEEK). */
-    uint32_t INTERP0_CTRL_LANE0;           /*!< (read-write) Control register for lane 0 */
-    uint32_t INTERP0_CTRL_LANE1;           /*!< (read-write) Control register for lane 1 */
-    uint32_t INTERP0_ACCUM0_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM0\n
-                Reading yields lane 0's raw shift and mask value (BASE0 not added). */
-    uint32_t INTERP0_ACCUM1_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM1\n
-                Reading yields lane 1's raw shift and mask value (BASE1 not added). */
-    uint32_t INTERP0_BASE_1AND0;           /*!< (read-write) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.\n
-                Each half is sign-extended to 32 bits if that lane's SIGNED flag is set. */
-    uint32_t INTERP1_ACCUM0;               /*!< (read-write) Read/write access to accumulator 0 */
-    uint32_t INTERP1_ACCUM1;               /*!< (read-write) Read/write access to accumulator 1 */
-    uint32_t INTERP1_BASE0;                /*!< (read-write) Read/write access to BASE0 register. */
-    uint32_t INTERP1_BASE1;                /*!< (read-write) Read/write access to BASE1 register. */
-    uint32_t INTERP1_BASE2;                /*!< (read-write) Read/write access to BASE2 register. */
-    uint32_t INTERP1_POP_LANE0;            /*!< (read-write) Read LANE0 result, and simultaneously write lane results to both accumulators (POP). */
-    uint32_t INTERP1_POP_LANE1;            /*!< (read-write) Read LANE1 result, and simultaneously write lane results to both accumulators (POP). */
-    uint32_t INTERP1_POP_FULL;             /*!< (read-write) Read FULL result, and simultaneously write lane results to both accumulators (POP). */
-    uint32_t INTERP1_PEEK_LANE0;           /*!< (read-write) Read LANE0 result, without altering any internal state (PEEK). */
-    uint32_t INTERP1_PEEK_LANE1;           /*!< (read-write) Read LANE1 result, without altering any internal state (PEEK). */
-    uint32_t INTERP1_PEEK_FULL;            /*!< (read-write) Read FULL result, without altering any internal state (PEEK). */
-    uint32_t INTERP1_CTRL_LANE0;           /*!< (read-write) Control register for lane 0 */
-    uint32_t INTERP1_CTRL_LANE1;           /*!< (read-write) Control register for lane 1 */
-    uint32_t INTERP1_ACCUM0_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM0\n
-                Reading yields lane 0's raw shift and mask value (BASE0 not added). */
-    uint32_t INTERP1_ACCUM1_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM1\n
-                Reading yields lane 1's raw shift and mask value (BASE1 not added). */
-    uint32_t INTERP1_BASE_1AND0;           /*!< (read-write) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.\n
-                Each half is sign-extended to 32 bits if that lane's SIGNED flag is set. */
-    uint32_t SPINLOCK0;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK1;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK2;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK3;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK4;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK5;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK6;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK7;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK8;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK9;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK10;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK11;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK12;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK13;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK14;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK15;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK16;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK17;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK18;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK19;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK20;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK21;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK22;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK23;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK24;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK25;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK26;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK27;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK28;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK29;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK30;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK31;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
-                The value returned on success is 0x1 << lock number. */
+    uint32_t
+        INTERP0_ACCUM0; /*!< (read-write) Read/write access to accumulator 0 */
+    uint32_t
+        INTERP0_ACCUM1; /*!< (read-write) Read/write access to accumulator 1 */
+    uint32_t INTERP0_BASE0;      /*!< (read-write) Read/write access to BASE0
+                                    register. */
+    uint32_t INTERP0_BASE1;      /*!< (read-write) Read/write access to BASE1
+                                    register. */
+    uint32_t INTERP0_BASE2;      /*!< (read-write) Read/write access to BASE2
+                                    register. */
+    uint32_t INTERP0_POP_LANE0;  /*!< (read-write) Read LANE0 result, and
+                                    simultaneously write lane results to both
+                                    accumulators (POP). */
+    uint32_t INTERP0_POP_LANE1;  /*!< (read-write) Read LANE1 result, and
+                                    simultaneously write lane results to both
+                                    accumulators (POP). */
+    uint32_t INTERP0_POP_FULL;   /*!< (read-write) Read FULL result, and
+                                    simultaneously write lane results to both
+                                    accumulators (POP). */
+    uint32_t INTERP0_PEEK_LANE0; /*!< (read-write) Read LANE0 result, without
+                                    altering any internal state (PEEK). */
+    uint32_t INTERP0_PEEK_LANE1; /*!< (read-write) Read LANE1 result, without
+                                    altering any internal state (PEEK). */
+    uint32_t INTERP0_PEEK_FULL;  /*!< (read-write) Read FULL result, without
+                                    altering any internal state (PEEK). */
+    uint32_t
+        INTERP0_CTRL_LANE0; /*!< (read-write) Control register for lane 0 */
+    uint32_t
+        INTERP0_CTRL_LANE1; /*!< (read-write) Control register for lane 1 */
+    uint32_t INTERP0_ACCUM0_ADD; /*!< (read-write) Values written here are
+      atomically added to ACCUM0\n Reading yields lane 0's raw shift and mask
+      value (BASE0 not added). */
+    uint32_t INTERP0_ACCUM1_ADD; /*!< (read-write) Values written here are
+      atomically added to ACCUM1\n Reading yields lane 1's raw shift and mask
+      value (BASE1 not added). */
+    uint32_t INTERP0_BASE_1AND0; /*!< (read-write) On write, the lower 16 bits
+      go to BASE0, upper bits to BASE1 simultaneously.\n Each half is
+      sign-extended to 32 bits if that lane's SIGNED flag is set. */
+    uint32_t
+        INTERP1_ACCUM0; /*!< (read-write) Read/write access to accumulator 0 */
+    uint32_t
+        INTERP1_ACCUM1; /*!< (read-write) Read/write access to accumulator 1 */
+    uint32_t INTERP1_BASE0;      /*!< (read-write) Read/write access to BASE0
+                                    register. */
+    uint32_t INTERP1_BASE1;      /*!< (read-write) Read/write access to BASE1
+                                    register. */
+    uint32_t INTERP1_BASE2;      /*!< (read-write) Read/write access to BASE2
+                                    register. */
+    uint32_t INTERP1_POP_LANE0;  /*!< (read-write) Read LANE0 result, and
+                                    simultaneously write lane results to both
+                                    accumulators (POP). */
+    uint32_t INTERP1_POP_LANE1;  /*!< (read-write) Read LANE1 result, and
+                                    simultaneously write lane results to both
+                                    accumulators (POP). */
+    uint32_t INTERP1_POP_FULL;   /*!< (read-write) Read FULL result, and
+                                    simultaneously write lane results to both
+                                    accumulators (POP). */
+    uint32_t INTERP1_PEEK_LANE0; /*!< (read-write) Read LANE0 result, without
+                                    altering any internal state (PEEK). */
+    uint32_t INTERP1_PEEK_LANE1; /*!< (read-write) Read LANE1 result, without
+                                    altering any internal state (PEEK). */
+    uint32_t INTERP1_PEEK_FULL;  /*!< (read-write) Read FULL result, without
+                                    altering any internal state (PEEK). */
+    uint32_t
+        INTERP1_CTRL_LANE0; /*!< (read-write) Control register for lane 0 */
+    uint32_t
+        INTERP1_CTRL_LANE1; /*!< (read-write) Control register for lane 1 */
+    uint32_t INTERP1_ACCUM0_ADD; /*!< (read-write) Values written here are
+      atomically added to ACCUM0\n Reading yields lane 0's raw shift and mask
+      value (BASE0 not added). */
+    uint32_t INTERP1_ACCUM1_ADD; /*!< (read-write) Values written here are
+      atomically added to ACCUM1\n Reading yields lane 1's raw shift and mask
+      value (BASE1 not added). */
+    uint32_t INTERP1_BASE_1AND0; /*!< (read-write) On write, the lower 16 bits
+      go to BASE0, upper bits to BASE1 simultaneously.\n Each half is
+      sign-extended to 32 bits if that lane's SIGNED flag is set. */
+    uint32_t
+        SPINLOCK0; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK1; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK2; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK3; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK4; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK5; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK6; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK7; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK8; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK9; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK10; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK11; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK12; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK13; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK14; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK15; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK16; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK17; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK18; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK19; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK20; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK21; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK22; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK23; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK24; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK25; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK26; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK27; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK28; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK29; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK30; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
+    uint32_t
+        SPINLOCK31; /*!< (read-write) Reading from a spinlock address will:\n
+- Return 0 if lock is already locked\n
+- Otherwise return nonzero, and simultaneously claim the lock\n\n
+Writing (any value) releases the lock.\n
+If core 0 and core 1 attempt to claim the same lock simultaneously, core 0
+wins.\n The value returned on success is 0x1 << lock number. */
 
     /* Methods. */
 

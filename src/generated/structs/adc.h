@@ -19,18 +19,20 @@ struct [[gnu::packed]] adc
     static constexpr std::size_t size = 36; /*!< adc's size in bytes. */
 
     /* Fields. */
-    uint32_t CS;                /*!< (read-write) ADC Control and Status */
-    const uint32_t RESULT = {}; /*!< (read-only) Result of most recent ADC conversion */
-    uint32_t FCS;               /*!< (read-write) FIFO control and status */
-    const uint32_t FIFO = {};   /*!< (read-only) Conversion result FIFO */
-    uint32_t DIV;               /*!< (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions\n
-                at regular intervals rather than back-to-back.\n
-                The divider is reset when either of these fields are written.\n
-                Total period is 1 + INT + FRAC / 256 */
-    const uint32_t INTR = {};   /*!< (read-only) Raw Interrupts */
-    uint32_t INTE;              /*!< (read-write) Interrupt Enable */
-    uint32_t INTF;              /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {};   /*!< (read-only) Interrupt status after masking & forcing */
+    uint32_t CS; /*!< (read-write) ADC Control and Status */
+    const uint32_t RESULT =
+        {};       /*!< (read-only) Result of most recent ADC conversion */
+    uint32_t FCS; /*!< (read-write) FIFO control and status */
+    const uint32_t FIFO = {}; /*!< (read-only) Conversion result FIFO */
+    uint32_t DIV; /*!< (read-write) Clock divider. If non-zero, CS_START_MANY
+  will start conversions\n at regular intervals rather than back-to-back.\n The
+  divider is reset when either of these fields are written.\n Total period is 1
+  + INT + FRAC / 256 */
+    const uint32_t INTR = {}; /*!< (read-only) Raw Interrupts */
+    uint32_t INTE;            /*!< (read-write) Interrupt Enable */
+    uint32_t INTF;            /*!< (read-write) Interrupt Force */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 

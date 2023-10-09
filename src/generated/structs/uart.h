@@ -16,33 +16,45 @@ struct [[gnu::packed]] uart
     static constexpr std::size_t size = 4096; /*!< uart's size in bytes. */
 
     /* Fields. */
-    uint32_t UARTDR;                                                 /*!< (read-write) Data Register, UARTDR */
-    uint32_t UARTRSR;                                                /*!< (read-write) Receive Status Register/Error Clear Register, UARTRSR/UARTECR */
+    uint32_t UARTDR;  /*!< (read-write) Data Register, UARTDR */
+    uint32_t UARTRSR; /*!< (read-write) Receive Status Register/Error Clear
+                         Register, UARTRSR/UARTECR */
     static constexpr std::size_t reserved_padding0_length = 4;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    const uint32_t UARTFR = {};                                      /*!< (read-only) Flag Register, UARTFR */
+    const uint32_t UARTFR = {}; /*!< (read-only) Flag Register, UARTFR */
     const uint32_t reserved_padding1 = {};
-    uint32_t UARTILPR;                                               /*!< (read-write) IrDA Low-Power Counter Register, UARTILPR */
-    uint32_t UARTIBRD;                                               /*!< (read-write) Integer Baud Rate Register, UARTIBRD */
-    uint32_t UARTFBRD;                                               /*!< (read-write) Fractional Baud Rate Register, UARTFBRD */
-    uint32_t UARTLCR_H;                                              /*!< (read-write) Line Control Register, UARTLCR_H */
-    uint32_t UARTCR;                                                 /*!< (read-write) Control Register, UARTCR */
-    uint32_t UARTIFLS;                                               /*!< (read-write) Interrupt FIFO Level Select Register, UARTIFLS */
-    uint32_t UARTIMSC;                                               /*!< (read-write) Interrupt Mask Set/Clear Register, UARTIMSC */
-    const uint32_t UARTRIS = {};                                     /*!< (read-only) Raw Interrupt Status Register, UARTRIS */
-    const uint32_t UARTMIS = {};                                     /*!< (read-only) Masked Interrupt Status Register, UARTMIS */
-    uint32_t UARTICR;                                                /*!< (read-write) Interrupt Clear Register, UARTICR */
-    uint32_t UARTDMACR;                                              /*!< (read-write) DMA Control Register, UARTDMACR */
+    uint32_t UARTILPR; /*!< (read-write) IrDA Low-Power Counter Register,
+                          UARTILPR */
+    uint32_t
+        UARTIBRD; /*!< (read-write) Integer Baud Rate Register, UARTIBRD */
+    uint32_t
+        UARTFBRD; /*!< (read-write) Fractional Baud Rate Register, UARTFBRD */
+    uint32_t UARTLCR_H; /*!< (read-write) Line Control Register, UARTLCR_H */
+    uint32_t UARTCR;    /*!< (read-write) Control Register, UARTCR */
+    uint32_t UARTIFLS;  /*!< (read-write) Interrupt FIFO Level Select Register,
+                           UARTIFLS */
+    uint32_t UARTIMSC;  /*!< (read-write) Interrupt Mask Set/Clear Register,
+                           UARTIMSC */
+    const uint32_t UARTRIS =
+        {}; /*!< (read-only) Raw Interrupt Status Register, UARTRIS */
+    const uint32_t UARTMIS =
+        {}; /*!< (read-only) Masked Interrupt Status Register, UARTMIS */
+    uint32_t UARTICR;   /*!< (read-write) Interrupt Clear Register, UARTICR */
+    uint32_t UARTDMACR; /*!< (read-write) DMA Control Register, UARTDMACR */
     static constexpr std::size_t reserved_padding2_length = 997;
     const uint32_t reserved_padding2[reserved_padding2_length] = {};
-    const uint32_t UARTPERIPHID0 = {};                               /*!< (read-only) UARTPeriphID0 Register */
-    const uint32_t UARTPERIPHID1 = {};                               /*!< (read-only) UARTPeriphID1 Register */
-    const uint32_t UARTPERIPHID2 = {};                               /*!< (read-only) UARTPeriphID2 Register */
-    const uint32_t UARTPERIPHID3 = {};                               /*!< (read-only) UARTPeriphID3 Register */
-    const uint32_t UARTPCELLID0 = {};                                /*!< (read-only) UARTPCellID0 Register */
-    const uint32_t UARTPCELLID1 = {};                                /*!< (read-only) UARTPCellID1 Register */
-    const uint32_t UARTPCELLID2 = {};                                /*!< (read-only) UARTPCellID2 Register */
-    const uint32_t UARTPCELLID3 = {};                                /*!< (read-only) UARTPCellID3 Register */
+    const uint32_t UARTPERIPHID0 =
+        {}; /*!< (read-only) UARTPeriphID0 Register */
+    const uint32_t UARTPERIPHID1 =
+        {}; /*!< (read-only) UARTPeriphID1 Register */
+    const uint32_t UARTPERIPHID2 =
+        {}; /*!< (read-only) UARTPeriphID2 Register */
+    const uint32_t UARTPERIPHID3 =
+        {}; /*!< (read-only) UARTPeriphID3 Register */
+    const uint32_t UARTPCELLID0 = {}; /*!< (read-only) UARTPCellID0 Register */
+    const uint32_t UARTPCELLID1 = {}; /*!< (read-only) UARTPCellID1 Register */
+    const uint32_t UARTPCELLID2 = {}; /*!< (read-only) UARTPCellID2 Register */
+    const uint32_t UARTPCELLID3 = {}; /*!< (read-only) UARTPCellID3 Register */
 
     /* Methods. */
 

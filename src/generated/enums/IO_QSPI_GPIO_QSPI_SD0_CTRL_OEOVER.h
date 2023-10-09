@@ -12,8 +12,12 @@ namespace RP2040
 
 enum class IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER : uint8_t
 {
-    NORMAL /*!< drive output enable from peripheral signal selected by funcsel */,
-    INVERT = 1 /*!< drive output enable from inverse of peripheral signal selected by funcsel */,
+    NORMAL /*!< drive output enable from peripheral signal selected by funcsel
+            */
+        ,
+    INVERT = 1 /*!< drive output enable from inverse of peripheral signal
+                  selected by funcsel */
+        ,
     DISABLE = 2 /*!< disable output */,
     ENABLE = 3 /*!< enable output */
 };
@@ -57,7 +61,8 @@ inline const char *to_string(IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER &output)
+inline bool from_string(const char *data,
+                        IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER &output)
 {
     bool result = false;
 

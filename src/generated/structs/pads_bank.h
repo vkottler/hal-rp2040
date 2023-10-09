@@ -49,48 +49,51 @@ struct [[gnu::packed]] pads_bank
     static constexpr std::size_t size = 132; /*!< pads_bank's size in bytes. */
 
     /* Fields. */
-    uint32_t VOLTAGE_SELECT; /*!< (read-write) Voltage select. Per bank control */
-    uint32_t GPIO0;          /*!< (read-write) Pad control register */
-    uint32_t GPIO1;          /*!< (read-write) Pad control register */
-    uint32_t GPIO2;          /*!< (read-write) Pad control register */
-    uint32_t GPIO3;          /*!< (read-write) Pad control register */
-    uint32_t GPIO4;          /*!< (read-write) Pad control register */
-    uint32_t GPIO5;          /*!< (read-write) Pad control register */
-    uint32_t GPIO6;          /*!< (read-write) Pad control register */
-    uint32_t GPIO7;          /*!< (read-write) Pad control register */
-    uint32_t GPIO8;          /*!< (read-write) Pad control register */
-    uint32_t GPIO9;          /*!< (read-write) Pad control register */
-    uint32_t GPIO10;         /*!< (read-write) Pad control register */
-    uint32_t GPIO11;         /*!< (read-write) Pad control register */
-    uint32_t GPIO12;         /*!< (read-write) Pad control register */
-    uint32_t GPIO13;         /*!< (read-write) Pad control register */
-    uint32_t GPIO14;         /*!< (read-write) Pad control register */
-    uint32_t GPIO15;         /*!< (read-write) Pad control register */
-    uint32_t GPIO16;         /*!< (read-write) Pad control register */
-    uint32_t GPIO17;         /*!< (read-write) Pad control register */
-    uint32_t GPIO18;         /*!< (read-write) Pad control register */
-    uint32_t GPIO19;         /*!< (read-write) Pad control register */
-    uint32_t GPIO20;         /*!< (read-write) Pad control register */
-    uint32_t GPIO21;         /*!< (read-write) Pad control register */
-    uint32_t GPIO22;         /*!< (read-write) Pad control register */
-    uint32_t GPIO23;         /*!< (read-write) Pad control register */
-    uint32_t GPIO24;         /*!< (read-write) Pad control register */
-    uint32_t GPIO25;         /*!< (read-write) Pad control register */
-    uint32_t GPIO26;         /*!< (read-write) Pad control register */
-    uint32_t GPIO27;         /*!< (read-write) Pad control register */
-    uint32_t GPIO28;         /*!< (read-write) Pad control register */
-    uint32_t GPIO29;         /*!< (read-write) Pad control register */
-    uint32_t SWCLK;          /*!< (read-write) Pad control register */
-    uint32_t SWD;            /*!< (read-write) Pad control register */
+    uint32_t
+        VOLTAGE_SELECT; /*!< (read-write) Voltage select. Per bank control */
+    uint32_t GPIO0;     /*!< (read-write) Pad control register */
+    uint32_t GPIO1;     /*!< (read-write) Pad control register */
+    uint32_t GPIO2;     /*!< (read-write) Pad control register */
+    uint32_t GPIO3;     /*!< (read-write) Pad control register */
+    uint32_t GPIO4;     /*!< (read-write) Pad control register */
+    uint32_t GPIO5;     /*!< (read-write) Pad control register */
+    uint32_t GPIO6;     /*!< (read-write) Pad control register */
+    uint32_t GPIO7;     /*!< (read-write) Pad control register */
+    uint32_t GPIO8;     /*!< (read-write) Pad control register */
+    uint32_t GPIO9;     /*!< (read-write) Pad control register */
+    uint32_t GPIO10;    /*!< (read-write) Pad control register */
+    uint32_t GPIO11;    /*!< (read-write) Pad control register */
+    uint32_t GPIO12;    /*!< (read-write) Pad control register */
+    uint32_t GPIO13;    /*!< (read-write) Pad control register */
+    uint32_t GPIO14;    /*!< (read-write) Pad control register */
+    uint32_t GPIO15;    /*!< (read-write) Pad control register */
+    uint32_t GPIO16;    /*!< (read-write) Pad control register */
+    uint32_t GPIO17;    /*!< (read-write) Pad control register */
+    uint32_t GPIO18;    /*!< (read-write) Pad control register */
+    uint32_t GPIO19;    /*!< (read-write) Pad control register */
+    uint32_t GPIO20;    /*!< (read-write) Pad control register */
+    uint32_t GPIO21;    /*!< (read-write) Pad control register */
+    uint32_t GPIO22;    /*!< (read-write) Pad control register */
+    uint32_t GPIO23;    /*!< (read-write) Pad control register */
+    uint32_t GPIO24;    /*!< (read-write) Pad control register */
+    uint32_t GPIO25;    /*!< (read-write) Pad control register */
+    uint32_t GPIO26;    /*!< (read-write) Pad control register */
+    uint32_t GPIO27;    /*!< (read-write) Pad control register */
+    uint32_t GPIO28;    /*!< (read-write) Pad control register */
+    uint32_t GPIO29;    /*!< (read-write) Pad control register */
+    uint32_t SWCLK;     /*!< (read-write) Pad control register */
+    uint32_t SWD;       /*!< (read-write) Pad control register */
 
     /* Methods. */
 
     /**
      * Get VOLTAGE_SELECT's VOLTAGE_SELECT bit.
      */
-    PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT get_VOLTAGE_SELECT_VOLTAGE_SELECT()
+    PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT
+    get_VOLTAGE_SELECT_VOLTAGE_SELECT()
     {
-        return PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT & (1u << 0u));
+        return PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT &
+                                                        (1u << 0u));
     }
 
     /**
@@ -6936,6 +6939,7 @@ struct [[gnu::packed]] pads_bank
 
 static_assert(sizeof(pads_bank) == pads_bank::size);
 
-static volatile pads_bank *const PADS_BANK0 = reinterpret_cast<pads_bank *>(0x4001c000);
+static volatile pads_bank *const PADS_BANK0 =
+    reinterpret_cast<pads_bank *>(0x4001c000);
 
 }; // namespace RP2040

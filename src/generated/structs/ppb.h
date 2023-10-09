@@ -18,55 +18,145 @@ struct [[gnu::packed]] ppb
     /* Fields. */
     static constexpr std::size_t reserved_padding0_length = 14340;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t SYST_CSR;                                               /*!< (read-write) Use the SysTick Control and Status Register to enable the SysTick features. */
-    uint32_t SYST_RVR;                                               /*!< (read-write) Use the SysTick Reload Value Register to specify the start value to load into the current value register when the counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG are activated when counting from 1 to 0. The reset value of this register is UNKNOWN.\n
-                To generate a multi-shot timer with a period of N processor clock cycles, use a RELOAD value of N-1. For example, if the SysTick interrupt is required every 100 clock pulses, set RELOAD to 99. */
-    uint32_t SYST_CVR;                                               /*!< (read-write) Use the SysTick Current Value Register to find the current value in the register. The reset value of this register is UNKNOWN. */
-    const uint32_t SYST_CALIB = {};                                  /*!< (read-only) Use the SysTick Calibration Value Register to enable software to scale to any required speed using divide and multiply. */
+    uint32_t SYST_CSR; /*!< (read-write) Use the SysTick Control and Status
+                          Register to enable the SysTick features. */
+    uint32_t SYST_RVR; /*!< (read-write) Use the SysTick Reload Value Register
+to specify the start value to load into the current value register when the
+counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value
+of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG
+are activated when counting from 1 to 0. The reset value of this register is
+UNKNOWN.\n To generate a multi-shot timer with a period of N processor clock
+cycles, use a RELOAD value of N-1. For example, if the SysTick interrupt is
+required every 100 clock pulses, set RELOAD to 99. */
+    uint32_t SYST_CVR; /*!< (read-write) Use the SysTick Current Value Register
+                          to find the current value in the register. The reset
+                          value of this register is UNKNOWN. */
+    const uint32_t SYST_CALIB =
+        {}; /*!< (read-only) Use the SysTick Calibration Value Register to
+               enable software to scale to any required speed using divide and
+               multiply. */
     static constexpr std::size_t reserved_padding1_length = 56;
     const uint32_t reserved_padding1[reserved_padding1_length] = {};
-    uint32_t NVIC_ISER;                                              /*!< (read-write) Use the Interrupt Set-Enable Register to enable interrupts and determine which interrupts are currently enabled.\n
-                If a pending interrupt is enabled, the NVIC activates the interrupt based on its priority. If an interrupt is not enabled, asserting its interrupt signal changes the interrupt state to pending, but the NVIC never activates the interrupt, regardless of its priority. */
+    uint32_t NVIC_ISER; /*!< (read-write) Use the Interrupt Set-Enable Register
+to enable interrupts and determine which interrupts are currently enabled.\n If
+a pending interrupt is enabled, the NVIC activates the interrupt based on its
+priority. If an interrupt is not enabled, asserting its interrupt signal
+changes the interrupt state to pending, but the NVIC never activates the
+interrupt, regardless of its priority. */
     static constexpr std::size_t reserved_padding2_length = 31;
     const uint32_t reserved_padding2[reserved_padding2_length] = {};
-    uint32_t NVIC_ICER;                                              /*!< (read-write) Use the Interrupt Clear-Enable Registers to disable interrupts and determine which interrupts are currently enabled. */
+    uint32_t NVIC_ICER; /*!< (read-write) Use the Interrupt Clear-Enable
+                           Registers to disable interrupts and determine which
+                           interrupts are currently enabled. */
     static constexpr std::size_t reserved_padding3_length = 31;
     const uint32_t reserved_padding3[reserved_padding3_length] = {};
-    uint32_t NVIC_ISPR;                                              /*!< (read-write) The NVIC_ISPR forces interrupts into the pending state, and shows which interrupts are pending. */
+    uint32_t
+        NVIC_ISPR; /*!< (read-write) The NVIC_ISPR forces interrupts into the
+                      pending state, and shows which interrupts are pending. */
     static constexpr std::size_t reserved_padding4_length = 31;
     const uint32_t reserved_padding4[reserved_padding4_length] = {};
-    uint32_t NVIC_ICPR;                                              /*!< (read-write) Use the Interrupt Clear-Pending Register to clear pending interrupts and determine which interrupts are currently pending. */
+    uint32_t NVIC_ICPR; /*!< (read-write) Use the Interrupt Clear-Pending
+                           Register to clear pending interrupts and determine
+                           which interrupts are currently pending. */
     static constexpr std::size_t reserved_padding5_length = 95;
     const uint32_t reserved_padding5[reserved_padding5_length] = {};
-    uint32_t NVIC_IPR0;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
-                Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
-                These registers are only word-accessible */
-    uint32_t NVIC_IPR1;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
-    uint32_t NVIC_IPR2;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
-    uint32_t NVIC_IPR3;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
-    uint32_t NVIC_IPR4;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
-    uint32_t NVIC_IPR5;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
-    uint32_t NVIC_IPR6;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
-    uint32_t NVIC_IPR7;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR0; /*!< (read-write) Use the Interrupt Priority Registers
+to assign a priority from 0 to 3 to each of the available interrupts. 0 is the
+highest priority, and 3 is the lowest.\n Note: Writing 1 to an NVIC_ICPR bit
+does not affect the active state of the corresponding interrupt.\n These
+registers are only word-accessible */
+    uint32_t NVIC_IPR1; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
+    uint32_t NVIC_IPR2; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
+    uint32_t NVIC_IPR3; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
+    uint32_t NVIC_IPR4; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
+    uint32_t NVIC_IPR5; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
+    uint32_t NVIC_IPR6; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
+    uint32_t NVIC_IPR7; /*!< (read-write) Use the Interrupt Priority Registers
+                           to assign a priority from 0 to 3 to each of the
+                           available interrupts. 0 is the highest priority, and
+                           3 is the lowest. */
     static constexpr std::size_t reserved_padding6_length = 568;
     const uint32_t reserved_padding6[reserved_padding6_length] = {};
-    const uint32_t CPUID = {};                                       /*!< (read-only) Read the CPU ID Base Register to determine: the ID number of the processor core, the version number of the processor core, the implementation details of the processor core. */
-    uint32_t ICSR;                                                   /*!< (read-write) Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception. */
-    uint32_t VTOR;                                                   /*!< (read-write) The VTOR holds the vector table offset address. */
-    uint32_t AIRCR;                                                  /*!< (read-write) Use the Application Interrupt and Reset Control Register to: determine data endianness, clear all active state information from debug halt mode, request a system reset. */
-    uint32_t SCR;                                                    /*!< (read-write) System Control Register. Use the System Control Register for power-management functions: signal to the system when the processor can enter a low power state, control how the processor enters and exits low power states. */
-    const uint32_t CCR = {};                                         /*!< (read-only) The Configuration and Control Register permanently enables stack alignment and causes unaligned accesses to result in a Hard Fault. */
+    const uint32_t CPUID =
+        {}; /*!< (read-only) Read the CPU ID Base Register to determine: the ID
+               number of the processor core, the version number of the
+               processor core, the implementation details of the processor
+               core. */
+    uint32_t ICSR;  /*!< (read-write) Use the Interrupt Control State Register
+                       to set a pending Non-Maskable Interrupt (NMI), set or
+                       clear a pending PendSV, set or clear a pending SysTick,
+                       check for pending exceptions, check the vector number of
+                       the highest priority pended exception, check the vector
+                       number of the active exception. */
+    uint32_t VTOR;  /*!< (read-write) The VTOR holds the vector table offset
+                       address. */
+    uint32_t AIRCR; /*!< (read-write) Use the Application Interrupt and Reset
+                       Control Register to: determine data endianness, clear
+                       all active state information from debug halt mode,
+                       request a system reset. */
+    uint32_t
+        SCR; /*!< (read-write) System Control Register. Use the System Control
+                Register for power-management functions: signal to the system
+                when the processor can enter a low power state, control how the
+                processor enters and exits low power states. */
+    const uint32_t CCR =
+        {}; /*!< (read-only) The Configuration and Control Register permanently
+               enables stack alignment and causes unaligned accesses to result
+               in a Hard Fault. */
     const uint32_t reserved_padding7 = {};
-    uint32_t SHPR2;                                                  /*!< (read-write) System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 2 to set the priority of SVCall. */
-    uint32_t SHPR3;                                                  /*!< (read-write) System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 3 to set the priority of PendSV and SysTick. */
-    uint32_t SHCSR;                                                  /*!< (read-write) Use the System Handler Control and State Register to determine or clear the pending status of SVCall. */
+    uint32_t SHPR2; /*!< (read-write) System handlers are a special class of
+                       exception handler that can have their priority set to
+                       any of the priority levels. Use the System Handler
+                       Priority Register 2 to set the priority of SVCall. */
+    uint32_t
+        SHPR3;      /*!< (read-write) System handlers are a special class of
+                       exception handler that can have their priority set to any of
+                       the priority levels. Use the System Handler Priority Register
+                       3 to set the priority of PendSV and SysTick. */
+    uint32_t SHCSR; /*!< (read-write) Use the System Handler Control and State
+                       Register to determine or clear the pending status of
+                       SVCall. */
     static constexpr std::size_t reserved_padding8_length = 26;
     const uint32_t reserved_padding8[reserved_padding8_length] = {};
-    const uint32_t MPU_TYPE = {};                                    /*!< (read-only) Read the MPU Type Register to determine if the processor implements an MPU, and how many regions the MPU supports. */
-    uint32_t MPU_CTRL;                                               /*!< (read-write) Use the MPU Control Register to enable and disable the MPU, and to control whether the default memory map is enabled as a background region for privileged accesses, and whether the MPU is enabled for HardFaults and NMIs. */
-    uint32_t MPU_RNR;                                                /*!< (read-write) Use the MPU Region Number Register to select the region currently accessed by MPU_RBAR and MPU_RASR. */
-    uint32_t MPU_RBAR;                                               /*!< (read-write) Read the MPU Region Base Address Register to determine the base address of the region identified by MPU_RNR. Write to update the base address of said region or that of a specified region, with whose number MPU_RNR will also be updated. */
-    uint32_t MPU_RASR;                                               /*!< (read-write) Use the MPU Region Attribute and Size Register to define the size, access behaviour and memory type of the region identified by MPU_RNR, and enable that region. */
+    const uint32_t MPU_TYPE =
+        {}; /*!< (read-only) Read the MPU Type Register to determine if the
+               processor implements an MPU, and how many regions the MPU
+               supports. */
+    uint32_t MPU_CTRL; /*!< (read-write) Use the MPU Control Register to enable
+                          and disable the MPU, and to control whether the
+                          default memory map is enabled as a background region
+                          for privileged accesses, and whether the MPU is
+                          enabled for HardFaults and NMIs. */
+    uint32_t
+        MPU_RNR; /*!< (read-write) Use the MPU Region Number Register to select
+                    the region currently accessed by MPU_RBAR and MPU_RASR. */
+    uint32_t MPU_RBAR; /*!< (read-write) Read the MPU Region Base Address
+                          Register to determine the base address of the region
+                          identified by MPU_RNR. Write to update the base
+                          address of said region or that of a specified region,
+                          with whose number MPU_RNR will also be updated. */
+    uint32_t MPU_RASR; /*!< (read-write) Use the MPU Region Attribute and Size
+                          Register to define the size, access behaviour and
+                          memory type of the region identified by MPU_RNR, and
+                          enable that region. */
 
     /* Methods. */
 

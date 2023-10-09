@@ -57,7 +57,8 @@ inline const char *to_string(PADS_QSPI_GPIO_QSPI_SD1_DRIVE instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, PADS_QSPI_GPIO_QSPI_SD1_DRIVE &output)
+inline bool from_string(const char *data,
+                        PADS_QSPI_GPIO_QSPI_SD1_DRIVE &output)
 {
     bool result = false;
 

@@ -16,11 +16,15 @@ struct [[gnu::packed]] sysinfo
     static constexpr std::size_t size = 68; /*!< sysinfo's size in bytes. */
 
     /* Fields. */
-    const uint32_t CHIP_ID = {};                                     /*!< (read-only) JEDEC JEP-106 compliant chip identifier. */
-    const uint32_t PLATFORM = {};                                    /*!< (read-only) Platform register. Allows software to know what environment it is running in. */
+    const uint32_t CHIP_ID =
+        {}; /*!< (read-only) JEDEC JEP-106 compliant chip identifier. */
+    const uint32_t PLATFORM =
+        {}; /*!< (read-only) Platform register. Allows software to know what
+               environment it is running in. */
     static constexpr std::size_t reserved_padding0_length = 14;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t GITREF_RP2040;                                          /*!< (read-write) Git hash of the chip source. Used to identify chip version. */
+    uint32_t GITREF_RP2040; /*!< (read-write) Git hash of the chip source. Used
+                               to identify chip version. */
 
     /* Methods. */
 
@@ -67,6 +71,7 @@ struct [[gnu::packed]] sysinfo
 
 static_assert(sizeof(sysinfo) == sysinfo::size);
 
-static volatile sysinfo *const SYSINFO = reinterpret_cast<sysinfo *>(0x40000000);
+static volatile sysinfo *const SYSINFO =
+    reinterpret_cast<sysinfo *>(0x40000000);
 
 }; // namespace RP2040

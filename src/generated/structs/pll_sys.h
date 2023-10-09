@@ -24,9 +24,10 @@ struct [[gnu::packed]] pll_sys
     uint32_t PWR;       /*!< (read-write) Controls the PLL power modes. */
     uint32_t FBDIV_INT; /*!< (read-write) Feedback divisor\n
                 (note: this PLL does not support fractional division) */
-    uint32_t PRIM;      /*!< (read-write) Controls the PLL post dividers for the primary output\n
-                (note: this PLL does not have a secondary output)\n
-                the primary output is driven from VCO divided by postdiv1*postdiv2 */
+    uint32_t PRIM; /*!< (read-write) Controls the PLL post dividers for the
+           primary output\n (note: this PLL does not have a secondary output)\n
+           the primary output is driven from VCO divided by postdiv1*postdiv2
+         */
 
     /* Methods. */
 
@@ -285,8 +286,10 @@ struct [[gnu::packed]] pll_sys
 
 static_assert(sizeof(pll_sys) == pll_sys::size);
 
-static volatile pll_sys *const PLL_SYS = reinterpret_cast<pll_sys *>(0x40028000);
+static volatile pll_sys *const PLL_SYS =
+    reinterpret_cast<pll_sys *>(0x40028000);
 
-static volatile pll_sys *const PLL_USB = reinterpret_cast<pll_sys *>(0x4002c000);
+static volatile pll_sys *const PLL_USB =
+    reinterpret_cast<pll_sys *>(0x4002c000);
 
 }; // namespace RP2040

@@ -19,24 +19,28 @@ struct [[gnu::packed]] syscfg
     static constexpr std::size_t size = 28; /*!< syscfg's size in bytes. */
 
     /* Fields. */
-    uint32_t PROC0_NMI_MASK;         /*!< (read-write) Processor core 0 NMI source mask\n
-                Set a bit high to enable NMI from that IRQ */
-    uint32_t PROC1_NMI_MASK;         /*!< (read-write) Processor core 1 NMI source mask\n
-                Set a bit high to enable NMI from that IRQ */
-    uint32_t PROC_CONFIG;            /*!< (read-write) Configuration for processors */
-    uint32_t PROC_IN_SYNC_BYPASS;    /*!< (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO\n
-                and the GPIO input register in the SIO. The input synchronizers should\n
-                generally be unbypassed, to avoid injecting metastabilities into processors.\n
-                If you're feeling brave, you can bypass to save two cycles of input\n
-                latency. This register applies to GPIO 0...29. */
-    uint32_t PROC_IN_SYNC_BYPASS_HI; /*!< (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO\n
-                and the GPIO input register in the SIO. The input synchronizers should\n
-                generally be unbypassed, to avoid injecting metastabilities into processors.\n
-                If you're feeling brave, you can bypass to save two cycles of input\n
-                latency. This register applies to GPIO 30...35 (the QSPI IOs). */
-    uint32_t DBGFORCE;               /*!< (read-write) Directly control the SWD debug port of either processor */
-    uint32_t MEMPOWERDOWN;           /*!< (read-write) Control power downs to memories. Set high to power down memories.\n
-                Use with extreme caution */
+    uint32_t PROC0_NMI_MASK; /*!< (read-write) Processor core 0 NMI source
+        mask\n Set a bit high to enable NMI from that IRQ */
+    uint32_t PROC1_NMI_MASK; /*!< (read-write) Processor core 1 NMI source
+        mask\n Set a bit high to enable NMI from that IRQ */
+    uint32_t PROC_CONFIG;    /*!< (read-write) Configuration for processors */
+    uint32_t PROC_IN_SYNC_BYPASS; /*!< (read-write) For each bit, if 1, bypass
+             the input synchronizer between that GPIO\n and the GPIO input
+             register in the SIO. The input synchronizers should\n generally be
+             unbypassed, to avoid injecting metastabilities into processors.\n
+             If you're feeling brave, you can bypass to save two cycles of
+             input\n latency. This register applies to GPIO 0...29. */
+    uint32_t
+        PROC_IN_SYNC_BYPASS_HI; /*!< (read-write) For each bit, if 1, bypass
+           the input synchronizer between that GPIO\n and the GPIO input
+           register in the SIO. The input synchronizers should\n generally be
+           unbypassed, to avoid injecting metastabilities into processors.\n If
+           you're feeling brave, you can bypass to save two cycles of input\n
+           latency. This register applies to GPIO 30...35 (the QSPI IOs). */
+    uint32_t DBGFORCE; /*!< (read-write) Directly control the SWD debug port of
+                          either processor */
+    uint32_t MEMPOWERDOWN; /*!< (read-write) Control power downs to memories.
+      Set high to power down memories.\n Use with extreme caution */
 
     /* Methods. */
 
@@ -130,7 +134,8 @@ struct [[gnu::packed]] syscfg
     /**
      * Set PROC_IN_SYNC_BYPASS_HI's PROC_IN_SYNC_BYPASS_HI field.
      */
-    inline void set_PROC_IN_SYNC_BYPASS_HI_PROC_IN_SYNC_BYPASS_HI(uint8_t value)
+    inline void set_PROC_IN_SYNC_BYPASS_HI_PROC_IN_SYNC_BYPASS_HI(
+        uint8_t value)
     {
         uint32_t curr = PROC_IN_SYNC_BYPASS_HI;
 

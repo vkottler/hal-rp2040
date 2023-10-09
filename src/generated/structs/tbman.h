@@ -10,7 +10,8 @@ namespace RP2040
 {
 
 /**
- * Testbench manager. Allows the programmer to know what platform their software is running on.
+ * Testbench manager. Allows the programmer to know what platform their
+ * software is running on.
  */
 struct [[gnu::packed]] tbman
 {
@@ -19,7 +20,8 @@ struct [[gnu::packed]] tbman
     static constexpr std::size_t size = 4; /*!< tbman's size in bytes. */
 
     /* Fields. */
-    const uint32_t PLATFORM = {}; /*!< (read-only) Indicates the type of platform in use */
+    const uint32_t PLATFORM =
+        {}; /*!< (read-only) Indicates the type of platform in use */
 
     /* Methods. */
 

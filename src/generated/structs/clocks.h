@@ -29,69 +29,128 @@ struct [[gnu::packed]] clocks
     static constexpr std::size_t size = 200; /*!< clocks's size in bytes. */
 
     /* Fields. */
-    uint32_t CLK_GPOUT0_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT0_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT0_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_GPOUT1_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT1_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT1_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_GPOUT2_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT2_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT2_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_GPOUT3_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT3_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT3_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_REF_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_REF_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_REF_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s. */
-    uint32_t CLK_SYS_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_SYS_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_SYS_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s. */
-    uint32_t CLK_PERI_CTRL;                   /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT0_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT0_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT0_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_GPOUT1_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT1_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT1_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_GPOUT2_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT2_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT2_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_GPOUT3_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT3_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT3_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_REF_CTRL;     /*!< (read-write) Clock control, can be changed
+                                  on-the-fly (except for auxsrc) */
+    uint32_t CLK_REF_DIV;      /*!< (read-write) Clock divisor, can be changed
+                                  on-the-fly */
+    uint32_t CLK_REF_SELECTED; /*!< (read-write) Indicates which SRC is
+ currently selected by the glitchless mux (one-hot).\n The glitchless
+ multiplexer does not switch instantaneously (to avoid glitches), so software
+ should poll this register to wait for the switch to complete. This register
+ contains one decoded bit for each of the clock sources enumerated in the CTRL
+ SRC field. At most one of these bits will be set at any time, indicating that
+ clock is currently present at the output of the glitchless mux. Whilst
+ switching is in progress, this register may briefly show all-0s. */
+    uint32_t CLK_SYS_CTRL;     /*!< (read-write) Clock control, can be changed
+                                  on-the-fly (except for auxsrc) */
+    uint32_t CLK_SYS_DIV;      /*!< (read-write) Clock divisor, can be changed
+                                  on-the-fly */
+    uint32_t CLK_SYS_SELECTED; /*!< (read-write) Indicates which SRC is
+ currently selected by the glitchless mux (one-hot).\n The glitchless
+ multiplexer does not switch instantaneously (to avoid glitches), so software
+ should poll this register to wait for the switch to complete. This register
+ contains one decoded bit for each of the clock sources enumerated in the CTRL
+ SRC field. At most one of these bits will be set at any time, indicating that
+ clock is currently present at the output of the glitchless mux. Whilst
+ switching is in progress, this register may briefly show all-0s. */
+    uint32_t CLK_PERI_CTRL;    /*!< (read-write) Clock control, can be changed
+                                  on-the-fly (except for auxsrc) */
     const uint32_t reserved_padding0 = {};
-    uint32_t CLK_PERI_SELECTED;               /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_USB_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_USB_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_USB_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_ADC_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_ADC_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_ADC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_RTC_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_RTC_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_RTC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
+    uint32_t CLK_PERI_SELECTED; /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n This slice does not
+  have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register is hardwired to 0x1. */
+    uint32_t CLK_USB_CTRL;      /*!< (read-write) Clock control, can be changed
+                                   on-the-fly (except for auxsrc) */
+    uint32_t CLK_USB_DIV;       /*!< (read-write) Clock divisor, can be changed
+                                   on-the-fly */
+    uint32_t CLK_USB_SELECTED;  /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n  This slice does not
+  have  a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register  is hardwired to 0x1. */
+    uint32_t CLK_ADC_CTRL;      /*!< (read-write) Clock control, can be changed
+                                   on-the-fly (except for auxsrc) */
+    uint32_t CLK_ADC_DIV;       /*!< (read-write) Clock divisor, can be changed
+                                   on-the-fly */
+    uint32_t CLK_ADC_SELECTED;  /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n  This slice does not
+  have  a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register  is hardwired to 0x1. */
+    uint32_t CLK_RTC_CTRL;      /*!< (read-write) Clock control, can be changed
+                                   on-the-fly (except for auxsrc) */
+    uint32_t CLK_RTC_DIV;       /*!< (read-write) Clock divisor, can be changed
+                                   on-the-fly */
+    uint32_t CLK_RTC_SELECTED;  /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n  This slice does not
+  have  a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register  is hardwired to 0x1. */
     uint32_t CLK_SYS_RESUS_CTRL;
     const uint32_t CLK_SYS_RESUS_STATUS = {};
-    uint32_t FC0_REF_KHZ;                     /*!< (read-write) Reference clock frequency in kHz */
-    uint32_t FC0_MIN_KHZ;                     /*!< (read-write) Minimum pass frequency in kHz. This is optional. Set to 0 if you are not using the pass/fail flags */
-    uint32_t FC0_MAX_KHZ;                     /*!< (read-write) Maximum pass frequency in kHz. This is optional. Set to 0x1ffffff if you are not using the pass/fail flags */
-    uint32_t FC0_DELAY;                       /*!< (read-write) Delays the start of frequency counting to allow the mux to settle\n
-                Delay is measured in multiples of the reference clock period */
-    uint32_t FC0_INTERVAL;                    /*!< (read-write) The test interval is 0.98us * 2**interval, but let's call it 1us * 2**interval\n
-                The default gives a test interval of 250us */
-    uint32_t FC0_SRC;                         /*!< (read-write) Clock sent to frequency counter, set to 0 when not required\n
-                Writing to this register initiates the frequency count */
-    const uint32_t FC0_STATUS = {};           /*!< (read-only) Frequency counter status */
-    const uint32_t FC0_RESULT = {};           /*!< (read-only) Result of frequency measurement, only valid when status_done=1 */
-    uint32_t WAKE_EN0;                        /*!< (read-write) enable clock in wake mode */
-    uint32_t WAKE_EN1;                        /*!< (read-write) enable clock in wake mode */
-    uint32_t SLEEP_EN0;                       /*!< (read-write) enable clock in sleep mode */
-    uint32_t SLEEP_EN1;                       /*!< (read-write) enable clock in sleep mode */
-    const uint32_t ENABLED0 = {};             /*!< (read-only) indicates the state of the clock enable */
-    const uint32_t ENABLED1 = {};             /*!< (read-only) indicates the state of the clock enable */
-    const uint32_t INTR = {};                 /*!< (read-only) Raw Interrupts */
-    uint32_t INTE;                            /*!< (read-write) Interrupt Enable */
-    uint32_t INTF;                            /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {};                 /*!< (read-only) Interrupt status after masking & forcing */
+    uint32_t FC0_REF_KHZ; /*!< (read-write) Reference clock frequency in kHz */
+    uint32_t FC0_MIN_KHZ; /*!< (read-write) Minimum pass frequency in kHz. This
+                             is optional. Set to 0 if you are not using the
+                             pass/fail flags */
+    uint32_t FC0_MAX_KHZ; /*!< (read-write) Maximum pass frequency in kHz. This
+                             is optional. Set to 0x1ffffff if you are not using
+                             the pass/fail flags */
+    uint32_t FC0_DELAY;   /*!< (read-write) Delays the start of frequency
+  counting to allow the mux to settle\n   Delay is measured in multiples of the
+  reference clock period */
+    uint32_t FC0_INTERVAL; /*!< (read-write) The test interval is 0.98us *
+2**interval, but let's call it 1us * 2**interval\n The default gives a test
+interval of 250us */
+    uint32_t FC0_SRC; /*!< (read-write) Clock sent to frequency counter, set to
+0 when not required\n Writing to this register initiates the frequency count */
+    const uint32_t FC0_STATUS =
+        {}; /*!< (read-only) Frequency counter status */
+    const uint32_t FC0_RESULT =
+        {}; /*!< (read-only) Result of frequency measurement, only valid when
+               status_done=1 */
+    uint32_t WAKE_EN0;  /*!< (read-write) enable clock in wake mode */
+    uint32_t WAKE_EN1;  /*!< (read-write) enable clock in wake mode */
+    uint32_t SLEEP_EN0; /*!< (read-write) enable clock in sleep mode */
+    uint32_t SLEEP_EN1; /*!< (read-write) enable clock in sleep mode */
+    const uint32_t ENABLED0 =
+        {}; /*!< (read-only) indicates the state of the clock enable */
+    const uint32_t ENABLED1 =
+        {}; /*!< (read-only) indicates the state of the clock enable */
+    const uint32_t INTR = {}; /*!< (read-only) Raw Interrupts */
+    uint32_t INTE;            /*!< (read-write) Interrupt Enable */
+    uint32_t INTF;            /*!< (read-write) Interrupt Force */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 
@@ -100,7 +159,8 @@ struct [[gnu::packed]] clocks
      */
     CLOCKS_CLK_GPOUT0_CTRL_AUXSRC get_CLK_GPOUT0_CTRL_AUXSRC()
     {
-        return CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((CLK_GPOUT0_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((CLK_GPOUT0_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -312,7 +372,8 @@ struct [[gnu::packed]] clocks
      */
     CLOCKS_CLK_GPOUT1_CTRL_AUXSRC get_CLK_GPOUT1_CTRL_AUXSRC()
     {
-        return CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((CLK_GPOUT1_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((CLK_GPOUT1_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -524,7 +585,8 @@ struct [[gnu::packed]] clocks
      */
     CLOCKS_CLK_GPOUT2_CTRL_AUXSRC get_CLK_GPOUT2_CTRL_AUXSRC()
     {
-        return CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((CLK_GPOUT2_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((CLK_GPOUT2_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -736,7 +798,8 @@ struct [[gnu::packed]] clocks
      */
     CLOCKS_CLK_GPOUT3_CTRL_AUXSRC get_CLK_GPOUT3_CTRL_AUXSRC()
     {
-        return CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((CLK_GPOUT3_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((CLK_GPOUT3_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**

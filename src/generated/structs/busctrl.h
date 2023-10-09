@@ -23,16 +23,22 @@ struct [[gnu::packed]] busctrl
     static constexpr std::size_t size = 40; /*!< busctrl's size in bytes. */
 
     /* Fields. */
-    uint32_t BUS_PRIORITY;                /*!< (read-write) Set the priority of each master for bus arbitration. */
-    const uint32_t BUS_PRIORITY_ACK = {}; /*!< (read-only) Bus priority acknowledge */
-    uint32_t PERFCTR0;                    /*!< (read-write) Bus fabric performance counter 0 */
-    uint32_t PERFSEL0;                    /*!< (read-write) Bus fabric performance event select for PERFCTR0 */
-    uint32_t PERFCTR1;                    /*!< (read-write) Bus fabric performance counter 1 */
-    uint32_t PERFSEL1;                    /*!< (read-write) Bus fabric performance event select for PERFCTR1 */
-    uint32_t PERFCTR2;                    /*!< (read-write) Bus fabric performance counter 2 */
-    uint32_t PERFSEL2;                    /*!< (read-write) Bus fabric performance event select for PERFCTR2 */
-    uint32_t PERFCTR3;                    /*!< (read-write) Bus fabric performance counter 3 */
-    uint32_t PERFSEL3;                    /*!< (read-write) Bus fabric performance event select for PERFCTR3 */
+    uint32_t BUS_PRIORITY; /*!< (read-write) Set the priority of each master
+                              for bus arbitration. */
+    const uint32_t BUS_PRIORITY_ACK =
+        {};            /*!< (read-only) Bus priority acknowledge */
+    uint32_t PERFCTR0; /*!< (read-write) Bus fabric performance counter 0 */
+    uint32_t PERFSEL0; /*!< (read-write) Bus fabric performance event select
+                          for PERFCTR0 */
+    uint32_t PERFCTR1; /*!< (read-write) Bus fabric performance counter 1 */
+    uint32_t PERFSEL1; /*!< (read-write) Bus fabric performance event select
+                          for PERFCTR1 */
+    uint32_t PERFCTR2; /*!< (read-write) Bus fabric performance counter 2 */
+    uint32_t PERFSEL2; /*!< (read-write) Bus fabric performance event select
+                          for PERFCTR2 */
+    uint32_t PERFCTR3; /*!< (read-write) Bus fabric performance counter 3 */
+    uint32_t PERFSEL3; /*!< (read-write) Bus fabric performance event select
+                          for PERFCTR3 */
 
     /* Methods. */
 
@@ -343,6 +349,7 @@ struct [[gnu::packed]] busctrl
 
 static_assert(sizeof(busctrl) == busctrl::size);
 
-static volatile busctrl *const BUSCTRL = reinterpret_cast<busctrl *>(0x40030000);
+static volatile busctrl *const BUSCTRL =
+    reinterpret_cast<busctrl *>(0x40030000);
 
 }; // namespace RP2040

@@ -85,7 +85,8 @@ inline const char *to_string(CLOCKS_CLK_GPOUT0_CTRL_AUXSRC instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, CLOCKS_CLK_GPOUT0_CTRL_AUXSRC &output)
+inline bool from_string(const char *data,
+                        CLOCKS_CLK_GPOUT0_CTRL_AUXSRC &output)
 {
     bool result = false;
 

@@ -21,27 +21,32 @@ struct [[gnu::packed]] rosc
     static constexpr std::size_t size = 36; /*!< rosc's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;                 /*!< (read-write) Ring Oscillator control */
-    uint32_t FREQA;                /*!< (read-write) The FREQA & FREQB registers control the frequency by controlling the drive strength of each stage\n
-                The drive strength has 4 levels determined by the number of bits set\n
-                Increasing the number of bits set increases the drive strength and increases the oscillation frequency\n
-                0 bits set is the default drive strength\n
-                1 bit set doubles the drive strength\n
-                2 bits set triples drive strength\n
-                3 bits set quadruples drive strength */
-    uint32_t FREQB;                /*!< (read-write) For a detailed description see freqa register */
-    uint32_t DORMANT;              /*!< (read-write) Ring Oscillator pause control\n
-                This is used to save power by pausing the ROSC\n
-                On power-up this field is initialised to WAKE\n
-                An invalid write will also select WAKE\n
-                Warning: setup the irq before selecting dormant mode */
-    uint32_t DIV;                  /*!< (read-write) Controls the output divider */
-    uint32_t PHASE;                /*!< (read-write) Controls the phase shifted output */
-    uint32_t STATUS;               /*!< (read-write) Ring Oscillator Status */
-    const uint32_t RANDOMBIT = {}; /*!< (read-only) This just reads the state of the oscillator output so randomness is compromised if the ring oscillator is stopped or run at a harmonic of the bus frequency */
-    uint32_t COUNT;                /*!< (read-write) A down counter running at the ROSC frequency which counts to zero and stops.\n
-                To start the counter write a non-zero value.\n
-                Can be used for short software pauses when setting up time sensitive hardware. */
+    uint32_t CTRL;    /*!< (read-write) Ring Oscillator control */
+    uint32_t FREQA;   /*!< (read-write) The FREQA & FREQB registers control the
+       frequency by controlling the drive strength of each stage\n        The
+   drive strength   has 4 levels determined by the number of bits set\n
+   Increasing   the number of   bits set increases the drive strength and
+   increases   the   oscillation frequency\n   0 bits set is the default drive
+   strength\n   1   bit set   doubles the drive strength\n   2 bits set triples
+   drive strength\n   3   bits set   quadruples drive strength */
+    uint32_t FREQB;   /*!< (read-write) For a detailed description see freqa
+                         register */
+    uint32_t DORMANT; /*!< (read-write) Ring Oscillator pause control\n
+   This is used to save power by pausing the ROSC\n
+   On power-up this field is initialised to WAKE\n
+   An invalid write will also select WAKE\n
+   Warning: setup the irq before selecting dormant mode */
+    uint32_t DIV;     /*!< (read-write) Controls the output divider */
+    uint32_t PHASE;   /*!< (read-write) Controls the phase shifted output */
+    uint32_t STATUS;  /*!< (read-write) Ring Oscillator Status */
+    const uint32_t RANDOMBIT =
+        {}; /*!< (read-only) This just reads the state of the oscillator output
+               so randomness is compromised if the ring oscillator is stopped
+               or run at a harmonic of the bus frequency */
+    uint32_t COUNT; /*!< (read-write) A down counter running at the ROSC
+ frequency which counts to zero and stops.\n To start the counter write a
+ non-zero value.\n Can be used for short software pauses when setting up time
+ sensitive hardware. */
 
     /* Methods. */
 

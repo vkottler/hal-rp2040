@@ -56,416 +56,759 @@ struct [[gnu::packed]] dma
     static constexpr std::size_t size = 2760; /*!< dma's size in bytes. */
 
     /* Fields. */
-    uint32_t CH0_READ_ADDR;                                            /*!< (read-write) DMA Channel 0 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH0_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 0 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH0_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 0 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH0_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 0 Control and Status */
-    uint32_t CH0_AL1_CTRL;                                             /*!< (read-write) Alias for channel 0 CTRL register */
-    uint32_t CH0_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 0 READ_ADDR register */
-    uint32_t CH0_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 0 WRITE_ADDR register */
-    uint32_t CH0_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 0 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH0_AL2_CTRL;                                             /*!< (read-write) Alias for channel 0 CTRL register */
-    uint32_t CH0_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 0 TRANS_COUNT register */
-    uint32_t CH0_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 0 READ_ADDR register */
-    uint32_t CH0_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 0 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH0_AL3_CTRL;                                             /*!< (read-write) Alias for channel 0 CTRL register */
-    uint32_t CH0_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 0 WRITE_ADDR register */
-    uint32_t CH0_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 0 TRANS_COUNT register */
-    uint32_t CH0_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 0 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH1_READ_ADDR;                                            /*!< (read-write) DMA Channel 1 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH1_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 1 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH1_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 1 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH1_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 1 Control and Status */
-    uint32_t CH1_AL1_CTRL;                                             /*!< (read-write) Alias for channel 1 CTRL register */
-    uint32_t CH1_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 1 READ_ADDR register */
-    uint32_t CH1_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 1 WRITE_ADDR register */
-    uint32_t CH1_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 1 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH1_AL2_CTRL;                                             /*!< (read-write) Alias for channel 1 CTRL register */
-    uint32_t CH1_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 1 TRANS_COUNT register */
-    uint32_t CH1_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 1 READ_ADDR register */
-    uint32_t CH1_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 1 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH1_AL3_CTRL;                                             /*!< (read-write) Alias for channel 1 CTRL register */
-    uint32_t CH1_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 1 WRITE_ADDR register */
-    uint32_t CH1_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 1 TRANS_COUNT register */
-    uint32_t CH1_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 1 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH2_READ_ADDR;                                            /*!< (read-write) DMA Channel 2 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH2_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 2 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH2_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 2 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH2_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 2 Control and Status */
-    uint32_t CH2_AL1_CTRL;                                             /*!< (read-write) Alias for channel 2 CTRL register */
-    uint32_t CH2_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 2 READ_ADDR register */
-    uint32_t CH2_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 2 WRITE_ADDR register */
-    uint32_t CH2_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 2 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH2_AL2_CTRL;                                             /*!< (read-write) Alias for channel 2 CTRL register */
-    uint32_t CH2_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 2 TRANS_COUNT register */
-    uint32_t CH2_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 2 READ_ADDR register */
-    uint32_t CH2_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 2 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH2_AL3_CTRL;                                             /*!< (read-write) Alias for channel 2 CTRL register */
-    uint32_t CH2_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 2 WRITE_ADDR register */
-    uint32_t CH2_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 2 TRANS_COUNT register */
-    uint32_t CH2_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 2 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH3_READ_ADDR;                                            /*!< (read-write) DMA Channel 3 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH3_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 3 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH3_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 3 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH3_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 3 Control and Status */
-    uint32_t CH3_AL1_CTRL;                                             /*!< (read-write) Alias for channel 3 CTRL register */
-    uint32_t CH3_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 3 READ_ADDR register */
-    uint32_t CH3_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 3 WRITE_ADDR register */
-    uint32_t CH3_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 3 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH3_AL2_CTRL;                                             /*!< (read-write) Alias for channel 3 CTRL register */
-    uint32_t CH3_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 3 TRANS_COUNT register */
-    uint32_t CH3_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 3 READ_ADDR register */
-    uint32_t CH3_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 3 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH3_AL3_CTRL;                                             /*!< (read-write) Alias for channel 3 CTRL register */
-    uint32_t CH3_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 3 WRITE_ADDR register */
-    uint32_t CH3_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 3 TRANS_COUNT register */
-    uint32_t CH3_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 3 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH4_READ_ADDR;                                            /*!< (read-write) DMA Channel 4 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH4_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 4 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH4_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 4 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH4_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 4 Control and Status */
-    uint32_t CH4_AL1_CTRL;                                             /*!< (read-write) Alias for channel 4 CTRL register */
-    uint32_t CH4_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 4 READ_ADDR register */
-    uint32_t CH4_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 4 WRITE_ADDR register */
-    uint32_t CH4_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 4 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH4_AL2_CTRL;                                             /*!< (read-write) Alias for channel 4 CTRL register */
-    uint32_t CH4_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 4 TRANS_COUNT register */
-    uint32_t CH4_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 4 READ_ADDR register */
-    uint32_t CH4_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 4 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH4_AL3_CTRL;                                             /*!< (read-write) Alias for channel 4 CTRL register */
-    uint32_t CH4_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 4 WRITE_ADDR register */
-    uint32_t CH4_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 4 TRANS_COUNT register */
-    uint32_t CH4_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 4 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH5_READ_ADDR;                                            /*!< (read-write) DMA Channel 5 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH5_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 5 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH5_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 5 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH5_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 5 Control and Status */
-    uint32_t CH5_AL1_CTRL;                                             /*!< (read-write) Alias for channel 5 CTRL register */
-    uint32_t CH5_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 5 READ_ADDR register */
-    uint32_t CH5_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 5 WRITE_ADDR register */
-    uint32_t CH5_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 5 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH5_AL2_CTRL;                                             /*!< (read-write) Alias for channel 5 CTRL register */
-    uint32_t CH5_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 5 TRANS_COUNT register */
-    uint32_t CH5_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 5 READ_ADDR register */
-    uint32_t CH5_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 5 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH5_AL3_CTRL;                                             /*!< (read-write) Alias for channel 5 CTRL register */
-    uint32_t CH5_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 5 WRITE_ADDR register */
-    uint32_t CH5_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 5 TRANS_COUNT register */
-    uint32_t CH5_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 5 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH6_READ_ADDR;                                            /*!< (read-write) DMA Channel 6 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH6_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 6 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH6_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 6 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH6_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 6 Control and Status */
-    uint32_t CH6_AL1_CTRL;                                             /*!< (read-write) Alias for channel 6 CTRL register */
-    uint32_t CH6_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 6 READ_ADDR register */
-    uint32_t CH6_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 6 WRITE_ADDR register */
-    uint32_t CH6_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 6 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH6_AL2_CTRL;                                             /*!< (read-write) Alias for channel 6 CTRL register */
-    uint32_t CH6_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 6 TRANS_COUNT register */
-    uint32_t CH6_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 6 READ_ADDR register */
-    uint32_t CH6_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 6 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH6_AL3_CTRL;                                             /*!< (read-write) Alias for channel 6 CTRL register */
-    uint32_t CH6_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 6 WRITE_ADDR register */
-    uint32_t CH6_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 6 TRANS_COUNT register */
-    uint32_t CH6_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 6 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH7_READ_ADDR;                                            /*!< (read-write) DMA Channel 7 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH7_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 7 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH7_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 7 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH7_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 7 Control and Status */
-    uint32_t CH7_AL1_CTRL;                                             /*!< (read-write) Alias for channel 7 CTRL register */
-    uint32_t CH7_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 7 READ_ADDR register */
-    uint32_t CH7_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 7 WRITE_ADDR register */
-    uint32_t CH7_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 7 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH7_AL2_CTRL;                                             /*!< (read-write) Alias for channel 7 CTRL register */
-    uint32_t CH7_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 7 TRANS_COUNT register */
-    uint32_t CH7_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 7 READ_ADDR register */
-    uint32_t CH7_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 7 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH7_AL3_CTRL;                                             /*!< (read-write) Alias for channel 7 CTRL register */
-    uint32_t CH7_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 7 WRITE_ADDR register */
-    uint32_t CH7_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 7 TRANS_COUNT register */
-    uint32_t CH7_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 7 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH8_READ_ADDR;                                            /*!< (read-write) DMA Channel 8 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH8_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 8 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH8_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 8 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH8_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 8 Control and Status */
-    uint32_t CH8_AL1_CTRL;                                             /*!< (read-write) Alias for channel 8 CTRL register */
-    uint32_t CH8_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 8 READ_ADDR register */
-    uint32_t CH8_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 8 WRITE_ADDR register */
-    uint32_t CH8_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 8 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH8_AL2_CTRL;                                             /*!< (read-write) Alias for channel 8 CTRL register */
-    uint32_t CH8_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 8 TRANS_COUNT register */
-    uint32_t CH8_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 8 READ_ADDR register */
-    uint32_t CH8_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 8 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH8_AL3_CTRL;                                             /*!< (read-write) Alias for channel 8 CTRL register */
-    uint32_t CH8_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 8 WRITE_ADDR register */
-    uint32_t CH8_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 8 TRANS_COUNT register */
-    uint32_t CH8_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 8 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH9_READ_ADDR;                                            /*!< (read-write) DMA Channel 9 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH9_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 9 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH9_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 9 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH9_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 9 Control and Status */
-    uint32_t CH9_AL1_CTRL;                                             /*!< (read-write) Alias for channel 9 CTRL register */
-    uint32_t CH9_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 9 READ_ADDR register */
-    uint32_t CH9_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 9 WRITE_ADDR register */
-    uint32_t CH9_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 9 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH9_AL2_CTRL;                                             /*!< (read-write) Alias for channel 9 CTRL register */
-    uint32_t CH9_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 9 TRANS_COUNT register */
-    uint32_t CH9_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 9 READ_ADDR register */
-    uint32_t CH9_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 9 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH9_AL3_CTRL;                                             /*!< (read-write) Alias for channel 9 CTRL register */
-    uint32_t CH9_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 9 WRITE_ADDR register */
-    uint32_t CH9_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 9 TRANS_COUNT register */
-    uint32_t CH9_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 9 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH10_READ_ADDR;                                           /*!< (read-write) DMA Channel 10 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH10_WRITE_ADDR;                                          /*!< (read-write) DMA Channel 10 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH10_TRANS_COUNT;                                         /*!< (read-write) DMA Channel 10 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH10_CTRL_TRIG;                                           /*!< (read-write) DMA Channel 10 Control and Status */
-    uint32_t CH10_AL1_CTRL;                                            /*!< (read-write) Alias for channel 10 CTRL register */
-    uint32_t CH10_AL1_READ_ADDR;                                       /*!< (read-write) Alias for channel 10 READ_ADDR register */
-    uint32_t CH10_AL1_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 10 WRITE_ADDR register */
-    uint32_t CH10_AL1_TRANS_COUNT_TRIG;                                /*!< (read-write) Alias for channel 10 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH10_AL2_CTRL;                                            /*!< (read-write) Alias for channel 10 CTRL register */
-    uint32_t CH10_AL2_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 10 TRANS_COUNT register */
-    uint32_t CH10_AL2_READ_ADDR;                                       /*!< (read-write) Alias for channel 10 READ_ADDR register */
-    uint32_t CH10_AL2_WRITE_ADDR_TRIG;                                 /*!< (read-write) Alias for channel 10 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH10_AL3_CTRL;                                            /*!< (read-write) Alias for channel 10 CTRL register */
-    uint32_t CH10_AL3_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 10 WRITE_ADDR register */
-    uint32_t CH10_AL3_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 10 TRANS_COUNT register */
-    uint32_t CH10_AL3_READ_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 10 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH11_READ_ADDR;                                           /*!< (read-write) DMA Channel 11 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH11_WRITE_ADDR;                                          /*!< (read-write) DMA Channel 11 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH11_TRANS_COUNT;                                         /*!< (read-write) DMA Channel 11 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH11_CTRL_TRIG;                                           /*!< (read-write) DMA Channel 11 Control and Status */
-    uint32_t CH11_AL1_CTRL;                                            /*!< (read-write) Alias for channel 11 CTRL register */
-    uint32_t CH11_AL1_READ_ADDR;                                       /*!< (read-write) Alias for channel 11 READ_ADDR register */
-    uint32_t CH11_AL1_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 11 WRITE_ADDR register */
-    uint32_t CH11_AL1_TRANS_COUNT_TRIG;                                /*!< (read-write) Alias for channel 11 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH11_AL2_CTRL;                                            /*!< (read-write) Alias for channel 11 CTRL register */
-    uint32_t CH11_AL2_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 11 TRANS_COUNT register */
-    uint32_t CH11_AL2_READ_ADDR;                                       /*!< (read-write) Alias for channel 11 READ_ADDR register */
-    uint32_t CH11_AL2_WRITE_ADDR_TRIG;                                 /*!< (read-write) Alias for channel 11 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH11_AL3_CTRL;                                            /*!< (read-write) Alias for channel 11 CTRL register */
-    uint32_t CH11_AL3_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 11 WRITE_ADDR register */
-    uint32_t CH11_AL3_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 11 TRANS_COUNT register */
-    uint32_t CH11_AL3_READ_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 11 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
+    uint32_t CH0_READ_ADDR;   /*!< (read-write) DMA Channel 0 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH0_WRITE_ADDR;  /*!< (read-write) DMA Channel 0 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH0_TRANS_COUNT; /*!< (read-write) DMA Channel 0 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH0_CTRL_TRIG; /*!< (read-write) DMA Channel 0 Control and Status */
+    uint32_t
+        CH0_AL1_CTRL; /*!< (read-write) Alias for channel 0 CTRL register */
+    uint32_t CH0_AL1_READ_ADDR; /*!< (read-write) Alias for channel 0 READ_ADDR
+                                   register */
+    uint32_t CH0_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 0
+                                          WRITE_ADDR register */
+    uint32_t CH0_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 0
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH0_AL2_CTRL; /*!< (read-write) Alias for channel 0 CTRL register */
+    uint32_t CH0_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 0
+                                     TRANS_COUNT register */
+    uint32_t CH0_AL2_READ_ADDR; /*!< (read-write) Alias for channel 0 READ_ADDR
+                                   register */
+    uint32_t CH0_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 0
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH0_AL3_CTRL; /*!< (read-write) Alias for channel 0 CTRL register */
+    uint32_t CH0_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 0
+                                        WRITE_ADDR register */
+    uint32_t CH0_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 0
+                                        TRANS_COUNT register */
+    uint32_t CH0_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 0
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH1_READ_ADDR;   /*!< (read-write) DMA Channel 1 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH1_WRITE_ADDR;  /*!< (read-write) DMA Channel 1 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH1_TRANS_COUNT; /*!< (read-write) DMA Channel 1 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH1_CTRL_TRIG; /*!< (read-write) DMA Channel 1 Control and Status */
+    uint32_t
+        CH1_AL1_CTRL; /*!< (read-write) Alias for channel 1 CTRL register */
+    uint32_t CH1_AL1_READ_ADDR; /*!< (read-write) Alias for channel 1 READ_ADDR
+                                   register */
+    uint32_t CH1_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 1
+                                          WRITE_ADDR register */
+    uint32_t CH1_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 1
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH1_AL2_CTRL; /*!< (read-write) Alias for channel 1 CTRL register */
+    uint32_t CH1_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 1
+                                     TRANS_COUNT register */
+    uint32_t CH1_AL2_READ_ADDR; /*!< (read-write) Alias for channel 1 READ_ADDR
+                                   register */
+    uint32_t CH1_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 1
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH1_AL3_CTRL; /*!< (read-write) Alias for channel 1 CTRL register */
+    uint32_t CH1_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 1
+                                        WRITE_ADDR register */
+    uint32_t CH1_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 1
+                                        TRANS_COUNT register */
+    uint32_t CH1_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 1
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH2_READ_ADDR;   /*!< (read-write) DMA Channel 2 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH2_WRITE_ADDR;  /*!< (read-write) DMA Channel 2 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH2_TRANS_COUNT; /*!< (read-write) DMA Channel 2 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH2_CTRL_TRIG; /*!< (read-write) DMA Channel 2 Control and Status */
+    uint32_t
+        CH2_AL1_CTRL; /*!< (read-write) Alias for channel 2 CTRL register */
+    uint32_t CH2_AL1_READ_ADDR; /*!< (read-write) Alias for channel 2 READ_ADDR
+                                   register */
+    uint32_t CH2_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 2
+                                          WRITE_ADDR register */
+    uint32_t CH2_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 2
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH2_AL2_CTRL; /*!< (read-write) Alias for channel 2 CTRL register */
+    uint32_t CH2_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 2
+                                     TRANS_COUNT register */
+    uint32_t CH2_AL2_READ_ADDR; /*!< (read-write) Alias for channel 2 READ_ADDR
+                                   register */
+    uint32_t CH2_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 2
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH2_AL3_CTRL; /*!< (read-write) Alias for channel 2 CTRL register */
+    uint32_t CH2_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 2
+                                        WRITE_ADDR register */
+    uint32_t CH2_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 2
+                                        TRANS_COUNT register */
+    uint32_t CH2_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 2
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH3_READ_ADDR;   /*!< (read-write) DMA Channel 3 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH3_WRITE_ADDR;  /*!< (read-write) DMA Channel 3 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH3_TRANS_COUNT; /*!< (read-write) DMA Channel 3 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH3_CTRL_TRIG; /*!< (read-write) DMA Channel 3 Control and Status */
+    uint32_t
+        CH3_AL1_CTRL; /*!< (read-write) Alias for channel 3 CTRL register */
+    uint32_t CH3_AL1_READ_ADDR; /*!< (read-write) Alias for channel 3 READ_ADDR
+                                   register */
+    uint32_t CH3_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 3
+                                          WRITE_ADDR register */
+    uint32_t CH3_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 3
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH3_AL2_CTRL; /*!< (read-write) Alias for channel 3 CTRL register */
+    uint32_t CH3_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 3
+                                     TRANS_COUNT register */
+    uint32_t CH3_AL2_READ_ADDR; /*!< (read-write) Alias for channel 3 READ_ADDR
+                                   register */
+    uint32_t CH3_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 3
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH3_AL3_CTRL; /*!< (read-write) Alias for channel 3 CTRL register */
+    uint32_t CH3_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 3
+                                        WRITE_ADDR register */
+    uint32_t CH3_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 3
+                                        TRANS_COUNT register */
+    uint32_t CH3_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 3
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH4_READ_ADDR;   /*!< (read-write) DMA Channel 4 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH4_WRITE_ADDR;  /*!< (read-write) DMA Channel 4 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH4_TRANS_COUNT; /*!< (read-write) DMA Channel 4 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH4_CTRL_TRIG; /*!< (read-write) DMA Channel 4 Control and Status */
+    uint32_t
+        CH4_AL1_CTRL; /*!< (read-write) Alias for channel 4 CTRL register */
+    uint32_t CH4_AL1_READ_ADDR; /*!< (read-write) Alias for channel 4 READ_ADDR
+                                   register */
+    uint32_t CH4_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 4
+                                          WRITE_ADDR register */
+    uint32_t CH4_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 4
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH4_AL2_CTRL; /*!< (read-write) Alias for channel 4 CTRL register */
+    uint32_t CH4_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 4
+                                     TRANS_COUNT register */
+    uint32_t CH4_AL2_READ_ADDR; /*!< (read-write) Alias for channel 4 READ_ADDR
+                                   register */
+    uint32_t CH4_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 4
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH4_AL3_CTRL; /*!< (read-write) Alias for channel 4 CTRL register */
+    uint32_t CH4_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 4
+                                        WRITE_ADDR register */
+    uint32_t CH4_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 4
+                                        TRANS_COUNT register */
+    uint32_t CH4_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 4
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH5_READ_ADDR;   /*!< (read-write) DMA Channel 5 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH5_WRITE_ADDR;  /*!< (read-write) DMA Channel 5 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH5_TRANS_COUNT; /*!< (read-write) DMA Channel 5 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH5_CTRL_TRIG; /*!< (read-write) DMA Channel 5 Control and Status */
+    uint32_t
+        CH5_AL1_CTRL; /*!< (read-write) Alias for channel 5 CTRL register */
+    uint32_t CH5_AL1_READ_ADDR; /*!< (read-write) Alias for channel 5 READ_ADDR
+                                   register */
+    uint32_t CH5_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 5
+                                          WRITE_ADDR register */
+    uint32_t CH5_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 5
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH5_AL2_CTRL; /*!< (read-write) Alias for channel 5 CTRL register */
+    uint32_t CH5_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 5
+                                     TRANS_COUNT register */
+    uint32_t CH5_AL2_READ_ADDR; /*!< (read-write) Alias for channel 5 READ_ADDR
+                                   register */
+    uint32_t CH5_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 5
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH5_AL3_CTRL; /*!< (read-write) Alias for channel 5 CTRL register */
+    uint32_t CH5_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 5
+                                        WRITE_ADDR register */
+    uint32_t CH5_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 5
+                                        TRANS_COUNT register */
+    uint32_t CH5_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 5
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH6_READ_ADDR;   /*!< (read-write) DMA Channel 6 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH6_WRITE_ADDR;  /*!< (read-write) DMA Channel 6 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH6_TRANS_COUNT; /*!< (read-write) DMA Channel 6 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH6_CTRL_TRIG; /*!< (read-write) DMA Channel 6 Control and Status */
+    uint32_t
+        CH6_AL1_CTRL; /*!< (read-write) Alias for channel 6 CTRL register */
+    uint32_t CH6_AL1_READ_ADDR; /*!< (read-write) Alias for channel 6 READ_ADDR
+                                   register */
+    uint32_t CH6_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 6
+                                          WRITE_ADDR register */
+    uint32_t CH6_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 6
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH6_AL2_CTRL; /*!< (read-write) Alias for channel 6 CTRL register */
+    uint32_t CH6_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 6
+                                     TRANS_COUNT register */
+    uint32_t CH6_AL2_READ_ADDR; /*!< (read-write) Alias for channel 6 READ_ADDR
+                                   register */
+    uint32_t CH6_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 6
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH6_AL3_CTRL; /*!< (read-write) Alias for channel 6 CTRL register */
+    uint32_t CH6_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 6
+                                        WRITE_ADDR register */
+    uint32_t CH6_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 6
+                                        TRANS_COUNT register */
+    uint32_t CH6_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 6
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH7_READ_ADDR;   /*!< (read-write) DMA Channel 7 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH7_WRITE_ADDR;  /*!< (read-write) DMA Channel 7 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH7_TRANS_COUNT; /*!< (read-write) DMA Channel 7 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH7_CTRL_TRIG; /*!< (read-write) DMA Channel 7 Control and Status */
+    uint32_t
+        CH7_AL1_CTRL; /*!< (read-write) Alias for channel 7 CTRL register */
+    uint32_t CH7_AL1_READ_ADDR; /*!< (read-write) Alias for channel 7 READ_ADDR
+                                   register */
+    uint32_t CH7_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 7
+                                          WRITE_ADDR register */
+    uint32_t CH7_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 7
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH7_AL2_CTRL; /*!< (read-write) Alias for channel 7 CTRL register */
+    uint32_t CH7_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 7
+                                     TRANS_COUNT register */
+    uint32_t CH7_AL2_READ_ADDR; /*!< (read-write) Alias for channel 7 READ_ADDR
+                                   register */
+    uint32_t CH7_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 7
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH7_AL3_CTRL; /*!< (read-write) Alias for channel 7 CTRL register */
+    uint32_t CH7_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 7
+                                        WRITE_ADDR register */
+    uint32_t CH7_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 7
+                                        TRANS_COUNT register */
+    uint32_t CH7_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 7
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH8_READ_ADDR;   /*!< (read-write) DMA Channel 8 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH8_WRITE_ADDR;  /*!< (read-write) DMA Channel 8 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH8_TRANS_COUNT; /*!< (read-write) DMA Channel 8 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH8_CTRL_TRIG; /*!< (read-write) DMA Channel 8 Control and Status */
+    uint32_t
+        CH8_AL1_CTRL; /*!< (read-write) Alias for channel 8 CTRL register */
+    uint32_t CH8_AL1_READ_ADDR; /*!< (read-write) Alias for channel 8 READ_ADDR
+                                   register */
+    uint32_t CH8_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 8
+                                          WRITE_ADDR register */
+    uint32_t CH8_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 8
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH8_AL2_CTRL; /*!< (read-write) Alias for channel 8 CTRL register */
+    uint32_t CH8_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 8
+                                     TRANS_COUNT register */
+    uint32_t CH8_AL2_READ_ADDR; /*!< (read-write) Alias for channel 8 READ_ADDR
+                                   register */
+    uint32_t CH8_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 8
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH8_AL3_CTRL; /*!< (read-write) Alias for channel 8 CTRL register */
+    uint32_t CH8_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 8
+                                        WRITE_ADDR register */
+    uint32_t CH8_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 8
+                                        TRANS_COUNT register */
+    uint32_t CH8_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 8
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH9_READ_ADDR;   /*!< (read-write) DMA Channel 9 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH9_WRITE_ADDR;  /*!< (read-write) DMA Channel 9 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH9_TRANS_COUNT; /*!< (read-write) DMA Channel 9 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH9_CTRL_TRIG; /*!< (read-write) DMA Channel 9 Control and Status */
+    uint32_t
+        CH9_AL1_CTRL; /*!< (read-write) Alias for channel 9 CTRL register */
+    uint32_t CH9_AL1_READ_ADDR; /*!< (read-write) Alias for channel 9 READ_ADDR
+                                   register */
+    uint32_t CH9_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 9
+                                          WRITE_ADDR register */
+    uint32_t CH9_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 9
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH9_AL2_CTRL; /*!< (read-write) Alias for channel 9 CTRL register */
+    uint32_t CH9_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 9
+                                     TRANS_COUNT register */
+    uint32_t CH9_AL2_READ_ADDR; /*!< (read-write) Alias for channel 9 READ_ADDR
+                                   register */
+    uint32_t CH9_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 9
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH9_AL3_CTRL; /*!< (read-write) Alias for channel 9 CTRL register */
+    uint32_t CH9_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 9
+                                        WRITE_ADDR register */
+    uint32_t CH9_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 9
+                                        TRANS_COUNT register */
+    uint32_t CH9_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 9
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH10_READ_ADDR;   /*!< (read-write) DMA Channel 10 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH10_WRITE_ADDR;  /*!< (read-write) DMA Channel 10 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH10_TRANS_COUNT; /*!< (read-write) DMA Channel 10 Transfer
+Count\n Program the number of bus transfers a channel will perform before
+halting. Note that, if transfers are larger than one byte in size, this is not
+equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the
+channel is active, reading this register shows the number of transfers
+remaining, updating automatically each time a write transfer completes.\n\n
+Writing this register sets the RELOAD value for the transfer counter. Each time
+this channel is triggered, the RELOAD value is copied into the live transfer
+counter. The channel can be started multiple times, and will perform the same
+number of transfers each time, as programmed by most recent write.\n\n The
+RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a
+trigger, the written value is used immediately as the length of the new
+transfer sequence, as well as being written to RELOAD. */
+    uint32_t
+        CH10_CTRL_TRIG; /*!< (read-write) DMA Channel 10 Control and Status */
+    uint32_t
+        CH10_AL1_CTRL; /*!< (read-write) Alias for channel 10 CTRL register */
+    uint32_t CH10_AL1_READ_ADDR;        /*!< (read-write) Alias for channel 10
+                                           READ_ADDR register */
+    uint32_t CH10_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 10
+                                           WRITE_ADDR register */
+    uint32_t CH10_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 10
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH10_AL2_CTRL; /*!< (read-write) Alias for channel 10 CTRL register */
+    uint32_t CH10_AL2_TRANS_COUNT;     /*!< (read-write) Alias for channel 10
+                                          TRANS_COUNT register */
+    uint32_t CH10_AL2_READ_ADDR;       /*!< (read-write) Alias for channel 10
+                                          READ_ADDR register */
+    uint32_t CH10_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 10
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH10_AL3_CTRL; /*!< (read-write) Alias for channel 10 CTRL register */
+    uint32_t CH10_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 10
+                                         WRITE_ADDR register */
+    uint32_t CH10_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 10
+                                         TRANS_COUNT register */
+    uint32_t CH10_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 10
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH11_READ_ADDR;   /*!< (read-write) DMA Channel 11 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH11_WRITE_ADDR;  /*!< (read-write) DMA Channel 11 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH11_TRANS_COUNT; /*!< (read-write) DMA Channel 11 Transfer
+Count\n Program the number of bus transfers a channel will perform before
+halting. Note that, if transfers are larger than one byte in size, this is not
+equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the
+channel is active, reading this register shows the number of transfers
+remaining, updating automatically each time a write transfer completes.\n\n
+Writing this register sets the RELOAD value for the transfer counter. Each time
+this channel is triggered, the RELOAD value is copied into the live transfer
+counter. The channel can be started multiple times, and will perform the same
+number of transfers each time, as programmed by most recent write.\n\n The
+RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a
+trigger, the written value is used immediately as the length of the new
+transfer sequence, as well as being written to RELOAD. */
+    uint32_t
+        CH11_CTRL_TRIG; /*!< (read-write) DMA Channel 11 Control and Status */
+    uint32_t
+        CH11_AL1_CTRL; /*!< (read-write) Alias for channel 11 CTRL register */
+    uint32_t CH11_AL1_READ_ADDR;        /*!< (read-write) Alias for channel 11
+                                           READ_ADDR register */
+    uint32_t CH11_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 11
+                                           WRITE_ADDR register */
+    uint32_t CH11_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 11
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH11_AL2_CTRL; /*!< (read-write) Alias for channel 11 CTRL register */
+    uint32_t CH11_AL2_TRANS_COUNT;     /*!< (read-write) Alias for channel 11
+                                          TRANS_COUNT register */
+    uint32_t CH11_AL2_READ_ADDR;       /*!< (read-write) Alias for channel 11
+                                          READ_ADDR register */
+    uint32_t CH11_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 11
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH11_AL3_CTRL; /*!< (read-write) Alias for channel 11 CTRL register */
+    uint32_t CH11_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 11
+                                         WRITE_ADDR register */
+    uint32_t CH11_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 11
+                                         TRANS_COUNT register */
+    uint32_t CH11_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 11
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
     static constexpr std::size_t reserved_padding0_length = 64;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t INTR;                                                     /*!< (read-write) Interrupt Status (raw) */
-    uint32_t INTE0;                                                    /*!< (read-write) Interrupt Enables for IRQ 0 */
-    uint32_t INTF0;                                                    /*!< (read-write) Force Interrupts */
-    uint32_t INTS0;                                                    /*!< (read-write) Interrupt Status for IRQ 0 */
+    uint32_t INTR;  /*!< (read-write) Interrupt Status (raw) */
+    uint32_t INTE0; /*!< (read-write) Interrupt Enables for IRQ 0 */
+    uint32_t INTF0; /*!< (read-write) Force Interrupts */
+    uint32_t INTS0; /*!< (read-write) Interrupt Status for IRQ 0 */
     const uint32_t reserved_padding1 = {};
-    uint32_t INTE1;                                                    /*!< (read-write) Interrupt Enables for IRQ 1 */
-    uint32_t INTF1;                                                    /*!< (read-write) Force Interrupts for IRQ 1 */
-    uint32_t INTS1;                                                    /*!< (read-write) Interrupt Status (masked) for IRQ 1 */
-    uint32_t TIMER0;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t TIMER1;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t TIMER2;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t TIMER3;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t MULTI_CHAN_TRIGGER;                                       /*!< (read-write) Trigger one or more channels simultaneously */
-    uint32_t SNIFF_CTRL;                                               /*!< (read-write) Sniffer Control */
-    uint32_t SNIFF_DATA;                                               /*!< (read-write) Data accumulator for sniff hardware\n
-                Write an initial seed value here before starting a DMA transfer on the channel indicated by SNIFF_CTRL_DMACH. The hardware will update this register each time it observes a read from the indicated channel. Once the channel completes, the final result can be read from this register. */
+    uint32_t INTE1;  /*!< (read-write) Interrupt Enables for IRQ 1 */
+    uint32_t INTF1;  /*!< (read-write) Force Interrupts for IRQ 1 */
+    uint32_t INTS1;  /*!< (read-write) Interrupt Status (masked) for IRQ 1 */
+    uint32_t TIMER0; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t TIMER1; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t TIMER2; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t TIMER3; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t MULTI_CHAN_TRIGGER; /*!< (read-write) Trigger one or more channels
+                                    simultaneously */
+    uint32_t SNIFF_CTRL;         /*!< (read-write) Sniffer Control */
+    uint32_t SNIFF_DATA;         /*!< (read-write) Data accumulator for sniff
+        hardware\n         Write an initial seed value here before starting a DMA
+        transfer on         the channel indicated by SNIFF_CTRL_DMACH. The hardware
+        will update         this         register each time it observes a read from the
+        indicated channel. Once the         channel completes, the final result can be
+        read         from this register. */
     const uint32_t reserved_padding2 = {};
-    const uint32_t FIFO_LEVELS = {};                                   /*!< (read-only) Debug RAF, WAF, TDF levels */
-    uint32_t CHAN_ABORT;                                               /*!< (read-write) Abort an in-progress transfer sequence on one or more channels */
-    const uint32_t N_CHANNELS = {};                                    /*!< (read-only) The number of channels this DMA instance is equipped with. This DMA supports up to 16 hardware channels, but can be configured with as few as one, to minimise silicon area. */
+    const uint32_t FIFO_LEVELS =
+        {};              /*!< (read-only) Debug RAF, WAF, TDF levels */
+    uint32_t CHAN_ABORT; /*!< (read-write) Abort an in-progress transfer
+                            sequence on one or more channels */
+    const uint32_t N_CHANNELS =
+        {}; /*!< (read-only) The number of channels this DMA instance is
+               equipped with. This DMA supports up to 16 hardware channels, but
+               can be configured with as few as one, to minimise silicon area.
+             */
     static constexpr std::size_t reserved_padding3_length = 237;
     const uint32_t reserved_padding3[reserved_padding3_length] = {};
-    uint32_t CH0_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH0_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH0_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH0_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding4_length = 14;
     const uint32_t reserved_padding4[reserved_padding4_length] = {};
-    uint32_t CH1_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH1_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH1_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH1_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding5_length = 14;
     const uint32_t reserved_padding5[reserved_padding5_length] = {};
-    uint32_t CH2_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH2_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH2_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH2_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding6_length = 14;
     const uint32_t reserved_padding6[reserved_padding6_length] = {};
-    uint32_t CH3_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH3_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH3_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH3_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding7_length = 14;
     const uint32_t reserved_padding7[reserved_padding7_length] = {};
-    uint32_t CH4_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH4_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH4_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH4_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding8_length = 14;
     const uint32_t reserved_padding8[reserved_padding8_length] = {};
-    uint32_t CH5_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH5_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH5_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH5_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding9_length = 14;
     const uint32_t reserved_padding9[reserved_padding9_length] = {};
-    uint32_t CH6_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH6_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH6_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH6_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding10_length = 14;
     const uint32_t reserved_padding10[reserved_padding10_length] = {};
-    uint32_t CH7_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH7_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH7_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH7_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding11_length = 14;
     const uint32_t reserved_padding11[reserved_padding11_length] = {};
-    uint32_t CH8_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH8_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH8_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH8_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding12_length = 14;
     const uint32_t reserved_padding12[reserved_padding12_length] = {};
-    uint32_t CH9_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH9_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH9_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH9_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding13_length = 14;
     const uint32_t reserved_padding13[reserved_padding13_length] = {};
-    uint32_t CH10_DBG_CTDREQ;                                          /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH10_DBG_TCR;                                             /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH10_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                            how many accesses the DMA expects it can perform on
+                            the peripheral without overflow/underflow. Write
+                            any value: clears the counter, and cause channel to
+                            re-initiate DREQ handshake. */
+    uint32_t
+        CH10_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                         value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding14_length = 14;
     const uint32_t reserved_padding14[reserved_padding14_length] = {};
-    uint32_t CH11_DBG_CTDREQ;                                          /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH11_DBG_TCR;                                             /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH11_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                            how many accesses the DMA expects it can perform on
+                            the peripheral without overflow/underflow. Write
+                            any value: clears the counter, and cause channel to
+                            re-initiate DREQ handshake. */
+    uint32_t
+        CH11_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                         value, i.e. the length of the next transfer */
 
     /* Methods. */
 
@@ -4744,7 +5087,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's DATA_SIZE field.
      */
-    inline void set_CH10_CTRL_TRIG_DATA_SIZE(DMA_CH10_CTRL_TRIG_DATA_SIZE value)
+    inline void set_CH10_CTRL_TRIG_DATA_SIZE(
+        DMA_CH10_CTRL_TRIG_DATA_SIZE value)
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -4829,7 +5173,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's RING_SIZE field.
      */
-    inline void set_CH10_CTRL_TRIG_RING_SIZE(DMA_CH10_CTRL_TRIG_RING_SIZE value)
+    inline void set_CH10_CTRL_TRIG_RING_SIZE(
+        DMA_CH10_CTRL_TRIG_RING_SIZE value)
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -4897,7 +5242,8 @@ struct [[gnu::packed]] dma
      */
     DMA_CH10_CTRL_TRIG_TREQ_SEL get_CH10_CTRL_TRIG_TREQ_SEL()
     {
-        return DMA_CH10_CTRL_TRIG_TREQ_SEL((CH10_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_CH10_CTRL_TRIG_TREQ_SEL((CH10_CTRL_TRIG >> 15u) &
+                                           0b111111u);
     }
 
     /**
@@ -5164,7 +5510,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's DATA_SIZE field.
      */
-    inline void set_CH11_CTRL_TRIG_DATA_SIZE(DMA_CH11_CTRL_TRIG_DATA_SIZE value)
+    inline void set_CH11_CTRL_TRIG_DATA_SIZE(
+        DMA_CH11_CTRL_TRIG_DATA_SIZE value)
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -5249,7 +5596,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's RING_SIZE field.
      */
-    inline void set_CH11_CTRL_TRIG_RING_SIZE(DMA_CH11_CTRL_TRIG_RING_SIZE value)
+    inline void set_CH11_CTRL_TRIG_RING_SIZE(
+        DMA_CH11_CTRL_TRIG_RING_SIZE value)
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -5317,7 +5665,8 @@ struct [[gnu::packed]] dma
      */
     DMA_CH11_CTRL_TRIG_TREQ_SEL get_CH11_CTRL_TRIG_TREQ_SEL()
     {
-        return DMA_CH11_CTRL_TRIG_TREQ_SEL((CH11_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_CH11_CTRL_TRIG_TREQ_SEL((CH11_CTRL_TRIG >> 15u) &
+                                           0b111111u);
     }
 
     /**

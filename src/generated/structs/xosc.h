@@ -22,20 +22,21 @@ struct [[gnu::packed]] xosc
     static constexpr std::size_t size = 32; /*!< xosc's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;                                                   /*!< (read-write) Crystal Oscillator Control */
-    uint32_t STATUS;                                                 /*!< (read-write) Crystal Oscillator Status */
-    uint32_t DORMANT;                                                /*!< (read-write) Crystal Oscillator pause control\n
-                This is used to save power by pausing the XOSC\n
-                On power-up this field is initialised to WAKE\n
-                An invalid write will also select WAKE\n
-                WARNING: stop the PLLs before selecting dormant mode\n
-                WARNING: setup the irq before selecting dormant mode */
-    uint32_t STARTUP;                                                /*!< (read-write) Controls the startup delay */
+    uint32_t CTRL;    /*!< (read-write) Crystal Oscillator Control */
+    uint32_t STATUS;  /*!< (read-write) Crystal Oscillator Status */
+    uint32_t DORMANT; /*!< (read-write) Crystal Oscillator pause control\n
+This is used to save power by pausing the XOSC\n
+On power-up this field is initialised to WAKE\n
+An invalid write will also select WAKE\n
+WARNING: stop the PLLs before selecting dormant mode\n
+WARNING: setup the irq before selecting dormant mode */
+    uint32_t STARTUP; /*!< (read-write) Controls the startup delay */
     static constexpr std::size_t reserved_padding0_length = 3;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t COUNT;                                                  /*!< (read-write) A down counter running at the xosc frequency which counts to zero and stops.\n
-                To start the counter write a non-zero value.\n
-                Can be used for short software pauses when setting up time sensitive hardware. */
+    uint32_t COUNT; /*!< (read-write) A down counter running at the xosc
+frequency which counts to zero and stops.\n To start the counter write a
+non-zero value.\n Can be used for short software pauses when setting up time
+sensitive hardware. */
 
     /* Methods. */
 

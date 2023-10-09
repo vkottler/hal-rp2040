@@ -47,27 +47,39 @@ struct [[gnu::packed]] io_qspi
 
     /* Fields. */
     const uint32_t GPIO_QSPI_SCLK_STATUS = {}; /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SCLK_CTRL;              /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SS_STATUS = {};   /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SS_CTRL;                /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD0_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD0_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD1_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD1_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD2_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD2_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD3_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD3_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    uint32_t INTR;                             /*!< (read-write) Raw Interrupts */
-    uint32_t PROC0_INTE;                       /*!< (read-write) Interrupt Enable for proc0 */
-    uint32_t PROC0_INTF;                       /*!< (read-write) Interrupt Force for proc0 */
-    const uint32_t PROC0_INTS = {};            /*!< (read-only) Interrupt status after masking & forcing for proc0 */
-    uint32_t PROC1_INTE;                       /*!< (read-write) Interrupt Enable for proc1 */
-    uint32_t PROC1_INTF;                       /*!< (read-write) Interrupt Force for proc1 */
-    const uint32_t PROC1_INTS = {};            /*!< (read-only) Interrupt status after masking & forcing for proc1 */
-    uint32_t DORMANT_WAKE_INTE;                /*!< (read-write) Interrupt Enable for dormant_wake */
-    uint32_t DORMANT_WAKE_INTF;                /*!< (read-write) Interrupt Force for dormant_wake */
-    const uint32_t DORMANT_WAKE_INTS = {};     /*!< (read-only) Interrupt status after masking & forcing for dormant_wake */
+    uint32_t GPIO_QSPI_SCLK_CTRL; /*!< (read-write) GPIO control including
+                                     function select and overrides. */
+    const uint32_t GPIO_QSPI_SS_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SS_CTRL; /*!< (read-write) GPIO control including
+                                   function select and overrides. */
+    const uint32_t GPIO_QSPI_SD0_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD0_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    const uint32_t GPIO_QSPI_SD1_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD1_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    const uint32_t GPIO_QSPI_SD2_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD2_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    const uint32_t GPIO_QSPI_SD3_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD3_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    uint32_t INTR;               /*!< (read-write) Raw Interrupts */
+    uint32_t PROC0_INTE; /*!< (read-write) Interrupt Enable for proc0 */
+    uint32_t PROC0_INTF; /*!< (read-write) Interrupt Force for proc0 */
+    const uint32_t PROC0_INTS = {}; /*!< (read-only) Interrupt status after
+                                       masking & forcing for proc0 */
+    uint32_t PROC1_INTE; /*!< (read-write) Interrupt Enable for proc1 */
+    uint32_t PROC1_INTF; /*!< (read-write) Interrupt Force for proc1 */
+    const uint32_t PROC1_INTS = {}; /*!< (read-only) Interrupt status after
+                                       masking & forcing for proc1 */
+    uint32_t DORMANT_WAKE_INTE;     /*!< (read-write) Interrupt Enable for
+                                       dormant_wake */
+    uint32_t DORMANT_WAKE_INTF;     /*!< (read-write) Interrupt Force for
+                                       dormant_wake */
+    const uint32_t DORMANT_WAKE_INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing for
+               dormant_wake */
 
     /* Methods. */
 
@@ -140,13 +152,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL get_GPIO_QSPI_SCLK_CTRL_FUNCSEL()
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL((GPIO_QSPI_SCLK_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL(
+            (GPIO_QSPI_SCLK_CTRL >> 0u) & 0b11111u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's FUNCSEL field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL value)
+    inline void set_GPIO_QSPI_SCLK_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL value)
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -161,13 +175,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER get_GPIO_QSPI_SCLK_CTRL_OUTOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER((GPIO_QSPI_SCLK_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER value)
+    inline void set_GPIO_QSPI_SCLK_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER value)
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -182,13 +198,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER get_GPIO_QSPI_SCLK_CTRL_OEOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER((GPIO_QSPI_SCLK_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER value)
+    inline void set_GPIO_QSPI_SCLK_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER value)
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -203,13 +221,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER get_GPIO_QSPI_SCLK_CTRL_INOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER((GPIO_QSPI_SCLK_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER value)
+    inline void set_GPIO_QSPI_SCLK_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER value)
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -224,13 +244,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER get_GPIO_QSPI_SCLK_CTRL_IRQOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER((GPIO_QSPI_SCLK_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER value)
+    inline void set_GPIO_QSPI_SCLK_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER value)
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -309,13 +331,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL get_GPIO_QSPI_SS_CTRL_FUNCSEL()
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL((GPIO_QSPI_SS_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL((GPIO_QSPI_SS_CTRL >> 0u) &
+                                                 0b11111u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's FUNCSEL field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL value)
+    inline void set_GPIO_QSPI_SS_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL value)
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -330,13 +354,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER get_GPIO_QSPI_SS_CTRL_OUTOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER((GPIO_QSPI_SS_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER((GPIO_QSPI_SS_CTRL >> 8u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER value)
+    inline void set_GPIO_QSPI_SS_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER value)
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -351,13 +377,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER get_GPIO_QSPI_SS_CTRL_OEOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER((GPIO_QSPI_SS_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER((GPIO_QSPI_SS_CTRL >> 12u) &
+                                                0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER value)
+    inline void set_GPIO_QSPI_SS_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER value)
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -372,13 +400,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER get_GPIO_QSPI_SS_CTRL_INOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER((GPIO_QSPI_SS_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER((GPIO_QSPI_SS_CTRL >> 16u) &
+                                                0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER value)
+    inline void set_GPIO_QSPI_SS_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER value)
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -393,13 +423,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER get_GPIO_QSPI_SS_CTRL_IRQOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER((GPIO_QSPI_SS_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER((GPIO_QSPI_SS_CTRL >> 28u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER value)
+    inline void set_GPIO_QSPI_SS_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER value)
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -478,13 +510,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL get_GPIO_QSPI_SD0_CTRL_FUNCSEL()
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL((GPIO_QSPI_SD0_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL((GPIO_QSPI_SD0_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's FUNCSEL field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL value)
+    inline void set_GPIO_QSPI_SD0_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL value)
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -499,13 +533,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER get_GPIO_QSPI_SD0_CTRL_OUTOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER((GPIO_QSPI_SD0_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER((GPIO_QSPI_SD0_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER value)
+    inline void set_GPIO_QSPI_SD0_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -520,13 +556,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER get_GPIO_QSPI_SD0_CTRL_OEOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER((GPIO_QSPI_SD0_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER((GPIO_QSPI_SD0_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER value)
+    inline void set_GPIO_QSPI_SD0_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -541,13 +579,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER get_GPIO_QSPI_SD0_CTRL_INOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER((GPIO_QSPI_SD0_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER((GPIO_QSPI_SD0_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER value)
+    inline void set_GPIO_QSPI_SD0_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -562,13 +602,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER get_GPIO_QSPI_SD0_CTRL_IRQOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER((GPIO_QSPI_SD0_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER((GPIO_QSPI_SD0_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER value)
+    inline void set_GPIO_QSPI_SD0_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -647,13 +689,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL get_GPIO_QSPI_SD1_CTRL_FUNCSEL()
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL((GPIO_QSPI_SD1_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL((GPIO_QSPI_SD1_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's FUNCSEL field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL value)
+    inline void set_GPIO_QSPI_SD1_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL value)
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -668,13 +712,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER get_GPIO_QSPI_SD1_CTRL_OUTOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER((GPIO_QSPI_SD1_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER((GPIO_QSPI_SD1_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER value)
+    inline void set_GPIO_QSPI_SD1_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -689,13 +735,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER get_GPIO_QSPI_SD1_CTRL_OEOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER((GPIO_QSPI_SD1_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER((GPIO_QSPI_SD1_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER value)
+    inline void set_GPIO_QSPI_SD1_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -710,13 +758,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER get_GPIO_QSPI_SD1_CTRL_INOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER((GPIO_QSPI_SD1_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER((GPIO_QSPI_SD1_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER value)
+    inline void set_GPIO_QSPI_SD1_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -731,13 +781,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER get_GPIO_QSPI_SD1_CTRL_IRQOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER((GPIO_QSPI_SD1_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER((GPIO_QSPI_SD1_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER value)
+    inline void set_GPIO_QSPI_SD1_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -816,13 +868,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL get_GPIO_QSPI_SD2_CTRL_FUNCSEL()
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL((GPIO_QSPI_SD2_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL((GPIO_QSPI_SD2_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's FUNCSEL field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL value)
+    inline void set_GPIO_QSPI_SD2_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL value)
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -837,13 +891,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER get_GPIO_QSPI_SD2_CTRL_OUTOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER((GPIO_QSPI_SD2_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER((GPIO_QSPI_SD2_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER value)
+    inline void set_GPIO_QSPI_SD2_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -858,13 +914,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER get_GPIO_QSPI_SD2_CTRL_OEOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER((GPIO_QSPI_SD2_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER((GPIO_QSPI_SD2_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER value)
+    inline void set_GPIO_QSPI_SD2_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -879,13 +937,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER get_GPIO_QSPI_SD2_CTRL_INOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER((GPIO_QSPI_SD2_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER((GPIO_QSPI_SD2_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER value)
+    inline void set_GPIO_QSPI_SD2_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -900,13 +960,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER get_GPIO_QSPI_SD2_CTRL_IRQOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER((GPIO_QSPI_SD2_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER((GPIO_QSPI_SD2_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER value)
+    inline void set_GPIO_QSPI_SD2_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -985,13 +1047,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL get_GPIO_QSPI_SD3_CTRL_FUNCSEL()
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL((GPIO_QSPI_SD3_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL((GPIO_QSPI_SD3_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's FUNCSEL field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL value)
+    inline void set_GPIO_QSPI_SD3_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL value)
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1006,13 +1070,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER get_GPIO_QSPI_SD3_CTRL_OUTOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER((GPIO_QSPI_SD3_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER((GPIO_QSPI_SD3_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER value)
+    inline void set_GPIO_QSPI_SD3_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1027,13 +1093,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER get_GPIO_QSPI_SD3_CTRL_OEOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER((GPIO_QSPI_SD3_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER((GPIO_QSPI_SD3_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER value)
+    inline void set_GPIO_QSPI_SD3_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1048,13 +1116,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER get_GPIO_QSPI_SD3_CTRL_INOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER((GPIO_QSPI_SD3_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER((GPIO_QSPI_SD3_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER value)
+    inline void set_GPIO_QSPI_SD3_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1069,13 +1139,15 @@ struct [[gnu::packed]] io_qspi
      */
     IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER get_GPIO_QSPI_SD3_CTRL_IRQOVER()
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER((GPIO_QSPI_SD3_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER((GPIO_QSPI_SD3_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER value)
+    inline void set_GPIO_QSPI_SD3_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER value)
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -6752,6 +6824,7 @@ struct [[gnu::packed]] io_qspi
 
 static_assert(sizeof(io_qspi) == io_qspi::size);
 
-static volatile io_qspi *const IO_QSPI = reinterpret_cast<io_qspi *>(0x40018000);
+static volatile io_qspi *const IO_QSPI =
+    reinterpret_cast<io_qspi *>(0x40018000);
 
 }; // namespace RP2040

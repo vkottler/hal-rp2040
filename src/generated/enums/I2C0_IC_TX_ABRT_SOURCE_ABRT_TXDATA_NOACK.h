@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK : uint8_t
 {
-    ABRT_TXDATA_NOACK_VOID /*!< Transmitted data non-ACKed by addressed slave-scenario not present */,
-    ABRT_TXDATA_NOACK_GENERATED = 1 /*!< Transmitted data not ACKed by addressed slave */
+    ABRT_TXDATA_NOACK_VOID /*!< Transmitted data non-ACKed by addressed
+                              slave-scenario not present */
+        ,
+    ABRT_TXDATA_NOACK_GENERATED =
+        1 /*!< Transmitted data not ACKed by addressed slave */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK) == 1);
 
@@ -49,17 +52,20 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "ABRT_TXDATA_NOACK_VOID", 22)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK::ABRT_TXDATA_NOACK_VOID;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK::ABRT_TXDATA_NOACK_VOID;
     }
     else if ((result = !strncmp(data, "ABRT_TXDATA_NOACK_GENERATED", 27)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK::ABRT_TXDATA_NOACK_GENERATED;
+        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK::
+            ABRT_TXDATA_NOACK_GENERATED;
     }
 
     return result;

@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST : uint8_t
 {
-    ABRT_SLV_ARBLOST_VOID /*!< Slave lost arbitration to remote master- scenario not present */,
-    ABRT_SLV_ARBLOST_GENERATED = 1 /*!< Slave lost arbitration to remote master */
+    ABRT_SLV_ARBLOST_VOID /*!< Slave lost arbitration to remote master-
+                             scenario not present */
+        ,
+    ABRT_SLV_ARBLOST_GENERATED =
+        1 /*!< Slave lost arbitration to remote master */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST) == 1);
 
@@ -49,17 +52,20 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST &output)
 {
     bool result = false;
 
     if ((result = !strncmp(data, "ABRT_SLV_ARBLOST_VOID", 21)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST::ABRT_SLV_ARBLOST_VOID;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST::ABRT_SLV_ARBLOST_VOID;
     }
     else if ((result = !strncmp(data, "ABRT_SLV_ARBLOST_GENERATED", 26)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST::ABRT_SLV_ARBLOST_GENERATED;
+        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST::
+            ABRT_SLV_ARBLOST_GENERATED;
     }
 
     return result;

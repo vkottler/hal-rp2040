@@ -166,106 +166,160 @@ struct [[gnu::packed]] io_bank
     static constexpr std::size_t size = 400; /*!< io_bank's size in bytes. */
 
     /* Fields. */
-    const uint32_t GPIO0_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO0_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO1_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO1_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO2_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO2_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO3_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO3_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO4_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO4_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO5_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO5_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO6_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO6_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO7_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO7_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO8_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO8_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO9_STATUS = {};       /*!< (read-only) GPIO status */
-    uint32_t GPIO9_CTRL;                    /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO10_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO10_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO11_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO11_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO12_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO12_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO13_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO13_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO14_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO14_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO15_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO15_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO16_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO16_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO17_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO17_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO18_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO18_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO19_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO19_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO20_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO20_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO21_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO21_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO22_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO22_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO23_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO23_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO24_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO24_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO25_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO25_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO26_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO26_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO27_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO27_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO28_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO28_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO29_STATUS = {};      /*!< (read-only) GPIO status */
-    uint32_t GPIO29_CTRL;                   /*!< (read-write) GPIO control including function select and overrides. */
-    uint32_t INTR0;                         /*!< (read-write) Raw Interrupts */
-    uint32_t INTR1;                         /*!< (read-write) Raw Interrupts */
-    uint32_t INTR2;                         /*!< (read-write) Raw Interrupts */
-    uint32_t INTR3;                         /*!< (read-write) Raw Interrupts */
-    uint32_t PROC0_INTE0;                   /*!< (read-write) Interrupt Enable for proc0 */
-    uint32_t PROC0_INTE1;                   /*!< (read-write) Interrupt Enable for proc0 */
-    uint32_t PROC0_INTE2;                   /*!< (read-write) Interrupt Enable for proc0 */
-    uint32_t PROC0_INTE3;                   /*!< (read-write) Interrupt Enable for proc0 */
-    uint32_t PROC0_INTF0;                   /*!< (read-write) Interrupt Force for proc0 */
-    uint32_t PROC0_INTF1;                   /*!< (read-write) Interrupt Force for proc0 */
-    uint32_t PROC0_INTF2;                   /*!< (read-write) Interrupt Force for proc0 */
-    uint32_t PROC0_INTF3;                   /*!< (read-write) Interrupt Force for proc0 */
-    const uint32_t PROC0_INTS0 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc0 */
-    const uint32_t PROC0_INTS1 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc0 */
-    const uint32_t PROC0_INTS2 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc0 */
-    const uint32_t PROC0_INTS3 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc0 */
-    uint32_t PROC1_INTE0;                   /*!< (read-write) Interrupt Enable for proc1 */
-    uint32_t PROC1_INTE1;                   /*!< (read-write) Interrupt Enable for proc1 */
-    uint32_t PROC1_INTE2;                   /*!< (read-write) Interrupt Enable for proc1 */
-    uint32_t PROC1_INTE3;                   /*!< (read-write) Interrupt Enable for proc1 */
-    uint32_t PROC1_INTF0;                   /*!< (read-write) Interrupt Force for proc1 */
-    uint32_t PROC1_INTF1;                   /*!< (read-write) Interrupt Force for proc1 */
-    uint32_t PROC1_INTF2;                   /*!< (read-write) Interrupt Force for proc1 */
-    uint32_t PROC1_INTF3;                   /*!< (read-write) Interrupt Force for proc1 */
-    const uint32_t PROC1_INTS0 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc1 */
-    const uint32_t PROC1_INTS1 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc1 */
-    const uint32_t PROC1_INTS2 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc1 */
-    const uint32_t PROC1_INTS3 = {};        /*!< (read-only) Interrupt status after masking & forcing for proc1 */
-    uint32_t DORMANT_WAKE_INTE0;            /*!< (read-write) Interrupt Enable for dormant_wake */
-    uint32_t DORMANT_WAKE_INTE1;            /*!< (read-write) Interrupt Enable for dormant_wake */
-    uint32_t DORMANT_WAKE_INTE2;            /*!< (read-write) Interrupt Enable for dormant_wake */
-    uint32_t DORMANT_WAKE_INTE3;            /*!< (read-write) Interrupt Enable for dormant_wake */
-    uint32_t DORMANT_WAKE_INTF0;            /*!< (read-write) Interrupt Force for dormant_wake */
-    uint32_t DORMANT_WAKE_INTF1;            /*!< (read-write) Interrupt Force for dormant_wake */
-    uint32_t DORMANT_WAKE_INTF2;            /*!< (read-write) Interrupt Force for dormant_wake */
-    uint32_t DORMANT_WAKE_INTF3;            /*!< (read-write) Interrupt Force for dormant_wake */
-    const uint32_t DORMANT_WAKE_INTS0 = {}; /*!< (read-only) Interrupt status after masking & forcing for dormant_wake */
-    const uint32_t DORMANT_WAKE_INTS1 = {}; /*!< (read-only) Interrupt status after masking & forcing for dormant_wake */
-    const uint32_t DORMANT_WAKE_INTS2 = {}; /*!< (read-only) Interrupt status after masking & forcing for dormant_wake */
-    const uint32_t DORMANT_WAKE_INTS3 = {}; /*!< (read-only) Interrupt status after masking & forcing for dormant_wake */
+    const uint32_t GPIO0_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO0_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO1_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO1_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO2_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO2_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO3_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO3_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO4_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO4_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO5_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO5_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO6_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO6_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO7_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO7_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO8_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO8_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO9_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO9_CTRL; /*!< (read-write) GPIO control including function
+                            select and overrides. */
+    const uint32_t GPIO10_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO10_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO11_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO11_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO12_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO12_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO13_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO13_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO14_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO14_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO15_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO15_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO16_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO16_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO17_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO17_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO18_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO18_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO19_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO19_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO20_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO20_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO21_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO21_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO22_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO22_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO23_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO23_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO24_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO24_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO25_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO25_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO26_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO26_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO27_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO27_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO28_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO28_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    const uint32_t GPIO29_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO29_CTRL; /*!< (read-write) GPIO control including function
+                             select and overrides. */
+    uint32_t INTR0;       /*!< (read-write) Raw Interrupts */
+    uint32_t INTR1;       /*!< (read-write) Raw Interrupts */
+    uint32_t INTR2;       /*!< (read-write) Raw Interrupts */
+    uint32_t INTR3;       /*!< (read-write) Raw Interrupts */
+    uint32_t PROC0_INTE0; /*!< (read-write) Interrupt Enable for proc0 */
+    uint32_t PROC0_INTE1; /*!< (read-write) Interrupt Enable for proc0 */
+    uint32_t PROC0_INTE2; /*!< (read-write) Interrupt Enable for proc0 */
+    uint32_t PROC0_INTE3; /*!< (read-write) Interrupt Enable for proc0 */
+    uint32_t PROC0_INTF0; /*!< (read-write) Interrupt Force for proc0 */
+    uint32_t PROC0_INTF1; /*!< (read-write) Interrupt Force for proc0 */
+    uint32_t PROC0_INTF2; /*!< (read-write) Interrupt Force for proc0 */
+    uint32_t PROC0_INTF3; /*!< (read-write) Interrupt Force for proc0 */
+    const uint32_t PROC0_INTS0 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc0 */
+    const uint32_t PROC0_INTS1 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc0 */
+    const uint32_t PROC0_INTS2 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc0 */
+    const uint32_t PROC0_INTS3 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc0 */
+    uint32_t PROC1_INTE0; /*!< (read-write) Interrupt Enable for proc1 */
+    uint32_t PROC1_INTE1; /*!< (read-write) Interrupt Enable for proc1 */
+    uint32_t PROC1_INTE2; /*!< (read-write) Interrupt Enable for proc1 */
+    uint32_t PROC1_INTE3; /*!< (read-write) Interrupt Enable for proc1 */
+    uint32_t PROC1_INTF0; /*!< (read-write) Interrupt Force for proc1 */
+    uint32_t PROC1_INTF1; /*!< (read-write) Interrupt Force for proc1 */
+    uint32_t PROC1_INTF2; /*!< (read-write) Interrupt Force for proc1 */
+    uint32_t PROC1_INTF3; /*!< (read-write) Interrupt Force for proc1 */
+    const uint32_t PROC1_INTS0 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc1 */
+    const uint32_t PROC1_INTS1 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc1 */
+    const uint32_t PROC1_INTS2 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc1 */
+    const uint32_t PROC1_INTS3 = {}; /*!< (read-only) Interrupt status after
+                                        masking & forcing for proc1 */
+    uint32_t DORMANT_WAKE_INTE0;     /*!< (read-write) Interrupt Enable for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTE1;     /*!< (read-write) Interrupt Enable for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTE2;     /*!< (read-write) Interrupt Enable for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTE3;     /*!< (read-write) Interrupt Enable for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTF0;     /*!< (read-write) Interrupt Force for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTF1;     /*!< (read-write) Interrupt Force for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTF2;     /*!< (read-write) Interrupt Force for
+                                        dormant_wake */
+    uint32_t DORMANT_WAKE_INTF3;     /*!< (read-write) Interrupt Force for
+                                        dormant_wake */
+    const uint32_t DORMANT_WAKE_INTS0 =
+        {}; /*!< (read-only) Interrupt status after masking & forcing for
+               dormant_wake */
+    const uint32_t DORMANT_WAKE_INTS1 =
+        {}; /*!< (read-only) Interrupt status after masking & forcing for
+               dormant_wake */
+    const uint32_t DORMANT_WAKE_INTS2 =
+        {}; /*!< (read-only) Interrupt status after masking & forcing for
+               dormant_wake */
+    const uint32_t DORMANT_WAKE_INTS3 =
+        {}; /*!< (read-only) Interrupt status after masking & forcing for
+               dormant_wake */
 
     /* Methods. */
 
@@ -33662,6 +33716,7 @@ struct [[gnu::packed]] io_bank
 
 static_assert(sizeof(io_bank) == io_bank::size);
 
-static volatile io_bank *const IO_BANK0 = reinterpret_cast<io_bank *>(0x40014000);
+static volatile io_bank *const IO_BANK0 =
+    reinterpret_cast<io_bank *>(0x40014000);
 
 }; // namespace RP2040

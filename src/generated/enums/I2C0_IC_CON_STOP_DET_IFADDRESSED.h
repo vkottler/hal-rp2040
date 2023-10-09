@@ -49,7 +49,8 @@ inline const char *to_string(I2C0_IC_CON_STOP_DET_IFADDRESSED instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_CON_STOP_DET_IFADDRESSED &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_CON_STOP_DET_IFADDRESSED &output)
 {
     bool result = false;
 

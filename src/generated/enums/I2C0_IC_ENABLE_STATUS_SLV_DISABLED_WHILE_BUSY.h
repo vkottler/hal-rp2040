@@ -17,7 +17,8 @@ enum class I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY : uint8_t
 };
 static_assert(sizeof(I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY) == 1);
 
-static constexpr uint16_t I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY_id = 408;
+static constexpr uint16_t I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY_id =
+    408;
 
 /**
  * Converts I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY to a C string.
@@ -25,9 +26,11 @@ static constexpr uint16_t I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY_id = 408
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY instance)
+inline const char *to_string(
+    I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY instance)
 {
-    const char *result = "UNKNOWN I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY";
+    const char *result =
+        "UNKNOWN I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY";
 
     switch (instance)
     {
@@ -49,7 +52,8 @@ inline const char *to_string(I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY insta
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY &output)
 {
     bool result = false;
 

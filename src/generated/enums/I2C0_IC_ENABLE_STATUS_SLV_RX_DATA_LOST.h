@@ -49,7 +49,8 @@ inline const char *to_string(I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST &output)
 {
     bool result = false;
 

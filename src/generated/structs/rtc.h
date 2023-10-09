@@ -19,7 +19,9 @@ struct [[gnu::packed]] rtc
     static constexpr std::size_t size = 48; /*!< rtc's size in bytes. */
 
     /* Fields. */
-    uint32_t CLKDIV_M1;        /*!< (read-write) Divider minus 1 for the 1 second counter. Safe to change the value when RTC is not enabled. */
+    uint32_t
+        CLKDIV_M1; /*!< (read-write) Divider minus 1 for the 1 second counter.
+                      Safe to change the value when RTC is not enabled. */
     uint32_t SETUP_0;          /*!< (read-write) RTC setup register 0 */
     uint32_t SETUP_1;          /*!< (read-write) RTC setup register 1 */
     uint32_t CTRL;             /*!< (read-write) RTC Control and status */
@@ -31,7 +33,8 @@ struct [[gnu::packed]] rtc
     const uint32_t INTR = {};  /*!< (read-only) Raw Interrupts */
     uint32_t INTE;             /*!< (read-write) Interrupt Enable */
     uint32_t INTF;             /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {};  /*!< (read-only) Interrupt status after masking & forcing */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 

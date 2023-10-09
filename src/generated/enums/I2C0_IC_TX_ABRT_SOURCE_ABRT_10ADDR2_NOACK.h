@@ -25,7 +25,8 @@ static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK_id = 388;
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK instance)
+inline const char *to_string(
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK instance)
 {
     const char *result = "UNKNOWN I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK";
 
@@ -49,7 +50,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK &output)
 {
     bool result = false;
 

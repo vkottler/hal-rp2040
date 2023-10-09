@@ -99,9 +99,10 @@ namespace RP2040
 
 /**
  * DW_apb_i2c address block\n\n
- *         List of configuration constants for the Synopsys I2C hardware (you may see references to these in I2C register header; these are *fixed* values, set at hardware design time):\n\n
- *         IC_ULTRA_FAST_MODE ................ 0x0\n
- *         IC_UFM_TBUF_CNT_DEFAULT ........... 0x8\n
+ *         List of configuration constants for the Synopsys I2C hardware (you
+ * may see references to these in I2C register header; these are *fixed*
+ * values, set at hardware design time):\n\n IC_ULTRA_FAST_MODE
+ * ................ 0x0\n IC_UFM_TBUF_CNT_DEFAULT ........... 0x8\n
  *         IC_UFM_SCL_LOW_COUNT .............. 0x0008\n
  *         IC_UFM_SCL_HIGH_COUNT ............. 0x0006\n
  *         IC_TX_TL .......................... 0x0\n
@@ -176,85 +177,188 @@ struct [[gnu::packed]] i2c
     static constexpr std::size_t size = 256; /*!< i2c's size in bytes. */
 
     /* Fields. */
-    uint32_t IC_CON;                                                 /*!< (read-write) I2C Control Register. This register can be written only when the DW_apb_i2c is disabled, which corresponds to the IC_ENABLE[0] register being set to 0. Writes at other times have no effect.\n\n
-                Read/Write Access: - bit 10 is read only. - bit 11 is read only - bit 16 is read only - bit 17 is read only - bits 18 and 19 are read only. */
-    uint32_t IC_TAR;                                                 /*!< (read-write) I2C Target Address Register\n\n
-                This register is 12 bits wide, and bits 31:12 are reserved. This register can be written to only when IC_ENABLE[0] is set to 0.\n\n
-                Note: If the software or application is aware that the DW_apb_i2c is not using the TAR address for the pending commands in the Tx FIFO, then it is possible to update the TAR address even while the Tx FIFO has entries (IC_STATUS[2]= 0). - It is not necessary to perform any write to this register if DW_apb_i2c is enabled as an I2C slave only. */
-    uint32_t IC_SAR;                                                 /*!< (read-write) I2C Slave Address Register */
+    uint32_t IC_CON; /*!< (read-write) I2C Control Register. This register can
+be written only when the DW_apb_i2c is disabled, which corresponds to the
+IC_ENABLE[0] register being set to 0. Writes at other times have no effect.\n\n
+Read/Write Access: - bit 10 is read only. - bit 11 is read only - bit 16 is
+read only - bit 17 is read only - bits 18 and 19 are read only. */
+    uint32_t IC_TAR; /*!< (read-write) I2C Target Address Register\n\n
+This register is 12 bits wide, and bits 31:12 are reserved. This register can
+be written to only when IC_ENABLE[0] is set to 0.\n\n Note: If the software or
+application is aware that the DW_apb_i2c is not using the TAR address for the
+pending commands in the Tx FIFO, then it is possible to update the TAR address
+even while the Tx FIFO has entries (IC_STATUS[2]= 0). - It is not necessary to
+perform any write to this register if DW_apb_i2c is enabled as an I2C slave
+only. */
+    uint32_t IC_SAR; /*!< (read-write) I2C Slave Address Register */
     const uint32_t reserved_padding0 = {};
-    uint32_t IC_DATA_CMD;                                            /*!< (read-write) I2C Rx/Tx Data Buffer and Command Register; this is the register the CPU writes to when filling the TX FIFO and the CPU reads from when retrieving bytes from RX FIFO.\n\n
-                The size of the register changes as follows:\n\n
-                Write: - 11 bits when IC_EMPTYFIFO_HOLD_MASTER_EN=1 - 9 bits when IC_EMPTYFIFO_HOLD_MASTER_EN=0 Read: - 12 bits when IC_FIRST_DATA_BYTE_STATUS = 1 - 8 bits when IC_FIRST_DATA_BYTE_STATUS = 0 Note: In order for the DW_apb_i2c to continue acknowledging reads, a read command should be written for every byte that is to be received; otherwise the DW_apb_i2c will stop acknowledging. */
-    uint32_t IC_SS_SCL_HCNT;                                         /*!< (read-write) Standard Speed I2C Clock SCL High Count Register */
-    uint32_t IC_SS_SCL_LCNT;                                         /*!< (read-write) Standard Speed I2C Clock SCL Low Count Register */
-    uint32_t IC_FS_SCL_HCNT;                                         /*!< (read-write) Fast Mode or Fast Mode Plus I2C Clock SCL High Count Register */
-    uint32_t IC_FS_SCL_LCNT;                                         /*!< (read-write) Fast Mode or Fast Mode Plus I2C Clock SCL Low Count Register */
+    uint32_t IC_DATA_CMD; /*!< (read-write) I2C Rx/Tx Data Buffer and Command
+Register; this is the register the CPU writes to when filling the TX FIFO and
+the CPU reads from when retrieving bytes from RX FIFO.\n\n The size of the
+register changes as follows:\n\n Write: - 11 bits when
+IC_EMPTYFIFO_HOLD_MASTER_EN=1 - 9 bits when IC_EMPTYFIFO_HOLD_MASTER_EN=0 Read:
+- 12 bits when IC_FIRST_DATA_BYTE_STATUS = 1 - 8 bits when
+IC_FIRST_DATA_BYTE_STATUS = 0 Note: In order for the DW_apb_i2c to continue
+acknowledging reads, a read command should be written for every byte that is to
+be received; otherwise the DW_apb_i2c will stop acknowledging. */
+    uint32_t IC_SS_SCL_HCNT; /*!< (read-write) Standard Speed I2C Clock SCL
+                                High Count Register */
+    uint32_t IC_SS_SCL_LCNT; /*!< (read-write) Standard Speed I2C Clock SCL Low
+                                Count Register */
+    uint32_t IC_FS_SCL_HCNT; /*!< (read-write) Fast Mode or Fast Mode Plus I2C
+                                Clock SCL High Count Register */
+    uint32_t IC_FS_SCL_LCNT; /*!< (read-write) Fast Mode or Fast Mode Plus I2C
+                                Clock SCL Low Count Register */
     static constexpr std::size_t reserved_padding1_length = 2;
     const uint32_t reserved_padding1[reserved_padding1_length] = {};
-    const uint32_t IC_INTR_STAT = {};                                /*!< (read-only) I2C Interrupt Status Register\n\n
-                Each bit in this register has a corresponding mask bit in the IC_INTR_MASK register. These bits are cleared by reading the matching interrupt clear register. The unmasked raw versions of these bits are available in the IC_RAW_INTR_STAT register. */
-    uint32_t IC_INTR_MASK;                                           /*!< (read-write) I2C Interrupt Mask Register.\n\n
-                These bits mask their corresponding interrupt status bits. This register is active low; a value of 0 masks the interrupt, whereas a value of 1 unmasks the interrupt. */
-    const uint32_t IC_RAW_INTR_STAT = {};                            /*!< (read-only) I2C Raw Interrupt Status Register\n\n
-                Unlike the IC_INTR_STAT register, these bits are not masked so they always show the true status of the DW_apb_i2c. */
-    uint32_t IC_RX_TL;                                               /*!< (read-write) I2C Receive FIFO Threshold Register */
-    uint32_t IC_TX_TL;                                               /*!< (read-write) I2C Transmit FIFO Threshold Register */
-    const uint32_t IC_CLR_INTR = {};                                 /*!< (read-only) Clear Combined and Individual Interrupt Register */
-    const uint32_t IC_CLR_RX_UNDER = {};                             /*!< (read-only) Clear RX_UNDER Interrupt Register */
-    const uint32_t IC_CLR_RX_OVER = {};                              /*!< (read-only) Clear RX_OVER Interrupt Register */
-    const uint32_t IC_CLR_TX_OVER = {};                              /*!< (read-only) Clear TX_OVER Interrupt Register */
-    const uint32_t IC_CLR_RD_REQ = {};                               /*!< (read-only) Clear RD_REQ Interrupt Register */
-    const uint32_t IC_CLR_TX_ABRT = {};                              /*!< (read-only) Clear TX_ABRT Interrupt Register */
-    const uint32_t IC_CLR_RX_DONE = {};                              /*!< (read-only) Clear RX_DONE Interrupt Register */
-    const uint32_t IC_CLR_ACTIVITY = {};                             /*!< (read-only) Clear ACTIVITY Interrupt Register */
-    const uint32_t IC_CLR_STOP_DET = {};                             /*!< (read-only) Clear STOP_DET Interrupt Register */
-    const uint32_t IC_CLR_START_DET = {};                            /*!< (read-only) Clear START_DET Interrupt Register */
-    const uint32_t IC_CLR_GEN_CALL = {};                             /*!< (read-only) Clear GEN_CALL Interrupt Register */
-    uint32_t IC_ENABLE;                                              /*!< (read-write) I2C Enable Register */
-    const uint32_t IC_STATUS = {};                                   /*!< (read-only) I2C Status Register\n\n
-                This is a read-only register used to indicate the current transfer status and FIFO status. The status register may be read at any time. None of the bits in this register request an interrupt.\n\n
-                When the I2C is disabled by writing 0 in bit 0 of the IC_ENABLE register: - Bits 1 and 2 are set to 1 - Bits 3 and 10 are set to 0 When the master or slave state machines goes to idle and ic_en=0: - Bits 5 and 6 are set to 0 */
-    const uint32_t IC_TXFLR = {};                                    /*!< (read-only) I2C Transmit FIFO Level Register This register contains the number of valid data entries in the transmit FIFO buffer. It is cleared whenever: - The I2C is disabled - There is a transmit abort - that is, TX_ABRT bit is set in the IC_RAW_INTR_STAT register - The slave bulk transmit mode is aborted The register increments whenever data is placed into the transmit FIFO and decrements when data is taken from the transmit FIFO. */
-    const uint32_t IC_RXFLR = {};                                    /*!< (read-only) I2C Receive FIFO Level Register This register contains the number of valid data entries in the receive FIFO buffer. It is cleared whenever: - The I2C is disabled - Whenever there is a transmit abort caused by any of the events tracked in IC_TX_ABRT_SOURCE The register increments whenever data is placed into the receive FIFO and decrements when data is taken from the receive FIFO. */
-    uint32_t IC_SDA_HOLD;                                            /*!< (read-write) I2C SDA Hold Time Length Register\n\n
-                The bits [15:0] of this register are used to control the hold time of SDA during transmit in both slave and master mode (after SCL goes from HIGH to LOW).\n\n
-                The bits [23:16] of this register are used to extend the SDA transition (if any) whenever SCL is HIGH in the receiver in either master or slave mode.\n\n
-                Writes to this register succeed only when IC_ENABLE[0]=0.\n\n
-                The values in this register are in units of ic_clk period. The value programmed in IC_SDA_TX_HOLD must be greater than the minimum hold time in each mode (one cycle in master mode, seven cycles in slave mode) for the value to be implemented.\n\n
-                The programmed SDA hold time during transmit (IC_SDA_TX_HOLD) cannot exceed at any time the duration of the low part of scl. Therefore the programmed value cannot be larger than N_SCL_LOW-2, where N_SCL_LOW is the duration of the low part of the scl period measured in ic_clk cycles. */
-    const uint32_t IC_TX_ABRT_SOURCE = {};                           /*!< (read-only) I2C Transmit Abort Source Register\n\n
-                This register has 32 bits that indicate the source of the TX_ABRT bit. Except for Bit 9, this register is cleared whenever the IC_CLR_TX_ABRT register or the IC_CLR_INTR register is read. To clear Bit 9, the source of the ABRT_SBYTE_NORSTRT must be fixed first; RESTART must be enabled (IC_CON[5]=1), the SPECIAL bit must be cleared (IC_TAR[11]), or the GC_OR_START bit must be cleared (IC_TAR[10]).\n\n
-                Once the source of the ABRT_SBYTE_NORSTRT is fixed, then this bit can be cleared in the same manner as other bits in this register. If the source of the ABRT_SBYTE_NORSTRT is not fixed before attempting to clear this bit, Bit 9 clears for one cycle and is then re-asserted. */
-    uint32_t IC_SLV_DATA_NACK_ONLY;                                  /*!< (read-write) Generate Slave Data NACK Register\n\n
-                The register is used to generate a NACK for the data part of a transfer when DW_apb_i2c is acting as a slave-receiver. This register only exists when the IC_SLV_DATA_NACK_ONLY parameter is set to 1. When this parameter disabled, this register does not exist and writing to the register's address has no effect.\n\n
-                A write can occur on this register if both of the following conditions are met: - DW_apb_i2c is disabled (IC_ENABLE[0] = 0) - Slave part is inactive (IC_STATUS[6] = 0) Note: The IC_STATUS[6] is a register read-back location for the internal slv_activity signal; the user should poll this before writing the ic_slv_data_nack_only bit. */
-    uint32_t IC_DMA_CR;                                              /*!< (read-write) DMA Control Register\n\n
-                The register is used to enable the DMA Controller interface operation. There is a separate bit for transmit and receive. This can be programmed regardless of the state of IC_ENABLE. */
-    uint32_t IC_DMA_TDLR;                                            /*!< (read-write) DMA Transmit Data Level Register */
-    uint32_t IC_DMA_RDLR;                                            /*!< (read-write) I2C Receive Data Level Register */
-    uint32_t IC_SDA_SETUP;                                           /*!< (read-write) I2C SDA Setup Register\n\n
-                This register controls the amount of time delay (in terms of number of ic_clk clock periods) introduced in the rising edge of SCL - relative to SDA changing - when DW_apb_i2c services a read request in a slave-transmitter operation. The relevant I2C requirement is tSU:DAT (note 4) as detailed in the I2C Bus Specification. This register must be programmed with a value equal to or greater than 2.\n\n
-                Writes to this register succeed only when IC_ENABLE[0] = 0.\n\n
-                Note: The length of setup time is calculated using [(IC_SDA_SETUP - 1) * (ic_clk_period)], so if the user requires 10 ic_clk periods of setup time, they should program a value of 11. The IC_SDA_SETUP register is only used by the DW_apb_i2c when operating as a slave transmitter. */
-    uint32_t IC_ACK_GENERAL_CALL;                                    /*!< (read-write) I2C ACK General Call Register\n\n
-                The register controls whether DW_apb_i2c responds with a ACK or NACK when it receives an I2C General Call address.\n\n
-                This register is applicable only when the DW_apb_i2c is in slave mode. */
-    const uint32_t IC_ENABLE_STATUS = {};                            /*!< (read-only) I2C Enable Status Register\n\n
-                The register is used to report the DW_apb_i2c hardware status when the IC_ENABLE[0] register is set from 1 to 0; that is, when DW_apb_i2c is disabled.\n\n
-                If IC_ENABLE[0] has been set to 1, bits 2:1 are forced to 0, and bit 0 is forced to 1.\n\n
-                If IC_ENABLE[0] has been set to 0, bits 2:1 is only be valid as soon as bit 0 is read as '0'.\n\n
-                Note: When IC_ENABLE[0] has been set to 0, a delay occurs for bit 0 to be read as 0 because disabling the DW_apb_i2c depends on I2C bus activities. */
-    uint32_t IC_FS_SPKLEN;                                           /*!< (read-write) I2C SS, FS or FM+ spike suppression limit\n\n
-                This register is used to store the duration, measured in ic_clk cycles, of the longest spike that is filtered out by the spike suppression logic when the component is operating in SS, FS or FM+ modes. The relevant I2C requirement is tSP (table 4) as detailed in the I2C Bus Specification. This register must be programmed with a minimum value of 1. */
+    const uint32_t IC_INTR_STAT = {}; /*!< (read-only) I2C Interrupt Status
+Register\n\n Each bit in this register has a corresponding mask bit in the
+IC_INTR_MASK register. These bits are cleared by reading the matching interrupt
+clear register. The unmasked raw versions of these bits are available in the
+IC_RAW_INTR_STAT register. */
+    uint32_t IC_INTR_MASK; /*!< (read-write) I2C Interrupt Mask Register.\n\n
+These bits mask their corresponding interrupt status bits. This register is
+active low; a value of 0 masks the interrupt, whereas a value of 1 unmasks the
+interrupt. */
+    const uint32_t IC_RAW_INTR_STAT = {}; /*!< (read-only) I2C Raw Interrupt
+Status Register\n\n Unlike the IC_INTR_STAT register, these bits are not masked
+so they always show the true status of the DW_apb_i2c. */
+    uint32_t IC_RX_TL; /*!< (read-write) I2C Receive FIFO Threshold Register */
+    uint32_t
+        IC_TX_TL; /*!< (read-write) I2C Transmit FIFO Threshold Register */
+    const uint32_t IC_CLR_INTR = {}; /*!< (read-only) Clear Combined and
+                                        Individual Interrupt Register */
+    const uint32_t IC_CLR_RX_UNDER =
+        {}; /*!< (read-only) Clear RX_UNDER Interrupt Register */
+    const uint32_t IC_CLR_RX_OVER =
+        {}; /*!< (read-only) Clear RX_OVER Interrupt Register */
+    const uint32_t IC_CLR_TX_OVER =
+        {}; /*!< (read-only) Clear TX_OVER Interrupt Register */
+    const uint32_t IC_CLR_RD_REQ =
+        {}; /*!< (read-only) Clear RD_REQ Interrupt Register */
+    const uint32_t IC_CLR_TX_ABRT =
+        {}; /*!< (read-only) Clear TX_ABRT Interrupt Register */
+    const uint32_t IC_CLR_RX_DONE =
+        {}; /*!< (read-only) Clear RX_DONE Interrupt Register */
+    const uint32_t IC_CLR_ACTIVITY =
+        {}; /*!< (read-only) Clear ACTIVITY Interrupt Register */
+    const uint32_t IC_CLR_STOP_DET =
+        {}; /*!< (read-only) Clear STOP_DET Interrupt Register */
+    const uint32_t IC_CLR_START_DET =
+        {}; /*!< (read-only) Clear START_DET Interrupt Register */
+    const uint32_t IC_CLR_GEN_CALL =
+        {};             /*!< (read-only) Clear GEN_CALL Interrupt Register */
+    uint32_t IC_ENABLE; /*!< (read-write) I2C Enable Register */
+    const uint32_t IC_STATUS = {}; /*!< (read-only) I2C Status Register\n\n
+This is a read-only register used to indicate the current transfer status and
+FIFO status. The status register may be read at any time. None of the bits in
+this register request an interrupt.\n\n When the I2C is disabled by writing 0
+in bit 0 of the IC_ENABLE register: - Bits 1 and 2 are set to 1 - Bits 3 and 10
+are set to 0 When the master or slave state machines goes to idle and ic_en=0:
+- Bits 5 and 6 are set to 0 */
+    const uint32_t IC_TXFLR =
+        {}; /*!< (read-only) I2C Transmit FIFO Level Register This register
+               contains the number of valid data entries in the transmit FIFO
+               buffer. It is cleared whenever: - The I2C is disabled - There is
+               a transmit abort - that is, TX_ABRT bit is set in the
+               IC_RAW_INTR_STAT register - The slave bulk transmit mode is
+               aborted The register increments whenever data is placed into the
+               transmit FIFO and decrements when data is taken from the
+               transmit FIFO. */
+    const uint32_t IC_RXFLR =
+        {}; /*!< (read-only) I2C Receive FIFO Level Register This register
+               contains the number of valid data entries in the receive FIFO
+               buffer. It is cleared whenever: - The I2C is disabled - Whenever
+               there is a transmit abort caused by any of the events tracked in
+               IC_TX_ABRT_SOURCE The register increments whenever data is
+               placed into the receive FIFO and decrements when data is taken
+               from the receive FIFO. */
+    uint32_t IC_SDA_HOLD; /*!< (read-write) I2C SDA Hold Time Length
+Register\n\n The bits [15:0] of this register are used to control the hold time
+of SDA during transmit in both slave and master mode (after SCL goes from HIGH
+to LOW).\n\n The bits [23:16] of this register are used to extend the SDA
+transition (if any) whenever SCL is HIGH in the receiver in either master or
+slave mode.\n\n Writes to this register succeed only when IC_ENABLE[0]=0.\n\n
+The values in this register are in units of ic_clk period. The value programmed
+in IC_SDA_TX_HOLD must be greater than the minimum hold time in each mode (one
+cycle in master mode, seven cycles in slave mode) for the value to be
+implemented.\n\n The programmed SDA hold time during transmit (IC_SDA_TX_HOLD)
+cannot exceed at any time the duration of the low part of scl. Therefore the
+programmed value cannot be larger than N_SCL_LOW-2, where N_SCL_LOW is the
+duration of the low part of the scl period measured in ic_clk cycles. */
+    const uint32_t IC_TX_ABRT_SOURCE =
+        {}; /*!< (read-only) I2C Transmit Abort Source Register\n\n
+This register has 32 bits that indicate the source of the TX_ABRT bit. Except
+for Bit 9, this register is cleared whenever the IC_CLR_TX_ABRT register or the
+IC_CLR_INTR register is read. To clear Bit 9, the source of the
+ABRT_SBYTE_NORSTRT must be fixed first; RESTART must be enabled (IC_CON[5]=1),
+the SPECIAL bit must be cleared (IC_TAR[11]), or the GC_OR_START bit must be
+cleared (IC_TAR[10]).\n\n Once the source of the ABRT_SBYTE_NORSTRT is fixed,
+then this bit can be cleared in the same manner as other bits in this register.
+If the source of the ABRT_SBYTE_NORSTRT is not fixed before attempting to clear
+this bit, Bit 9 clears for one cycle and is then re-asserted. */
+    uint32_t IC_SLV_DATA_NACK_ONLY; /*!< (read-write) Generate Slave Data NACK
+Register\n\n The register is used to generate a NACK for the data part of a
+transfer when DW_apb_i2c is acting as a slave-receiver. This register only
+exists when the IC_SLV_DATA_NACK_ONLY parameter is set to 1. When this
+parameter disabled, this register does not exist and writing to the register's
+address has no effect.\n\n A write can occur on this register if both of the
+following conditions are met: - DW_apb_i2c is disabled (IC_ENABLE[0] = 0) -
+Slave part is inactive (IC_STATUS[6] = 0) Note: The IC_STATUS[6] is a register
+read-back location for the internal slv_activity signal; the user should poll
+this before writing the ic_slv_data_nack_only bit. */
+    uint32_t IC_DMA_CR;             /*!< (read-write) DMA Control Register\n\n
+The register is used to enable the DMA Controller interface operation. There is
+            a separate bit for transmit and receive. This can be programmed regardless of
+            the state of IC_ENABLE. */
+    uint32_t IC_DMA_TDLR; /*!< (read-write) DMA Transmit Data Level Register */
+    uint32_t IC_DMA_RDLR; /*!< (read-write) I2C Receive Data Level Register */
+    uint32_t IC_SDA_SETUP;        /*!< (read-write) I2C SDA Setup Register\n\n
+This register controls the amount of time delay (in terms of number of ic_clk
+       clock periods) introduced in the rising edge of SCL - relative to SDA changing
+       - when DW_apb_i2c services a read request in a slave-transmitter operation. The
+       relevant I2C requirement is tSU:DAT (note 4) as detailed in the I2C Bus
+       Specification. This register must be programmed with a value equal to or
+       greater than 2.\n\n        Writes to this register succeed only when
+       IC_ENABLE[0] =        0.\n\n        Note: The length of setup time is
+       calculated using
+       [(IC_SDA_SETUP - 1) *        (ic_clk_period)], so if the user requires 10
+       ic_clk        periods of setup time, they        should program a value of 11.
+       The        IC_SDA_SETUP        register is only used by the        DW_apb_i2c
+       when        operating as a        slave transmitter.
+       */
+    uint32_t IC_ACK_GENERAL_CALL; /*!< (read-write) I2C ACK General Call
+Register\n\n The register controls whether DW_apb_i2c responds with a ACK or
+NACK when it receives an I2C General Call address.\n\n This register is
+applicable only when the DW_apb_i2c is in slave mode. */
+    const uint32_t IC_ENABLE_STATUS = {}; /*!< (read-only) I2C Enable Status
+Register\n\n The register is used to report the DW_apb_i2c hardware status when
+the IC_ENABLE[0] register is set from 1 to 0; that is, when DW_apb_i2c is
+disabled.\n\n If IC_ENABLE[0] has been set to 1, bits 2:1 are forced to 0, and
+bit 0 is forced to 1.\n\n If IC_ENABLE[0] has been set to 0, bits 2:1 is only
+be valid as soon as bit 0 is read as '0'.\n\n Note: When IC_ENABLE[0] has been
+set to 0, a delay occurs for bit 0 to be read as 0 because disabling the
+DW_apb_i2c depends on I2C bus activities. */
+    uint32_t IC_FS_SPKLEN; /*!< (read-write) I2C SS, FS or FM+ spike
+suppression limit\n\n This register is used to store the duration, measured in
+ic_clk cycles, of the longest spike that is filtered out by the spike
+suppression logic when the component is operating in SS, FS or FM+ modes. The
+relevant I2C requirement is tSP (table 4) as detailed in the I2C Bus
+Specification. This register must be programmed with a minimum value of 1. */
     const uint32_t reserved_padding2 = {};
-    const uint32_t IC_CLR_RESTART_DET = {};                          /*!< (read-only) Clear RESTART_DET Interrupt Register */
+    const uint32_t IC_CLR_RESTART_DET =
+        {}; /*!< (read-only) Clear RESTART_DET Interrupt Register */
     static constexpr std::size_t reserved_padding3_length = 18;
     const uint32_t reserved_padding3[reserved_padding3_length] = {};
-    const uint32_t IC_COMP_PARAM_1 = {};                             /*!< (read-only) Component Parameter Register 1\n\n
-                Note This register is not implemented and therefore reads as 0. If it was implemented it would be a constant read-only register that contains encoded information about the component's parameter settings. Fields shown below are the settings for those parameters */
-    const uint32_t IC_COMP_VERSION = {};                             /*!< (read-only) I2C Component Version Register */
-    const uint32_t IC_COMP_TYPE = {};                                /*!< (read-only) I2C Component Type Register */
+    const uint32_t IC_COMP_PARAM_1 = {}; /*!< (read-only) Component Parameter
+Register 1\n\n Note This register is not implemented and therefore reads as 0.
+If it was implemented it would be a constant read-only register that contains
+encoded information about the component's parameter settings. Fields shown
+below are the settings for those parameters */
+    const uint32_t IC_COMP_VERSION =
+        {}; /*!< (read-only) I2C Component Version Register */
+    const uint32_t IC_COMP_TYPE =
+        {}; /*!< (read-only) I2C Component Type Register */
 
     /* Methods. */
 
@@ -1479,7 +1583,8 @@ struct [[gnu::packed]] i2c
      */
     I2C0_IC_RAW_INTR_STAT_RESTART_DET get_IC_RAW_INTR_STAT_RESTART_DET()
     {
-        return I2C0_IC_RAW_INTR_STAT_RESTART_DET(IC_RAW_INTR_STAT & (1u << 12u));
+        return I2C0_IC_RAW_INTR_STAT_RESTART_DET(IC_RAW_INTR_STAT &
+                                                 (1u << 12u));
     }
 
     /**
@@ -1825,97 +1930,121 @@ struct [[gnu::packed]] i2c
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_7B_ADDR_NOACK bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK get_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK
+    get_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK(IC_TX_ABRT_SOURCE & (1u << 0u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK(IC_TX_ABRT_SOURCE &
+                                                         (1u << 0u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_10ADDR1_NOACK bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK get_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK
+    get_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK(IC_TX_ABRT_SOURCE & (1u << 1u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK(IC_TX_ABRT_SOURCE &
+                                                         (1u << 1u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_10ADDR2_NOACK bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK get_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK
+    get_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK(IC_TX_ABRT_SOURCE & (1u << 2u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK(IC_TX_ABRT_SOURCE &
+                                                         (1u << 2u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_TXDATA_NOACK bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK get_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK
+    get_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK(IC_TX_ABRT_SOURCE & (1u << 3u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK(IC_TX_ABRT_SOURCE &
+                                                        (1u << 3u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_GCALL_NOACK bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK get_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK
+    get_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK(IC_TX_ABRT_SOURCE & (1u << 4u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK(IC_TX_ABRT_SOURCE &
+                                                       (1u << 4u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_GCALL_READ bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ get_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ
+    get_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ(IC_TX_ABRT_SOURCE & (1u << 5u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ(IC_TX_ABRT_SOURCE &
+                                                      (1u << 5u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_HS_ACKDET bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET get_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET
+    get_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET(IC_TX_ABRT_SOURCE & (1u << 6u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET(IC_TX_ABRT_SOURCE &
+                                                     (1u << 6u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_SBYTE_ACKDET bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET get_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET
+    get_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET(IC_TX_ABRT_SOURCE & (1u << 7u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET(IC_TX_ABRT_SOURCE &
+                                                        (1u << 7u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_HS_NORSTRT bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT get_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT
+    get_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT(IC_TX_ABRT_SOURCE & (1u << 8u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT(IC_TX_ABRT_SOURCE &
+                                                      (1u << 8u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_SBYTE_NORSTRT bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT get_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT
+    get_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT(IC_TX_ABRT_SOURCE & (1u << 9u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT(IC_TX_ABRT_SOURCE &
+                                                         (1u << 9u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_10B_RD_NORSTRT bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT get_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT
+    get_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT(IC_TX_ABRT_SOURCE & (1u << 10u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT(IC_TX_ABRT_SOURCE &
+                                                          (1u << 10u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_MASTER_DIS bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS get_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS
+    get_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS(IC_TX_ABRT_SOURCE & (1u << 11u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS(IC_TX_ABRT_SOURCE &
+                                                      (1u << 11u));
     }
 
     /**
@@ -1923,39 +2052,48 @@ struct [[gnu::packed]] i2c
      */
     I2C0_IC_TX_ABRT_SOURCE_ARB_LOST get_IC_TX_ABRT_SOURCE_ARB_LOST()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ARB_LOST(IC_TX_ABRT_SOURCE & (1u << 12u));
+        return I2C0_IC_TX_ABRT_SOURCE_ARB_LOST(IC_TX_ABRT_SOURCE &
+                                               (1u << 12u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_SLVFLUSH_TXFIFO bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO get_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO
+    get_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO(IC_TX_ABRT_SOURCE & (1u << 13u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO(IC_TX_ABRT_SOURCE &
+                                                           (1u << 13u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_SLV_ARBLOST bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST get_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST
+    get_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST(IC_TX_ABRT_SOURCE & (1u << 14u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST(IC_TX_ABRT_SOURCE &
+                                                       (1u << 14u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_SLVRD_INTX bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX get_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX
+    get_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX(IC_TX_ABRT_SOURCE & (1u << 15u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX(IC_TX_ABRT_SOURCE &
+                                                      (1u << 15u));
     }
 
     /**
      * Get IC_TX_ABRT_SOURCE's ABRT_USER_ABRT bit.
      */
-    I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT get_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT()
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT
+    get_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT()
     {
-        return I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT(IC_TX_ABRT_SOURCE & (1u << 16u));
+        return I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT(IC_TX_ABRT_SOURCE &
+                                                     (1u << 16u));
     }
 
     /**
@@ -1971,7 +2109,8 @@ struct [[gnu::packed]] i2c
      */
     I2C0_IC_SLV_DATA_NACK_ONLY_NACK get_IC_SLV_DATA_NACK_ONLY_NACK()
     {
-        return I2C0_IC_SLV_DATA_NACK_ONLY_NACK(IC_SLV_DATA_NACK_ONLY & (1u << 0u));
+        return I2C0_IC_SLV_DATA_NACK_ONLY_NACK(IC_SLV_DATA_NACK_ONLY &
+                                               (1u << 0u));
     }
 
     /**
@@ -2128,9 +2267,11 @@ struct [[gnu::packed]] i2c
     /**
      * Get IC_ACK_GENERAL_CALL's ACK_GEN_CALL bit.
      */
-    I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL get_IC_ACK_GENERAL_CALL_ACK_GEN_CALL()
+    I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL
+    get_IC_ACK_GENERAL_CALL_ACK_GEN_CALL()
     {
-        return I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL(IC_ACK_GENERAL_CALL & (1u << 0u));
+        return I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL(IC_ACK_GENERAL_CALL &
+                                                     (1u << 0u));
     }
 
     /**
@@ -2168,17 +2309,21 @@ struct [[gnu::packed]] i2c
     /**
      * Get IC_ENABLE_STATUS's SLV_DISABLED_WHILE_BUSY bit.
      */
-    I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY get_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY()
+    I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY
+    get_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY()
     {
-        return I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY(IC_ENABLE_STATUS & (1u << 1u));
+        return I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY(IC_ENABLE_STATUS &
+                                                             (1u << 1u));
     }
 
     /**
      * Get IC_ENABLE_STATUS's SLV_RX_DATA_LOST bit.
      */
-    I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST get_IC_ENABLE_STATUS_SLV_RX_DATA_LOST()
+    I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST
+    get_IC_ENABLE_STATUS_SLV_RX_DATA_LOST()
     {
-        return I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST(IC_ENABLE_STATUS & (1u << 2u));
+        return I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST(IC_ENABLE_STATUS &
+                                                      (1u << 2u));
     }
 
     /**

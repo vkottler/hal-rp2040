@@ -16,9 +16,16 @@ struct [[gnu::packed]] resets
     static constexpr std::size_t size = 12; /*!< resets's size in bytes. */
 
     /* Fields. */
-    uint32_t RESET;                 /*!< (read-write) Reset control. If a bit is set it means the peripheral is in reset. 0 means the peripheral's reset is deasserted. */
-    uint32_t WDSEL;                 /*!< (read-write) Watchdog select. If a bit is set then the watchdog will reset this peripheral when the watchdog fires. */
-    const uint32_t RESET_DONE = {}; /*!< (read-only) Reset done. If a bit is set then a reset done signal has been returned by the peripheral. This indicates that the peripheral's registers are ready to be accessed. */
+    uint32_t RESET; /*!< (read-write) Reset control. If a bit is set it means
+                       the peripheral is in reset. 0 means the peripheral's
+                       reset is deasserted. */
+    uint32_t WDSEL; /*!< (read-write) Watchdog select. If a bit is set then the
+                       watchdog will reset this peripheral when the watchdog
+                       fires. */
+    const uint32_t RESET_DONE =
+        {}; /*!< (read-only) Reset done. If a bit is set then a reset done
+               signal has been returned by the peripheral. This indicates that
+               the peripheral's registers are ready to be accessed. */
 
     /* Methods. */
 

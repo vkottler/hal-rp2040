@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ARB_LOST : uint8_t
 {
-    ABRT_LOST_VOID /*!< Master or Slave-Transmitter lost arbitration- scenario not present */,
-    ABRT_LOST_GENERATED = 1 /*!< Master or Slave-Transmitter lost arbitration */
+    ABRT_LOST_VOID /*!< Master or Slave-Transmitter lost arbitration- scenario
+                      not present */
+        ,
+    ABRT_LOST_GENERATED =
+        1 /*!< Master or Slave-Transmitter lost arbitration */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ARB_LOST) == 1);
 
@@ -49,7 +52,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ARB_LOST instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ARB_LOST &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ARB_LOST &output)
 {
     bool result = false;
 

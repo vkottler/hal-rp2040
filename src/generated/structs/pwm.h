@@ -27,71 +27,80 @@ struct [[gnu::packed]] pwm
     static constexpr std::size_t size = 180; /*!< pwm's size in bytes. */
 
     /* Fields. */
-    uint32_t CH0_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH0_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH0_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH0_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH0_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH1_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH1_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH1_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH1_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH1_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH2_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH2_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH2_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH2_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH2_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH3_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH3_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH3_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH3_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH3_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH4_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH4_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH4_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH4_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH4_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH5_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH5_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH5_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH5_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH5_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH6_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH6_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH6_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH6_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH6_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t CH7_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH7_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
-                Fractional division uses simple 1st-order sigma-delta. */
-    uint32_t CH7_CTR;         /*!< (read-write) Direct access to the PWM counter */
-    uint32_t CH7_CC;          /*!< (read-write) Counter compare values */
-    uint32_t CH7_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t EN;              /*!< (read-write) This register aliases the CSR_EN bits for all channels.\n
-                Writing to this register allows multiple channels to be enabled\n
-                or disabled simultaneously, so they can run in perfect sync.\n
-                For each channel, there is only one physical EN register bit,\n
-                which can be accessed through here or CHx_CSR. */
-    uint32_t INTR;            /*!< (read-write) Raw Interrupts */
-    uint32_t INTE;            /*!< (read-write) Interrupt Enable */
-    uint32_t INTF;            /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {}; /*!< (read-only) Interrupt status after masking & forcing */
+    uint32_t CH0_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH0_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH0_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH0_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH0_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH1_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH1_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH1_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH1_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH1_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH2_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH2_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH2_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH2_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH2_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH3_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH3_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH3_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH3_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH3_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH4_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH4_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH4_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH4_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH4_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH5_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH5_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH5_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH5_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH5_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH6_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH6_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH6_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH6_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH6_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t CH7_CSR; /*!< (read-write) Control and status register */
+    uint32_t
+        CH7_DIV; /*!< (read-write) INT and FRAC form a fixed-point fractional
+   number.\n Counting rate is system clock frequency divided by this number.\n
+   Fractional division uses simple 1st-order sigma-delta. */
+    uint32_t CH7_CTR; /*!< (read-write) Direct access to the PWM counter */
+    uint32_t CH7_CC;  /*!< (read-write) Counter compare values */
+    uint32_t CH7_TOP; /*!< (read-write) Counter wrap value */
+    uint32_t EN;   /*!< (read-write) This register aliases the CSR_EN bits for
+       all   channels.\n Writing to this register allows multiple channels to be
+       enabled\n   or disabled simultaneously, so they can run in perfect sync.\n
+       For each channel, there is only one physical EN register bit,\n
+       which can be accessed through here or CHx_CSR. */
+    uint32_t INTR; /*!< (read-write) Raw Interrupts */
+    uint32_t INTE; /*!< (read-write) Interrupt Enable */
+    uint32_t INTF; /*!< (read-write) Interrupt Force */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 

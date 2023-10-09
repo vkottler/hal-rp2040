@@ -15,49 +15,114 @@ namespace RP2040
 struct [[gnu::packed]] usbctrl_regs
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;        /*!< usbctrl_regs's identifier. */
-    static constexpr std::size_t size = 156; /*!< usbctrl_regs's size in bytes. */
+    static constexpr uint16_t id = 1; /*!< usbctrl_regs's identifier. */
+    static constexpr std::size_t size =
+        156; /*!< usbctrl_regs's size in bytes. */
 
     /* Fields. */
-    uint32_t ADDR_ENDP;                         /*!< (read-write) Device address and endpoint control */
-    uint32_t ADDR_ENDP1;                        /*!< (read-write) Interrupt endpoint 1. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP2;                        /*!< (read-write) Interrupt endpoint 2. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP3;                        /*!< (read-write) Interrupt endpoint 3. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP4;                        /*!< (read-write) Interrupt endpoint 4. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP5;                        /*!< (read-write) Interrupt endpoint 5. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP6;                        /*!< (read-write) Interrupt endpoint 6. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP7;                        /*!< (read-write) Interrupt endpoint 7. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP8;                        /*!< (read-write) Interrupt endpoint 8. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP9;                        /*!< (read-write) Interrupt endpoint 9. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP10;                       /*!< (read-write) Interrupt endpoint 10. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP11;                       /*!< (read-write) Interrupt endpoint 11. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP12;                       /*!< (read-write) Interrupt endpoint 12. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP13;                       /*!< (read-write) Interrupt endpoint 13. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP14;                       /*!< (read-write) Interrupt endpoint 14. Only valid for HOST mode. */
-    uint32_t ADDR_ENDP15;                       /*!< (read-write) Interrupt endpoint 15. Only valid for HOST mode. */
-    uint32_t MAIN_CTRL;                         /*!< (read-write) Main control register */
-    uint32_t SOF_WR;                            /*!< (write-only) Set the SOF (Start of Frame) frame number in the host controller. The SOF packet is sent every 1ms and the host will increment the frame number by 1 each time. */
-    const uint32_t SOF_RD = {};                 /*!< (read-only) Read the last SOF (Start of Frame) frame number seen. In device mode the last SOF received from the host. In host mode the last SOF sent by the host. */
-    uint32_t SIE_CTRL;                          /*!< (read-write) SIE control register */
-    uint32_t SIE_STATUS;                        /*!< (read-write) SIE status register */
-    uint32_t INT_EP_CTRL;                       /*!< (read-write) interrupt endpoint control register */
-    uint32_t BUFF_STATUS;                       /*!< (read-write) Buffer status register. A bit set here indicates that a buffer has completed on the endpoint (if the buffer interrupt is enabled). It is possible for 2 buffers to be completed, so clearing the buffer status bit may instantly re set it on the next clock cycle. */
-    const uint32_t BUFF_CPU_SHOULD_HANDLE = {}; /*!< (read-only) Which of the double buffers should be handled. Only valid if using an interrupt per buffer (i.e. not per 2 buffers). Not valid for host interrupt endpoint polling because they are only single buffered. */
-    uint32_t EP_ABORT;                          /*!< (read-write) Device only: Can be set to ignore the buffer control register for this endpoint in case you would like to revoke a buffer. A NAK will be sent for every access to the endpoint until this bit is cleared. A corresponding bit in `EP_ABORT_DONE` is set when it is safe to modify the buffer control register. */
-    uint32_t EP_ABORT_DONE;                     /*!< (read-write) Device only: Used in conjunction with `EP_ABORT`. Set once an endpoint is idle so the programmer knows it is safe to modify the buffer control register. */
-    uint32_t EP_STALL_ARM;                      /*!< (read-write) Device: this bit must be set in conjunction with the `STALL` bit in the buffer control register to send a STALL on EP0. The device controller clears these bits when a SETUP packet is received because the USB spec requires that a STALL condition is cleared when a SETUP packet is received. */
-    uint32_t NAK_POLL;                          /*!< (read-write) Used by the host controller. Sets the wait time in microseconds before trying again if the device replies with a NAK. */
-    uint32_t EP_STATUS_STALL_NAK;               /*!< (read-write) Device: bits are set when the `IRQ_ON_NAK` or `IRQ_ON_STALL` bits are set. For EP0 this comes from `SIE_CTRL`. For all other endpoints it comes from the endpoint control register. */
-    uint32_t USB_MUXING;                        /*!< (read-write) Where to connect the USB controller. Should be to_phy by default. */
-    uint32_t USB_PWR;                           /*!< (read-write) Overrides for the power signals in the event that the VBUS signals are not hooked up to GPIO. Set the value of the override and then the override enable to switch over to the override value. */
-    uint32_t USBPHY_DIRECT;                     /*!< (read-write) This register allows for direct control of the USB phy. Use in conjunction with usbphy_direct_override register to enable each override bit. */
-    uint32_t USBPHY_DIRECT_OVERRIDE;            /*!< (read-write) Override enable for each control in usbphy_direct */
-    uint32_t USBPHY_TRIM;                       /*!< (read-write) Used to adjust trim values of USB phy pull down resistors. */
+    uint32_t
+        ADDR_ENDP; /*!< (read-write) Device address and endpoint control */
+    uint32_t ADDR_ENDP1; /*!< (read-write) Interrupt endpoint 1. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP2; /*!< (read-write) Interrupt endpoint 2. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP3; /*!< (read-write) Interrupt endpoint 3. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP4; /*!< (read-write) Interrupt endpoint 4. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP5; /*!< (read-write) Interrupt endpoint 5. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP6; /*!< (read-write) Interrupt endpoint 6. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP7; /*!< (read-write) Interrupt endpoint 7. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP8; /*!< (read-write) Interrupt endpoint 8. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP9; /*!< (read-write) Interrupt endpoint 9. Only valid for
+                            HOST mode. */
+    uint32_t ADDR_ENDP10; /*!< (read-write) Interrupt endpoint 10. Only valid
+                             for HOST mode. */
+    uint32_t ADDR_ENDP11; /*!< (read-write) Interrupt endpoint 11. Only valid
+                             for HOST mode. */
+    uint32_t ADDR_ENDP12; /*!< (read-write) Interrupt endpoint 12. Only valid
+                             for HOST mode. */
+    uint32_t ADDR_ENDP13; /*!< (read-write) Interrupt endpoint 13. Only valid
+                             for HOST mode. */
+    uint32_t ADDR_ENDP14; /*!< (read-write) Interrupt endpoint 14. Only valid
+                             for HOST mode. */
+    uint32_t ADDR_ENDP15; /*!< (read-write) Interrupt endpoint 15. Only valid
+                             for HOST mode. */
+    uint32_t MAIN_CTRL;   /*!< (read-write) Main control register */
+    uint32_t
+        SOF_WR; /*!< (write-only) Set the SOF (Start of Frame) frame number in
+                   the host controller. The SOF packet is sent every 1ms and
+                   the host will increment the frame number by 1 each time. */
+    const uint32_t SOF_RD =
+        {}; /*!< (read-only) Read the last SOF (Start of Frame) frame number
+               seen. In device mode the last SOF received from the host. In
+               host mode the last SOF sent by the host. */
+    uint32_t SIE_CTRL;   /*!< (read-write) SIE control register */
+    uint32_t SIE_STATUS; /*!< (read-write) SIE status register */
+    uint32_t
+        INT_EP_CTRL; /*!< (read-write) interrupt endpoint control register */
+    uint32_t BUFF_STATUS; /*!< (read-write) Buffer status register. A bit set
+                             here indicates that a buffer has completed on the
+                             endpoint (if the buffer interrupt is enabled). It
+                             is possible for 2 buffers to be completed, so
+                             clearing the buffer status bit may instantly re
+                             set it on the next clock cycle. */
+    const uint32_t BUFF_CPU_SHOULD_HANDLE =
+        {}; /*!< (read-only) Which of the double buffers should be handled.
+               Only valid if using an interrupt per buffer (i.e. not per 2
+               buffers). Not valid for host interrupt endpoint polling because
+               they are only single buffered. */
+    uint32_t
+        EP_ABORT; /*!< (read-write) Device only: Can be set to ignore the
+                     buffer control register for this endpoint in case you
+                     would like to revoke a buffer. A NAK will be sent for
+                     every access to the endpoint until this bit is cleared. A
+                     corresponding bit in `EP_ABORT_DONE` is set when it is
+                     safe to modify the buffer control register. */
+    uint32_t EP_ABORT_DONE; /*!< (read-write) Device only: Used in conjunction
+                               with `EP_ABORT`. Set once an endpoint is idle so
+                               the programmer knows it is safe to modify the
+                               buffer control register. */
+    uint32_t
+        EP_STALL_ARM;  /*!< (read-write) Device: this bit must be set in
+                          conjunction with the `STALL` bit in the buffer control
+                          register to send a STALL on EP0. The device controller
+                          clears these bits when a SETUP packet is received
+                          because the USB spec requires that a STALL condition
+                          is cleared when a SETUP packet is received. */
+    uint32_t NAK_POLL; /*!< (read-write) Used by the host controller. Sets the
+                          wait time in microseconds before trying again if the
+                          device replies with a NAK. */
+    uint32_t
+        EP_STATUS_STALL_NAK; /*!< (read-write) Device: bits are set when the
+                                `IRQ_ON_NAK` or `IRQ_ON_STALL` bits are set.
+                                For EP0 this comes from `SIE_CTRL`. For all
+                                other endpoints it comes from the endpoint
+                                control register. */
+    uint32_t USB_MUXING; /*!< (read-write) Where to connect the USB controller.
+                            Should be to_phy by default. */
+    uint32_t USB_PWR; /*!< (read-write) Overrides for the power signals in the
+                         event that the VBUS signals are not hooked up to GPIO.
+                         Set the value of the override and then the override
+                         enable to switch over to the override value. */
+    uint32_t USBPHY_DIRECT; /*!< (read-write) This register allows for direct
+                               control of the USB phy. Use in conjunction with
+                               usbphy_direct_override register to enable each
+                               override bit. */
+    uint32_t USBPHY_DIRECT_OVERRIDE; /*!< (read-write) Override enable for each
+                                        control in usbphy_direct */
+    uint32_t USBPHY_TRIM; /*!< (read-write) Used to adjust trim values of USB
+                             phy pull down resistors. */
     const uint32_t reserved_padding0 = {};
-    const uint32_t INTR = {};                   /*!< (read-only) Raw Interrupts */
-    uint32_t INTE;                              /*!< (read-write) Interrupt Enable */
-    uint32_t INTF;                              /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {};                   /*!< (read-only) Interrupt status after masking & forcing */
+    const uint32_t INTR = {}; /*!< (read-only) Raw Interrupts */
+    uint32_t INTE;            /*!< (read-write) Interrupt Enable */
+    uint32_t INTF;            /*!< (read-write) Interrupt Force */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 
@@ -10467,6 +10532,7 @@ struct [[gnu::packed]] usbctrl_regs
 
 static_assert(sizeof(usbctrl_regs) == usbctrl_regs::size);
 
-static volatile usbctrl_regs *const USBCTRL_REGS = reinterpret_cast<usbctrl_regs *>(0x50110000);
+static volatile usbctrl_regs *const USBCTRL_REGS =
+    reinterpret_cast<usbctrl_regs *>(0x50110000);
 
 }; // namespace RP2040

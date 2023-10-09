@@ -12,7 +12,9 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET : uint8_t
 {
-    ABRT_HS_ACK_VOID /*!< HS Master code ACKed in HS Mode- scenario not present */,
+    ABRT_HS_ACK_VOID /*!< HS Master code ACKed in HS Mode- scenario not present
+                      */
+        ,
     ABRT_HS_ACK_GENERATED = 1 /*!< HS Master code ACKed in HS Mode */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET) == 1);
@@ -49,7 +51,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET instance)
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET &output)
 {
     bool result = false;
 

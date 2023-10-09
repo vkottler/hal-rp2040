@@ -12,8 +12,11 @@ namespace RP2040
 
 enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT : uint8_t
 {
-    ABRT_10B_RD_VOID /*!< Master not trying to read in 10Bit addressing mode when RESTART disabled */,
-    ABRT_10B_RD_GENERATED = 1 /*!< Master trying to read in 10Bit addressing mode when RESTART disabled */
+    ABRT_10B_RD_VOID /*!< Master not trying to read in 10Bit addressing mode
+                        when RESTART disabled */
+        ,
+    ABRT_10B_RD_GENERATED = 1 /*!< Master trying to read in 10Bit addressing
+                                 mode when RESTART disabled */
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT) == 1);
 
@@ -25,7 +28,8 @@ static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT_id = 396;
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT instance)
+inline const char *to_string(
+    I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT instance)
 {
     const char *result = "UNKNOWN I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT";
 
@@ -49,7 +53,8 @@ inline const char *to_string(I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT instance
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT &output)
+inline bool from_string(const char *data,
+                        I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT &output)
 {
     bool result = false;
 
@@ -59,7 +64,8 @@ inline bool from_string(const char *data, I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NOR
     }
     else if ((result = !strncmp(data, "ABRT_10B_RD_GENERATED", 21)))
     {
-        output = I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT::ABRT_10B_RD_GENERATED;
+        output =
+            I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT::ABRT_10B_RD_GENERATED;
     }
 
     return result;

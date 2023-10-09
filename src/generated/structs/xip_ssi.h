@@ -15,31 +15,59 @@ namespace RP2040
 
 /**
  * DW_apb_ssi has the following features:\n
- *         * APB interface - Allows for easy integration into a DesignWare Synthesizable Components for AMBA 2 implementation.\n
+ *         * APB interface - Allows for easy integration into a DesignWare
+ * Synthesizable Components for AMBA 2 implementation.\n
  *         * APB3 and APB4 protocol support.\n
- *         * Scalable APB data bus width - Supports APB data bus widths of 8, 16, and 32 bits.\n
- *         * Serial-master or serial-slave operation - Enables serial communication with serial-master or serial-slave peripheral devices.\n
+ *         * Scalable APB data bus width - Supports APB data bus widths of 8,
+ * 16, and 32 bits.\n
+ *         * Serial-master or serial-slave operation - Enables serial
+ * communication with serial-master or serial-slave peripheral devices.\n
  *         * Programmable Dual/Quad/Octal SPI support in Master Mode.\n
- *         * Dual Data Rate (DDR) and Read Data Strobe (RDS) Support - Enables the DW_apb_ssi master to perform operations with the device in DDR and RDS modes when working in Dual/Quad/Octal mode of operation.\n
- *         * Data Mask Support - Enables the DW_apb_ssi to selectively update the bytes in the device. This feature is applicable only in enhanced SPI modes.\n
- *         * eXecute-In-Place (XIP) support - Enables the DW_apb_ssi master to behave as a memory mapped I/O and fetches the data from the device based on the APB read request. This feature is applicable only in enhanced SPI modes.\n
- *         * DMA Controller Interface - Enables the DW_apb_ssi to interface to a DMA controller over the bus using a handshaking interface for transfer requests.\n
- *         * Independent masking of interrupts - Master collision, transmit FIFO overflow, transmit FIFO empty, receive FIFO full, receive FIFO underflow, and receive FIFO overflow interrupts can all be masked independently.\n
- *         * Multi-master contention detection - Informs the processor of multiple serial-master accesses on the serial bus.\n
- *         * Bypass of meta-stability flip-flops for synchronous clocks - When the APB clock (pclk) and the DW_apb_ssi serial clock (ssi_clk) are synchronous, meta-stable flip-flops are not used when transferring control signals across these clock domains.\n
- *         * Programmable delay on the sample time of the received serial data bit (rxd); enables programmable control of routing delays resulting in higher serial data-bit rates.\n
+ *         * Dual Data Rate (DDR) and Read Data Strobe (RDS) Support - Enables
+ * the DW_apb_ssi master to perform operations with the device in DDR and RDS
+ * modes when working in Dual/Quad/Octal mode of operation.\n
+ *         * Data Mask Support - Enables the DW_apb_ssi to selectively update
+ * the bytes in the device. This feature is applicable only in enhanced SPI
+ * modes.\n
+ *         * eXecute-In-Place (XIP) support - Enables the DW_apb_ssi master to
+ * behave as a memory mapped I/O and fetches the data from the device based on
+ * the APB read request. This feature is applicable only in enhanced SPI
+ * modes.\n
+ *         * DMA Controller Interface - Enables the DW_apb_ssi to interface to
+ * a DMA controller over the bus using a handshaking interface for transfer
+ * requests.\n
+ *         * Independent masking of interrupts - Master collision, transmit
+ * FIFO overflow, transmit FIFO empty, receive FIFO full, receive FIFO
+ * underflow, and receive FIFO overflow interrupts can all be masked
+ * independently.\n
+ *         * Multi-master contention detection - Informs the processor of
+ * multiple serial-master accesses on the serial bus.\n
+ *         * Bypass of meta-stability flip-flops for synchronous clocks - When
+ * the APB clock (pclk) and the DW_apb_ssi serial clock (ssi_clk) are
+ * synchronous, meta-stable flip-flops are not used when transferring control
+ * signals across these clock domains.\n
+ *         * Programmable delay on the sample time of the received serial data
+ * bit (rxd); enables programmable control of routing delays resulting in
+ * higher serial data-bit rates.\n
  *         * Programmable features:\n
- *         - Serial interface operation - Choice of Motorola SPI, Texas Instruments Synchronous Serial Protocol or National Semiconductor Microwire.\n
- *         - Clock bit-rate - Dynamic control of the serial bit rate of the data transfer; used in only serial-master mode of operation.\n
- *         - Data Item size (4 to 32 bits) - Item size of each data transfer under the control of the programmer.\n
+ *         - Serial interface operation - Choice of Motorola SPI, Texas
+ * Instruments Synchronous Serial Protocol or National Semiconductor
+ * Microwire.\n
+ *         - Clock bit-rate - Dynamic control of the serial bit rate of the
+ * data transfer; used in only serial-master mode of operation.\n
+ *         - Data Item size (4 to 32 bits) - Item size of each data transfer
+ * under the control of the programmer.\n
  *         * Configured features:\n
  *         - FIFO depth - 16 words deep. The FIFO width is fixed at 32 bits.\n
  *         - 1 slave select output.\n
  *         - Hardware slave-select - Dedicated hardware slave-select line.\n
- *         - Combined interrupt line - one combined interrupt line from the DW_apb_ssi to the interrupt controller.\n
+ *         - Combined interrupt line - one combined interrupt line from the
+ * DW_apb_ssi to the interrupt controller.\n
  *         - Interrupt polarity - active high interrupt lines.\n
- *         - Serial clock polarity - low serial-clock polarity directly after reset.\n
- *         - Serial clock phase - capture on first edge of serial-clock directly after reset.
+ *         - Serial clock polarity - low serial-clock polarity directly after
+ * reset.\n
+ *         - Serial clock phase - capture on first edge of serial-clock
+ * directly after reset.
  */
 struct [[gnu::packed]] xip_ssi
 {
@@ -48,36 +76,40 @@ struct [[gnu::packed]] xip_ssi
     static constexpr std::size_t size = 252; /*!< xip_ssi's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRLR0;                                                 /*!< (read-write) Control register 0 */
-    uint32_t CTRLR1;                                                 /*!< (read-write) Master Control register 1 */
-    uint32_t SSIENR;                                                 /*!< (read-write) SSI Enable */
-    uint32_t MWCR;                                                   /*!< (read-write) Microwire Control */
-    uint32_t SER;                                                    /*!< (read-write) Slave enable */
-    uint32_t BAUDR;                                                  /*!< (read-write) Baud rate */
-    uint32_t TXFTLR;                                                 /*!< (read-write) TX FIFO threshold level */
-    uint32_t RXFTLR;                                                 /*!< (read-write) RX FIFO threshold level */
-    const uint32_t TXFLR = {};                                       /*!< (read-only) TX FIFO level */
-    const uint32_t RXFLR = {};                                       /*!< (read-only) RX FIFO level */
-    const uint32_t SR = {};                                          /*!< (read-only) Status register */
-    uint32_t IMR;                                                    /*!< (read-write) Interrupt mask */
-    const uint32_t ISR = {};                                         /*!< (read-only) Interrupt status */
-    const uint32_t RISR = {};                                        /*!< (read-only) Raw interrupt status */
-    const uint32_t TXOICR = {};                                      /*!< (read-only) TX FIFO overflow interrupt clear */
-    const uint32_t RXOICR = {};                                      /*!< (read-only) RX FIFO overflow interrupt clear */
-    const uint32_t RXUICR = {};                                      /*!< (read-only) RX FIFO underflow interrupt clear */
-    const uint32_t MSTICR = {};                                      /*!< (read-only) Multi-master interrupt clear */
-    const uint32_t ICR = {};                                         /*!< (read-only) Interrupt clear */
-    uint32_t DMACR;                                                  /*!< (read-write) DMA control */
-    uint32_t DMATDLR;                                                /*!< (read-write) DMA TX data level */
-    uint32_t DMARDLR;                                                /*!< (read-write) DMA RX data level */
-    const uint32_t IDR = {};                                         /*!< (read-only) Identification register */
-    const uint32_t SSI_VERSION_ID = {};                              /*!< (read-only) Version ID */
-    uint32_t DR0;                                                    /*!< (read-write) Data Register 0 (of 36) */
+    uint32_t CTRLR0;           /*!< (read-write) Control register 0 */
+    uint32_t CTRLR1;           /*!< (read-write) Master Control register 1 */
+    uint32_t SSIENR;           /*!< (read-write) SSI Enable */
+    uint32_t MWCR;             /*!< (read-write) Microwire Control */
+    uint32_t SER;              /*!< (read-write) Slave enable */
+    uint32_t BAUDR;            /*!< (read-write) Baud rate */
+    uint32_t TXFTLR;           /*!< (read-write) TX FIFO threshold level */
+    uint32_t RXFTLR;           /*!< (read-write) RX FIFO threshold level */
+    const uint32_t TXFLR = {}; /*!< (read-only) TX FIFO level */
+    const uint32_t RXFLR = {}; /*!< (read-only) RX FIFO level */
+    const uint32_t SR = {};    /*!< (read-only) Status register */
+    uint32_t IMR;              /*!< (read-write) Interrupt mask */
+    const uint32_t ISR = {};   /*!< (read-only) Interrupt status */
+    const uint32_t RISR = {};  /*!< (read-only) Raw interrupt status */
+    const uint32_t TXOICR =
+        {}; /*!< (read-only) TX FIFO overflow interrupt clear */
+    const uint32_t RXOICR =
+        {}; /*!< (read-only) RX FIFO overflow interrupt clear */
+    const uint32_t RXUICR =
+        {}; /*!< (read-only) RX FIFO underflow interrupt clear */
+    const uint32_t MSTICR =
+        {};                  /*!< (read-only) Multi-master interrupt clear */
+    const uint32_t ICR = {}; /*!< (read-only) Interrupt clear */
+    uint32_t DMACR;          /*!< (read-write) DMA control */
+    uint32_t DMATDLR;        /*!< (read-write) DMA TX data level */
+    uint32_t DMARDLR;        /*!< (read-write) DMA RX data level */
+    const uint32_t IDR = {}; /*!< (read-only) Identification register */
+    const uint32_t SSI_VERSION_ID = {}; /*!< (read-only) Version ID */
+    uint32_t DR0; /*!< (read-write) Data Register 0 (of 36) */
     static constexpr std::size_t reserved_padding0_length = 35;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t RX_SAMPLE_DLY;                                          /*!< (read-write) RX sample delay */
-    uint32_t SPI_CTRLR0;                                             /*!< (read-write) SPI control */
-    uint32_t TXD_DRIVE_EDGE;                                         /*!< (read-write) TX drive edge */
+    uint32_t RX_SAMPLE_DLY;  /*!< (read-write) RX sample delay */
+    uint32_t SPI_CTRLR0;     /*!< (read-write) SPI control */
+    uint32_t TXD_DRIVE_EDGE; /*!< (read-write) TX drive edge */
 
     /* Methods. */
 
@@ -1400,6 +1432,7 @@ struct [[gnu::packed]] xip_ssi
 
 static_assert(sizeof(xip_ssi) == xip_ssi::size);
 
-static volatile xip_ssi *const XIP_SSI = reinterpret_cast<xip_ssi *>(0x18000000);
+static volatile xip_ssi *const XIP_SSI =
+    reinterpret_cast<xip_ssi *>(0x18000000);
 
 }; // namespace RP2040

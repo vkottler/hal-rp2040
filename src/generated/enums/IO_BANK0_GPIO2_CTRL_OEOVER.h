@@ -12,8 +12,12 @@ namespace RP2040
 
 enum class IO_BANK0_GPIO2_CTRL_OEOVER : uint8_t
 {
-    NORMAL /*!< drive output enable from peripheral signal selected by funcsel */,
-    INVERT = 1 /*!< drive output enable from inverse of peripheral signal selected by funcsel */,
+    NORMAL /*!< drive output enable from peripheral signal selected by funcsel
+            */
+        ,
+    INVERT = 1 /*!< drive output enable from inverse of peripheral signal
+                  selected by funcsel */
+        ,
     DISABLE = 2 /*!< disable output */,
     ENABLE = 3 /*!< enable output */
 };
