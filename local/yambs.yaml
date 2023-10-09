@@ -1,0 +1,3 @@
+---
+includes:
+  - ../config/python/yambs/cflag_groups.yaml

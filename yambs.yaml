@@ -1,0 +1,25 @@
+# =====================================
+# generator=datazen
+# version=3.1.4
+# hash=3da74dec3dd06d3497dff91ae2e83da2
+# =====================================
+---
+project:
+  name: hal-rp2040
+
+  github: {owner: &self vkottler}
+  version: {major: 0, minor: 1, patch: 0}
+variants:
+  clang:
+    suffix: &clang_version "-15"
+
+  debug:
+    suffix: "-12"
+  opt:
+    suffix: "-12"
+
+  clang-opt:
+    suffix: *clang_version
+
+includes:
+  - local/yambs.yaml
