@@ -1,0 +1,410 @@
+---
+structs:
+  resets:
+    instances:
+      - name: RESETS
+        address: '0x4000c000'
+    fields:
+      - name: RESET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Reset control. If a bit is set it means the peripheral
+          is in reset. 0 means the peripheral's reset is deasserted.
+        fields:
+          - name: adc
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: busctrl
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: dma
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: i2c0
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: i2c1
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: io_bank0
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: io_qspi
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: jtag
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: pads_bank0
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: pads_qspi
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: pio0
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: pio1
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: pll_sys
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: pll_usb
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: pwm
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: rtc
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: spi0
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: spi1
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: syscfg
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: sysinfo
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: tbman
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: timer
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: uart0
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: uart1
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: usbctrl
+            index: 24
+            width: 1
+            read: true
+            write: true
+      - name: WDSEL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Watchdog select. If a bit is set then the watchdog
+          will reset this peripheral when the watchdog fires.
+        fields:
+          - name: adc
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: busctrl
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: dma
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: i2c0
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: i2c1
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: io_bank0
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: io_qspi
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: jtag
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: pads_bank0
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: pads_qspi
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: pio0
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: pio1
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: pll_sys
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: pll_usb
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: pwm
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: rtc
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: spi0
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: spi1
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: syscfg
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: sysinfo
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: tbman
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: timer
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: uart0
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: uart1
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: usbctrl
+            index: 24
+            width: 1
+            read: true
+            write: true
+      - name: RESET_DONE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        description: (read-only) Reset done. If a bit is set then a reset done signal
+          has been returned by the peripheral. This indicates that the peripheral's
+          registers are ready to be accessed.
+        fields:
+          - name: adc
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: busctrl
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: dma
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: i2c0
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: i2c1
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: io_bank0
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: io_qspi
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: jtag
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: pads_bank0
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: pads_qspi
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: pio0
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: pio1
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: pll_sys
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: pll_usb
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: pwm
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: rtc
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: spi0
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: spi1
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: syscfg
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: sysinfo
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: tbman
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: timer
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: uart0
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: uart1
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: usbctrl
+            index: 24
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

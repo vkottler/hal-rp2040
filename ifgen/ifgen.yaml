@@ -1,0 +1,35 @@
+---
+includes:
+  - busctrl/include.yaml
+  - xip_ctrl/include.yaml
+  - vreg_and_chip_reset/include.yaml
+  - pads_qspi/include.yaml
+  - io_bank/include.yaml
+  - resets/include.yaml
+  - uart/include.yaml
+  - ppb/include.yaml
+  - dma/include.yaml
+  - watchdog/include.yaml
+  - tbman/include.yaml
+  - usbctrl_dpram/include.yaml
+  - sysinfo/include.yaml
+  - syscfg/include.yaml
+  - psm/include.yaml
+  - clocks/include.yaml
+  - rosc/include.yaml
+  - pwm/include.yaml
+  - io_qspi/include.yaml
+  - xip_ssi/include.yaml
+  - i2c/include.yaml
+  - timer/include.yaml
+  - usbctrl_regs/include.yaml
+  - pio/include.yaml
+  - xosc/include.yaml
+  - pads_bank/include.yaml
+  - spi/include.yaml
+  - pll_sys/include.yaml
+  - adc/include.yaml
+  - sio/include.yaml
+  - rtc/include.yaml
+namespace:
+  - RP2040

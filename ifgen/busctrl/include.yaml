@@ -1,0 +1,355 @@
+---
+structs:
+  busctrl:
+    description: Register block for busfabric control signals and performance counters
+    instances:
+      - name: BUSCTRL
+        address: '0x40030000'
+    fields:
+      - name: BUS_PRIORITY
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Set the priority of each master for bus arbitration.
+        fields:
+          - name: PROC0
+            description: 0 - low priority, 1 - high priority
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PROC1
+            description: 0 - low priority, 1 - high priority
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: DMA_R
+            description: 0 - low priority, 1 - high priority
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: DMA_W
+            description: 0 - low priority, 1 - high priority
+            index: 12
+            width: 1
+            read: true
+            write: true
+      - name: BUS_PRIORITY_ACK
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        const: true
+        description: (read-only) Bus priority acknowledge
+        fields:
+          - name: BUS_PRIORITY_ACK
+            description: "Goes to 1 once all arbiters have registered the new global
+              priority levels.\\n\n                Arbiters update their local priority
+              when servicing a new nonsequential access.\\n\n                In normal
+              circumstances this will happen almost immediately."
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: PERFCTR0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) Bus fabric performance counter 0
+        fields:
+          - name: PERFCTR0
+            description: "Busfabric saturating performance counter 0\\n\n        \
+              \        Count some event signal from the busfabric arbiters.\\n\n \
+              \               Write any value to clear. Select an event to count using
+              PERFSEL0"
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: PERFSEL0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Bus fabric performance event select for PERFCTR0
+        fields:
+          - name: PERFSEL0
+            description: Select an event for PERFCTR0. Count either contested accesses,
+              or all accesses, on a downstream port of the main crossbar.
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: BUSCTRL_PERFSEL0_PERFSEL0
+      - name: PERFCTR1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: (read-write) Bus fabric performance counter 1
+        fields:
+          - name: PERFCTR1
+            description: "Busfabric saturating performance counter 1\\n\n        \
+              \        Count some event signal from the busfabric arbiters.\\n\n \
+              \               Write any value to clear. Select an event to count using
+              PERFSEL1"
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: PERFSEL1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) Bus fabric performance event select for PERFCTR1
+        fields:
+          - name: PERFSEL1
+            description: Select an event for PERFCTR1. Count either contested accesses,
+              or all accesses, on a downstream port of the main crossbar.
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: BUSCTRL_PERFSEL1_PERFSEL1
+      - name: PERFCTR2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: (read-write) Bus fabric performance counter 2
+        fields:
+          - name: PERFCTR2
+            description: "Busfabric saturating performance counter 2\\n\n        \
+              \        Count some event signal from the busfabric arbiters.\\n\n \
+              \               Write any value to clear. Select an event to count using
+              PERFSEL2"
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: PERFSEL2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: (read-write) Bus fabric performance event select for PERFCTR2
+        fields:
+          - name: PERFSEL2
+            description: Select an event for PERFCTR2. Count either contested accesses,
+              or all accesses, on a downstream port of the main crossbar.
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: BUSCTRL_PERFSEL2_PERFSEL2
+      - name: PERFCTR3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: (read-write) Bus fabric performance counter 3
+        fields:
+          - name: PERFCTR3
+            description: "Busfabric saturating performance counter 3\\n\n        \
+              \        Count some event signal from the busfabric arbiters.\\n\n \
+              \               Write any value to clear. Select an event to count using
+              PERFSEL3"
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: PERFSEL3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: (read-write) Bus fabric performance event select for PERFCTR3
+        fields:
+          - name: PERFSEL3
+            description: Select an event for PERFCTR3. Count either contested accesses,
+              or all accesses, on a downstream port of the main crossbar.
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: BUSCTRL_PERFSEL3_PERFSEL3
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums:
+  BUSCTRL_PERFSEL0_PERFSEL0:
+    enum:
+      apb_contested:
+        value: 0
+      apb:
+        value: 1
+      fastperi_contested:
+        value: 2
+      fastperi:
+        value: 3
+      sram5_contested:
+        value: 4
+      sram5:
+        value: 5
+      sram4_contested:
+        value: 6
+      sram4:
+        value: 7
+      sram3_contested:
+        value: 8
+      sram3:
+        value: 9
+      sram2_contested:
+        value: 10
+      sram2:
+        value: 11
+      sram1_contested:
+        value: 12
+      sram1:
+        value: 13
+      sram0_contested:
+        value: 14
+      sram0:
+        value: 15
+      xip_main_contested:
+        value: 16
+      xip_main:
+        value: 17
+      rom_contested:
+        value: 18
+      rom:
+        value: 19
+    unit_test: false
+    json: false
+    use_map: false
+  BUSCTRL_PERFSEL1_PERFSEL1:
+    enum:
+      apb_contested:
+        value: 0
+      apb:
+        value: 1
+      fastperi_contested:
+        value: 2
+      fastperi:
+        value: 3
+      sram5_contested:
+        value: 4
+      sram5:
+        value: 5
+      sram4_contested:
+        value: 6
+      sram4:
+        value: 7
+      sram3_contested:
+        value: 8
+      sram3:
+        value: 9
+      sram2_contested:
+        value: 10
+      sram2:
+        value: 11
+      sram1_contested:
+        value: 12
+      sram1:
+        value: 13
+      sram0_contested:
+        value: 14
+      sram0:
+        value: 15
+      xip_main_contested:
+        value: 16
+      xip_main:
+        value: 17
+      rom_contested:
+        value: 18
+      rom:
+        value: 19
+    unit_test: false
+    json: false
+    use_map: false
+  BUSCTRL_PERFSEL2_PERFSEL2:
+    enum:
+      apb_contested:
+        value: 0
+      apb:
+        value: 1
+      fastperi_contested:
+        value: 2
+      fastperi:
+        value: 3
+      sram5_contested:
+        value: 4
+      sram5:
+        value: 5
+      sram4_contested:
+        value: 6
+      sram4:
+        value: 7
+      sram3_contested:
+        value: 8
+      sram3:
+        value: 9
+      sram2_contested:
+        value: 10
+      sram2:
+        value: 11
+      sram1_contested:
+        value: 12
+      sram1:
+        value: 13
+      sram0_contested:
+        value: 14
+      sram0:
+        value: 15
+      xip_main_contested:
+        value: 16
+      xip_main:
+        value: 17
+      rom_contested:
+        value: 18
+      rom:
+        value: 19
+    unit_test: false
+    json: false
+    use_map: false
+  BUSCTRL_PERFSEL3_PERFSEL3:
+    enum:
+      apb_contested:
+        value: 0
+      apb:
+        value: 1
+      fastperi_contested:
+        value: 2
+      fastperi:
+        value: 3
+      sram5_contested:
+        value: 4
+      sram5:
+        value: 5
+      sram4_contested:
+        value: 6
+      sram4:
+        value: 7
+      sram3_contested:
+        value: 8
+      sram3:
+        value: 9
+      sram2_contested:
+        value: 10
+      sram2:
+        value: 11
+      sram1_contested:
+        value: 12
+      sram1:
+        value: 13
+      sram0_contested:
+        value: 14
+      sram0:
+        value: 15
+      xip_main_contested:
+        value: 16
+      xip_main:
+        value: 17
+      rom_contested:
+        value: 18
+      rom:
+        value: 19
+    unit_test: false
+    json: false
+    use_map: false

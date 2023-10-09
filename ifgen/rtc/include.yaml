@@ -1,0 +1,321 @@
+---
+structs:
+  rtc:
+    description: Register block to control RTC
+    instances:
+      - name: RTC
+        address: '0x4005c000'
+    fields:
+      - name: CLKDIV_M1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Divider minus 1 for the 1 second counter. Safe to
+          change the value when RTC is not enabled.
+        fields:
+          - name: CLKDIV_M1
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: SETUP_0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) RTC setup register 0
+        fields:
+          - name: DAY
+            description: Day of the month (1..31)
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: MONTH
+            description: Month (1..12)
+            index: 8
+            width: 4
+            read: true
+            write: true
+          - name: YEAR
+            description: Year
+            index: 12
+            width: 12
+            read: true
+            write: true
+      - name: SETUP_1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) RTC setup register 1
+        fields:
+          - name: SEC
+            description: Seconds
+            index: 0
+            width: 6
+            read: true
+            write: true
+          - name: MIN
+            description: Minutes
+            index: 8
+            width: 6
+            read: true
+            write: true
+          - name: HOUR
+            description: Hours
+            index: 16
+            width: 5
+            read: true
+            write: true
+          - name: DOTW
+            description: 'Day of the week: 1-Monday...0-Sunday ISO 8601 mod 7'
+            index: 24
+            width: 3
+            read: true
+            write: true
+      - name: CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) RTC Control and status
+        fields:
+          - name: RTC_ENABLE
+            description: Enable RTC
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: RTC_ACTIVE
+            description: RTC enabled (running)
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: LOAD
+            description: Load RTC
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: FORCE_NOTLEAPYEAR
+            description: "If set, leapyear is forced off.\\n\n                Useful
+              for years divisible by 100 but not by 400"
+            index: 8
+            width: 1
+            read: true
+            write: true
+      - name: IRQ_SETUP_0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: (read-write) Interrupt setup register 0
+        fields:
+          - name: DAY
+            description: Day of the month (1..31)
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: MONTH
+            description: Month (1..12)
+            index: 8
+            width: 4
+            read: true
+            write: true
+          - name: YEAR
+            description: Year
+            index: 12
+            width: 12
+            read: true
+            write: true
+          - name: DAY_ENA
+            description: Enable day matching
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: MONTH_ENA
+            description: Enable month matching
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: YEAR_ENA
+            description: Enable year matching
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: MATCH_ENA
+            description: Global match enable. Don't change any other value while this
+              one is enabled
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: MATCH_ACTIVE
+            index: 29
+            width: 1
+            read: true
+            write: false
+      - name: IRQ_SETUP_1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) Interrupt setup register 1
+        fields:
+          - name: SEC
+            description: Seconds
+            index: 0
+            width: 6
+            read: true
+            write: true
+          - name: MIN
+            description: Minutes
+            index: 8
+            width: 6
+            read: true
+            write: true
+          - name: HOUR
+            description: Hours
+            index: 16
+            width: 5
+            read: true
+            write: true
+          - name: DOTW
+            description: Day of the week
+            index: 24
+            width: 3
+            read: true
+            write: true
+          - name: SEC_ENA
+            description: Enable second matching
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: MIN_ENA
+            description: Enable minute matching
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: HOUR_ENA
+            description: Enable hour matching
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: DOTW_ENA
+            description: Enable day of the week matching
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: RTC_1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        const: true
+        description: (read-only) RTC register 1.
+        fields:
+          - name: DAY
+            description: Day of the month (1..31)
+            index: 0
+            width: 5
+            read: true
+            write: false
+          - name: MONTH
+            description: Month (1..12)
+            index: 8
+            width: 4
+            read: true
+            write: false
+          - name: YEAR
+            description: Year
+            index: 12
+            width: 12
+            read: true
+            write: false
+      - name: RTC_0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        const: true
+        description: "(read-only) RTC register 0\\n\n            Read this before
+          RTC 1!"
+        fields:
+          - name: SEC
+            description: Seconds
+            index: 0
+            width: 6
+            read: true
+            write: false
+          - name: MIN
+            description: Minutes
+            index: 8
+            width: 6
+            read: true
+            write: false
+          - name: HOUR
+            description: Hours
+            index: 16
+            width: 5
+            read: true
+            write: false
+          - name: DOTW
+            description: Day of the week
+            index: 24
+            width: 3
+            read: true
+            write: false
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        const: true
+        description: (read-only) Raw Interrupts
+        fields:
+          - name: RTC
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: (read-write) Interrupt Enable
+        fields:
+          - name: RTC
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: (read-write) Interrupt Force
+        fields:
+          - name: RTC
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        const: true
+        description: (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: RTC
+            index: 0
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

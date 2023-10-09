@@ -1,0 +1,33 @@
+---
+structs:
+  tbman:
+    description: Testbench manager. Allows the programmer to know what platform their
+      software is running on.
+    instances:
+      - name: TBMAN
+        address: '0x4006c000'
+    fields:
+      - name: PLATFORM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        const: true
+        description: (read-only) Indicates the type of platform in use
+        fields:
+          - name: ASIC
+            description: Indicates the platform is an ASIC
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: FPGA
+            description: Indicates the platform is an FPGA
+            index: 1
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

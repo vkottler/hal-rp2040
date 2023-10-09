@@ -1,0 +1,113 @@
+---
+structs:
+  pll_sys:
+    instances:
+      - name: PLL_SYS
+        address: '0x40028000'
+      - name: PLL_USB
+        address: '0x4002c000'
+    fields:
+      - name: CS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: "(read-write) Control and Status\\n\n            GENERAL CONSTRAINTS:\\\
+          n\n            Reference clock frequency min=5MHz, max=800MHz\\n\n     \
+          \       Feedback divider min=16, max=320\\n\n            VCO frequency min=750MHz,
+          max=1600MHz"
+        fields:
+          - name: REFDIV
+            description: "Divides the PLL input reference clock.\\n\n            \
+              \    Behaviour is undefined for div=0.\\n\n                PLL output
+              will be unpredictable during refdiv changes, wait for lock=1 before
+              using it."
+            index: 0
+            width: 6
+            read: true
+            write: true
+          - name: BYPASS
+            description: Passes the reference clock to the output instead of the divided
+              VCO. The VCO continues to run so the user can switch between the reference
+              clock and the divided VCO but the output will glitch when doing so.
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: LOCK
+            description: PLL is locked
+            index: 31
+            width: 1
+            read: true
+            write: false
+      - name: PWR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Controls the PLL power modes.
+        fields:
+          - name: PD
+            description: "PLL powerdown\\n\n                To save power set high
+              when PLL output not required."
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: DSMPD
+            description: "PLL DSM powerdown\\n\n                Nothing is achieved
+              by setting this low."
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: POSTDIVPD
+            description: "PLL post divider powerdown\\n\n                To save power
+              set high when PLL output not required or bypass=1."
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: VCOPD
+            description: "PLL VCO powerdown\\n\n                To save power set
+              high when PLL output not required or bypass=1."
+            index: 5
+            width: 1
+            read: true
+            write: true
+      - name: FBDIV_INT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: "(read-write) Feedback divisor\\n\n            (note: this PLL
+          does not support fractional division)"
+        fields:
+          - name: FBDIV_INT
+            description: see ctrl reg description for constraints
+            index: 0
+            width: 12
+            read: true
+            write: true
+      - name: PRIM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: "(read-write) Controls the PLL post dividers for the primary
+          output\\n\n            (note: this PLL does not have a secondary output)\\\
+          n\n            the primary output is driven from VCO divided by postdiv1*postdiv2"
+        fields:
+          - name: POSTDIV2
+            description: divide by 1-7
+            index: 12
+            width: 3
+            read: true
+            write: true
+          - name: POSTDIV1
+            description: divide by 1-7
+            index: 16
+            width: 3
+            read: true
+            write: true
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

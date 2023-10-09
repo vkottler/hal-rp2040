@@ -1,0 +1,153 @@
+---
+structs:
+  xosc:
+    description: Controls the crystal oscillator
+    instances:
+      - name: XOSC
+        address: '0x40024000'
+    fields:
+      - name: CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Crystal Oscillator Control
+        fields:
+          - name: FREQ_RANGE
+            description: Frequency range. This resets to 0xAA0 and cannot be changed.
+            index: 0
+            width: 12
+            read: true
+            write: true
+            type: XOSC_CTRL_FREQ_RANGE
+          - name: ENABLE
+            description: "On power-up this field is initialised to DISABLE and the
+              chip runs from the ROSC.\\n\n                If the chip has subsequently
+              been programmed to run from the XOSC then setting this field to DISABLE
+              may lock-up the chip. If this is a concern then run the clk_ref from
+              the ROSC and enable the clk_sys RESUS feature.\\n\n                The
+              12-bit code is intended to give some protection against accidental writes.
+              An invalid setting will enable the oscillator."
+            index: 12
+            width: 12
+            read: true
+            write: true
+            type: XOSC_CTRL_ENABLE
+      - name: STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Crystal Oscillator Status
+        fields:
+          - name: FREQ_RANGE
+            description: The current frequency range setting, always reads 0
+            index: 0
+            width: 2
+            read: true
+            write: false
+            type: XOSC_STATUS_FREQ_RANGE
+          - name: ENABLED
+            description: Oscillator is enabled but not necessarily running and stable,
+              resets to 0
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: BADWRITE
+            description: An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE
+              or DORMANT
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: STABLE
+            description: Oscillator is running and stable
+            index: 31
+            width: 1
+            read: true
+            write: false
+      - name: DORMANT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: "(read-write) Crystal Oscillator pause control\\n\n         \
+          \   This is used to save power by pausing the XOSC\\n\n            On power-up
+          this field is initialised to WAKE\\n\n            An invalid write will
+          also select WAKE\\n\n            WARNING: stop the PLLs before selecting
+          dormant mode\\n\n            WARNING: setup the irq before selecting dormant
+          mode"
+      - name: STARTUP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Controls the startup delay
+        fields:
+          - name: DELAY
+            description: in multiples of 256*xtal_period. The reset value of 0xc4
+              corresponds to approx 50 000 cycles.
+            index: 0
+            width: 14
+            read: true
+            write: true
+          - name: X4
+            description: Multiplies the startup_delay by 4. This is of little value
+              to the user given that the delay can be programmed directly.
+            index: 20
+            width: 1
+            read: true
+            write: true
+      - name: COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: "(read-write) A down counter running at the xosc frequency which
+          counts to zero and stops.\\n\n            To start the counter write a non-zero
+          value.\\n\n            Can be used for short software pauses when setting
+          up time sensitive hardware."
+        fields:
+          - name: COUNT
+            index: 0
+            width: 8
+            read: true
+            write: true
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums:
+  XOSC_CTRL_FREQ_RANGE:
+    enum:
+      1_15MHZ:
+        value: 2720
+      RESERVED_1:
+        value: 2721
+      RESERVED_2:
+        value: 2722
+      RESERVED_3:
+        value: 2723
+    unit_test: false
+    json: false
+    use_map: false
+    underlying: uint16_t
+  XOSC_CTRL_ENABLE:
+    enum:
+      DISABLE:
+        value: 3358
+      ENABLE:
+        value: 4011
+    unit_test: false
+    json: false
+    use_map: false
+    underlying: uint16_t
+  XOSC_STATUS_FREQ_RANGE:
+    enum:
+      1_15MHZ:
+        value: 0
+      RESERVED_1:
+        value: 1
+      RESERVED_2:
+        value: 2
+      RESERVED_3:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false

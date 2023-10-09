@@ -1,0 +1,157 @@
+---
+structs:
+  xip_ctrl:
+    description: QSPI flash execute-in-place block
+    instances:
+      - name: XIP_CTRL
+        address: '0x14000000'
+    fields:
+      - name: CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Cache control
+        fields:
+          - name: EN
+            description: "When 1, enable the cache. When the cache is disabled, all
+              XIP accesses\\n\n                will go straight to the flash, without
+              querying the cache. When enabled,\\n\n                cacheable XIP
+              accesses will query the cache, and the flash will\\n\n             \
+              \   not be accessed if the tag matches and the valid bit is set.\\n\\\
+              n\n                If the cache is enabled, cache-as-SRAM accesses have
+              no effect on the\\n\n                cache data RAM, and will produce
+              a bus error response."
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: ERR_BADWRITE
+            description: "When 1, writes to any alias other than 0x0 (caching, allocating)\\\
+              n\n                will produce a bus fault. When 0, these writes are
+              silently ignored.\\n\n                In either case, writes to the
+              0x0 alias will deallocate on tag match,\\n\n                as usual."
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: POWER_DOWN
+            description: "When 1, the cache memories are powered down. They retain
+              state,\\n\n                but can not be accessed. This reduces static
+              power dissipation.\\n\n                Writing 1 to this bit forces
+              CTRL_EN to 0, i.e. the cache cannot\\n\n                be enabled when
+              powered down.\\n\n                Cache-as-SRAM accesses will produce
+              a bus error response when\\n\n                the cache is powered down."
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: FLUSH
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Cache Flush control
+        fields:
+          - name: FLUSH
+            description: "Write 1 to flush the cache. This clears the tag memory,
+              but\\n\n                the data memory retains its contents. (This
+              means cache-as-SRAM\\n\n                contents is not affected by
+              flush or reset.)\\n\n                Reading will hold the bus (stall
+              the processor) until the flush\\n\n                completes. Alternatively
+              STAT can be polled until completion."
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: STAT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        description: (read-only) Cache Status
+        fields:
+          - name: FLUSH_READY
+            description: "Reads as 0 while a cache flush is in progress, and 1 otherwise.\\\
+              n\n                The cache is flushed whenever the XIP block is reset,
+              and also\\n\n                when requested via the FLUSH register."
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: FIFO_EMPTY
+            description: When 1, indicates the XIP streaming FIFO is completely empty.
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: FIFO_FULL
+            description: "When 1, indicates the XIP streaming FIFO is completely full.\\\
+              n\n                The streaming FIFO is 2 entries deep, so the full
+              and empty\\n\n                flag allow its level to be ascertained."
+            index: 2
+            width: 1
+            read: true
+            write: false
+      - name: CTR_HIT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: "(read-write) Cache Hit counter\\n\n            A 32 bit saturating
+          counter that increments upon each cache hit,\\n\n            i.e. when an
+          XIP access is serviced directly from cached data.\\n\n            Write
+          any value to clear."
+      - name: CTR_ACC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: "(read-write) Cache Access counter\\n\n            A 32 bit saturating
+          counter that increments upon each XIP access,\\n\n            whether the
+          cache is hit or not. This includes noncacheable accesses.\\n\n         \
+          \   Write any value to clear."
+      - name: STREAM_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) FIFO stream address
+        fields:
+          - name: STREAM_ADDR
+            description: "The address of the next word to be streamed from flash to
+              the streaming FIFO.\\n\n                Increments automatically after
+              each flash access.\\n\n                Write the initial access address
+              here before starting a streaming read."
+            index: 2
+            width: 30
+            read: true
+            write: true
+      - name: STREAM_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: (read-write) FIFO stream control
+        fields:
+          - name: STREAM_CTR
+            description: "Write a nonzero value to start a streaming read. This will
+              then\\n\n                progress in the background, using flash idle
+              cycles to transfer\\n\n                a linear data block from flash
+              to the streaming FIFO.\\n\n                Decrements automatically
+              (1 at a time) as the stream\\n\n                progresses, and halts
+              on reaching 0.\\n\n                Write 0 to halt an in-progress stream,
+              and discard any in-flight\\n\n                read, so that a new stream
+              can immediately be started (after\\n\n                draining the FIFO
+              and reinitialising STREAM_ADDR)"
+            index: 0
+            width: 22
+            read: true
+            write: true
+      - name: STREAM_FIFO
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: "(read-write) FIFO stream data\\n\n            Streamed data
+          is buffered here, for retrieval by the system DMA.\\n\n            This
+          FIFO can also be accessed via the XIP_AUX slave, to avoid exposing\\n\n\
+          \            the DMA to bus stalls caused by other XIP traffic."
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

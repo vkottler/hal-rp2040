@@ -1,0 +1,923 @@
+---
+structs:
+  ppb:
+    instances:
+      - name: PPB
+        address: '0xe0000000'
+    fields:
+      - name: SYST_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57360
+        description: (read-write) Use the SysTick Control and Status Register to enable
+          the SysTick features.
+        fields:
+          - name: ENABLE
+            description: "Enable SysTick counter:\\n\n                0 = Counter
+              disabled.\\n\n                1 = Counter enabled."
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: TICKINT
+            description: "Enables SysTick exception request:\\n\n                0
+              = Counting down to zero does not assert the SysTick exception request.\\\
+              n\n                1 = Counting down to zero to asserts the SysTick
+              exception request."
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CLKSOURCE
+            description: "SysTick clock source. Always reads as one if SYST_CALIB
+              reports NOREF.\\n\n                Selects the SysTick timer clock source:\\\
+              n\n                0 = External reference clock.\\n\n              \
+              \  1 = Processor clock."
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: COUNTFLAG
+            description: Returns 1 if timer counted to 0 since last time this was
+              read. Clears on read by application or debugger.
+            index: 16
+            width: 1
+            read: true
+            write: false
+      - name: SYST_RVR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57364
+        description: "(read-write) Use the SysTick Reload Value Register to specify
+          the start value to load into the current value register when the counter
+          reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of
+          0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG
+          are activated when counting from 1 to 0. The reset value of this register
+          is UNKNOWN.\\n\n            To generate a multi-shot timer with a period
+          of N processor clock cycles, use a RELOAD value of N-1. For example, if
+          the SysTick interrupt is required every 100 clock pulses, set RELOAD to
+          99."
+        fields:
+          - name: RELOAD
+            description: Value to load into the SysTick Current Value Register when
+              the counter reaches 0.
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: SYST_CVR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57368
+        description: (read-write) Use the SysTick Current Value Register to find the
+          current value in the register. The reset value of this register is UNKNOWN.
+        fields:
+          - name: CURRENT
+            description: Reads return the current value of the SysTick counter. This
+              register is write-clear. Writing to it with any value clears the register
+              to 0. Clearing this register also clears the COUNTFLAG bit of the SysTick
+              Control and Status Register.
+            index: 0
+            width: 24
+            read: true
+            write: true
+      - name: SYST_CALIB
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57372
+        const: true
+        description: (read-only) Use the SysTick Calibration Value Register to enable
+          software to scale to any required speed using divide and multiply.
+        fields:
+          - name: TENMS
+            description: An optional Reload value to be used for 10ms (100Hz) timing,
+              subject to system clock skew errors. If the value reads as 0, the calibration
+              value is not known.
+            index: 0
+            width: 24
+            read: true
+            write: false
+          - name: SKEW
+            description: If reads as 1, the calibration value for 10ms is inexact
+              (due to clock frequency).
+            index: 30
+            width: 1
+            read: true
+            write: false
+          - name: NOREF
+            description: If reads as 1, the Reference clock is not provided - the
+              CLKSOURCE bit of the SysTick Control and Status register will be forced
+              to 1 and cannot be cleared to 0.
+            index: 31
+            width: 1
+            read: true
+            write: false
+      - name: NVIC_ISER
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57600
+        description: "(read-write) Use the Interrupt Set-Enable Register to enable
+          interrupts and determine which interrupts are currently enabled.\\n\n  \
+          \          If a pending interrupt is enabled, the NVIC activates the interrupt
+          based on its priority. If an interrupt is not enabled, asserting its interrupt
+          signal changes the interrupt state to pending, but the NVIC never activates
+          the interrupt, regardless of its priority."
+        fields:
+          - name: SETENA
+            description: "Interrupt set-enable bits.\\n\n                Write:\\\
+              n\n                0 = No effect.\\n\n                1 = Enable interrupt.\\\
+              n\n                Read:\\n\n                0 = Interrupt disabled.\\\
+              n\n                1 = Interrupt enabled."
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: NVIC_ICER
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57728
+        description: (read-write) Use the Interrupt Clear-Enable Registers to disable
+          interrupts and determine which interrupts are currently enabled.
+        fields:
+          - name: CLRENA
+            description: "Interrupt clear-enable bits.\\n\n                Write:\\\
+              n\n                0 = No effect.\\n\n                1 = Disable interrupt.\\\
+              n\n                Read:\\n\n                0 = Interrupt disabled.\\\
+              n\n                1 = Interrupt enabled."
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: NVIC_ISPR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57856
+        description: (read-write) The NVIC_ISPR forces interrupts into the pending
+          state, and shows which interrupts are pending.
+        fields:
+          - name: SETPEND
+            description: "Interrupt set-pending bits.\\n\n                Write:\\\
+              n\n                0 = No effect.\\n\n                1 = Changes interrupt
+              state to pending.\\n\n                Read:\\n\n                0 =
+              Interrupt is not pending.\\n\n                1 = Interrupt is pending.\\\
+              n\n                Note: Writing 1 to the NVIC_ISPR bit corresponding
+              to:\\n\n                An interrupt that is pending has no effect.\\\
+              n\n                A disabled interrupt sets the state of that interrupt
+              to pending."
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: NVIC_ICPR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 57984
+        description: (read-write) Use the Interrupt Clear-Pending Register to clear
+          pending interrupts and determine which interrupts are currently pending.
+        fields:
+          - name: CLRPEND
+            description: "Interrupt clear-pending bits.\\n\n                Write:\\\
+              n\n                0 = No effect.\\n\n                1 = Removes pending
+              state and interrupt.\\n\n                Read:\\n\n                0
+              = Interrupt is not pending.\\n\n                1 = Interrupt is pending."
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: NVIC_IPR0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58368
+        description: "(read-write) Use the Interrupt Priority Registers to assign
+          a priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.\\n\n            Note: Writing 1 to an NVIC_ICPR
+          bit does not affect the active state of the corresponding interrupt.\\n\n\
+          \            These registers are only word-accessible"
+        fields:
+          - name: IP_0
+            description: Priority of interrupt 0
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_1
+            description: Priority of interrupt 1
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_2
+            description: Priority of interrupt 2
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_3
+            description: Priority of interrupt 3
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58372
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_4
+            description: Priority of interrupt 4
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_5
+            description: Priority of interrupt 5
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_6
+            description: Priority of interrupt 6
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_7
+            description: Priority of interrupt 7
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58376
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_8
+            description: Priority of interrupt 8
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_9
+            description: Priority of interrupt 9
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_10
+            description: Priority of interrupt 10
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_11
+            description: Priority of interrupt 11
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58380
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_12
+            description: Priority of interrupt 12
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_13
+            description: Priority of interrupt 13
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_14
+            description: Priority of interrupt 14
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_15
+            description: Priority of interrupt 15
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR4
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58384
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_16
+            description: Priority of interrupt 16
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_17
+            description: Priority of interrupt 17
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_18
+            description: Priority of interrupt 18
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_19
+            description: Priority of interrupt 19
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR5
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58388
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_20
+            description: Priority of interrupt 20
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_21
+            description: Priority of interrupt 21
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_22
+            description: Priority of interrupt 22
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_23
+            description: Priority of interrupt 23
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR6
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58392
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_24
+            description: Priority of interrupt 24
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_25
+            description: Priority of interrupt 25
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_26
+            description: Priority of interrupt 26
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_27
+            description: Priority of interrupt 27
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: NVIC_IPR7
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 58396
+        description: (read-write) Use the Interrupt Priority Registers to assign a
+          priority from 0 to 3 to each of the available interrupts. 0 is the highest
+          priority, and 3 is the lowest.
+        fields:
+          - name: IP_28
+            description: Priority of interrupt 28
+            index: 6
+            width: 2
+            read: true
+            write: true
+          - name: IP_29
+            description: Priority of interrupt 29
+            index: 14
+            width: 2
+            read: true
+            write: true
+          - name: IP_30
+            description: Priority of interrupt 30
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: IP_31
+            description: Priority of interrupt 31
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: CPUID
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60672
+        const: true
+        description: '(read-only) Read the CPU ID Base Register to determine: the
+          ID number of the processor core, the version number of the processor core,
+          the implementation details of the processor core.'
+        fields:
+          - name: REVISION
+            description: "Minor revision number m in the rnpm revision status:\\n\n\
+              \                0x1 = Patch 1."
+            index: 0
+            width: 4
+            read: true
+            write: false
+          - name: PARTNO
+            description: 'Number of processor within family: 0xC60 = Cortex-M0+'
+            index: 4
+            width: 12
+            read: true
+            write: false
+          - name: ARCHITECTURE
+            description: "Constant that defines the architecture of the processor:\\\
+              n\n                0xC = ARMv6-M architecture."
+            index: 16
+            width: 4
+            read: true
+            write: false
+          - name: VARIANT
+            description: "Major revision number n in the rnpm revision status:\\n\n\
+              \                0x0 = Revision 0."
+            index: 20
+            width: 4
+            read: true
+            write: false
+          - name: IMPLEMENTER
+            description: 'Implementor code: 0x41 = ARM'
+            index: 24
+            width: 8
+            read: true
+            write: false
+      - name: ICSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60676
+        description: (read-write) Use the Interrupt Control State Register to set
+          a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set
+          or clear a pending SysTick, check for pending exceptions, check the vector
+          number of the highest priority pended exception, check the vector number
+          of the active exception.
+        fields:
+          - name: VECTACTIVE
+            description: Active exception number field. Reset clears the VECTACTIVE
+              field.
+            index: 0
+            width: 9
+            read: true
+            write: false
+          - name: VECTPENDING
+            description: 'Indicates the exception number for the highest priority
+              pending exception: 0 = no pending exceptions. Non zero = The pending
+              state includes the effect of memory-mapped enable and mask registers.
+              It does not include the PRIMASK special-purpose register qualifier.'
+            index: 12
+            width: 9
+            read: true
+            write: false
+          - name: ISRPENDING
+            description: External interrupt pending flag
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: ISRPREEMPT
+            description: The system can only access this bit when the core is halted.
+              It indicates that a pending interrupt is to be taken in the next running
+              cycle. If C_MASKINTS is clear in the Debug Halting Control and Status
+              Register, the interrupt is serviced.
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: PENDSTCLR
+            description: "SysTick exception clear-pending bit.\\n\n              \
+              \  Write:\\n\n                0 = No effect.\\n\n                1 =
+              Removes the pending state from the SysTick exception.\\n\n         \
+              \       This bit is WO. On a register read its value is Unknown."
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: PENDSTSET
+            description: "SysTick exception set-pending bit.\\n\n                Write:\\\
+              n\n                0 = No effect.\\n\n                1 = Changes SysTick
+              exception state to pending.\\n\n                Read:\\n\n         \
+              \       0 = SysTick exception is not pending.\\n\n                1
+              = SysTick exception is pending."
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: PENDSVCLR
+            description: "PendSV clear-pending bit.\\n\n                Write:\\n\n\
+              \                0 = No effect.\\n\n                1 = Removes the
+              pending state from the PendSV exception."
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: PENDSVSET
+            description: "PendSV set-pending bit.\\n\n                Write:\\n\n\
+              \                0 = No effect.\\n\n                1 = Changes PendSV
+              exception state to pending.\\n\n                Read:\\n\n         \
+              \       0 = PendSV exception is not pending.\\n\n                1 =
+              PendSV exception is pending.\\n\n                Writing 1 to this bit
+              is the only way to set the PendSV exception state to pending."
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: NMIPENDSET
+            description: "Setting this bit will activate an NMI. Since NMI is the
+              highest priority exception, it will activate as soon as it is registered.\\\
+              n\n                NMI set-pending bit.\\n\n                Write:\\\
+              n\n                0 = No effect.\\n\n                1 = Changes NMI
+              exception state to pending.\\n\n                Read:\\n\n         \
+              \       0 = NMI exception is not pending.\\n\n                1 = NMI
+              exception is pending.\\n\n                Because NMI is the highest-priority
+              exception, normally the processor enters the NMI\\n\n              \
+              \  exception handler as soon as it detects a write of 1 to this bit.
+              Entering the handler then clears\\n\n                this bit to 0.
+              This means a read of this bit by the NMI exception handler returns 1
+              only if the\\n\n                NMI signal is reasserted while the processor
+              is executing that handler."
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: VTOR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60680
+        description: (read-write) The VTOR holds the vector table offset address.
+        fields:
+          - name: TBLOFF
+            description: Bits [31:8] of the indicate the vector table offset address.
+            index: 8
+            width: 24
+            read: true
+            write: true
+      - name: AIRCR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60684
+        description: '(read-write) Use the Application Interrupt and Reset Control
+          Register to: determine data endianness, clear all active state information
+          from debug halt mode, request a system reset.'
+        fields:
+          - name: VECTCLRACTIVE
+            description: 'Clears all active state information for fixed and configurable
+              exceptions. This bit: is self-clearing, can only be set by the DAP when
+              the core is halted.  When set: clears all active exception status of
+              the processor, forces a return to Thread mode, forces an IPSR of 0.
+              A debugger must re-initialize the stack.'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SYSRESETREQ
+            description: Writing 1 to this bit causes the SYSRESETREQ signal to the
+              outer system to be asserted to request a reset. The intention is to
+              force a large system reset of all major components except for debug.
+              The C_HALT bit in the DHCSR is cleared as a result of the system reset
+              requested. The debugger does not lose contact with the device.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ENDIANESS
+            description: "Data endianness implemented:\\n\n                0 = Little-endian."
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: VECTKEY
+            description: "Register key:\\n\n                Reads as Unknown\\n\n\
+              \                On writes, write 0x05FA to VECTKEY, otherwise the write
+              is ignored."
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: SCR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60688
+        description: '(read-write) System Control Register. Use the System Control
+          Register for power-management functions: signal to the system when the processor
+          can enter a low power state, control how the processor enters and exits
+          low power states.'
+        fields:
+          - name: SLEEPONEXIT
+            description: "Indicates sleep-on-exit when returning from Handler mode
+              to Thread mode:\\n\n                0 = Do not sleep when returning
+              to Thread mode.\\n\n                1 = Enter sleep, or deep sleep,
+              on return from an ISR to Thread mode.\\n\n                Setting this
+              bit to 1 enables an interrupt driven application to avoid returning
+              to an empty main application."
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SLEEPDEEP
+            description: "Controls whether the processor uses sleep or deep sleep
+              as its low power mode:\\n\n                0 = Sleep.\\n\n         \
+              \       1 = Deep sleep."
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SEVONPEND
+            description: "Send Event on Pending bit:\\n\n                0 = Only
+              enabled interrupts or events can wakeup the processor, disabled interrupts
+              are excluded.\\n\n                1 = Enabled events and all interrupts,
+              including disabled interrupts, can wakeup the processor.\\n\n      \
+              \          When an event or interrupt becomes pending, the event signal
+              wakes up the processor from WFE. If the\\n\n                processor
+              is not waiting for an event, the event is registered and affects the
+              next WFE.\\n\n                The processor also wakes up on execution
+              of an SEV instruction or an external event."
+            index: 4
+            width: 1
+            read: true
+            write: true
+      - name: CCR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60692
+        const: true
+        description: (read-only) The Configuration and Control Register permanently
+          enables stack alignment and causes unaligned accesses to result in a Hard
+          Fault.
+        fields:
+          - name: UNALIGN_TRP
+            description: Always reads as one, indicates that all unaligned accesses
+              generate a HardFault.
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: STKALIGN
+            description: Always reads as one, indicates 8-byte stack alignment on
+              exception entry. On exception entry, the processor uses bit[9] of the
+              stacked PSR to indicate the stack alignment. On return from the exception
+              it uses this stacked bit to restore the correct stack alignment.
+            index: 9
+            width: 1
+            read: true
+            write: false
+      - name: SHPR2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60700
+        description: (read-write) System handlers are a special class of exception
+          handler that can have their priority set to any of the priority levels.
+          Use the System Handler Priority Register 2 to set the priority of SVCall.
+        fields:
+          - name: PRI_11
+            description: Priority of system handler 11, SVCall
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: SHPR3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60704
+        description: (read-write) System handlers are a special class of exception
+          handler that can have their priority set to any of the priority levels.
+          Use the System Handler Priority Register 3 to set the priority of PendSV
+          and SysTick.
+        fields:
+          - name: PRI_14
+            description: Priority of system handler 14, PendSV
+            index: 22
+            width: 2
+            read: true
+            write: true
+          - name: PRI_15
+            description: Priority of system handler 15, SysTick
+            index: 30
+            width: 2
+            read: true
+            write: true
+      - name: SHCSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60708
+        description: (read-write) Use the System Handler Control and State Register
+          to determine or clear the pending status of SVCall.
+        fields:
+          - name: SVCALLPENDED
+            description: Reads as 1 if SVCall is Pending.  Write 1 to set pending
+              SVCall, write 0 to clear pending SVCall.
+            index: 15
+            width: 1
+            read: true
+            write: true
+      - name: MPU_TYPE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60816
+        const: true
+        description: (read-only) Read the MPU Type Register to determine if the processor
+          implements an MPU, and how many regions the MPU supports.
+        fields:
+          - name: SEPARATE
+            description: Indicates support for separate instruction and data address
+              maps. Reads as 0 as ARMv6-M only supports a unified MPU.
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: DREGION
+            description: Number of regions supported by the MPU.
+            index: 8
+            width: 8
+            read: true
+            write: false
+          - name: IREGION
+            description: Instruction region. Reads as zero as ARMv6-M only supports
+              a unified MPU.
+            index: 16
+            width: 8
+            read: true
+            write: false
+      - name: MPU_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60820
+        description: (read-write) Use the MPU Control Register to enable and disable
+          the MPU, and to control whether the default memory map is enabled as a background
+          region for privileged accesses, and whether the MPU is enabled for HardFaults
+          and NMIs.
+        fields:
+          - name: ENABLE
+            description: "Enables the MPU. If the MPU is disabled, privileged and
+              unprivileged accesses use the default memory map.\\n\n             \
+              \   0 = MPU disabled.\\n\n                1 = MPU enabled."
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: HFNMIENA
+            description: "Controls the use of the MPU for HardFaults and NMIs. Setting
+              this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\\\
+              n\n                When the MPU is enabled:\\n\n                0 =
+              MPU is disabled during HardFault and NMI handlers, regardless of the
+              value of the ENABLE bit.\\n\n                1 = the MPU is enabled
+              during HardFault and NMI handlers."
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PRIVDEFENA
+            description: "Controls whether the default memory map is enabled as a
+              background region for privileged accesses. This bit is ignored when
+              ENABLE is clear.\\n\n                0 = If the MPU is enabled, disables
+              use of the default memory map. Any memory access to a location not\\\
+              n\n                covered by any enabled region causes a fault.\\n\n\
+              \                1 = If the MPU is enabled, enables use of the default
+              memory map as a background region for privileged software accesses.\\\
+              n\n                When enabled, the background region acts as if it
+              is region number -1. Any region that is defined and enabled has priority
+              over this default map."
+            index: 2
+            width: 1
+            read: true
+            write: true
+      - name: MPU_RNR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60824
+        description: (read-write) Use the MPU Region Number Register to select the
+          region currently accessed by MPU_RBAR and MPU_RASR.
+        fields:
+          - name: REGION
+            description: "Indicates the MPU region referenced by the MPU_RBAR and
+              MPU_RASR registers.\\n\n                The MPU supports 8 memory regions,
+              so the permitted values of this field are 0-7."
+            index: 0
+            width: 4
+            read: true
+            write: true
+      - name: MPU_RBAR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60828
+        description: (read-write) Read the MPU Region Base Address Register to determine
+          the base address of the region identified by MPU_RNR. Write to update the
+          base address of said region or that of a specified region, with whose number
+          MPU_RNR will also be updated.
+        fields:
+          - name: REGION
+            description: On writes, specifies the number of the region whose base
+              address to update provided VALID is set written as 1. On reads, returns
+              bits [3:0] of MPU_RNR.
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: VALID
+            description: "On writes, indicates whether the write must update the base
+              address of the region identified by the REGION field, updating the MPU_RNR
+              to indicate this new region.\\n\n                Write:\\n\n       \
+              \         0 = MPU_RNR not changed, and the processor:\\n\n         \
+              \       Updates the base address for the region specified in the MPU_RNR.\\\
+              n\n                Ignores the value of the REGION field.\\n\n     \
+              \           1 = The processor:\\n\n                Updates the value
+              of the MPU_RNR to the value of the REGION field.\\n\n              \
+              \  Updates the base address for the region specified in the REGION field.\\\
+              n\n                Always reads as zero."
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: ADDR
+            description: Base address of the region.
+            index: 8
+            width: 24
+            read: true
+            write: true
+      - name: MPU_RASR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60832
+        description: (read-write) Use the MPU Region Attribute and Size Register to
+          define the size, access behaviour and memory type of the region identified
+          by MPU_RNR, and enable that region.
+        fields:
+          - name: ENABLE
+            description: Enables the region.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SIZE
+            description: Indicates the region size. Region size in bytes = 2^(SIZE+1).
+              The minimum permitted value is 7 (b00111) = 256Bytes
+            index: 1
+            width: 5
+            read: true
+            write: true
+          - name: SRD
+            description: Subregion Disable. For regions of 256 bytes or larger, each
+              bit of this field controls whether one of the eight equal subregions
+              is enabled.
+            index: 8
+            width: 8
+            read: true
+            write: true
+          - name: ATTRS
+            description: "The MPU Region Attribute field. Use to define the region
+              attribute control.\\n\n                28 = XN: Instruction access disable
+              bit:\\n\n                0 = Instruction fetches enabled.\\n\n     \
+              \           1 = Instruction fetches disabled.\\n\n                26:24
+              = AP: Access permission field\\n\n                18 = S: Shareable
+              bit\\n\n                17 = C: Cacheable bit\\n\n                16
+              = B: Bufferable bit"
+            index: 16
+            width: 16
+            read: true
+            write: true
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

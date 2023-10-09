@@ -1,0 +1,114 @@
+---
+structs:
+  vreg_and_chip_reset:
+    description: control and status for on-chip voltage regulator and chip level reset
+      subsystem
+    instances:
+      - name: VREG_AND_CHIP_RESET
+        address: '0x40064000'
+    fields:
+      - name: VREG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Voltage regulator control and status
+        fields:
+          - name: EN
+            description: "enable\\n\n                0=not enabled, 1=enabled"
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: HIZ
+            description: "high impedance mode select\\n\n                0=not in
+              high impedance mode, 1=in high impedance mode"
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: VSEL
+            description: "output voltage select\\n\n                0000 to 0101 -
+              0.80V\\n\n                0110         - 0.85V\\n\n                0111\
+              \         - 0.90V\\n\n                1000         - 0.95V\\n\n    \
+              \            1001         - 1.00V\\n\n                1010         -
+              1.05V\\n\n                1011         - 1.10V (default)\\n\n      \
+              \          1100         - 1.15V\\n\n                1101         - 1.20V\\\
+              n\n                1110         - 1.25V\\n\n                1111   \
+              \      - 1.30V"
+            index: 4
+            width: 4
+            read: true
+            write: true
+          - name: ROK
+            description: "regulation status\\n\n                0=not in regulation,
+              1=in regulation"
+            index: 12
+            width: 1
+            read: true
+            write: false
+      - name: BOD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) brown-out detection control
+        fields:
+          - name: EN
+            description: "enable\\n\n                0=not enabled, 1=enabled"
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: VSEL
+            description: "threshold select\\n\n                0000 - 0.473V\\n\n\
+              \                0001 - 0.516V\\n\n                0010 - 0.559V\\n\n\
+              \                0011 - 0.602V\\n\n                0100 - 0.645V\\n\n\
+              \                0101 - 0.688V\\n\n                0110 - 0.731V\\n\n\
+              \                0111 - 0.774V\\n\n                1000 - 0.817V\\n\n\
+              \                1001 - 0.860V (default)\\n\n                1010 -
+              0.903V\\n\n                1011 - 0.946V\\n\n                1100 -
+              0.989V\\n\n                1101 - 1.032V\\n\n                1110 -
+              1.075V\\n\n                1111 - 1.118V"
+            index: 4
+            width: 4
+            read: true
+            write: true
+      - name: CHIP_RESET
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) Chip reset control and status
+        fields:
+          - name: HAD_POR
+            description: Last reset was from the power-on reset or brown-out detection
+              blocks
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: HAD_RUN
+            description: Last reset was from the RUN pin
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: HAD_PSM_RESTART
+            description: Last reset was from the debug port
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: PSM_RESTART_FLAG
+            description: "This is set by psm_restart from the debugger.\\n\n     \
+              \           Its purpose is to branch bootcode to a safe mode when the
+              debugger has issued a psm_restart in order to recover from a boot lock-up.\\\
+              n\n                In the safe mode the debugger can repair the boot
+              code, clear this flag then reboot the processor."
+            index: 24
+            width: 1
+            read: true
+            write: true
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

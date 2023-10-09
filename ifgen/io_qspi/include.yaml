@@ -1,0 +1,2325 @@
+---
+structs:
+  io_qspi:
+    instances:
+      - name: IO_QSPI
+        address: '0x40018000'
+    fields:
+      - name: GPIO_QSPI_SCLK_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        const: true
+        description: (read-only) GPIO status
+        fields:
+          - name: OUTFROMPERI
+            description: output signal from selected peripheral, before register override
+              is applied
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: OUTTOPAD
+            description: output signal to pad after register override is applied
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: OEFROMPERI
+            description: output enable from selected peripheral, before register override
+              is applied
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: OETOPAD
+            description: output enable to pad after register override is applied
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: INFROMPAD
+            description: input signal from pad, before override is applied
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: INTOPERI
+            description: input signal to peripheral, after override is applied
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: IRQFROMPAD
+            description: interrupt from pad before override is applied
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: IRQTOPROC
+            description: interrupt to processors, after override is applied
+            index: 26
+            width: 1
+            read: true
+            write: false
+      - name: GPIO_QSPI_SCLK_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) GPIO control including function select and overrides.
+        fields:
+          - name: FUNCSEL
+            description: "0-31 -> selects pin function according to the gpio table\\\
+              n\n                31 == NULL"
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL
+          - name: OUTOVER
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER
+          - name: OEOVER
+            index: 12
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER
+          - name: INOVER
+            index: 16
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER
+          - name: IRQOVER
+            index: 28
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER
+      - name: GPIO_QSPI_SS_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        const: true
+        description: (read-only) GPIO status
+        fields:
+          - name: OUTFROMPERI
+            description: output signal from selected peripheral, before register override
+              is applied
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: OUTTOPAD
+            description: output signal to pad after register override is applied
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: OEFROMPERI
+            description: output enable from selected peripheral, before register override
+              is applied
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: OETOPAD
+            description: output enable to pad after register override is applied
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: INFROMPAD
+            description: input signal from pad, before override is applied
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: INTOPERI
+            description: input signal to peripheral, after override is applied
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: IRQFROMPAD
+            description: interrupt from pad before override is applied
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: IRQTOPROC
+            description: interrupt to processors, after override is applied
+            index: 26
+            width: 1
+            read: true
+            write: false
+      - name: GPIO_QSPI_SS_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) GPIO control including function select and overrides.
+        fields:
+          - name: FUNCSEL
+            description: "0-31 -> selects pin function according to the gpio table\\\
+              n\n                31 == NULL"
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL
+          - name: OUTOVER
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER
+          - name: OEOVER
+            index: 12
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER
+          - name: INOVER
+            index: 16
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER
+          - name: IRQOVER
+            index: 28
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER
+      - name: GPIO_QSPI_SD0_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        const: true
+        description: (read-only) GPIO status
+        fields:
+          - name: OUTFROMPERI
+            description: output signal from selected peripheral, before register override
+              is applied
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: OUTTOPAD
+            description: output signal to pad after register override is applied
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: OEFROMPERI
+            description: output enable from selected peripheral, before register override
+              is applied
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: OETOPAD
+            description: output enable to pad after register override is applied
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: INFROMPAD
+            description: input signal from pad, before override is applied
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: INTOPERI
+            description: input signal to peripheral, after override is applied
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: IRQFROMPAD
+            description: interrupt from pad before override is applied
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: IRQTOPROC
+            description: interrupt to processors, after override is applied
+            index: 26
+            width: 1
+            read: true
+            write: false
+      - name: GPIO_QSPI_SD0_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) GPIO control including function select and overrides.
+        fields:
+          - name: FUNCSEL
+            description: "0-31 -> selects pin function according to the gpio table\\\
+              n\n                31 == NULL"
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL
+          - name: OUTOVER
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER
+          - name: OEOVER
+            index: 12
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER
+          - name: INOVER
+            index: 16
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER
+          - name: IRQOVER
+            index: 28
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER
+      - name: GPIO_QSPI_SD1_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        const: true
+        description: (read-only) GPIO status
+        fields:
+          - name: OUTFROMPERI
+            description: output signal from selected peripheral, before register override
+              is applied
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: OUTTOPAD
+            description: output signal to pad after register override is applied
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: OEFROMPERI
+            description: output enable from selected peripheral, before register override
+              is applied
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: OETOPAD
+            description: output enable to pad after register override is applied
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: INFROMPAD
+            description: input signal from pad, before override is applied
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: INTOPERI
+            description: input signal to peripheral, after override is applied
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: IRQFROMPAD
+            description: interrupt from pad before override is applied
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: IRQTOPROC
+            description: interrupt to processors, after override is applied
+            index: 26
+            width: 1
+            read: true
+            write: false
+      - name: GPIO_QSPI_SD1_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: (read-write) GPIO control including function select and overrides.
+        fields:
+          - name: FUNCSEL
+            description: "0-31 -> selects pin function according to the gpio table\\\
+              n\n                31 == NULL"
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL
+          - name: OUTOVER
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER
+          - name: OEOVER
+            index: 12
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER
+          - name: INOVER
+            index: 16
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER
+          - name: IRQOVER
+            index: 28
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER
+      - name: GPIO_QSPI_SD2_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        const: true
+        description: (read-only) GPIO status
+        fields:
+          - name: OUTFROMPERI
+            description: output signal from selected peripheral, before register override
+              is applied
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: OUTTOPAD
+            description: output signal to pad after register override is applied
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: OEFROMPERI
+            description: output enable from selected peripheral, before register override
+              is applied
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: OETOPAD
+            description: output enable to pad after register override is applied
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: INFROMPAD
+            description: input signal from pad, before override is applied
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: INTOPERI
+            description: input signal to peripheral, after override is applied
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: IRQFROMPAD
+            description: interrupt from pad before override is applied
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: IRQTOPROC
+            description: interrupt to processors, after override is applied
+            index: 26
+            width: 1
+            read: true
+            write: false
+      - name: GPIO_QSPI_SD2_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: (read-write) GPIO control including function select and overrides.
+        fields:
+          - name: FUNCSEL
+            description: "0-31 -> selects pin function according to the gpio table\\\
+              n\n                31 == NULL"
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL
+          - name: OUTOVER
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER
+          - name: OEOVER
+            index: 12
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER
+          - name: INOVER
+            index: 16
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER
+          - name: IRQOVER
+            index: 28
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER
+      - name: GPIO_QSPI_SD3_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        const: true
+        description: (read-only) GPIO status
+        fields:
+          - name: OUTFROMPERI
+            description: output signal from selected peripheral, before register override
+              is applied
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: OUTTOPAD
+            description: output signal to pad after register override is applied
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: OEFROMPERI
+            description: output enable from selected peripheral, before register override
+              is applied
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: OETOPAD
+            description: output enable to pad after register override is applied
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: INFROMPAD
+            description: input signal from pad, before override is applied
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: INTOPERI
+            description: input signal to peripheral, after override is applied
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: IRQFROMPAD
+            description: interrupt from pad before override is applied
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: IRQTOPROC
+            description: interrupt to processors, after override is applied
+            index: 26
+            width: 1
+            read: true
+            write: false
+      - name: GPIO_QSPI_SD3_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: (read-write) GPIO control including function select and overrides.
+        fields:
+          - name: FUNCSEL
+            description: "0-31 -> selects pin function according to the gpio table\\\
+              n\n                31 == NULL"
+            index: 0
+            width: 5
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL
+          - name: OUTOVER
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER
+          - name: OEOVER
+            index: 12
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER
+          - name: INOVER
+            index: 16
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER
+          - name: IRQOVER
+            index: 28
+            width: 2
+            read: true
+            write: true
+            type: IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: (read-write) Raw Interrupts
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: PROC0_INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: (read-write) Interrupt Enable for proc0
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: PROC0_INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: (read-write) Interrupt Force for proc0
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: PROC0_INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        const: true
+        description: (read-only) Interrupt status after masking & forcing for proc0
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: false
+      - name: PROC1_INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        description: (read-write) Interrupt Enable for proc1
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: PROC1_INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        description: (read-write) Interrupt Force for proc1
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: PROC1_INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        const: true
+        description: (read-only) Interrupt status after masking & forcing for proc1
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: false
+      - name: DORMANT_WAKE_INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: (read-write) Interrupt Enable for dormant_wake
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: DORMANT_WAKE_INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: (read-write) Interrupt Force for dormant_wake
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: true
+      - name: DORMANT_WAKE_INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        const: true
+        description: (read-only) Interrupt status after masking & forcing for dormant_wake
+        fields:
+          - name: GPIO_QSPI_SCLK_LEVEL_LOW
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_LEVEL_HIGH
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_LOW
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SCLK_EDGE_HIGH
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_LOW
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_LEVEL_HIGH
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_LOW
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SS_EDGE_HIGH
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_LOW
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_LEVEL_HIGH
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_LOW
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD0_EDGE_HIGH
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_LOW
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_LEVEL_HIGH
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_LOW
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD1_EDGE_HIGH
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_LOW
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_LEVEL_HIGH
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_LOW
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD2_EDGE_HIGH
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_LOW
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_LEVEL_HIGH
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_LOW
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: GPIO_QSPI_SD3_EDGE_HIGH
+            index: 23
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums:
+  IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL:
+    enum:
+      xip_sclk:
+        value: 0
+      sio_30:
+        value: 5
+      'null':
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER:
+    enum:
+      NORMAL:
+        description: drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: drive output low
+        value: 2
+      HIGH:
+        description: drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER:
+    enum:
+      NORMAL:
+        description: drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output enable from inverse of peripheral signal selected
+          by funcsel
+        value: 1
+      DISABLE:
+        description: disable output
+        value: 2
+      ENABLE:
+        description: enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER:
+    enum:
+      NORMAL:
+        description: don't invert the peri input
+        value: 0
+      INVERT:
+        description: invert the peri input
+        value: 1
+      LOW:
+        description: drive peri input low
+        value: 2
+      HIGH:
+        description: drive peri input high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER:
+    enum:
+      NORMAL:
+        description: don't invert the interrupt
+        value: 0
+      INVERT:
+        description: invert the interrupt
+        value: 1
+      LOW:
+        description: drive interrupt low
+        value: 2
+      HIGH:
+        description: drive interrupt high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL:
+    enum:
+      xip_ss_n:
+        value: 0
+      sio_31:
+        value: 5
+      'null':
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER:
+    enum:
+      NORMAL:
+        description: drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: drive output low
+        value: 2
+      HIGH:
+        description: drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER:
+    enum:
+      NORMAL:
+        description: drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output enable from inverse of peripheral signal selected
+          by funcsel
+        value: 1
+      DISABLE:
+        description: disable output
+        value: 2
+      ENABLE:
+        description: enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER:
+    enum:
+      NORMAL:
+        description: don't invert the peri input
+        value: 0
+      INVERT:
+        description: invert the peri input
+        value: 1
+      LOW:
+        description: drive peri input low
+        value: 2
+      HIGH:
+        description: drive peri input high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER:
+    enum:
+      NORMAL:
+        description: don't invert the interrupt
+        value: 0
+      INVERT:
+        description: invert the interrupt
+        value: 1
+      LOW:
+        description: drive interrupt low
+        value: 2
+      HIGH:
+        description: drive interrupt high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL:
+    enum:
+      xip_sd0:
+        value: 0
+      sio_32:
+        value: 5
+      'null':
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER:
+    enum:
+      NORMAL:
+        description: drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: drive output low
+        value: 2
+      HIGH:
+        description: drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER:
+    enum:
+      NORMAL:
+        description: drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output enable from inverse of peripheral signal selected
+          by funcsel
+        value: 1
+      DISABLE:
+        description: disable output
+        value: 2
+      ENABLE:
+        description: enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER:
+    enum:
+      NORMAL:
+        description: don't invert the peri input
+        value: 0
+      INVERT:
+        description: invert the peri input
+        value: 1
+      LOW:
+        description: drive peri input low
+        value: 2
+      HIGH:
+        description: drive peri input high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER:
+    enum:
+      NORMAL:
+        description: don't invert the interrupt
+        value: 0
+      INVERT:
+        description: invert the interrupt
+        value: 1
+      LOW:
+        description: drive interrupt low
+        value: 2
+      HIGH:
+        description: drive interrupt high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL:
+    enum:
+      xip_sd1:
+        value: 0
+      sio_33:
+        value: 5
+      'null':
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER:
+    enum:
+      NORMAL:
+        description: drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: drive output low
+        value: 2
+      HIGH:
+        description: drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER:
+    enum:
+      NORMAL:
+        description: drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output enable from inverse of peripheral signal selected
+          by funcsel
+        value: 1
+      DISABLE:
+        description: disable output
+        value: 2
+      ENABLE:
+        description: enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER:
+    enum:
+      NORMAL:
+        description: don't invert the peri input
+        value: 0
+      INVERT:
+        description: invert the peri input
+        value: 1
+      LOW:
+        description: drive peri input low
+        value: 2
+      HIGH:
+        description: drive peri input high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER:
+    enum:
+      NORMAL:
+        description: don't invert the interrupt
+        value: 0
+      INVERT:
+        description: invert the interrupt
+        value: 1
+      LOW:
+        description: drive interrupt low
+        value: 2
+      HIGH:
+        description: drive interrupt high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL:
+    enum:
+      xip_sd2:
+        value: 0
+      sio_34:
+        value: 5
+      'null':
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER:
+    enum:
+      NORMAL:
+        description: drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: drive output low
+        value: 2
+      HIGH:
+        description: drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER:
+    enum:
+      NORMAL:
+        description: drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output enable from inverse of peripheral signal selected
+          by funcsel
+        value: 1
+      DISABLE:
+        description: disable output
+        value: 2
+      ENABLE:
+        description: enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER:
+    enum:
+      NORMAL:
+        description: don't invert the peri input
+        value: 0
+      INVERT:
+        description: invert the peri input
+        value: 1
+      LOW:
+        description: drive peri input low
+        value: 2
+      HIGH:
+        description: drive peri input high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER:
+    enum:
+      NORMAL:
+        description: don't invert the interrupt
+        value: 0
+      INVERT:
+        description: invert the interrupt
+        value: 1
+      LOW:
+        description: drive interrupt low
+        value: 2
+      HIGH:
+        description: drive interrupt high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL:
+    enum:
+      xip_sd3:
+        value: 0
+      sio_35:
+        value: 5
+      'null':
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER:
+    enum:
+      NORMAL:
+        description: drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: drive output low
+        value: 2
+      HIGH:
+        description: drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER:
+    enum:
+      NORMAL:
+        description: drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: drive output enable from inverse of peripheral signal selected
+          by funcsel
+        value: 1
+      DISABLE:
+        description: disable output
+        value: 2
+      ENABLE:
+        description: enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER:
+    enum:
+      NORMAL:
+        description: don't invert the peri input
+        value: 0
+      INVERT:
+        description: invert the peri input
+        value: 1
+      LOW:
+        description: drive peri input low
+        value: 2
+      HIGH:
+        description: drive peri input high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER:
+    enum:
+      NORMAL:
+        description: don't invert the interrupt
+        value: 0
+      INVERT:
+        description: invert the interrupt
+        value: 1
+      LOW:
+        description: drive interrupt low
+        value: 2
+      HIGH:
+        description: drive interrupt high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false

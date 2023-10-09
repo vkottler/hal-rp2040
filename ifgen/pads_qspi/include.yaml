@@ -1,0 +1,407 @@
+---
+structs:
+  pads_qspi:
+    instances:
+      - name: PADS_QSPI
+        address: '0x40020000'
+    fields:
+      - name: VOLTAGE_SELECT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Voltage select. Per bank control
+        fields:
+          - name: VOLTAGE_SELECT
+            index: 0
+            width: 1
+            read: true
+            write: true
+            type: PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT
+      - name: GPIO_QSPI_SCLK
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Pad control register
+        fields:
+          - name: SLEWFAST
+            description: Slew rate control. 1 = Fast, 0 = Slow
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SCHMITT
+            description: Enable schmitt trigger
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PDE
+            description: Pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PUE
+            description: Pull up enable
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DRIVE
+            description: Drive strength.
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PADS_QSPI_GPIO_QSPI_SCLK_DRIVE
+          - name: IE
+            description: Input enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: OD
+            description: Output disable. Has priority over output enable from peripherals
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: GPIO_QSPI_SD0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) Pad control register
+        fields:
+          - name: SLEWFAST
+            description: Slew rate control. 1 = Fast, 0 = Slow
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SCHMITT
+            description: Enable schmitt trigger
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PDE
+            description: Pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PUE
+            description: Pull up enable
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DRIVE
+            description: Drive strength.
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PADS_QSPI_GPIO_QSPI_SD0_DRIVE
+          - name: IE
+            description: Input enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: OD
+            description: Output disable. Has priority over output enable from peripherals
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: GPIO_QSPI_SD1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Pad control register
+        fields:
+          - name: SLEWFAST
+            description: Slew rate control. 1 = Fast, 0 = Slow
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SCHMITT
+            description: Enable schmitt trigger
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PDE
+            description: Pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PUE
+            description: Pull up enable
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DRIVE
+            description: Drive strength.
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PADS_QSPI_GPIO_QSPI_SD1_DRIVE
+          - name: IE
+            description: Input enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: OD
+            description: Output disable. Has priority over output enable from peripherals
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: GPIO_QSPI_SD2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: (read-write) Pad control register
+        fields:
+          - name: SLEWFAST
+            description: Slew rate control. 1 = Fast, 0 = Slow
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SCHMITT
+            description: Enable schmitt trigger
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PDE
+            description: Pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PUE
+            description: Pull up enable
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DRIVE
+            description: Drive strength.
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PADS_QSPI_GPIO_QSPI_SD2_DRIVE
+          - name: IE
+            description: Input enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: OD
+            description: Output disable. Has priority over output enable from peripherals
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: GPIO_QSPI_SD3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) Pad control register
+        fields:
+          - name: SLEWFAST
+            description: Slew rate control. 1 = Fast, 0 = Slow
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SCHMITT
+            description: Enable schmitt trigger
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PDE
+            description: Pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PUE
+            description: Pull up enable
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DRIVE
+            description: Drive strength.
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PADS_QSPI_GPIO_QSPI_SD3_DRIVE
+          - name: IE
+            description: Input enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: OD
+            description: Output disable. Has priority over output enable from peripherals
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: GPIO_QSPI_SS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: (read-write) Pad control register
+        fields:
+          - name: SLEWFAST
+            description: Slew rate control. 1 = Fast, 0 = Slow
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SCHMITT
+            description: Enable schmitt trigger
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: PDE
+            description: Pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: PUE
+            description: Pull up enable
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DRIVE
+            description: Drive strength.
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PADS_QSPI_GPIO_QSPI_SS_DRIVE
+          - name: IE
+            description: Input enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: OD
+            description: Output disable. Has priority over output enable from peripherals
+            index: 7
+            width: 1
+            read: true
+            write: true
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums:
+  PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT:
+    enum:
+      3v3:
+        description: Set voltage to 3.3V (DVDD >= 2V5)
+        value: 0
+      1v8:
+        description: Set voltage to 1.8V (DVDD <= 1V8)
+        value: 1
+    unit_test: false
+    json: false
+    use_map: false
+  PADS_QSPI_GPIO_QSPI_SCLK_DRIVE:
+    enum:
+      2mA:
+        value: 0
+      4mA:
+        value: 1
+      8mA:
+        value: 2
+      12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PADS_QSPI_GPIO_QSPI_SD0_DRIVE:
+    enum:
+      2mA:
+        value: 0
+      4mA:
+        value: 1
+      8mA:
+        value: 2
+      12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PADS_QSPI_GPIO_QSPI_SD1_DRIVE:
+    enum:
+      2mA:
+        value: 0
+      4mA:
+        value: 1
+      8mA:
+        value: 2
+      12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PADS_QSPI_GPIO_QSPI_SD2_DRIVE:
+    enum:
+      2mA:
+        value: 0
+      4mA:
+        value: 1
+      8mA:
+        value: 2
+      12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PADS_QSPI_GPIO_QSPI_SD3_DRIVE:
+    enum:
+      2mA:
+        value: 0
+      4mA:
+        value: 1
+      8mA:
+        value: 2
+      12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PADS_QSPI_GPIO_QSPI_SS_DRIVE:
+    enum:
+      2mA:
+        value: 0
+      4mA:
+        value: 1
+      8mA:
+        value: 2
+      12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false

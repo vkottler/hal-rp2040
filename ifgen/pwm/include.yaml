@@ -1,0 +1,1256 @@
+---
+structs:
+  pwm:
+    description: Simple PWM
+    instances:
+      - name: PWM
+        address: '0x40050000'
+    fields:
+      - name: CH0_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH0_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH0_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH0_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH0_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH0_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH0_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH0_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH1_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH1_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH1_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH1_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH1_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH1_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH1_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH1_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH2_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH2_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH2_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH2_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH2_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH2_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH2_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH2_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH3_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH3_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH3_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH3_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH3_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH3_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH3_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH3_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH4_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH4_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH4_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH4_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH4_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH4_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH4_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 96
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH4_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH5_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 100
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH5_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH5_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 104
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH5_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 108
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH5_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH5_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 112
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH5_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 116
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH5_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH6_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 120
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH6_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH6_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 124
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH6_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 128
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH6_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH6_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 132
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH6_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 136
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH6_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH7_CSR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 140
+        description: (read-write) Control and status register
+        fields:
+          - name: EN
+            description: Enable the PWM channel.
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: PH_CORRECT
+            description: '1: Enable phase-correct modulation. 0: Trailing-edge'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: A_INV
+            description: Invert output A
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: B_INV
+            description: Invert output B
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DIVMODE
+            index: 4
+            width: 2
+            read: true
+            write: true
+            type: PWM_CH7_CSR_DIVMODE
+          - name: PH_RET
+            description: "Retard the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running."
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: PH_ADV
+            description: "Advance the phase of the counter by 1 count, while it is
+              running.\\n\n                Self-clearing. Write a 1, and poll until
+              low. Counter must be running\\n\n                at less than full speed
+              (div_int + div_frac / 16 > 1)"
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: CH7_DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 144
+        description: "(read-write) INT and FRAC form a fixed-point fractional number.\\\
+          n\n            Counting rate is system clock frequency divided by this number.\\\
+          n\n            Fractional division uses simple 1st-order sigma-delta."
+        fields:
+          - name: FRAC
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: INT
+            index: 4
+            width: 8
+            read: true
+            write: true
+      - name: CH7_CTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 148
+        description: (read-write) Direct access to the PWM counter
+        fields:
+          - name: CH7_CTR
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: CH7_CC
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 152
+        description: (read-write) Counter compare values
+        fields:
+          - name: A
+            index: 0
+            width: 16
+            read: true
+            write: true
+          - name: B
+            index: 16
+            width: 16
+            read: true
+            write: true
+      - name: CH7_TOP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 156
+        description: (read-write) Counter wrap value
+        fields:
+          - name: CH7_TOP
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: EN
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 160
+        description: "(read-write) This register aliases the CSR_EN bits for all channels.\\\
+          n\n            Writing to this register allows multiple channels to be enabled\\\
+          n\n            or disabled simultaneously, so they can run in perfect sync.\\\
+          n\n            For each channel, there is only one physical EN register
+          bit,\\n\n            which can be accessed through here or CHx_CSR."
+        fields:
+          - name: CH0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CH1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CH2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CH3
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CH4
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CH5
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CH6
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CH7
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 164
+        description: (read-write) Raw Interrupts
+        fields:
+          - name: CH0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CH1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CH2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CH3
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CH4
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CH5
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CH6
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CH7
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 168
+        description: (read-write) Interrupt Enable
+        fields:
+          - name: CH0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CH1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CH2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CH3
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CH4
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CH5
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CH6
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CH7
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 172
+        description: (read-write) Interrupt Force
+        fields:
+          - name: CH0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: CH1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: CH2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: CH3
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: CH4
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: CH5
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: CH6
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: CH7
+            index: 7
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 176
+        const: true
+        description: (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: CH0
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: CH1
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: CH2
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: CH3
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: CH4
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: CH5
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: CH6
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: CH7
+            index: 7
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums:
+  PWM_CH0_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH1_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH2_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH3_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH4_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH5_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH6_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  PWM_CH7_CSR_DIVMODE:
+    enum:
+      div:
+        description: Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false

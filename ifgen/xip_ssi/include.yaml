@@ -1,0 +1,718 @@
+---
+structs:
+  xip_ssi:
+    description: "DW_apb_ssi has the following features:\\n\n        * APB interface
+      - Allows for easy integration into a DesignWare Synthesizable Components for
+      AMBA 2 implementation.\\n\n        * APB3 and APB4 protocol support.\\n\n  \
+      \      * Scalable APB data bus width - Supports APB data bus widths of 8, 16,
+      and 32 bits.\\n\n        * Serial-master or serial-slave operation - Enables
+      serial communication with serial-master or serial-slave peripheral devices.\\\
+      n\n        * Programmable Dual/Quad/Octal SPI support in Master Mode.\\n\n \
+      \       * Dual Data Rate (DDR) and Read Data Strobe (RDS) Support - Enables
+      the DW_apb_ssi master to perform operations with the device in DDR and RDS modes
+      when working in Dual/Quad/Octal mode of operation.\\n\n        * Data Mask Support
+      - Enables the DW_apb_ssi to selectively update the bytes in the device. This
+      feature is applicable only in enhanced SPI modes.\\n\n        * eXecute-In-Place
+      (XIP) support - Enables the DW_apb_ssi master to behave as a memory mapped I/O
+      and fetches the data from the device based on the APB read request. This feature
+      is applicable only in enhanced SPI modes.\\n\n        * DMA Controller Interface
+      - Enables the DW_apb_ssi to interface to a DMA controller over the bus using
+      a handshaking interface for transfer requests.\\n\n        * Independent masking
+      of interrupts - Master collision, transmit FIFO overflow, transmit FIFO empty,
+      receive FIFO full, receive FIFO underflow, and receive FIFO overflow interrupts
+      can all be masked independently.\\n\n        * Multi-master contention detection
+      - Informs the processor of multiple serial-master accesses on the serial bus.\\\
+      n\n        * Bypass of meta-stability flip-flops for synchronous clocks - When
+      the APB clock (pclk) and the DW_apb_ssi serial clock (ssi_clk) are synchronous,
+      meta-stable flip-flops are not used when transferring control signals across
+      these clock domains.\\n\n        * Programmable delay on the sample time of
+      the received serial data bit (rxd); enables programmable control of routing
+      delays resulting in higher serial data-bit rates.\\n\n        * Programmable
+      features:\\n\n        - Serial interface operation - Choice of Motorola SPI,
+      Texas Instruments Synchronous Serial Protocol or National Semiconductor Microwire.\\\
+      n\n        - Clock bit-rate - Dynamic control of the serial bit rate of the
+      data transfer; used in only serial-master mode of operation.\\n\n        - Data
+      Item size (4 to 32 bits) - Item size of each data transfer under the control
+      of the programmer.\\n\n        * Configured features:\\n\n        - FIFO depth
+      - 16 words deep. The FIFO width is fixed at 32 bits.\\n\n        - 1 slave select
+      output.\\n\n        - Hardware slave-select - Dedicated hardware slave-select
+      line.\\n\n        - Combined interrupt line - one combined interrupt line from
+      the DW_apb_ssi to the interrupt controller.\\n\n        - Interrupt polarity
+      - active high interrupt lines.\\n\n        - Serial clock polarity - low serial-clock
+      polarity directly after reset.\\n\n        - Serial clock phase - capture on
+      first edge of serial-clock directly after reset."
+    instances:
+      - name: XIP_SSI
+        address: '0x18000000'
+    fields:
+      - name: CTRLR0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Control register 0
+        fields:
+          - name: DFS
+            description: Data frame size
+            index: 0
+            width: 4
+            read: true
+            write: true
+          - name: FRF
+            description: Frame format
+            index: 4
+            width: 2
+            read: true
+            write: true
+          - name: SCPH
+            description: Serial clock phase
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: SCPOL
+            description: Serial clock polarity
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: TMOD
+            description: Transfer mode
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: XIP_SSI_CTRLR0_TMOD
+          - name: SLV_OE
+            description: Slave output enable
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: SRL
+            description: Shift register loop (test mode)
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: CFS
+            description: "Control frame size\\n\n                Value of n -> n+1
+              clocks per frame."
+            index: 12
+            width: 4
+            read: true
+            write: true
+          - name: DFS_32
+            description: "Data frame size in 32b transfer mode\\n\n              \
+              \  Value of n -> n+1 clocks per frame."
+            index: 16
+            width: 5
+            read: true
+            write: true
+          - name: SPI_FRF
+            description: SPI frame format
+            index: 21
+            width: 2
+            read: true
+            write: true
+            type: XIP_SSI_CTRLR0_SPI_FRF
+          - name: SSTE
+            description: Slave select toggle enable
+            index: 24
+            width: 1
+            read: true
+            write: true
+      - name: CTRLR1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Master Control register 1
+        fields:
+          - name: NDF
+            description: Number of data frames
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: SSIENR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) SSI Enable
+        fields:
+          - name: SSI_EN
+            description: SSI enable
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: MWCR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Microwire Control
+        fields:
+          - name: MWMOD
+            description: Microwire transfer mode
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: MDD
+            description: Microwire control
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: MHS
+            description: Microwire handshaking
+            index: 2
+            width: 1
+            read: true
+            write: true
+      - name: SER
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: (read-write) Slave enable
+        fields:
+          - name: SER
+            description: "For each bit:\\n\n                0 -> slave not selected\\\
+              n\n                1 -> slave selected"
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: BAUDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) Baud rate
+        fields:
+          - name: SCKDV
+            description: SSI clock divider
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: TXFTLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: (read-write) TX FIFO threshold level
+        fields:
+          - name: TFT
+            description: Transmit FIFO threshold
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: RXFTLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: (read-write) RX FIFO threshold level
+        fields:
+          - name: RFT
+            description: Receive FIFO threshold
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: TXFLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        const: true
+        description: (read-only) TX FIFO level
+        fields:
+          - name: TFTFL
+            description: Transmit FIFO level
+            index: 0
+            width: 8
+            read: true
+            write: false
+      - name: RXFLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        const: true
+        description: (read-only) RX FIFO level
+        fields:
+          - name: RXTFL
+            description: Receive FIFO level
+            index: 0
+            width: 8
+            read: true
+            write: false
+      - name: SR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        const: true
+        description: (read-only) Status register
+        fields:
+          - name: BUSY
+            description: SSI busy flag
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: TFNF
+            description: Transmit FIFO not full
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: TFE
+            description: Transmit FIFO empty
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: RFNE
+            description: Receive FIFO not empty
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: RFF
+            description: Receive FIFO full
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: TXE
+            description: Transmission error
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: DCOL
+            description: Data collision error
+            index: 6
+            width: 1
+            read: true
+            write: false
+      - name: IMR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: (read-write) Interrupt mask
+        fields:
+          - name: TXEIM
+            description: Transmit FIFO empty interrupt mask
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: TXOIM
+            description: Transmit FIFO overflow interrupt mask
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: RXUIM
+            description: Receive FIFO underflow interrupt mask
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: RXOIM
+            description: Receive FIFO overflow interrupt mask
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: RXFIM
+            description: Receive FIFO full interrupt mask
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: MSTIM
+            description: Multi-master contention interrupt mask
+            index: 5
+            width: 1
+            read: true
+            write: true
+      - name: ISR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        const: true
+        description: (read-only) Interrupt status
+        fields:
+          - name: TXEIS
+            description: Transmit FIFO empty interrupt status
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: TXOIS
+            description: Transmit FIFO overflow interrupt status
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: RXUIS
+            description: Receive FIFO underflow interrupt status
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: RXOIS
+            description: Receive FIFO overflow interrupt status
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: RXFIS
+            description: Receive FIFO full interrupt status
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: MSTIS
+            description: Multi-master contention interrupt status
+            index: 5
+            width: 1
+            read: true
+            write: false
+      - name: RISR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        const: true
+        description: (read-only) Raw interrupt status
+        fields:
+          - name: TXEIR
+            description: Transmit FIFO empty raw interrupt status
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: TXOIR
+            description: Transmit FIFO overflow raw interrupt status
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: RXUIR
+            description: Receive FIFO underflow raw interrupt status
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: RXOIR
+            description: Receive FIFO overflow raw interrupt status
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: RXFIR
+            description: Receive FIFO full raw interrupt status
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: MSTIR
+            description: Multi-master contention raw interrupt status
+            index: 5
+            width: 1
+            read: true
+            write: false
+      - name: TXOICR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        const: true
+        description: (read-only) TX FIFO overflow interrupt clear
+        fields:
+          - name: TXOICR
+            description: Clear-on-read transmit FIFO overflow interrupt
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: RXOICR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        const: true
+        description: (read-only) RX FIFO overflow interrupt clear
+        fields:
+          - name: RXOICR
+            description: Clear-on-read receive FIFO overflow interrupt
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: RXUICR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        const: true
+        description: (read-only) RX FIFO underflow interrupt clear
+        fields:
+          - name: RXUICR
+            description: Clear-on-read receive FIFO underflow interrupt
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: MSTICR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        const: true
+        description: (read-only) Multi-master interrupt clear
+        fields:
+          - name: MSTICR
+            description: Clear-on-read multi-master contention interrupt
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: ICR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        const: true
+        description: (read-only) Interrupt clear
+        fields:
+          - name: ICR
+            description: Clear-on-read all active interrupts
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: DMACR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: (read-write) DMA control
+        fields:
+          - name: RDMAE
+            description: Receive DMA enable
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: TDMAE
+            description: Transmit DMA enable
+            index: 1
+            width: 1
+            read: true
+            write: true
+      - name: DMATDLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: (read-write) DMA TX data level
+        fields:
+          - name: DMATDL
+            description: Transmit data watermark level
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: DMARDLR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: (read-write) DMA RX data level
+        fields:
+          - name: DMARDL
+            description: Receive data watermark level (DMARDLR+1)
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: IDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        const: true
+        description: (read-only) Identification register
+        fields:
+          - name: IDCODE
+            description: Peripheral dentification code
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: SSI_VERSION_ID
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        const: true
+        description: (read-only) Version ID
+        fields:
+          - name: SSI_COMP_VERSION
+            description: SNPS component version (format X.YY)
+            index: 0
+            width: 32
+            read: true
+            write: false
+      - name: DR0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 96
+        description: (read-write) Data Register 0 (of 36)
+        fields:
+          - name: DR
+            description: First data register of 36
+            index: 0
+            width: 32
+            read: true
+            write: true
+      - name: RX_SAMPLE_DLY
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 240
+        description: (read-write) RX sample delay
+        fields:
+          - name: RSD
+            description: RXD sample delay (in SCLK cycles)
+            index: 0
+            width: 8
+            read: true
+            write: true
+      - name: SPI_CTRLR0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 244
+        description: (read-write) SPI control
+        fields:
+          - name: TRANS_TYPE
+            description: Address and instruction transfer format
+            index: 0
+            width: 2
+            read: true
+            write: true
+            type: XIP_SSI_SPI_CTRLR0_TRANS_TYPE
+          - name: ADDR_L
+            description: Address length (0b-60b in 4b increments)
+            index: 2
+            width: 4
+            read: true
+            write: true
+          - name: INST_L
+            description: Instruction length (0/4/8/16b)
+            index: 8
+            width: 2
+            read: true
+            write: true
+            type: XIP_SSI_SPI_CTRLR0_INST_L
+          - name: WAIT_CYCLES
+            description: Wait cycles between control frame transmit and data reception
+              (in SCLK cycles)
+            index: 11
+            width: 5
+            read: true
+            write: true
+          - name: SPI_DDR_EN
+            description: SPI DDR transfer enable
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: INST_DDR_EN
+            description: Instruction DDR transfer enable
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: SPI_RXDS_EN
+            description: Read data strobe enable
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: XIP_CMD
+            description: SPI Command to send in XIP mode (INST_L = 8-bit) or to append
+              to Address (INST_L = 0-bit)
+            index: 24
+            width: 8
+            read: true
+            write: true
+      - name: TXD_DRIVE_EDGE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 248
+        description: (read-write) TX drive edge
+        fields:
+          - name: TDE
+            description: TXD drive edge
+            index: 0
+            width: 8
+            read: true
+            write: true
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums:
+  XIP_SSI_CTRLR0_TMOD:
+    enum:
+      TX_AND_RX:
+        description: Both transmit and receive
+        value: 0
+      TX_ONLY:
+        description: Transmit only (not for FRF == 0, standard SPI mode)
+        value: 1
+      RX_ONLY:
+        description: Receive only (not for FRF == 0, standard SPI mode)
+        value: 2
+      EEPROM_READ:
+        description: EEPROM read mode (TX then RX; RX starts after control data TX'd)
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+  XIP_SSI_CTRLR0_SPI_FRF:
+    enum:
+      STD:
+        description: Standard 1-bit SPI frame format; 1 bit per SCK, full-duplex
+        value: 0
+      DUAL:
+        description: Dual-SPI frame format; two bits per SCK, half-duplex
+        value: 1
+      QUAD:
+        description: Quad-SPI frame format; four bits per SCK, half-duplex
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+  XIP_SSI_SPI_CTRLR0_TRANS_TYPE:
+    enum:
+      1C1A:
+        description: Command and address both in standard SPI frame format
+        value: 0
+      1C2A:
+        description: Command in standard SPI format, address in format specified by
+          FRF
+        value: 1
+      2C2A:
+        description: Command and address both in format specified by FRF (e.g. Dual-SPI)
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+  XIP_SSI_SPI_CTRLR0_INST_L:
+    enum:
+      NONE:
+        description: No instruction
+        value: 0
+      4B:
+        description: 4-bit instruction
+        value: 1
+      8B:
+        description: 8-bit instruction
+        value: 2
+      16B:
+        description: 16-bit instruction
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false

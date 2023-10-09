@@ -1,0 +1,259 @@
+---
+structs:
+  adc:
+    description: Control and data interface to SAR ADC
+    instances:
+      - name: ADC
+        address: '0x4004c000'
+    fields:
+      - name: CS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) ADC Control and Status
+        fields:
+          - name: EN
+            description: "Power on ADC and enable its clock.\\n\n                1
+              - enabled. 0 - disabled."
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: TS_EN
+            description: Power on temperature sensor. 1 - enabled. 0 - disabled.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: START_ONCE
+            description: Start a single conversion. Self-clearing. Ignored if start_many
+              is asserted.
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: START_MANY
+            description: Continuously perform conversions whilst this bit is 1. A
+              new conversion will start immediately after the previous finishes.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: READY
+            description: "1 if the ADC is ready to start a new conversion. Implies
+              any previous conversion has completed.\\n\n                0 whilst
+              conversion in progress."
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: ERR
+            description: The most recent ADC conversion encountered an error; result
+              is undefined or noisy.
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: ERR_STICKY
+            description: Some past ADC conversion encountered an error. Write 1 to
+              clear.
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: AINSEL
+            description: Select analog mux input. Updated automatically in round-robin
+              mode.
+            index: 12
+            width: 3
+            read: true
+            write: true
+          - name: RROBIN
+            description: "Round-robin sampling. 1 bit per channel. Set all bits to
+              0 to disable.\\n\n                Otherwise, the ADC will cycle through
+              each enabled channel in a round-robin fashion.\\n\n                The
+              first channel to be sampled will be the one currently indicated by AINSEL.\\\
+              n\n                AINSEL will be updated after each conversion with
+              the newly-selected channel."
+            index: 16
+            width: 5
+            read: true
+            write: true
+      - name: RESULT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        const: true
+        description: (read-only) Result of most recent ADC conversion
+        fields:
+          - name: RESULT
+            index: 0
+            width: 12
+            read: true
+            write: false
+      - name: FCS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) FIFO control and status
+        fields:
+          - name: EN
+            description: 'If 1: write result to the FIFO after each conversion.'
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SHIFT
+            description: 'If 1: FIFO results are right-shifted to be one byte in size.
+              Enables DMA to byte buffers.'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: ERR
+            description: 'If 1: conversion error bit appears in the FIFO alongside
+              the result'
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: DREQ_EN
+            description: 'If 1: assert DMA requests when FIFO contains data'
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: EMPTY
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: FULL
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: UNDER
+            description: 1 if the FIFO has been underflowed. Write 1 to clear.
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: OVER
+            description: 1 if the FIFO has been overflowed. Write 1 to clear.
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: LEVEL
+            description: The number of conversion results currently waiting in the
+              FIFO
+            index: 16
+            width: 4
+            read: true
+            write: false
+          - name: THRESH
+            description: DREQ/IRQ asserted when level >= threshold
+            index: 24
+            width: 4
+            read: true
+            write: true
+      - name: FIFO
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        const: true
+        description: (read-only) Conversion result FIFO
+        fields:
+          - name: VAL
+            index: 0
+            width: 12
+            read: true
+            write: false
+          - name: ERR
+            description: 1 if this particular sample experienced a conversion error.
+              Remains in the same location if the sample is shifted.
+            index: 15
+            width: 1
+            read: true
+            write: false
+      - name: DIV
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: "(read-write) Clock divider. If non-zero, CS_START_MANY will
+          start conversions\\n\n            at regular intervals rather than back-to-back.\\\
+          n\n            The divider is reset when either of these fields are written.\\\
+          n\n            Total period is 1 + INT + FRAC / 256"
+        fields:
+          - name: FRAC
+            description: Fractional part of clock divisor. First-order delta-sigma.
+            index: 0
+            width: 8
+            read: true
+            write: true
+          - name: INT
+            description: Integer part of clock divisor.
+            index: 8
+            width: 16
+            read: true
+            write: true
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        const: true
+        description: (read-only) Raw Interrupts
+        fields:
+          - name: FIFO
+            description: "Triggered when the sample FIFO reaches a certain level.\\\
+              n\n                This level can be programmed via the FCS_THRESH field."
+            index: 0
+            width: 1
+            read: true
+            write: false
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: (read-write) Interrupt Enable
+        fields:
+          - name: FIFO
+            description: "Triggered when the sample FIFO reaches a certain level.\\\
+              n\n                This level can be programmed via the FCS_THRESH field."
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: (read-write) Interrupt Force
+        fields:
+          - name: FIFO
+            description: "Triggered when the sample FIFO reaches a certain level.\\\
+              n\n                This level can be programmed via the FCS_THRESH field."
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        const: true
+        description: (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: FIFO
+            description: "Triggered when the sample FIFO reaches a certain level.\\\
+              n\n                This level can be programmed via the FCS_THRESH field."
+            index: 0
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

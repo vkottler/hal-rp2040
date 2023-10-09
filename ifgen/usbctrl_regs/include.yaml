@@ -1,0 +1,2594 @@
+---
+structs:
+  usbctrl_regs:
+    description: USB FS/LS controller device registers
+    instances:
+      - name: USBCTRL_REGS
+        address: '0x50110000'
+    fields:
+      - name: ADDR_ENDP
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Device address and endpoint control
+        fields:
+          - name: ADDRESS
+            description: In device mode, the address that the device should respond
+              to. Set in response to a SET_ADDR setup packet from the host. In host
+              mode set to the address of the device to communicate with.
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Device endpoint to send data to. Only valid for HOST mode.
+            index: 16
+            width: 4
+            read: true
+            write: true
+      - name: ADDR_ENDP1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Interrupt endpoint 1. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) Interrupt endpoint 2. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Interrupt endpoint 3. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP4
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: (read-write) Interrupt endpoint 4. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP5
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: (read-write) Interrupt endpoint 5. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP6
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: (read-write) Interrupt endpoint 6. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP7
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: (read-write) Interrupt endpoint 7. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP8
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: (read-write) Interrupt endpoint 8. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP9
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: (read-write) Interrupt endpoint 9. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP10
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: (read-write) Interrupt endpoint 10. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP11
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: (read-write) Interrupt endpoint 11. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP12
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: (read-write) Interrupt endpoint 12. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP13
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: (read-write) Interrupt endpoint 13. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP14
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: (read-write) Interrupt endpoint 14. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: ADDR_ENDP15
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: (read-write) Interrupt endpoint 15. Only valid for HOST mode.
+        fields:
+          - name: ADDRESS
+            description: Device address
+            index: 0
+            width: 7
+            read: true
+            write: true
+          - name: ENDPOINT
+            description: Endpoint number of the interrupt endpoint
+            index: 16
+            width: 4
+            read: true
+            write: true
+          - name: INTEP_DIR
+            description: Direction of the interrupt endpoint. In=0, Out=1
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: INTEP_PREAMBLE
+            description: Interrupt EP requires preamble (is a low speed device on
+              a full speed hub)
+            index: 26
+            width: 1
+            read: true
+            write: true
+      - name: MAIN_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        description: (read-write) Main control register
+        fields:
+          - name: CONTROLLER_EN
+            description: Enable controller
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: HOST_NDEVICE
+            description: Device mode = 0, Host mode = 1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SIM_TIMING
+            description: Reduced timings for simulation
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: SOF_WR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 68
+        description: (write-only) Set the SOF (Start of Frame) frame number in the
+          host controller. The SOF packet is sent every 1ms and the host will increment
+          the frame number by 1 each time.
+        fields:
+          - name: COUNT
+            index: 0
+            width: 11
+            read: false
+            write: true
+      - name: SOF_RD
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 72
+        const: true
+        description: (read-only) Read the last SOF (Start of Frame) frame number seen.
+          In device mode the last SOF received from the host. In host mode the last
+          SOF sent by the host.
+        fields:
+          - name: COUNT
+            index: 0
+            width: 11
+            read: true
+            write: false
+      - name: SIE_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 76
+        description: (read-write) SIE control register
+        fields:
+          - name: START_TRANS
+            description: 'Host: Start transaction'
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SEND_SETUP
+            description: 'Host: Send Setup packet'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SEND_DATA
+            description: 'Host: Send transaction (OUT from host)'
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: RECEIVE_DATA
+            description: 'Host: Receive transaction (IN to host)'
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: STOP_TRANS
+            description: 'Host: Stop transaction'
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: PREAMBLE_EN
+            description: 'Host: Preable enable for LS device on FS hub'
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: SOF_SYNC
+            description: 'Host: Delay packet(s) until after SOF'
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: SOF_EN
+            description: 'Host: Enable SOF generation (for full speed bus)'
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: KEEP_ALIVE_EN
+            description: 'Host: Enable keep alive packet (for low speed bus)'
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: VBUS_EN
+            description: 'Host: Enable VBUS'
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: RESUME
+            description: 'Device: Remote wakeup. Device can initiate its own resume
+              after suspend.'
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: RESET_BUS
+            description: 'Host: Reset bus'
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: PULLDOWN_EN
+            description: 'Host: Enable pull down resistors'
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: PULLUP_EN
+            description: 'Device: Enable pull up resistor'
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: RPU_OPT
+            description: 'Device: Pull-up strength (0=1K2, 1=2k3)'
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: TRANSCEIVER_PD
+            description: Power down bus transceiver
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: DIRECT_DM
+            description: Direct control of DM
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: DIRECT_DP
+            description: Direct control of DP
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: DIRECT_EN
+            description: Direct bus drive enable
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: EP0_INT_NAK
+            description: 'Device: Set bit in EP_STATUS_STALL_NAK when EP0 sends a
+              NAK'
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: EP0_INT_2BUF
+            description: 'Device: Set bit in BUFF_STATUS for every 2 buffers completed
+              on EP0'
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: EP0_INT_1BUF
+            description: 'Device: Set bit in BUFF_STATUS for every buffer completed
+              on EP0'
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: EP0_DOUBLE_BUF
+            description: 'Device: EP0 single buffered = 0, double buffered = 1'
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: EP0_INT_STALL
+            description: 'Device: Set bit in EP_STATUS_STALL_NAK when EP0 sends a
+              STALL'
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: SIE_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 80
+        description: (read-write) SIE status register
+        fields:
+          - name: VBUS_DETECTED
+            description: 'Device: VBUS Detected'
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: LINE_STATE
+            description: USB bus line state
+            index: 2
+            width: 2
+            read: true
+            write: false
+          - name: SUSPENDED
+            description: Bus in suspended state. Valid for device and host. Host and
+              device will go into suspend if neither Keep Alive / SOF frames are enabled.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: SPEED
+            description: 'Host: device speed. Disconnected = 00, LS = 01, FS = 10'
+            index: 8
+            width: 2
+            read: true
+            write: true
+          - name: VBUS_OVER_CURR
+            description: VBUS over current detected
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: RESUME
+            description: 'Host: Device has initiated a remote resume. Device: host
+              has initiated a resume.'
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: CONNECTED
+            description: 'Device: connected'
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: SETUP_REC
+            description: 'Device: Setup packet received'
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: TRANS_COMPLETE
+            description: "Transaction complete.\\n\\n\n                Raised by device
+              if:\\n\\n\n                * An IN or OUT packet is sent with the `LAST_BUFF`
+              bit set in the buffer control register\\n\\n\n                Raised
+              by host if:\\n\\n\n                * A setup packet is sent when no
+              data in or data out transaction follows * An IN packet is received and
+              the `LAST_BUFF` bit is set in the buffer control register * An IN packet
+              is received with zero length * An OUT packet is sent and the `LAST_BUFF`
+              bit is set"
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: BUS_RESET
+            description: 'Device: bus reset received'
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: CRC_ERROR
+            description: CRC Error. Raised by the Serial RX engine.
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: BIT_STUFF_ERROR
+            description: Bit Stuff Error. Raised by the Serial RX engine.
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: RX_OVERFLOW
+            description: RX overflow is raised by the Serial RX engine if the incoming
+              data is too fast.
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: RX_TIMEOUT
+            description: RX timeout is raised by both the host and device if an ACK
+              is not received in the maximum time specified by the USB spec.
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: NAK_REC
+            description: 'Host: NAK received'
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: STALL_REC
+            description: 'Host: STALL received'
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: ACK_REC
+            description: ACK received. Raised by both host and device.
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: DATA_SEQ_ERROR
+            description: "Data Sequence Error.\\n\\n\n                The device can
+              raise a sequence error in the following conditions:\\n\\n\n        \
+              \        * A SETUP packet is received followed by a DATA1 packet (data
+              phase should always be DATA0) * An OUT packet is received from the host
+              but doesn't match the data pid in the buffer control register read from
+              DPSRAM\\n\\n\n                The host can raise a data sequence error
+              in the following conditions:\\n\\n\n                * An IN packet from
+              the device has the wrong data PID"
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: INT_EP_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 84
+        description: (read-write) interrupt endpoint control register
+        fields:
+          - name: INT_EP_ACTIVE
+            description: 'Host: Enable interrupt endpoint 1 -> 15'
+            index: 1
+            width: 15
+            read: true
+            write: true
+      - name: BUFF_STATUS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 88
+        description: (read-write) Buffer status register. A bit set here indicates
+          that a buffer has completed on the endpoint (if the buffer interrupt is
+          enabled). It is possible for 2 buffers to be completed, so clearing the
+          buffer status bit may instantly re set it on the next clock cycle.
+        fields:
+          - name: EP0_IN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: EP0_OUT
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: EP1_IN
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: EP1_OUT
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: EP2_IN
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: EP2_OUT
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: EP3_IN
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: EP3_OUT
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: EP4_IN
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: EP4_OUT
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: EP5_IN
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: EP5_OUT
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: EP6_IN
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: EP6_OUT
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: EP7_IN
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: EP7_OUT
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: EP8_IN
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: EP8_OUT
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: EP9_IN
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: EP9_OUT
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: EP10_IN
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: EP10_OUT
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: EP11_IN
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: EP11_OUT
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: EP12_IN
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: EP12_OUT
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: EP13_IN
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: EP13_OUT
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: EP14_IN
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: EP14_OUT
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: EP15_IN
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: EP15_OUT
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: BUFF_CPU_SHOULD_HANDLE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 92
+        const: true
+        description: (read-only) Which of the double buffers should be handled. Only
+          valid if using an interrupt per buffer (i.e. not per 2 buffers). Not valid
+          for host interrupt endpoint polling because they are only single buffered.
+        fields:
+          - name: EP0_IN
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: EP0_OUT
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: EP1_IN
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: EP1_OUT
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: EP2_IN
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: EP2_OUT
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: EP3_IN
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: EP3_OUT
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: EP4_IN
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: EP4_OUT
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: EP5_IN
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: EP5_OUT
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: EP6_IN
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: EP6_OUT
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: EP7_IN
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: EP7_OUT
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: EP8_IN
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: EP8_OUT
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: EP9_IN
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: EP9_OUT
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: EP10_IN
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: EP10_OUT
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: EP11_IN
+            index: 22
+            width: 1
+            read: true
+            write: false
+          - name: EP11_OUT
+            index: 23
+            width: 1
+            read: true
+            write: false
+          - name: EP12_IN
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: EP12_OUT
+            index: 25
+            width: 1
+            read: true
+            write: false
+          - name: EP13_IN
+            index: 26
+            width: 1
+            read: true
+            write: false
+          - name: EP13_OUT
+            index: 27
+            width: 1
+            read: true
+            write: false
+          - name: EP14_IN
+            index: 28
+            width: 1
+            read: true
+            write: false
+          - name: EP14_OUT
+            index: 29
+            width: 1
+            read: true
+            write: false
+          - name: EP15_IN
+            index: 30
+            width: 1
+            read: true
+            write: false
+          - name: EP15_OUT
+            index: 31
+            width: 1
+            read: true
+            write: false
+      - name: EP_ABORT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 96
+        description: '(read-write) Device only: Can be set to ignore the buffer control
+          register for this endpoint in case you would like to revoke a buffer. A
+          NAK will be sent for every access to the endpoint until this bit is cleared.
+          A corresponding bit in `EP_ABORT_DONE` is set when it is safe to modify
+          the buffer control register.'
+        fields:
+          - name: EP0_IN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: EP0_OUT
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: EP1_IN
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: EP1_OUT
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: EP2_IN
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: EP2_OUT
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: EP3_IN
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: EP3_OUT
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: EP4_IN
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: EP4_OUT
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: EP5_IN
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: EP5_OUT
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: EP6_IN
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: EP6_OUT
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: EP7_IN
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: EP7_OUT
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: EP8_IN
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: EP8_OUT
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: EP9_IN
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: EP9_OUT
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: EP10_IN
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: EP10_OUT
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: EP11_IN
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: EP11_OUT
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: EP12_IN
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: EP12_OUT
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: EP13_IN
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: EP13_OUT
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: EP14_IN
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: EP14_OUT
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: EP15_IN
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: EP15_OUT
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: EP_ABORT_DONE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 100
+        description: '(read-write) Device only: Used in conjunction with `EP_ABORT`.
+          Set once an endpoint is idle so the programmer knows it is safe to modify
+          the buffer control register.'
+        fields:
+          - name: EP0_IN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: EP0_OUT
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: EP1_IN
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: EP1_OUT
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: EP2_IN
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: EP2_OUT
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: EP3_IN
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: EP3_OUT
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: EP4_IN
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: EP4_OUT
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: EP5_IN
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: EP5_OUT
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: EP6_IN
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: EP6_OUT
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: EP7_IN
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: EP7_OUT
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: EP8_IN
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: EP8_OUT
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: EP9_IN
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: EP9_OUT
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: EP10_IN
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: EP10_OUT
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: EP11_IN
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: EP11_OUT
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: EP12_IN
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: EP12_OUT
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: EP13_IN
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: EP13_OUT
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: EP14_IN
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: EP14_OUT
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: EP15_IN
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: EP15_OUT
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: EP_STALL_ARM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 104
+        description: '(read-write) Device: this bit must be set in conjunction with
+          the `STALL` bit in the buffer control register to send a STALL on EP0. The
+          device controller clears these bits when a SETUP packet is received because
+          the USB spec requires that a STALL condition is cleared when a SETUP packet
+          is received.'
+        fields:
+          - name: EP0_IN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: EP0_OUT
+            index: 1
+            width: 1
+            read: true
+            write: true
+      - name: NAK_POLL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 108
+        description: (read-write) Used by the host controller. Sets the wait time
+          in microseconds before trying again if the device replies with a NAK.
+        fields:
+          - name: DELAY_LS
+            description: NAK polling interval for a low speed device
+            index: 0
+            width: 10
+            read: true
+            write: true
+          - name: DELAY_FS
+            description: NAK polling interval for a full speed device
+            index: 16
+            width: 10
+            read: true
+            write: true
+      - name: EP_STATUS_STALL_NAK
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 112
+        description: '(read-write) Device: bits are set when the `IRQ_ON_NAK` or `IRQ_ON_STALL`
+          bits are set. For EP0 this comes from `SIE_CTRL`. For all other endpoints
+          it comes from the endpoint control register.'
+        fields:
+          - name: EP0_IN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: EP0_OUT
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: EP1_IN
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: EP1_OUT
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: EP2_IN
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: EP2_OUT
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: EP3_IN
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: EP3_OUT
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: EP4_IN
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: EP4_OUT
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: EP5_IN
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: EP5_OUT
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: EP6_IN
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: EP6_OUT
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: EP7_IN
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: EP7_OUT
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: EP8_IN
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: EP8_OUT
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: EP9_IN
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: EP9_OUT
+            index: 19
+            width: 1
+            read: true
+            write: true
+          - name: EP10_IN
+            index: 20
+            width: 1
+            read: true
+            write: true
+          - name: EP10_OUT
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: EP11_IN
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: EP11_OUT
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: EP12_IN
+            index: 24
+            width: 1
+            read: true
+            write: true
+          - name: EP12_OUT
+            index: 25
+            width: 1
+            read: true
+            write: true
+          - name: EP13_IN
+            index: 26
+            width: 1
+            read: true
+            write: true
+          - name: EP13_OUT
+            index: 27
+            width: 1
+            read: true
+            write: true
+          - name: EP14_IN
+            index: 28
+            width: 1
+            read: true
+            write: true
+          - name: EP14_OUT
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: EP15_IN
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: EP15_OUT
+            index: 31
+            width: 1
+            read: true
+            write: true
+      - name: USB_MUXING
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 116
+        description: (read-write) Where to connect the USB controller. Should be to_phy
+          by default.
+        fields:
+          - name: TO_PHY
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: TO_EXTPHY
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: TO_DIGITAL_PAD
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SOFTCON
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: USB_PWR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 120
+        description: (read-write) Overrides for the power signals in the event that
+          the VBUS signals are not hooked up to GPIO. Set the value of the override
+          and then the override enable to switch over to the override value.
+        fields:
+          - name: VBUS_EN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: VBUS_EN_OVERRIDE_EN
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: VBUS_DETECT
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: VBUS_DETECT_OVERRIDE_EN
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: OVERCURR_DETECT
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: OVERCURR_DETECT_EN
+            index: 5
+            width: 1
+            read: true
+            write: true
+      - name: USBPHY_DIRECT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 124
+        description: (read-write) This register allows for direct control of the USB
+          phy. Use in conjunction with usbphy_direct_override register to enable each
+          override bit.
+        fields:
+          - name: DP_PULLUP_HISEL
+            description: Enable the second DP pull up resistor. 0 - Pull = Rpu2; 1
+              - Pull = Rpu1 + Rpu2
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: DP_PULLUP_EN
+            description: DP pull up enable
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: DP_PULLDN_EN
+            description: DP pull down enable
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: DM_PULLUP_HISEL
+            description: Enable the second DM pull up resistor. 0 - Pull = Rpu2; 1
+              - Pull = Rpu1 + Rpu2
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: DM_PULLUP_EN
+            description: DM pull up enable
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: DM_PULLDN_EN
+            description: DM pull down enable
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: TX_DP_OE
+            description: "Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair.
+              0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving\\n\n                If
+              TX_DIFFMODE=0, OE for DPP only. 0 - DPP in Hi-Z state; 1 - DPP driving"
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: TX_DM_OE
+            description: "Output enable. If TX_DIFFMODE=1, Ignored.\\n\n         \
+              \       If TX_DIFFMODE=0, OE for DPM only. 0 - DPM in Hi-Z state; 1
+              - DPM driving"
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: TX_DP
+            description: "Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair.
+              TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP\\n\n             \
+              \   If TX_DIFFMODE=0, Drives DPP only. TX_DP_OE=1 to enable drive. DPP=TX_DP"
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: TX_DM
+            description: "Output data. TX_DIFFMODE=1, Ignored\\n\n               \
+              \ TX_DIFFMODE=0, Drives DPM only. TX_DM_OE=1 to enable drive. DPM=TX_DM"
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: RX_PD
+            description: RX power down override (if override enable is set). 1 = powered
+              down.
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: TX_PD
+            description: TX power down override (if override enable is set). 1 = powered
+              down.
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: TX_FSSLEW
+            description: "TX_FSSLEW=0: Low speed slew rate\\n\n                TX_FSSLEW=1:
+              Full speed slew rate"
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: TX_DIFFMODE
+            description: "TX_DIFFMODE=0: Single ended mode\\n\n                TX_DIFFMODE=1:
+              Differential drive mode (TX_DM, TX_DM_OE ignored)"
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: RX_DD
+            description: Differential RX
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: RX_DP
+            description: DPP pin state
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: RX_DM
+            description: DPM pin state
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: DP_OVCN
+            description: DP overcurrent
+            index: 19
+            width: 1
+            read: true
+            write: false
+          - name: DM_OVCN
+            description: DM overcurrent
+            index: 20
+            width: 1
+            read: true
+            write: false
+          - name: DP_OVV
+            description: DP over voltage
+            index: 21
+            width: 1
+            read: true
+            write: false
+          - name: DM_OVV
+            description: DM over voltage
+            index: 22
+            width: 1
+            read: true
+            write: false
+      - name: USBPHY_DIRECT_OVERRIDE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 128
+        description: (read-write) Override enable for each control in usbphy_direct
+        fields:
+          - name: DP_PULLUP_HISEL_OVERRIDE_EN
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: DM_PULLUP_HISEL_OVERRIDE_EN
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: DP_PULLUP_EN_OVERRIDE_EN
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: DP_PULLDN_EN_OVERRIDE_EN
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: DM_PULLDN_EN_OVERRIDE_EN
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: TX_DP_OE_OVERRIDE_EN
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: TX_DM_OE_OVERRIDE_EN
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: TX_DP_OVERRIDE_EN
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: TX_DM_OVERRIDE_EN
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: RX_PD_OVERRIDE_EN
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: TX_PD_OVERRIDE_EN
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: TX_FSSLEW_OVERRIDE_EN
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: DM_PULLUP_OVERRIDE_EN
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: TX_DIFFMODE_OVERRIDE_EN
+            index: 15
+            width: 1
+            read: true
+            write: true
+      - name: USBPHY_TRIM
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 132
+        description: (read-write) Used to adjust trim values of USB phy pull down
+          resistors.
+        fields:
+          - name: DP_PULLDN_TRIM
+            description: "Value to drive to USB PHY\\n\n                DP pulldown
+              resistor trim control\\n\n                Experimental data suggests
+              that the reset value will work, but this register allows adjustment
+              if required"
+            index: 0
+            width: 5
+            read: true
+            write: true
+          - name: DM_PULLDN_TRIM
+            description: "Value to drive to USB PHY\\n\n                DM pulldown
+              resistor trim control\\n\n                Experimental data suggests
+              that the reset value will work, but this register allows adjustment
+              if required"
+            index: 8
+            width: 5
+            read: true
+            write: true
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 140
+        const: true
+        description: (read-only) Raw Interrupts
+        fields:
+          - name: HOST_CONN_DIS
+            description: 'Host: raised when a device is connected or disconnected
+              (i.e. when SIE_STATUS.SPEED changes). Cleared by writing to SIE_STATUS.SPEED'
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: HOST_RESUME
+            description: 'Host: raised when a device wakes up the host. Cleared by
+              writing to SIE_STATUS.RESUME'
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: HOST_SOF
+            description: 'Host: raised every time the host sends a SOF (Start of Frame).
+              Cleared by reading SOF_RD'
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: TRANS_COMPLETE
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
+              by writing to this bit.
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: BUFF_STATUS
+            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
+              all bits in BUFF_STATUS.
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_DATA_SEQ
+            description: 'Source: SIE_STATUS.DATA_SEQ_ERROR'
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_RX_TIMEOUT
+            description: 'Source: SIE_STATUS.RX_TIMEOUT'
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_RX_OVERFLOW
+            description: 'Source: SIE_STATUS.RX_OVERFLOW'
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_BIT_STUFF
+            description: 'Source: SIE_STATUS.BIT_STUFF_ERROR'
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_CRC
+            description: 'Source: SIE_STATUS.CRC_ERROR'
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: STALL
+            description: 'Source: SIE_STATUS.STALL_REC'
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: VBUS_DETECT
+            description: 'Source: SIE_STATUS.VBUS_DETECTED'
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: BUS_RESET
+            description: 'Source: SIE_STATUS.BUS_RESET'
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: DEV_CONN_DIS
+            description: Set when the device connection state changes. Cleared by
+              writing to SIE_STATUS.CONNECTED
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: DEV_SUSPEND
+            description: Set when the device suspend state changes. Cleared by writing
+              to SIE_STATUS.SUSPENDED
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: DEV_RESUME_FROM_HOST
+            description: Set when the device receives a resume from the host. Cleared
+              by writing to SIE_STATUS.RESUME
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: SETUP_REQ
+            description: 'Device. Source: SIE_STATUS.SETUP_REC'
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: DEV_SOF
+            description: Set every time the device receives a SOF (Start of Frame)
+              packet. Cleared by reading SOF_RD
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: ABORT_DONE
+            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
+              all bits in ABORT_DONE.
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: EP_STALL_NAK
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
+              by clearing all bits in EP_STATUS_STALL_NAK.
+            index: 19
+            width: 1
+            read: true
+            write: false
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 144
+        description: (read-write) Interrupt Enable
+        fields:
+          - name: HOST_CONN_DIS
+            description: 'Host: raised when a device is connected or disconnected
+              (i.e. when SIE_STATUS.SPEED changes). Cleared by writing to SIE_STATUS.SPEED'
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: HOST_RESUME
+            description: 'Host: raised when a device wakes up the host. Cleared by
+              writing to SIE_STATUS.RESUME'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: HOST_SOF
+            description: 'Host: raised every time the host sends a SOF (Start of Frame).
+              Cleared by reading SOF_RD'
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: TRANS_COMPLETE
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
+              by writing to this bit.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: BUFF_STATUS
+            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
+              all bits in BUFF_STATUS.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_DATA_SEQ
+            description: 'Source: SIE_STATUS.DATA_SEQ_ERROR'
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_RX_TIMEOUT
+            description: 'Source: SIE_STATUS.RX_TIMEOUT'
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_RX_OVERFLOW
+            description: 'Source: SIE_STATUS.RX_OVERFLOW'
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_BIT_STUFF
+            description: 'Source: SIE_STATUS.BIT_STUFF_ERROR'
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_CRC
+            description: 'Source: SIE_STATUS.CRC_ERROR'
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: STALL
+            description: 'Source: SIE_STATUS.STALL_REC'
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: VBUS_DETECT
+            description: 'Source: SIE_STATUS.VBUS_DETECTED'
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: BUS_RESET
+            description: 'Source: SIE_STATUS.BUS_RESET'
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: DEV_CONN_DIS
+            description: Set when the device connection state changes. Cleared by
+              writing to SIE_STATUS.CONNECTED
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: DEV_SUSPEND
+            description: Set when the device suspend state changes. Cleared by writing
+              to SIE_STATUS.SUSPENDED
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: DEV_RESUME_FROM_HOST
+            description: Set when the device receives a resume from the host. Cleared
+              by writing to SIE_STATUS.RESUME
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: SETUP_REQ
+            description: 'Device. Source: SIE_STATUS.SETUP_REC'
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: DEV_SOF
+            description: Set every time the device receives a SOF (Start of Frame)
+              packet. Cleared by reading SOF_RD
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: ABORT_DONE
+            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
+              all bits in ABORT_DONE.
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: EP_STALL_NAK
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
+              by clearing all bits in EP_STATUS_STALL_NAK.
+            index: 19
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 148
+        description: (read-write) Interrupt Force
+        fields:
+          - name: HOST_CONN_DIS
+            description: 'Host: raised when a device is connected or disconnected
+              (i.e. when SIE_STATUS.SPEED changes). Cleared by writing to SIE_STATUS.SPEED'
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: HOST_RESUME
+            description: 'Host: raised when a device wakes up the host. Cleared by
+              writing to SIE_STATUS.RESUME'
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: HOST_SOF
+            description: 'Host: raised every time the host sends a SOF (Start of Frame).
+              Cleared by reading SOF_RD'
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: TRANS_COMPLETE
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
+              by writing to this bit.
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: BUFF_STATUS
+            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
+              all bits in BUFF_STATUS.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_DATA_SEQ
+            description: 'Source: SIE_STATUS.DATA_SEQ_ERROR'
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_RX_TIMEOUT
+            description: 'Source: SIE_STATUS.RX_TIMEOUT'
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_RX_OVERFLOW
+            description: 'Source: SIE_STATUS.RX_OVERFLOW'
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_BIT_STUFF
+            description: 'Source: SIE_STATUS.BIT_STUFF_ERROR'
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: ERROR_CRC
+            description: 'Source: SIE_STATUS.CRC_ERROR'
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: STALL
+            description: 'Source: SIE_STATUS.STALL_REC'
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: VBUS_DETECT
+            description: 'Source: SIE_STATUS.VBUS_DETECTED'
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: BUS_RESET
+            description: 'Source: SIE_STATUS.BUS_RESET'
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: DEV_CONN_DIS
+            description: Set when the device connection state changes. Cleared by
+              writing to SIE_STATUS.CONNECTED
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: DEV_SUSPEND
+            description: Set when the device suspend state changes. Cleared by writing
+              to SIE_STATUS.SUSPENDED
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: DEV_RESUME_FROM_HOST
+            description: Set when the device receives a resume from the host. Cleared
+              by writing to SIE_STATUS.RESUME
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: SETUP_REQ
+            description: 'Device. Source: SIE_STATUS.SETUP_REC'
+            index: 16
+            width: 1
+            read: true
+            write: true
+          - name: DEV_SOF
+            description: Set every time the device receives a SOF (Start of Frame)
+              packet. Cleared by reading SOF_RD
+            index: 17
+            width: 1
+            read: true
+            write: true
+          - name: ABORT_DONE
+            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
+              all bits in ABORT_DONE.
+            index: 18
+            width: 1
+            read: true
+            write: true
+          - name: EP_STALL_NAK
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
+              by clearing all bits in EP_STATUS_STALL_NAK.
+            index: 19
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 152
+        const: true
+        description: (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: HOST_CONN_DIS
+            description: 'Host: raised when a device is connected or disconnected
+              (i.e. when SIE_STATUS.SPEED changes). Cleared by writing to SIE_STATUS.SPEED'
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: HOST_RESUME
+            description: 'Host: raised when a device wakes up the host. Cleared by
+              writing to SIE_STATUS.RESUME'
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: HOST_SOF
+            description: 'Host: raised every time the host sends a SOF (Start of Frame).
+              Cleared by reading SOF_RD'
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: TRANS_COMPLETE
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
+              by writing to this bit.
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: BUFF_STATUS
+            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
+              all bits in BUFF_STATUS.
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_DATA_SEQ
+            description: 'Source: SIE_STATUS.DATA_SEQ_ERROR'
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_RX_TIMEOUT
+            description: 'Source: SIE_STATUS.RX_TIMEOUT'
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_RX_OVERFLOW
+            description: 'Source: SIE_STATUS.RX_OVERFLOW'
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_BIT_STUFF
+            description: 'Source: SIE_STATUS.BIT_STUFF_ERROR'
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: ERROR_CRC
+            description: 'Source: SIE_STATUS.CRC_ERROR'
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: STALL
+            description: 'Source: SIE_STATUS.STALL_REC'
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: VBUS_DETECT
+            description: 'Source: SIE_STATUS.VBUS_DETECTED'
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: BUS_RESET
+            description: 'Source: SIE_STATUS.BUS_RESET'
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: DEV_CONN_DIS
+            description: Set when the device connection state changes. Cleared by
+              writing to SIE_STATUS.CONNECTED
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: DEV_SUSPEND
+            description: Set when the device suspend state changes. Cleared by writing
+              to SIE_STATUS.SUSPENDED
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: DEV_RESUME_FROM_HOST
+            description: Set when the device receives a resume from the host. Cleared
+              by writing to SIE_STATUS.RESUME
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: SETUP_REQ
+            description: 'Device. Source: SIE_STATUS.SETUP_REC'
+            index: 16
+            width: 1
+            read: true
+            write: false
+          - name: DEV_SOF
+            description: Set every time the device receives a SOF (Start of Frame)
+              packet. Cleared by reading SOF_RD
+            index: 17
+            width: 1
+            read: true
+            write: false
+          - name: ABORT_DONE
+            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
+              all bits in ABORT_DONE.
+            index: 18
+            width: 1
+            read: true
+            write: false
+          - name: EP_STALL_NAK
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
+              by clearing all bits in EP_STATUS_STALL_NAK.
+            index: 19
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

@@ -1,0 +1,475 @@
+{
+  "ADC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "ADC_IRQ_FIFO",
+        "value": "22"
+      }
+    ]
+  },
+  "BUSCTRL": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "CLOCKS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "CLOCKS_IRQ",
+        "value": "17"
+      }
+    ]
+  },
+  "DMA": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "DMA_IRQ_0",
+        "value": "11"
+      },
+      {
+        "name": "DMA_IRQ_1",
+        "value": "12"
+      }
+    ]
+  },
+  "I2C0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x0100",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "I2C0_IRQ",
+        "value": "23"
+      }
+    ]
+  },
+  "I2C1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "I2C1_IRQ",
+        "value": "24"
+      }
+    ]
+  },
+  "IO_BANK0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "IO_IRQ_BANK0",
+        "value": "13"
+      }
+    ]
+  },
+  "IO_QSPI": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "IO_IRQ_QSPI",
+        "value": "14"
+      }
+    ]
+  },
+  "PADS_BANK0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PADS_QSPI": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PIO0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "PIO0_IRQ_0",
+        "value": "7"
+      },
+      {
+        "name": "PIO0_IRQ_1",
+        "value": "8"
+      }
+    ]
+  },
+  "PIO1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "PIO1_IRQ_0",
+        "value": "9"
+      },
+      {
+        "name": "PIO1_IRQ_1",
+        "value": "10"
+      }
+    ]
+  },
+  "PLL_SYS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PLL_USB": {
+    "address_blocks": [],
+    "interrupts": []
+  },
+  "PPB": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x10000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PSM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "PWM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "PWM_IRQ_WRAP",
+        "value": "4"
+      }
+    ]
+  },
+  "RESETS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "ROSC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "RTC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "RTC_IRQ",
+        "value": "25"
+      }
+    ]
+  },
+  "SIO": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x0200",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "SIO_IRQ_PROC0",
+        "value": "15"
+      },
+      {
+        "name": "SIO_IRQ_PROC1",
+        "value": "16"
+      }
+    ]
+  },
+  "SPI0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "SPI0_IRQ",
+        "value": "18"
+      }
+    ]
+  },
+  "SPI1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "SPI1_IRQ",
+        "value": "19"
+      }
+    ]
+  },
+  "SYSCFG": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "SYSINFO": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "TBMAN": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "TIMER": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "TIMER_IRQ_0",
+        "value": "0"
+      },
+      {
+        "name": "TIMER_IRQ_1",
+        "value": "1"
+      },
+      {
+        "name": "TIMER_IRQ_2",
+        "value": "2"
+      },
+      {
+        "name": "TIMER_IRQ_3",
+        "value": "3"
+      }
+    ]
+  },
+  "UART0": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "UART0_IRQ",
+        "value": "20"
+      }
+    ]
+  },
+  "UART1": {
+    "address_blocks": [],
+    "interrupts": [
+      {
+        "name": "UART1_IRQ",
+        "value": "21"
+      }
+    ]
+  },
+  "USBCTRL_DPRAM": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x0100",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "USBCTRL_REGS": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "USBCTRL_IRQ",
+        "value": "5"
+      }
+    ]
+  },
+  "VREG_AND_CHIP_RESET": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "WATCHDOG": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "XIP_CTRL": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x0020",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": [
+      {
+        "name": "XIP_IRQ",
+        "value": "6"
+      }
+    ]
+  },
+  "XIP_SSI": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x0100",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "XOSC": {
+    "address_blocks": [
+      {
+        "offset": "0",
+        "size": "0x1000",
+        "usage": "registers"
+      }
+    ],
+    "interrupts": []
+  },
+  "cpu": {
+    "deviceNumInterrupts": "26",
+    "endian": "little",
+    "fpuPresent": "false",
+    "mpuPresent": "true",
+    "name": "CM0PLUS",
+    "nvicPrioBits": "2",
+    "revision": "r0p1",
+    "vendorSystickConfig": "false",
+    "vtorPresent": "1"
+  },
+  "device": {
+    "addressUnitBits": "8",
+    "description": "\n    Dual-core Arm Cortex-M0+ processor, flexible clock running up to 133 MHz\\n\n    264KB on-chip SRAM\\n\n    2 x UART, 2 x SPI controllers, 2 x I2C controllers, 16 x PWM channels\\n\n    1 x USB 1.1 controller and PHY, with host and device support\\n\n    8 x Programmable I/O (PIO) state machines for custom peripheral support\\n\n    Supported input power 1.8-5.5V DC\\n\n    Operating temperature -20C to +85C\\n\n    Drag-and-drop programming using mass storage over USB\\n\n    Low-power sleep and dormant modes\\n\n    Accurate on-chip clock\\n\n    Temperature sensor\\n\n    Accelerated integer and floating-point libraries on-chip\n  ",
+    "licenseText": "\n    Copyright (c) 2020 Raspberry Pi (Trading) Ltd.\\n\n    \\n\n    SPDX-License-Identifier: BSD-3-Clause\n  ",
+    "name": "RP2040",
+    "vendor": "Raspberry Pi",
+    "version": "0.1",
+    "width": "32"
+  }
+}

@@ -1,0 +1,379 @@
+---
+structs:
+  psm:
+    instances:
+      - name: PSM
+        address: '0x40010000'
+    fields:
+      - name: FRCE_ON
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: (read-write) Force block out of reset (i.e. power it on)
+        fields:
+          - name: rosc
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: xosc
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: clocks
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: resets
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: busfabric
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: rom
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: sram0
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: sram1
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: sram2
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: sram3
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: sram4
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: sram5
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: xip
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: vreg_and_chip_reset
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: sio
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: proc0
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: proc1
+            index: 16
+            width: 1
+            read: true
+            write: true
+      - name: FRCE_OFF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: (read-write) Force into reset (i.e. power it off)
+        fields:
+          - name: rosc
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: xosc
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: clocks
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: resets
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: busfabric
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: rom
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: sram0
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: sram1
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: sram2
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: sram3
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: sram4
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: sram5
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: xip
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: vreg_and_chip_reset
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: sio
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: proc0
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: proc1
+            index: 16
+            width: 1
+            read: true
+            write: true
+      - name: WDSEL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: (read-write) Set to 1 if this peripheral should be reset when
+          the watchdog fires.
+        fields:
+          - name: rosc
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: xosc
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: clocks
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: resets
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: busfabric
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: rom
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: sram0
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: sram1
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: sram2
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: sram3
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: sram4
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: sram5
+            index: 11
+            width: 1
+            read: true
+            write: true
+          - name: xip
+            index: 12
+            width: 1
+            read: true
+            write: true
+          - name: vreg_and_chip_reset
+            index: 13
+            width: 1
+            read: true
+            write: true
+          - name: sio
+            index: 14
+            width: 1
+            read: true
+            write: true
+          - name: proc0
+            index: 15
+            width: 1
+            read: true
+            write: true
+          - name: proc1
+            index: 16
+            width: 1
+            read: true
+            write: true
+      - name: DONE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        const: true
+        description: (read-only) Indicates the peripheral's registers are ready to
+          access.
+        fields:
+          - name: rosc
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: xosc
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: clocks
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: resets
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: busfabric
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: rom
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: sram0
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: sram1
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: sram2
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: sram3
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: sram4
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: sram5
+            index: 11
+            width: 1
+            read: true
+            write: false
+          - name: xip
+            index: 12
+            width: 1
+            read: true
+            write: false
+          - name: vreg_and_chip_reset
+            index: 13
+            width: 1
+            read: true
+            write: false
+          - name: sio
+            index: 14
+            width: 1
+            read: true
+            write: false
+          - name: proc0
+            index: 15
+            width: 1
+            read: true
+            write: false
+          - name: proc1
+            index: 16
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}

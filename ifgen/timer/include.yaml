@@ -1,0 +1,236 @@
+---
+structs:
+  timer:
+    description: "Controls time and alarms\\n\n        time is a 64 bit value indicating
+      the time in usec since power-on\\n\n        timeh is the top 32 bits of time
+      & timel is the bottom 32 bits\\n\n        to change time write to timelw before
+      timehw\\n\n        to read time read from timelr before timehr\\n\n        An
+      alarm is set by setting alarm_enable and writing to the corresponding alarm
+      register\\n\n        When an alarm is pending, the corresponding alarm_running
+      signal will be high\\n\n        An alarm can be cancelled before it has finished
+      by clearing the alarm_enable\\n\n        When an alarm fires, the corresponding
+      alarm_irq is set and alarm_running is cleared\\n\n        To clear the interrupt
+      write a 1 to the corresponding alarm_irq"
+    instances:
+      - name: TIMER
+        address: '0x40054000'
+    fields:
+      - name: TIMEHW
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: "(read-write) Write to bits 63:32 of time\\n\n            always
+          write timelw before timehw"
+      - name: TIMELW
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: "(read-write) Write to bits 31:0 of time\\n\n            writes
+          do not get copied to time until timehw is written"
+      - name: TIMEHR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: "(read-write) Read from bits 63:32 of time\\n\n            always
+          read timelr before timehr"
+      - name: TIMELR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: (read-write) Read from bits 31:0 of time
+      - name: ALARM0
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: "(read-write) Arm alarm 0, and configure the time it will fire.\\\
+          n\n            Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.\\\
+          n\n            The alarm will disarm itself once it fires, and can\\n\n\
+          \            be disarmed early using the ARMED status register."
+      - name: ALARM1
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: "(read-write) Arm alarm 1, and configure the time it will fire.\\\
+          n\n            Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.\\\
+          n\n            The alarm will disarm itself once it fires, and can\\n\n\
+          \            be disarmed early using the ARMED status register."
+      - name: ALARM2
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: "(read-write) Arm alarm 2, and configure the time it will fire.\\\
+          n\n            Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.\\\
+          n\n            The alarm will disarm itself once it fires, and can\\n\n\
+          \            be disarmed early using the ARMED status register."
+      - name: ALARM3
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: "(read-write) Arm alarm 3, and configure the time it will fire.\\\
+          n\n            Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.\\\
+          n\n            The alarm will disarm itself once it fires, and can\\n\n\
+          \            be disarmed early using the ARMED status register."
+      - name: ARMED
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: "(read-write) Indicates the armed/disarmed status of each alarm.\\\
+          n\n            A write to the corresponding ALARMx register arms the alarm.\\\
+          n\n            Alarms automatically disarm upon firing, but writing ones
+          here\\n\n            will disarm immediately without waiting to fire."
+        fields:
+          - name: ARMED
+            index: 0
+            width: 4
+            read: true
+            write: true
+      - name: TIMERAWH
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: (read-write) Raw read from bits 63:32 of time (no side effects)
+      - name: TIMERAWL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: (read-write) Raw read from bits 31:0 of time (no side effects)
+      - name: DBGPAUSE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: (read-write) Set bits high to enable pause when the corresponding
+          debug ports are active
+        fields:
+          - name: DBG0
+            description: Pause when processor 0 is in debug mode
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: DBG1
+            description: Pause when processor 1 is in debug mode
+            index: 2
+            width: 1
+            read: true
+            write: true
+      - name: PAUSE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: (read-write) Set high to pause the timer
+        fields:
+          - name: PAUSE
+            index: 0
+            width: 1
+            read: true
+            write: true
+      - name: INTR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: (read-write) Raw Interrupts
+        fields:
+          - name: ALARM_0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_3
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: INTE
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: (read-write) Interrupt Enable
+        fields:
+          - name: ALARM_0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_3
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: (read-write) Interrupt Force
+        fields:
+          - name: ALARM_0
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_1
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_2
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: ALARM_3
+            index: 3
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 64
+        const: true
+        description: (read-only) Interrupt status after masking & forcing
+        fields:
+          - name: ALARM_0
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: ALARM_1
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: ALARM_2
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: ALARM_3
+            index: 3
+            width: 1
+            read: true
+            write: false
+    stream: false
+    codec: false
+    methods: false
+    unit_test: false
+enums: {}
