@@ -16,7 +16,7 @@ structs:
             width: 1
             read: true
             write: true
-            type: PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT
+            type: PADS_BANK_VOLTAGE_SELECT_VOLTAGE_SELECT
       - name: GPIO0
         type: uint32_t
         expected_size: 4
@@ -53,7 +53,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO0_DRIVE
+            type: PADS_BANK_GPIO0_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -102,7 +102,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO1_DRIVE
+            type: PADS_BANK_GPIO1_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -151,7 +151,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO2_DRIVE
+            type: PADS_BANK_GPIO2_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -200,7 +200,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO3_DRIVE
+            type: PADS_BANK_GPIO3_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -249,7 +249,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO4_DRIVE
+            type: PADS_BANK_GPIO4_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -298,7 +298,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO5_DRIVE
+            type: PADS_BANK_GPIO5_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -347,7 +347,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO6_DRIVE
+            type: PADS_BANK_GPIO6_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -396,7 +396,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO7_DRIVE
+            type: PADS_BANK_GPIO7_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -445,7 +445,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO8_DRIVE
+            type: PADS_BANK_GPIO8_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -494,7 +494,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO9_DRIVE
+            type: PADS_BANK_GPIO9_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -543,7 +543,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO10_DRIVE
+            type: PADS_BANK_GPIO10_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -592,7 +592,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO11_DRIVE
+            type: PADS_BANK_GPIO11_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -641,7 +641,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO12_DRIVE
+            type: PADS_BANK_GPIO12_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -690,7 +690,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO13_DRIVE
+            type: PADS_BANK_GPIO13_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -739,7 +739,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO14_DRIVE
+            type: PADS_BANK_GPIO14_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -788,7 +788,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO15_DRIVE
+            type: PADS_BANK_GPIO15_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -837,7 +837,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO16_DRIVE
+            type: PADS_BANK_GPIO16_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -886,7 +886,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO17_DRIVE
+            type: PADS_BANK_GPIO17_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -935,7 +935,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO18_DRIVE
+            type: PADS_BANK_GPIO18_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -984,7 +984,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO19_DRIVE
+            type: PADS_BANK_GPIO19_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1033,7 +1033,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO20_DRIVE
+            type: PADS_BANK_GPIO20_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1082,7 +1082,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO21_DRIVE
+            type: PADS_BANK_GPIO21_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1131,7 +1131,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO22_DRIVE
+            type: PADS_BANK_GPIO22_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1180,7 +1180,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO23_DRIVE
+            type: PADS_BANK_GPIO23_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1229,7 +1229,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO24_DRIVE
+            type: PADS_BANK_GPIO24_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1278,7 +1278,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO25_DRIVE
+            type: PADS_BANK_GPIO25_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1327,7 +1327,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO26_DRIVE
+            type: PADS_BANK_GPIO26_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1376,7 +1376,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO27_DRIVE
+            type: PADS_BANK_GPIO27_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1425,7 +1425,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO28_DRIVE
+            type: PADS_BANK_GPIO28_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1474,7 +1474,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_GPIO29_DRIVE
+            type: PADS_BANK_GPIO29_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1523,7 +1523,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_SWCLK_DRIVE
+            type: PADS_BANK_SWCLK_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1572,7 +1572,7 @@ structs:
             width: 2
             read: true
             write: true
-            type: PADS_BANK0_SWD_DRIVE
+            type: PADS_BANK_SWD_DRIVE
           - name: IE
             description: Input enable
             index: 6
@@ -1590,7 +1590,7 @@ structs:
     methods: false
     unit_test: false
 enums:
-  PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT:
+  PADS_BANK_VOLTAGE_SELECT_VOLTAGE_SELECT:
     enum:
       3v3:
         description: Set voltage to 3.3V (DVDD >= 2V5)
@@ -1601,7 +1601,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO0_DRIVE:
+  PADS_BANK_GPIO0_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1614,7 +1614,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO1_DRIVE:
+  PADS_BANK_GPIO1_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1627,7 +1627,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO2_DRIVE:
+  PADS_BANK_GPIO2_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1640,7 +1640,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO3_DRIVE:
+  PADS_BANK_GPIO3_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1653,7 +1653,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO4_DRIVE:
+  PADS_BANK_GPIO4_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1666,7 +1666,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO5_DRIVE:
+  PADS_BANK_GPIO5_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1679,7 +1679,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO6_DRIVE:
+  PADS_BANK_GPIO6_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1692,7 +1692,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO7_DRIVE:
+  PADS_BANK_GPIO7_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1705,7 +1705,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO8_DRIVE:
+  PADS_BANK_GPIO8_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1718,7 +1718,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO9_DRIVE:
+  PADS_BANK_GPIO9_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1731,7 +1731,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO10_DRIVE:
+  PADS_BANK_GPIO10_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1744,7 +1744,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO11_DRIVE:
+  PADS_BANK_GPIO11_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1757,7 +1757,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO12_DRIVE:
+  PADS_BANK_GPIO12_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1770,7 +1770,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO13_DRIVE:
+  PADS_BANK_GPIO13_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1783,7 +1783,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO14_DRIVE:
+  PADS_BANK_GPIO14_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1796,7 +1796,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO15_DRIVE:
+  PADS_BANK_GPIO15_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1809,7 +1809,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO16_DRIVE:
+  PADS_BANK_GPIO16_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1822,7 +1822,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO17_DRIVE:
+  PADS_BANK_GPIO17_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1835,7 +1835,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO18_DRIVE:
+  PADS_BANK_GPIO18_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1848,7 +1848,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO19_DRIVE:
+  PADS_BANK_GPIO19_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1861,7 +1861,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO20_DRIVE:
+  PADS_BANK_GPIO20_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1874,7 +1874,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO21_DRIVE:
+  PADS_BANK_GPIO21_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1887,7 +1887,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO22_DRIVE:
+  PADS_BANK_GPIO22_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1900,7 +1900,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO23_DRIVE:
+  PADS_BANK_GPIO23_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1913,7 +1913,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO24_DRIVE:
+  PADS_BANK_GPIO24_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1926,7 +1926,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO25_DRIVE:
+  PADS_BANK_GPIO25_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1939,7 +1939,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO26_DRIVE:
+  PADS_BANK_GPIO26_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1952,7 +1952,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO27_DRIVE:
+  PADS_BANK_GPIO27_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1965,7 +1965,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO28_DRIVE:
+  PADS_BANK_GPIO28_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1978,7 +1978,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_GPIO29_DRIVE:
+  PADS_BANK_GPIO29_DRIVE:
     enum:
       2mA:
         value: 0
@@ -1991,7 +1991,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_SWCLK_DRIVE:
+  PADS_BANK_SWCLK_DRIVE:
     enum:
       2mA:
         value: 0
@@ -2004,7 +2004,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
-  PADS_BANK0_SWD_DRIVE:
+  PADS_BANK_SWD_DRIVE:
     enum:
       2mA:
         value: 0
