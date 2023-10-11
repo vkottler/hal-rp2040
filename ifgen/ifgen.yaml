@@ -4,12 +4,12 @@ includes:
   - busctrl/include.yaml
   - clocks/include.yaml
   - dma/include.yaml
-  - i2c/include.yaml
-  - io_bank/include.yaml
+  - i2c0/include.yaml
+  - io_bank0/include.yaml
   - io_qspi/include.yaml
-  - pads_bank/include.yaml
+  - pads_bank0/include.yaml
   - pads_qspi/include.yaml
-  - pio/include.yaml
+  - pio0/include.yaml
   - pll_sys/include.yaml
   - ppb/include.yaml
   - psm/include.yaml
@@ -18,12 +18,12 @@ includes:
   - rosc/include.yaml
   - rtc/include.yaml
   - sio/include.yaml
-  - spi/include.yaml
+  - spi0/include.yaml
   - syscfg/include.yaml
   - sysinfo/include.yaml
   - tbman/include.yaml
   - timer/include.yaml
-  - uart/include.yaml
+  - uart0/include.yaml
   - usbctrl_dpram/include.yaml
   - usbctrl_regs/include.yaml
   - vreg_and_chip_reset/include.yaml

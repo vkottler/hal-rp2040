@@ -4,5 +4,5 @@ description: A hardware abstraction layer generated from the RP2040's SVD.
 
 version:
   major: 0
-  minor: 2
+  minor: 3
   patch: 0
