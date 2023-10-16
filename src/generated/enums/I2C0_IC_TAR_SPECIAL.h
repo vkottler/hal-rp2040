@@ -20,8 +20,6 @@ enum class I2C0_IC_TAR_SPECIAL : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TAR_SPECIAL) == 1);
 
-static constexpr uint16_t I2C0_IC_TAR_SPECIAL_id = 66;
-
 /**
  * Converts I2C0_IC_TAR_SPECIAL to a C string.
  *

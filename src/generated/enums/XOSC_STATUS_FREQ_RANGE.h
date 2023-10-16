@@ -19,8 +19,6 @@ enum class XOSC_STATUS_FREQ_RANGE : uint8_t
 };
 static_assert(sizeof(XOSC_STATUS_FREQ_RANGE) == 1);
 
-static constexpr uint16_t XOSC_STATUS_FREQ_RANGE_id = 449;
-
 /**
  * Converts XOSC_STATUS_FREQ_RANGE to a C string.
  *

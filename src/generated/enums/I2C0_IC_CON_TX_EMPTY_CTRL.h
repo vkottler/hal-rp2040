@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_TX_EMPTY_CTRL : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_TX_EMPTY_CTRL) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_TX_EMPTY_CTRL_id = 63;
-
 /**
  * Converts I2C0_IC_CON_TX_EMPTY_CTRL to a C string.
  *

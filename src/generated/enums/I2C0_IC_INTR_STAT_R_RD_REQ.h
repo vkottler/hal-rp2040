@@ -17,8 +17,6 @@ enum class I2C0_IC_INTR_STAT_R_RD_REQ : uint8_t
 };
 static_assert(sizeof(I2C0_IC_INTR_STAT_R_RD_REQ) == 1);
 
-static constexpr uint16_t I2C0_IC_INTR_STAT_R_RD_REQ_id = 76;
-
 /**
  * Converts I2C0_IC_INTR_STAT_R_RD_REQ to a C string.
  *

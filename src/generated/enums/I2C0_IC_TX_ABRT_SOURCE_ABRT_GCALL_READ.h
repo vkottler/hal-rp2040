@@ -19,8 +19,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ_id = 125;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ to a C string.
  *

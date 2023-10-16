@@ -19,8 +19,6 @@ enum class IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER : uint8_t
 };
 static_assert(sizeof(IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER) == 1);
 
-static constexpr uint16_t IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER_id = 308;
-
 /**
  * Converts IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER to a C string.
  *

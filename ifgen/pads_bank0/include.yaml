@@ -1589,6 +1589,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT:
     enum:
@@ -1601,6 +1602,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO0_DRIVE:
     enum:
       2mA:
@@ -1614,6 +1616,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO1_DRIVE:
     enum:
       2mA:
@@ -1627,6 +1630,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO2_DRIVE:
     enum:
       2mA:
@@ -1640,6 +1644,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO3_DRIVE:
     enum:
       2mA:
@@ -1653,6 +1658,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO4_DRIVE:
     enum:
       2mA:
@@ -1666,6 +1672,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO5_DRIVE:
     enum:
       2mA:
@@ -1679,6 +1686,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO6_DRIVE:
     enum:
       2mA:
@@ -1692,6 +1700,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO7_DRIVE:
     enum:
       2mA:
@@ -1705,6 +1714,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO8_DRIVE:
     enum:
       2mA:
@@ -1718,6 +1728,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO9_DRIVE:
     enum:
       2mA:
@@ -1731,6 +1742,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO10_DRIVE:
     enum:
       2mA:
@@ -1744,6 +1756,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO11_DRIVE:
     enum:
       2mA:
@@ -1757,6 +1770,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO12_DRIVE:
     enum:
       2mA:
@@ -1770,6 +1784,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO13_DRIVE:
     enum:
       2mA:
@@ -1783,6 +1798,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO14_DRIVE:
     enum:
       2mA:
@@ -1796,6 +1812,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO15_DRIVE:
     enum:
       2mA:
@@ -1809,6 +1826,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO16_DRIVE:
     enum:
       2mA:
@@ -1822,6 +1840,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO17_DRIVE:
     enum:
       2mA:
@@ -1835,6 +1854,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO18_DRIVE:
     enum:
       2mA:
@@ -1848,6 +1868,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO19_DRIVE:
     enum:
       2mA:
@@ -1861,6 +1882,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO20_DRIVE:
     enum:
       2mA:
@@ -1874,6 +1896,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO21_DRIVE:
     enum:
       2mA:
@@ -1887,6 +1910,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO22_DRIVE:
     enum:
       2mA:
@@ -1900,6 +1924,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO23_DRIVE:
     enum:
       2mA:
@@ -1913,6 +1938,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO24_DRIVE:
     enum:
       2mA:
@@ -1926,6 +1952,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO25_DRIVE:
     enum:
       2mA:
@@ -1939,6 +1966,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO26_DRIVE:
     enum:
       2mA:
@@ -1952,6 +1980,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO27_DRIVE:
     enum:
       2mA:
@@ -1965,6 +1994,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO28_DRIVE:
     enum:
       2mA:
@@ -1978,6 +2008,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_GPIO29_DRIVE:
     enum:
       2mA:
@@ -1991,6 +2022,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_SWCLK_DRIVE:
     enum:
       2mA:
@@ -2004,6 +2036,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_BANK0_SWD_DRIVE:
     enum:
       2mA:
@@ -2017,3 +2050,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

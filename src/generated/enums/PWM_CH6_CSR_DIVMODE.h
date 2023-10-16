@@ -19,8 +19,6 @@ enum class PWM_CH6_CSR_DIVMODE : uint8_t
 };
 static_assert(sizeof(PWM_CH6_CSR_DIVMODE) == 1);
 
-static constexpr uint16_t PWM_CH6_CSR_DIVMODE_id = 374;
-
 /**
  * Converts PWM_CH6_CSR_DIVMODE to a C string.
  *

@@ -17,8 +17,6 @@ enum class I2C0_IC_STATUS_RFF : uint8_t
 };
 static_assert(sizeof(I2C0_IC_STATUS_RFF) == 1);
 
-static constexpr uint16_t I2C0_IC_STATUS_RFF_id = 117;
-
 /**
  * Converts I2C0_IC_STATUS_RFF to a C string.
  *

@@ -16,7 +16,6 @@ namespace RP2040
 struct [[gnu::packed]] tbman
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;      /*!< tbman's identifier. */
     static constexpr std::size_t size = 4; /*!< tbman's size in bytes. */
 
     /* Fields. */

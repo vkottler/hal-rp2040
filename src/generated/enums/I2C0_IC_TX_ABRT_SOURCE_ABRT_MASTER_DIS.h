@@ -20,8 +20,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS_id = 131;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS to a C string.
  *

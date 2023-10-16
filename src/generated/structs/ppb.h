@@ -12,7 +12,6 @@ namespace RP2040
 struct [[gnu::packed]] ppb
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;          /*!< ppb's identifier. */
     static constexpr std::size_t size = 60836; /*!< ppb's size in bytes. */
 
     /* Fields. */

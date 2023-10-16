@@ -17,8 +17,6 @@ enum class I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST : uint8_t
 };
 static_assert(sizeof(I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST) == 1);
 
-static constexpr uint16_t I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST_id = 143;
-
 /**
  * Converts I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST to a C string.
  *

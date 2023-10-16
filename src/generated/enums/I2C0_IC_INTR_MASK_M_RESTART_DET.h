@@ -17,8 +17,6 @@ enum class I2C0_IC_INTR_MASK_M_RESTART_DET : uint8_t
 };
 static_assert(sizeof(I2C0_IC_INTR_MASK_M_RESTART_DET) == 1);
 
-static constexpr uint16_t I2C0_IC_INTR_MASK_M_RESTART_DET_id = 96;
-
 /**
  * Converts I2C0_IC_INTR_MASK_M_RESTART_DET to a C string.
  *

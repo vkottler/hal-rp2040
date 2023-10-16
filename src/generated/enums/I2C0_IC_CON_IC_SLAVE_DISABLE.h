@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_IC_SLAVE_DISABLE : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_IC_SLAVE_DISABLE) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_IC_SLAVE_DISABLE_id = 61;
-
 /**
  * Converts I2C0_IC_CON_IC_SLAVE_DISABLE to a C string.
  *

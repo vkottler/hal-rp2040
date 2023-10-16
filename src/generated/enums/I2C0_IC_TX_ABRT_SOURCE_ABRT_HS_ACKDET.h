@@ -19,8 +19,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET_id = 126;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET to a C string.
  *

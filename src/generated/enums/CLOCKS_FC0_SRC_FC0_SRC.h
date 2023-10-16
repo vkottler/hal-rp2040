@@ -29,8 +29,6 @@ enum class CLOCKS_FC0_SRC_FC0_SRC : uint8_t
 };
 static_assert(sizeof(CLOCKS_FC0_SRC_FC0_SRC) == 1);
 
-static constexpr uint16_t CLOCKS_FC0_SRC_FC0_SRC_id = 18;
-
 /**
  * Converts CLOCKS_FC0_SRC_FC0_SRC to a C string.
  *

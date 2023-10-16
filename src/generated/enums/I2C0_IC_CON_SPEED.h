@@ -18,8 +18,6 @@ enum class I2C0_IC_CON_SPEED : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_SPEED) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_SPEED_id = 57;
-
 /**
  * Converts I2C0_IC_CON_SPEED to a C string.
  *

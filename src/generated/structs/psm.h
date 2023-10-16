@@ -12,7 +12,6 @@ namespace RP2040
 struct [[gnu::packed]] psm
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< psm's identifier. */
     static constexpr std::size_t size = 16; /*!< psm's size in bytes. */
 
     /* Fields. */

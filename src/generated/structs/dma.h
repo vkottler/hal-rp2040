@@ -52,7 +52,6 @@ namespace RP2040
 struct [[gnu::packed]] dma
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;         /*!< dma's identifier. */
     static constexpr std::size_t size = 2760; /*!< dma's size in bytes. */
 
     /* Fields. */

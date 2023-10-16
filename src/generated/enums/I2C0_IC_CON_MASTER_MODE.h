@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_MASTER_MODE : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_MASTER_MODE) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_MASTER_MODE_id = 56;
-
 /**
  * Converts I2C0_IC_CON_MASTER_MODE to a C string.
  *

@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_STOP_DET_IFADDRESSED : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_STOP_DET_IFADDRESSED) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_STOP_DET_IFADDRESSED_id = 62;
-
 /**
  * Converts I2C0_IC_CON_STOP_DET_IFADDRESSED to a C string.
  *

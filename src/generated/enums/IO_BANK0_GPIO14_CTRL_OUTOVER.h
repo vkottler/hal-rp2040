@@ -21,8 +21,6 @@ enum class IO_BANK0_GPIO14_CTRL_OUTOVER : uint8_t
 };
 static_assert(sizeof(IO_BANK0_GPIO14_CTRL_OUTOVER) == 1);
 
-static constexpr uint16_t IO_BANK0_GPIO14_CTRL_OUTOVER_id = 215;
-
 /**
  * Converts IO_BANK0_GPIO14_CTRL_OUTOVER to a C string.
  *

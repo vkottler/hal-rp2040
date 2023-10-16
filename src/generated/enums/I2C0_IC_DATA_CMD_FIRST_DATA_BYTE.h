@@ -17,8 +17,6 @@ enum class I2C0_IC_DATA_CMD_FIRST_DATA_BYTE : uint8_t
 };
 static_assert(sizeof(I2C0_IC_DATA_CMD_FIRST_DATA_BYTE) == 1);
 
-static constexpr uint16_t I2C0_IC_DATA_CMD_FIRST_DATA_BYTE_id = 70;
-
 /**
  * Converts I2C0_IC_DATA_CMD_FIRST_DATA_BYTE to a C string.
  *

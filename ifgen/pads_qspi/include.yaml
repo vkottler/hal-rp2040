@@ -315,6 +315,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT:
     enum:
@@ -327,6 +328,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SCLK_DRIVE:
     enum:
       2mA:
@@ -340,6 +342,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SD0_DRIVE:
     enum:
       2mA:
@@ -353,6 +356,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SD1_DRIVE:
     enum:
       2mA:
@@ -366,6 +370,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SD2_DRIVE:
     enum:
       2mA:
@@ -379,6 +384,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SD3_DRIVE:
     enum:
       2mA:
@@ -392,6 +398,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SS_DRIVE:
     enum:
       2mA:
@@ -405,3 +412,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

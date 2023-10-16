@@ -16,8 +16,6 @@ enum class DMA_CH5_CTRL_TRIG_RING_SIZE : uint8_t
 };
 static_assert(sizeof(DMA_CH5_CTRL_TRIG_RING_SIZE) == 1);
 
-static constexpr uint16_t DMA_CH5_CTRL_TRIG_RING_SIZE_id = 35;
-
 /**
  * Converts DMA_CH5_CTRL_TRIG_RING_SIZE to a C string.
  *

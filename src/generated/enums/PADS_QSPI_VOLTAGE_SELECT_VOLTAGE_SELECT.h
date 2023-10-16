@@ -17,8 +17,6 @@ enum class PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT : uint8_t
 };
 static_assert(sizeof(PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT) == 1);
 
-static constexpr uint16_t PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT_id = 357;
-
 /**
  * Converts PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT to a C string.
  *

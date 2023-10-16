@@ -20,8 +20,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT_id = 130;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT to a C string.
  *

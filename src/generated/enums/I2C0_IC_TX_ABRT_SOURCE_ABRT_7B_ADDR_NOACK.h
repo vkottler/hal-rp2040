@@ -18,8 +18,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK_id = 120;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK to a C string.
  *

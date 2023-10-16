@@ -12,7 +12,6 @@ namespace RP2040
 struct [[gnu::packed]] sysinfo
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< sysinfo's identifier. */
     static constexpr std::size_t size = 68; /*!< sysinfo's size in bytes. */
 
     /* Fields. */

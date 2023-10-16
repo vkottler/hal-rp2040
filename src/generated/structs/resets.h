@@ -12,7 +12,6 @@ namespace RP2040
 struct [[gnu::packed]] resets
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< resets's identifier. */
     static constexpr std::size_t size = 12; /*!< resets's size in bytes. */
 
     /* Fields. */

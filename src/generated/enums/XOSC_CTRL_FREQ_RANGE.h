@@ -19,8 +19,6 @@ enum class XOSC_CTRL_FREQ_RANGE : uint16_t
 };
 static_assert(sizeof(XOSC_CTRL_FREQ_RANGE) == 2);
 
-static constexpr uint16_t XOSC_CTRL_FREQ_RANGE_id = 447;
-
 /**
  * Converts XOSC_CTRL_FREQ_RANGE to a C string.
  *

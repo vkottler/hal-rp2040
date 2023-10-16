@@ -77,7 +77,6 @@ namespace RP2040
 struct [[gnu::packed]] usbctrl_dpram
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1; /*!< usbctrl_dpram's identifier. */
     static constexpr std::size_t size =
         256; /*!< usbctrl_dpram's size in bytes. */
 

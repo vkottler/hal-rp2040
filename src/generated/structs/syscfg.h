@@ -15,7 +15,6 @@ namespace RP2040
 struct [[gnu::packed]] syscfg
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< syscfg's identifier. */
     static constexpr std::size_t size = 28; /*!< syscfg's size in bytes. */
 
     /* Fields. */

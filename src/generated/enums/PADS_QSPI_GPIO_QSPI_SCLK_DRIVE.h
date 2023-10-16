@@ -19,8 +19,6 @@ enum class PADS_QSPI_GPIO_QSPI_SCLK_DRIVE : uint8_t
 };
 static_assert(sizeof(PADS_QSPI_GPIO_QSPI_SCLK_DRIVE) == 1);
 
-static constexpr uint16_t PADS_QSPI_GPIO_QSPI_SCLK_DRIVE_id = 358;
-
 /**
  * Converts PADS_QSPI_GPIO_QSPI_SCLK_DRIVE to a C string.
  *

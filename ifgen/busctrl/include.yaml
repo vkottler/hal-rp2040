@@ -172,6 +172,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   BUSCTRL_PERFSEL0_PERFSEL0:
     enum:
@@ -218,6 +219,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   BUSCTRL_PERFSEL1_PERFSEL1:
     enum:
       apb_contested:
@@ -263,6 +265,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   BUSCTRL_PERFSEL2_PERFSEL2:
     enum:
       apb_contested:
@@ -308,6 +311,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   BUSCTRL_PERFSEL3_PERFSEL3:
     enum:
       apb_contested:
@@ -353,3 +357,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

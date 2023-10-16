@@ -18,8 +18,6 @@ enum class XIP_SSI_CTRLR0_SPI_FRF : uint8_t
 };
 static_assert(sizeof(XIP_SSI_CTRLR0_SPI_FRF) == 1);
 
-static constexpr uint16_t XIP_SSI_CTRLR0_SPI_FRF_id = 444;
-
 /**
  * Converts XIP_SSI_CTRLR0_SPI_FRF to a C string.
  *

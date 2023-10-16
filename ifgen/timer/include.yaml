@@ -233,4 +233,5 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums: {}

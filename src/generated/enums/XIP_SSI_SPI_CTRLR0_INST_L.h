@@ -19,8 +19,6 @@ enum class XIP_SSI_SPI_CTRLR0_INST_L : uint8_t
 };
 static_assert(sizeof(XIP_SSI_SPI_CTRLR0_INST_L) == 1);
 
-static constexpr uint16_t XIP_SSI_SPI_CTRLR0_INST_L_id = 446;
-
 /**
  * Converts XIP_SSI_SPI_CTRLR0_INST_L to a C string.
  *

@@ -18,8 +18,6 @@ enum class DMA_CH1_CTRL_TRIG_DATA_SIZE : uint8_t
 };
 static_assert(sizeof(DMA_CH1_CTRL_TRIG_DATA_SIZE) == 1);
 
-static constexpr uint16_t DMA_CH1_CTRL_TRIG_DATA_SIZE_id = 22;
-
 /**
  * Converts DMA_CH1_CTRL_TRIG_DATA_SIZE to a C string.
  *

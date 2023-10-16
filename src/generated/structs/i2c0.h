@@ -173,7 +173,6 @@ namespace RP2040
 struct [[gnu::packed]] i2c0
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;        /*!< i2c0's identifier. */
     static constexpr std::size_t size = 256; /*!< i2c0's size in bytes. */
 
     /* Fields. */

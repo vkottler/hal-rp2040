@@ -23,7 +23,6 @@ namespace RP2040
 struct [[gnu::packed]] pwm
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;        /*!< pwm's identifier. */
     static constexpr std::size_t size = 180; /*!< pwm's size in bytes. */
 
     /* Fields. */

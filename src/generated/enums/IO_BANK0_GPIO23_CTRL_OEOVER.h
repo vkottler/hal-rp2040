@@ -23,8 +23,6 @@ enum class IO_BANK0_GPIO23_CTRL_OEOVER : uint8_t
 };
 static_assert(sizeof(IO_BANK0_GPIO23_CTRL_OEOVER) == 1);
 
-static constexpr uint16_t IO_BANK0_GPIO23_CTRL_OEOVER_id = 261;
-
 /**
  * Converts IO_BANK0_GPIO23_CTRL_OEOVER to a C string.
  *

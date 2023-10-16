@@ -5019,6 +5019,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE:
     enum:
@@ -5033,6 +5034,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5046,6 +5048,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5059,6 +5062,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5072,6 +5076,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5085,6 +5090,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5098,6 +5104,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5111,6 +5118,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5124,6 +5132,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5137,6 +5146,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5150,6 +5160,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5163,6 +5174,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5176,6 +5188,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5189,6 +5202,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5202,6 +5216,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5215,6 +5230,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5228,6 +5244,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5241,6 +5258,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5254,6 +5272,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5267,6 +5286,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5280,6 +5300,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5293,6 +5314,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5306,6 +5328,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5319,6 +5342,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5332,6 +5356,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5345,6 +5370,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5358,6 +5384,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5371,6 +5398,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5384,6 +5412,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5397,6 +5426,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE:
     enum:
       Control:
@@ -5410,6 +5440,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5423,6 +5454,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5436,6 +5468,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5449,6 +5482,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5462,6 +5496,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5475,6 +5510,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5488,6 +5524,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5501,6 +5538,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5514,6 +5552,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5527,6 +5566,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5540,6 +5580,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5553,6 +5594,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5566,6 +5608,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5579,6 +5622,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5592,6 +5636,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5605,6 +5650,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5618,6 +5664,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5631,6 +5678,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5644,6 +5692,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5657,6 +5706,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5670,6 +5720,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5683,6 +5734,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5696,6 +5748,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5709,6 +5762,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5722,6 +5776,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5735,6 +5790,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5748,6 +5804,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5761,6 +5818,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5774,6 +5832,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5787,6 +5846,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5800,6 +5860,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5813,6 +5874,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
       '128':
@@ -5826,3 +5888,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

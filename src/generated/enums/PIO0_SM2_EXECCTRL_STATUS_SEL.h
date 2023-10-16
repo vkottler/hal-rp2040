@@ -17,8 +17,6 @@ enum class PIO0_SM2_EXECCTRL_STATUS_SEL : uint8_t
 };
 static_assert(sizeof(PIO0_SM2_EXECCTRL_STATUS_SEL) == 1);
 
-static constexpr uint16_t PIO0_SM2_EXECCTRL_STATUS_SEL_id = 366;
-
 /**
  * Converts PIO0_SM2_EXECCTRL_STATUS_SEL to a C string.
  *

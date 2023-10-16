@@ -16,8 +16,6 @@ enum class ROSC_FREQB_PASSWD : uint16_t
 };
 static_assert(sizeof(ROSC_FREQB_PASSWD) == 2);
 
-static constexpr uint16_t ROSC_FREQB_PASSWD_id = 379;
-
 /**
  * Converts ROSC_FREQB_PASSWD to a C string.
  *

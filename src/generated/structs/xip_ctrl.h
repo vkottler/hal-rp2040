@@ -15,7 +15,6 @@ namespace RP2040
 struct [[gnu::packed]] xip_ctrl
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< xip_ctrl's identifier. */
     static constexpr std::size_t size = 32; /*!< xip_ctrl's size in bytes. */
 
     /* Fields. */

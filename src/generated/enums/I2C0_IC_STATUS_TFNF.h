@@ -17,8 +17,6 @@ enum class I2C0_IC_STATUS_TFNF : uint8_t
 };
 static_assert(sizeof(I2C0_IC_STATUS_TFNF) == 1);
 
-static constexpr uint16_t I2C0_IC_STATUS_TFNF_id = 114;
-
 /**
  * Converts I2C0_IC_STATUS_TFNF to a C string.
  *

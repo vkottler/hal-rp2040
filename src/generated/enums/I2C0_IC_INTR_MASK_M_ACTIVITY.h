@@ -17,8 +17,6 @@ enum class I2C0_IC_INTR_MASK_M_ACTIVITY : uint8_t
 };
 static_assert(sizeof(I2C0_IC_INTR_MASK_M_ACTIVITY) == 1);
 
-static constexpr uint16_t I2C0_IC_INTR_MASK_M_ACTIVITY_id = 92;
-
 /**
  * Converts I2C0_IC_INTR_MASK_M_ACTIVITY to a C string.
  *

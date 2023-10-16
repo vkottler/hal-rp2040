@@ -45,7 +45,6 @@ namespace RP2040
 struct [[gnu::packed]] pads_bank0
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1; /*!< pads_bank0's identifier. */
     static constexpr std::size_t size =
         132; /*!< pads_bank0's size in bytes. */
 

@@ -20,8 +20,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ARB_LOST : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ARB_LOST) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ARB_LOST_id = 132;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ARB_LOST to a C string.
  *

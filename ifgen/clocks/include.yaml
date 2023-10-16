@@ -1608,6 +1608,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   CLOCKS_CLK_GPOUT0_CTRL_AUXSRC:
     enum:
@@ -1636,6 +1637,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_GPOUT1_CTRL_AUXSRC:
     enum:
       clksrc_pll_sys:
@@ -1663,6 +1665,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_GPOUT2_CTRL_AUXSRC:
     enum:
       clksrc_pll_sys:
@@ -1690,6 +1693,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_GPOUT3_CTRL_AUXSRC:
     enum:
       clksrc_pll_sys:
@@ -1717,6 +1721,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_REF_CTRL_SRC:
     enum:
       rosc_clksrc_ph:
@@ -1728,6 +1733,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_REF_CTRL_AUXSRC:
     enum:
       clksrc_pll_usb:
@@ -1739,6 +1745,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_SYS_CTRL_SRC:
     enum:
       clk_ref:
@@ -1748,6 +1755,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_SYS_CTRL_AUXSRC:
     enum:
       clksrc_pll_sys:
@@ -1765,6 +1773,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_PERI_CTRL_AUXSRC:
     enum:
       clk_sys:
@@ -1784,6 +1793,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_USB_CTRL_AUXSRC:
     enum:
       clksrc_pll_usb:
@@ -1801,6 +1811,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_ADC_CTRL_AUXSRC:
     enum:
       clksrc_pll_usb:
@@ -1818,6 +1829,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_CLK_RTC_CTRL_AUXSRC:
     enum:
       clksrc_pll_usb:
@@ -1835,6 +1847,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   CLOCKS_FC0_SRC_FC0_SRC:
     enum:
       'NULL':
@@ -1868,3 +1881,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

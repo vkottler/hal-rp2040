@@ -16,7 +16,6 @@ namespace RP2040
 struct [[gnu::packed]] vreg_and_chip_reset
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1; /*!< vreg_and_chip_reset's identifier. */
     static constexpr std::size_t size =
         12; /*!< vreg_and_chip_reset's size in bytes. */
 

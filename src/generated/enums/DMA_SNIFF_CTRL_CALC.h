@@ -26,8 +26,6 @@ enum class DMA_SNIFF_CTRL_CALC : uint8_t
 };
 static_assert(sizeof(DMA_SNIFF_CTRL_CALC) == 1);
 
-static constexpr uint16_t DMA_SNIFF_CTRL_CALC_id = 55;
-
 /**
  * Converts DMA_SNIFF_CTRL_CALC to a C string.
  *

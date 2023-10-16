@@ -17,9 +17,6 @@ enum class I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY : uint8_t
 };
 static_assert(sizeof(I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY) == 1);
 
-static constexpr uint16_t I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY_id =
-    142;
-
 /**
  * Converts I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY to a C string.
  *

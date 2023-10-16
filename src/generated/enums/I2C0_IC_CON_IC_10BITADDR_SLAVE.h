@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_IC_10BITADDR_SLAVE : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_IC_10BITADDR_SLAVE) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_IC_10BITADDR_SLAVE_id = 58;
-
 /**
  * Converts I2C0_IC_CON_IC_10BITADDR_SLAVE to a C string.
  *

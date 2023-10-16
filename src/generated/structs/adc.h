@@ -15,7 +15,6 @@ namespace RP2040
 struct [[gnu::packed]] adc
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< adc's identifier. */
     static constexpr std::size_t size = 36; /*!< adc's size in bytes. */
 
     /* Fields. */

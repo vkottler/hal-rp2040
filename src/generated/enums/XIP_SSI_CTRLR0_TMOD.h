@@ -20,8 +20,6 @@ enum class XIP_SSI_CTRLR0_TMOD : uint8_t
 };
 static_assert(sizeof(XIP_SSI_CTRLR0_TMOD) == 1);
 
-static constexpr uint16_t XIP_SSI_CTRLR0_TMOD_id = 443;
-
 /**
  * Converts XIP_SSI_CTRLR0_TMOD to a C string.
  *

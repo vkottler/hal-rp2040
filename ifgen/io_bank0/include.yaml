@@ -9111,6 +9111,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   IO_BANK0_GPIO0_CTRL_FUNCSEL:
     enum:
@@ -9137,6 +9138,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO0_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9154,6 +9156,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO0_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9172,6 +9175,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO0_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9189,6 +9193,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO0_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9206,6 +9211,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO1_CTRL_FUNCSEL:
     enum:
       jtag_tms:
@@ -9231,6 +9237,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO1_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9248,6 +9255,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO1_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9266,6 +9274,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO1_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9283,6 +9292,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO1_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9300,6 +9310,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO2_CTRL_FUNCSEL:
     enum:
       jtag_tdi:
@@ -9325,6 +9336,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO2_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9342,6 +9354,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO2_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9360,6 +9373,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO2_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9377,6 +9391,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO2_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9394,6 +9409,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO3_CTRL_FUNCSEL:
     enum:
       jtag_tdo:
@@ -9419,6 +9435,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO3_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9436,6 +9453,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO3_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9454,6 +9472,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO3_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9471,6 +9490,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO3_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9488,6 +9508,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO4_CTRL_FUNCSEL:
     enum:
       spi0_rx:
@@ -9511,6 +9532,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO4_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9528,6 +9550,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO4_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9546,6 +9569,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO4_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9563,6 +9587,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO4_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9580,6 +9605,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO5_CTRL_FUNCSEL:
     enum:
       spi0_ss_n:
@@ -9603,6 +9629,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO5_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9620,6 +9647,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO5_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9638,6 +9666,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO5_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9655,6 +9684,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO5_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9672,6 +9702,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO6_CTRL_FUNCSEL:
     enum:
       spi0_sclk:
@@ -9697,6 +9728,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO6_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9714,6 +9746,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO6_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9732,6 +9765,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO6_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9749,6 +9783,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO6_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9766,6 +9801,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO7_CTRL_FUNCSEL:
     enum:
       spi0_tx:
@@ -9791,6 +9827,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO7_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9808,6 +9845,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO7_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9826,6 +9864,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO7_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9843,6 +9882,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO7_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9860,6 +9900,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO8_CTRL_FUNCSEL:
     enum:
       spi1_rx:
@@ -9885,6 +9926,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO8_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9902,6 +9944,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO8_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -9920,6 +9963,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO8_CTRL_INOVER:
     enum:
       NORMAL:
@@ -9937,6 +9981,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO8_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -9954,6 +9999,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO9_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -9979,6 +10025,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO9_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -9996,6 +10043,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO9_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10014,6 +10062,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO9_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10031,6 +10080,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO9_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10048,6 +10098,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO10_CTRL_FUNCSEL:
     enum:
       spi1_sclk:
@@ -10073,6 +10124,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO10_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10090,6 +10142,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO10_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10108,6 +10161,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO10_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10125,6 +10179,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO10_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10142,6 +10197,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO11_CTRL_FUNCSEL:
     enum:
       spi1_tx:
@@ -10167,6 +10223,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO11_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10184,6 +10241,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO11_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10202,6 +10260,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO11_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10219,6 +10278,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO11_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10236,6 +10296,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO12_CTRL_FUNCSEL:
     enum:
       spi1_rx:
@@ -10261,6 +10322,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO12_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10278,6 +10340,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO12_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10296,6 +10359,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO12_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10313,6 +10377,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO12_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10330,6 +10395,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO13_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -10355,6 +10421,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO13_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10372,6 +10439,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO13_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10390,6 +10458,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO13_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10407,6 +10476,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO13_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10424,6 +10494,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO14_CTRL_FUNCSEL:
     enum:
       spi1_sclk:
@@ -10449,6 +10520,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO14_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10466,6 +10538,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO14_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10484,6 +10557,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO14_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10501,6 +10575,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO14_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10518,6 +10593,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO15_CTRL_FUNCSEL:
     enum:
       spi1_tx:
@@ -10543,6 +10619,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO15_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10560,6 +10637,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO15_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10578,6 +10656,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO15_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10595,6 +10674,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO15_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10612,6 +10692,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO16_CTRL_FUNCSEL:
     enum:
       spi0_rx:
@@ -10637,6 +10718,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO16_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10654,6 +10736,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO16_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10672,6 +10755,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO16_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10689,6 +10773,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO16_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10706,6 +10791,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO17_CTRL_FUNCSEL:
     enum:
       spi0_ss_n:
@@ -10729,6 +10815,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO17_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10746,6 +10833,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO17_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10764,6 +10852,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO17_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10781,6 +10870,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO17_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10798,6 +10888,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO18_CTRL_FUNCSEL:
     enum:
       spi0_sclk:
@@ -10821,6 +10912,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO18_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10838,6 +10930,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO18_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10856,6 +10949,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO18_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10873,6 +10967,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO18_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10890,6 +10985,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO19_CTRL_FUNCSEL:
     enum:
       spi0_tx:
@@ -10913,6 +11009,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO19_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -10930,6 +11027,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO19_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -10948,6 +11046,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO19_CTRL_INOVER:
     enum:
       NORMAL:
@@ -10965,6 +11064,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO19_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -10982,6 +11082,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO20_CTRL_FUNCSEL:
     enum:
       spi0_rx:
@@ -11007,6 +11108,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO20_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11024,6 +11126,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO20_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11042,6 +11145,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO20_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11059,6 +11163,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO20_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11076,6 +11181,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO21_CTRL_FUNCSEL:
     enum:
       spi0_ss_n:
@@ -11101,6 +11207,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO21_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11118,6 +11225,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO21_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11136,6 +11244,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO21_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11153,6 +11262,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO21_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11170,6 +11280,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO22_CTRL_FUNCSEL:
     enum:
       spi0_sclk:
@@ -11195,6 +11306,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO22_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11212,6 +11324,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO22_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11230,6 +11343,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO22_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11247,6 +11361,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO22_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11264,6 +11379,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO23_CTRL_FUNCSEL:
     enum:
       spi0_tx:
@@ -11289,6 +11405,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO23_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11306,6 +11423,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO23_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11324,6 +11442,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO23_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11341,6 +11460,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO23_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11358,6 +11478,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO24_CTRL_FUNCSEL:
     enum:
       spi1_rx:
@@ -11383,6 +11504,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO24_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11400,6 +11522,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO24_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11418,6 +11541,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO24_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11435,6 +11559,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO24_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11452,6 +11577,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO25_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -11477,6 +11603,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO25_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11494,6 +11621,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO25_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11512,6 +11640,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO25_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11529,6 +11658,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO25_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11546,6 +11676,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO26_CTRL_FUNCSEL:
     enum:
       spi1_sclk:
@@ -11569,6 +11700,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO26_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11586,6 +11718,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO26_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11604,6 +11737,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO26_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11621,6 +11755,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO26_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11638,6 +11773,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO27_CTRL_FUNCSEL:
     enum:
       spi1_tx:
@@ -11661,6 +11797,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO27_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11678,6 +11815,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO27_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11696,6 +11834,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO27_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11713,6 +11852,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO27_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11730,6 +11870,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO28_CTRL_FUNCSEL:
     enum:
       spi1_rx:
@@ -11753,6 +11894,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO28_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11770,6 +11912,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO28_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11788,6 +11931,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO28_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11805,6 +11949,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO28_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11822,6 +11967,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO29_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -11845,6 +11991,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO29_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -11862,6 +12009,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO29_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -11880,6 +12028,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO29_CTRL_INOVER:
     enum:
       NORMAL:
@@ -11897,6 +12046,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_BANK0_GPIO29_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -11914,3 +12064,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

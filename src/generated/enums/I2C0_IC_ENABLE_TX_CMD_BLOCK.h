@@ -17,8 +17,6 @@ enum class I2C0_IC_ENABLE_TX_CMD_BLOCK : uint8_t
 };
 static_assert(sizeof(I2C0_IC_ENABLE_TX_CMD_BLOCK) == 1);
 
-static constexpr uint16_t I2C0_IC_ENABLE_TX_CMD_BLOCK_id = 112;
-
 /**
  * Converts I2C0_IC_ENABLE_TX_CMD_BLOCK to a C string.
  *

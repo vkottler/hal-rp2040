@@ -17,8 +17,6 @@ enum class PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT : uint8_t
 };
 static_assert(sizeof(PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT) == 1);
 
-static constexpr uint16_t PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT_id = 324;
-
 /**
  * Converts PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT to a C string.
  *

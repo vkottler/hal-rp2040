@@ -1117,6 +1117,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   PWM_CH0_CSR_DIVMODE:
     enum:
@@ -1135,6 +1136,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH1_CSR_DIVMODE:
     enum:
       div:
@@ -1152,6 +1154,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH2_CSR_DIVMODE:
     enum:
       div:
@@ -1169,6 +1172,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH3_CSR_DIVMODE:
     enum:
       div:
@@ -1186,6 +1190,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH4_CSR_DIVMODE:
     enum:
       div:
@@ -1203,6 +1208,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH5_CSR_DIVMODE:
     enum:
       div:
@@ -1220,6 +1226,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH6_CSR_DIVMODE:
     enum:
       div:
@@ -1237,6 +1244,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PWM_CH7_CSR_DIVMODE:
     enum:
       div:
@@ -1254,3 +1262,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

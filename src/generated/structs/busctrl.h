@@ -19,7 +19,6 @@ namespace RP2040
 struct [[gnu::packed]] busctrl
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< busctrl's identifier. */
     static constexpr std::size_t size = 40; /*!< busctrl's size in bytes. */
 
     /* Fields. */

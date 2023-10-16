@@ -72,7 +72,6 @@ namespace RP2040
 struct [[gnu::packed]] xip_ssi
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;        /*!< xip_ssi's identifier. */
     static constexpr std::size_t size = 252; /*!< xip_ssi's size in bytes. */
 
     /* Fields. */

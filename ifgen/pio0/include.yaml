@@ -2264,6 +2264,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   PIO0_SM0_EXECCTRL_STATUS_SEL:
     enum:
@@ -2276,6 +2277,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PIO0_SM1_EXECCTRL_STATUS_SEL:
     enum:
       TXLEVEL:
@@ -2287,6 +2289,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PIO0_SM2_EXECCTRL_STATUS_SEL:
     enum:
       TXLEVEL:
@@ -2298,6 +2301,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   PIO0_SM3_EXECCTRL_STATUS_SEL:
     enum:
       TXLEVEL:
@@ -2309,3 +2313,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

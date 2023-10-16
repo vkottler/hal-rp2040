@@ -17,8 +17,6 @@ enum class I2C0_IC_TAR_GC_OR_START : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TAR_GC_OR_START) == 1);
 
-static constexpr uint16_t I2C0_IC_TAR_GC_OR_START_id = 65;
-
 /**
  * Converts I2C0_IC_TAR_GC_OR_START to a C string.
  *

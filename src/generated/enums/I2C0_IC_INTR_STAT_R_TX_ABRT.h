@@ -17,8 +17,6 @@ enum class I2C0_IC_INTR_STAT_R_TX_ABRT : uint8_t
 };
 static_assert(sizeof(I2C0_IC_INTR_STAT_R_TX_ABRT) == 1);
 
-static constexpr uint16_t I2C0_IC_INTR_STAT_R_TX_ABRT_id = 77;
-
 /**
  * Converts I2C0_IC_INTR_STAT_R_TX_ABRT to a C string.
  *

@@ -17,7 +17,6 @@ namespace RP2040
 struct [[gnu::packed]] rosc
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< rosc's identifier. */
     static constexpr std::size_t size = 36; /*!< rosc's size in bytes. */
 
     /* Fields. */

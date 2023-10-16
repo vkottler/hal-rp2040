@@ -19,7 +19,6 @@ namespace RP2040
 struct [[gnu::packed]] pio0
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;        /*!< pio0's identifier. */
     static constexpr std::size_t size = 324; /*!< pio0's size in bytes. */
 
     /* Fields. */

@@ -21,8 +21,6 @@ enum class XIP_SSI_SPI_CTRLR0_TRANS_TYPE : uint8_t
 };
 static_assert(sizeof(XIP_SSI_SPI_CTRLR0_TRANS_TYPE) == 1);
 
-static constexpr uint16_t XIP_SSI_SPI_CTRLR0_TRANS_TYPE_id = 445;
-
 /**
  * Converts XIP_SSI_SPI_CTRLR0_TRANS_TYPE to a C string.
  *

@@ -25,8 +25,6 @@ enum class IO_BANK0_GPIO0_CTRL_FUNCSEL : uint8_t
 };
 static_assert(sizeof(IO_BANK0_GPIO0_CTRL_FUNCSEL) == 1);
 
-static constexpr uint16_t IO_BANK0_GPIO0_CTRL_FUNCSEL_id = 144;
-
 /**
  * Converts IO_BANK0_GPIO0_CTRL_FUNCSEL to a C string.
  *

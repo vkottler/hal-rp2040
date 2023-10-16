@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_IC_RESTART_EN : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_IC_RESTART_EN) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_IC_RESTART_EN_id = 60;
-
 /**
  * Converts I2C0_IC_CON_IC_RESTART_EN to a C string.
  *

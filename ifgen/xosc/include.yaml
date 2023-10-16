@@ -113,6 +113,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   XOSC_CTRL_FREQ_RANGE:
     enum:
@@ -127,6 +128,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t
   XOSC_CTRL_ENABLE:
     enum:
@@ -137,6 +139,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t
   XOSC_STATUS_FREQ_RANGE:
     enum:
@@ -151,3 +154,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

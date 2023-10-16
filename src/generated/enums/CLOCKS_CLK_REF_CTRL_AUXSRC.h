@@ -18,8 +18,6 @@ enum class CLOCKS_CLK_REF_CTRL_AUXSRC : uint8_t
 };
 static_assert(sizeof(CLOCKS_CLK_REF_CTRL_AUXSRC) == 1);
 
-static constexpr uint16_t CLOCKS_CLK_REF_CTRL_AUXSRC_id = 11;
-
 /**
  * Converts CLOCKS_CLK_REF_CTRL_AUXSRC to a C string.
  *

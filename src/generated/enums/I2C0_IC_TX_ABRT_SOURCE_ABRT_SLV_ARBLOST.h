@@ -20,8 +20,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST_id = 134;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST to a C string.
  *

@@ -652,6 +652,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   XIP_SSI_CTRLR0_TMOD:
     enum:
@@ -670,6 +671,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   XIP_SSI_CTRLR0_SPI_FRF:
     enum:
       STD:
@@ -684,6 +686,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   XIP_SSI_SPI_CTRLR0_TRANS_TYPE:
     enum:
       1C1A:
@@ -699,6 +702,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   XIP_SSI_SPI_CTRLR0_INST_L:
     enum:
       NONE:
@@ -716,3 +720,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

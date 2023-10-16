@@ -19,8 +19,6 @@ enum class IO_BANK0_GPIO13_CTRL_INOVER : uint8_t
 };
 static_assert(sizeof(IO_BANK0_GPIO13_CTRL_INOVER) == 1);
 
-static constexpr uint16_t IO_BANK0_GPIO13_CTRL_INOVER_id = 212;
-
 /**
  * Converts IO_BANK0_GPIO13_CTRL_INOVER to a C string.
  *

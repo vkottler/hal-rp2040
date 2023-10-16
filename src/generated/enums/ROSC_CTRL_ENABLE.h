@@ -17,8 +17,6 @@ enum class ROSC_CTRL_ENABLE : uint16_t
 };
 static_assert(sizeof(ROSC_CTRL_ENABLE) == 2);
 
-static constexpr uint16_t ROSC_CTRL_ENABLE_id = 377;
-
 /**
  * Converts ROSC_CTRL_ENABLE to a C string.
  *

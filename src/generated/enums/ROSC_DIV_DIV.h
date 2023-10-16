@@ -16,8 +16,6 @@ enum class ROSC_DIV_DIV : uint16_t
 };
 static_assert(sizeof(ROSC_DIV_DIV) == 2);
 
-static constexpr uint16_t ROSC_DIV_DIV_id = 380;
-
 /**
  * Converts ROSC_DIV_DIV to a C string.
  *

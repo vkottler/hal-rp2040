@@ -20,8 +20,6 @@ enum class DMA_CH3_CTRL_TRIG_TREQ_SEL : uint8_t
 };
 static_assert(sizeof(DMA_CH3_CTRL_TRIG_TREQ_SEL) == 1);
 
-static constexpr uint16_t DMA_CH3_CTRL_TRIG_TREQ_SEL_id = 30;
-
 /**
  * Converts DMA_CH3_CTRL_TRIG_TREQ_SEL to a C string.
  *

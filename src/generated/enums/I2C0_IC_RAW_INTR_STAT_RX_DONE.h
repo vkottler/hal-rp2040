@@ -17,8 +17,6 @@ enum class I2C0_IC_RAW_INTR_STAT_RX_DONE : uint8_t
 };
 static_assert(sizeof(I2C0_IC_RAW_INTR_STAT_RX_DONE) == 1);
 
-static constexpr uint16_t I2C0_IC_RAW_INTR_STAT_RX_DONE_id = 104;
-
 /**
  * Converts I2C0_IC_RAW_INTR_STAT_RX_DONE to a C string.
  *

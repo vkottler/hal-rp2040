@@ -19,8 +19,6 @@ enum class IO_BANK0_GPIO9_CTRL_IRQOVER : uint8_t
 };
 static_assert(sizeof(IO_BANK0_GPIO9_CTRL_IRQOVER) == 1);
 
-static constexpr uint16_t IO_BANK0_GPIO9_CTRL_IRQOVER_id = 193;
-
 /**
  * Converts IO_BANK0_GPIO9_CTRL_IRQOVER to a C string.
  *

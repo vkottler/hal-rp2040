@@ -17,8 +17,6 @@ enum class I2C0_IC_RAW_INTR_STAT_STOP_DET : uint8_t
 };
 static_assert(sizeof(I2C0_IC_RAW_INTR_STAT_STOP_DET) == 1);
 
-static constexpr uint16_t I2C0_IC_RAW_INTR_STAT_STOP_DET_id = 106;
-
 /**
  * Converts I2C0_IC_RAW_INTR_STAT_STOP_DET to a C string.
  *

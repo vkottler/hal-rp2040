@@ -19,8 +19,6 @@ enum class IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER : uint8_t
 };
 static_assert(sizeof(IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER) == 1);
 
-static constexpr uint16_t IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER_id = 302;
-
 /**
  * Converts IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER to a C string.
  *

@@ -17,8 +17,6 @@ enum class XOSC_CTRL_ENABLE : uint16_t
 };
 static_assert(sizeof(XOSC_CTRL_ENABLE) == 2);
 
-static constexpr uint16_t XOSC_CTRL_ENABLE_id = 448;
-
 /**
  * Converts XOSC_CTRL_ENABLE to a C string.
  *

@@ -17,8 +17,6 @@ enum class I2C0_IC_ENABLE_STATUS_IC_EN : uint8_t
 };
 static_assert(sizeof(I2C0_IC_ENABLE_STATUS_IC_EN) == 1);
 
-static constexpr uint16_t I2C0_IC_ENABLE_STATUS_IC_EN_id = 141;
-
 /**
  * Converts I2C0_IC_ENABLE_STATUS_IC_EN to a C string.
  *

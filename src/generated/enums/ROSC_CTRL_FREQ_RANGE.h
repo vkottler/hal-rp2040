@@ -19,8 +19,6 @@ enum class ROSC_CTRL_FREQ_RANGE : uint16_t
 };
 static_assert(sizeof(ROSC_CTRL_FREQ_RANGE) == 2);
 
-static constexpr uint16_t ROSC_CTRL_FREQ_RANGE_id = 376;
-
 /**
  * Converts ROSC_CTRL_FREQ_RANGE to a C string.
  *

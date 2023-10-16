@@ -17,8 +17,6 @@ enum class I2C0_IC_DMA_CR_TDMAE : uint8_t
 };
 static_assert(sizeof(I2C0_IC_DMA_CR_TDMAE) == 1);
 
-static constexpr uint16_t I2C0_IC_DMA_CR_TDMAE_id = 139;
-
 /**
  * Converts I2C0_IC_DMA_CR_TDMAE to a C string.
  *

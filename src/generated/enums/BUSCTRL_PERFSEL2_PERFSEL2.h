@@ -35,8 +35,6 @@ enum class BUSCTRL_PERFSEL2_PERFSEL2 : uint8_t
 };
 static_assert(sizeof(BUSCTRL_PERFSEL2_PERFSEL2) == 1);
 
-static constexpr uint16_t BUSCTRL_PERFSEL2_PERFSEL2_id = 4;
-
 /**
  * Converts BUSCTRL_PERFSEL2_PERFSEL2 to a C string.
  *

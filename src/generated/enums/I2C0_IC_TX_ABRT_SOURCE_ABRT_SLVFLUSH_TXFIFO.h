@@ -20,8 +20,6 @@ enum class I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO : uint8_t
 };
 static_assert(sizeof(I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO) == 1);
 
-static constexpr uint16_t I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO_id = 133;
-
 /**
  * Converts I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO to a C string.
  *

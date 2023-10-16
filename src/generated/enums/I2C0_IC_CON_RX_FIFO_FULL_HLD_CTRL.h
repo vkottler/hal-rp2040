@@ -17,8 +17,6 @@ enum class I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL : uint8_t
 };
 static_assert(sizeof(I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL) == 1);
 
-static constexpr uint16_t I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL_id = 64;
-
 /**
  * Converts I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL to a C string.
  *

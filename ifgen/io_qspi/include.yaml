@@ -1842,6 +1842,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL:
     enum:
@@ -1854,6 +1855,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -1871,6 +1873,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -1889,6 +1892,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER:
     enum:
       NORMAL:
@@ -1906,6 +1910,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -1923,6 +1928,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL:
     enum:
       xip_ss_n:
@@ -1934,6 +1940,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -1951,6 +1958,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -1969,6 +1977,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER:
     enum:
       NORMAL:
@@ -1986,6 +1995,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -2003,6 +2013,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL:
     enum:
       xip_sd0:
@@ -2014,6 +2025,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -2031,6 +2043,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -2049,6 +2062,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER:
     enum:
       NORMAL:
@@ -2066,6 +2080,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -2083,6 +2098,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL:
     enum:
       xip_sd1:
@@ -2094,6 +2110,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -2111,6 +2128,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -2129,6 +2147,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER:
     enum:
       NORMAL:
@@ -2146,6 +2165,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -2163,6 +2183,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL:
     enum:
       xip_sd2:
@@ -2174,6 +2195,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -2191,6 +2213,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -2209,6 +2232,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER:
     enum:
       NORMAL:
@@ -2226,6 +2250,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -2243,6 +2268,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL:
     enum:
       xip_sd3:
@@ -2254,6 +2280,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER:
     enum:
       NORMAL:
@@ -2271,6 +2298,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER:
     enum:
       NORMAL:
@@ -2289,6 +2317,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER:
     enum:
       NORMAL:
@@ -2306,6 +2335,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER:
     enum:
       NORMAL:
@@ -2323,3 +2353,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

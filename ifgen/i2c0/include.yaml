@@ -1841,6 +1841,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   I2C0_IC_CON_MASTER_MODE:
     enum:
@@ -1853,6 +1854,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_SPEED:
     enum:
       STANDARD:
@@ -1867,6 +1869,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_IC_10BITADDR_SLAVE:
     enum:
       ADDR_7BITS:
@@ -1878,6 +1881,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_IC_10BITADDR_MASTER:
     enum:
       ADDR_7BITS:
@@ -1889,6 +1893,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_IC_RESTART_EN:
     enum:
       DISABLED:
@@ -1900,6 +1905,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_IC_SLAVE_DISABLE:
     enum:
       SLAVE_ENABLED:
@@ -1911,6 +1917,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_STOP_DET_IFADDRESSED:
     enum:
       DISABLED:
@@ -1922,6 +1929,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_TX_EMPTY_CTRL:
     enum:
       DISABLED:
@@ -1933,6 +1941,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL:
     enum:
       DISABLED:
@@ -1944,6 +1953,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TAR_GC_OR_START:
     enum:
       GENERAL_CALL:
@@ -1955,6 +1965,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TAR_SPECIAL:
     enum:
       DISABLED:
@@ -1966,6 +1977,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_DATA_CMD_CMD:
     enum:
       WRITE:
@@ -1977,6 +1989,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_DATA_CMD_STOP:
     enum:
       DISABLE:
@@ -1988,6 +2001,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_DATA_CMD_RESTART:
     enum:
       DISABLE:
@@ -1999,6 +2013,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_DATA_CMD_FIRST_DATA_BYTE:
     enum:
       INACTIVE:
@@ -2010,6 +2025,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_RX_UNDER:
     enum:
       INACTIVE:
@@ -2021,6 +2037,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_RX_OVER:
     enum:
       INACTIVE:
@@ -2032,6 +2049,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_RX_FULL:
     enum:
       INACTIVE:
@@ -2043,6 +2061,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_TX_OVER:
     enum:
       INACTIVE:
@@ -2054,6 +2073,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_TX_EMPTY:
     enum:
       INACTIVE:
@@ -2065,6 +2085,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_RD_REQ:
     enum:
       INACTIVE:
@@ -2076,6 +2097,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_TX_ABRT:
     enum:
       INACTIVE:
@@ -2087,6 +2109,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_RX_DONE:
     enum:
       INACTIVE:
@@ -2098,6 +2121,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_ACTIVITY:
     enum:
       INACTIVE:
@@ -2109,6 +2133,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_STOP_DET:
     enum:
       INACTIVE:
@@ -2120,6 +2145,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_START_DET:
     enum:
       INACTIVE:
@@ -2131,6 +2157,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_GEN_CALL:
     enum:
       INACTIVE:
@@ -2142,6 +2169,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_STAT_R_RESTART_DET:
     enum:
       INACTIVE:
@@ -2153,6 +2181,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_RX_UNDER:
     enum:
       ENABLED:
@@ -2164,6 +2193,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_RX_OVER:
     enum:
       ENABLED:
@@ -2175,6 +2205,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_RX_FULL:
     enum:
       ENABLED:
@@ -2186,6 +2217,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_TX_OVER:
     enum:
       ENABLED:
@@ -2197,6 +2229,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_TX_EMPTY:
     enum:
       ENABLED:
@@ -2208,6 +2241,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_RD_REQ:
     enum:
       ENABLED:
@@ -2219,6 +2253,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_TX_ABRT:
     enum:
       ENABLED:
@@ -2230,6 +2265,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_RX_DONE:
     enum:
       ENABLED:
@@ -2241,6 +2277,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_ACTIVITY:
     enum:
       ENABLED:
@@ -2252,6 +2289,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_STOP_DET:
     enum:
       ENABLED:
@@ -2263,6 +2301,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_START_DET:
     enum:
       ENABLED:
@@ -2274,6 +2313,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_GEN_CALL:
     enum:
       ENABLED:
@@ -2285,6 +2325,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_INTR_MASK_M_RESTART_DET:
     enum:
       ENABLED:
@@ -2296,6 +2337,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_RX_UNDER:
     enum:
       INACTIVE:
@@ -2307,6 +2349,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_RX_OVER:
     enum:
       INACTIVE:
@@ -2318,6 +2361,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_RX_FULL:
     enum:
       INACTIVE:
@@ -2329,6 +2373,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_TX_OVER:
     enum:
       INACTIVE:
@@ -2340,6 +2385,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_TX_EMPTY:
     enum:
       INACTIVE:
@@ -2351,6 +2397,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_RD_REQ:
     enum:
       INACTIVE:
@@ -2362,6 +2409,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_TX_ABRT:
     enum:
       INACTIVE:
@@ -2373,6 +2421,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_RX_DONE:
     enum:
       INACTIVE:
@@ -2384,6 +2433,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_ACTIVITY:
     enum:
       INACTIVE:
@@ -2395,6 +2445,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_STOP_DET:
     enum:
       INACTIVE:
@@ -2406,6 +2457,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_START_DET:
     enum:
       INACTIVE:
@@ -2417,6 +2469,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_GEN_CALL:
     enum:
       INACTIVE:
@@ -2428,6 +2481,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_RAW_INTR_STAT_RESTART_DET:
     enum:
       INACTIVE:
@@ -2439,6 +2493,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ENABLE_ENABLE:
     enum:
       DISABLED:
@@ -2450,6 +2505,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ENABLE_ABORT:
     enum:
       DISABLE:
@@ -2461,6 +2517,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ENABLE_TX_CMD_BLOCK:
     enum:
       NOT_BLOCKED:
@@ -2472,6 +2529,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_ACTIVITY:
     enum:
       INACTIVE:
@@ -2483,6 +2541,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_TFNF:
     enum:
       FULL:
@@ -2494,6 +2553,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_TFE:
     enum:
       NON_EMPTY:
@@ -2505,6 +2565,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_RFNE:
     enum:
       EMPTY:
@@ -2516,6 +2577,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_RFF:
     enum:
       NOT_FULL:
@@ -2527,6 +2589,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_MST_ACTIVITY:
     enum:
       IDLE:
@@ -2538,6 +2601,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_STATUS_SLV_ACTIVITY:
     enum:
       IDLE:
@@ -2549,6 +2613,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK:
     enum:
       INACTIVE:
@@ -2560,6 +2625,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK:
     enum:
       INACTIVE:
@@ -2571,6 +2637,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK:
     enum:
       INACTIVE:
@@ -2582,6 +2649,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK:
     enum:
       ABRT_TXDATA_NOACK_VOID:
@@ -2593,6 +2661,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK:
     enum:
       ABRT_GCALL_NOACK_VOID:
@@ -2604,6 +2673,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ:
     enum:
       ABRT_GCALL_READ_VOID:
@@ -2615,6 +2685,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET:
     enum:
       ABRT_HS_ACK_VOID:
@@ -2626,6 +2697,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET:
     enum:
       ABRT_SBYTE_ACKDET_VOID:
@@ -2637,6 +2709,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT:
     enum:
       ABRT_HS_NORSTRT_VOID:
@@ -2649,6 +2722,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT:
     enum:
       ABRT_SBYTE_NORSTRT_VOID:
@@ -2661,6 +2735,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT:
     enum:
       ABRT_10B_RD_VOID:
@@ -2673,6 +2748,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS:
     enum:
       ABRT_MASTER_DIS_VOID:
@@ -2685,6 +2761,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ARB_LOST:
     enum:
       ABRT_LOST_VOID:
@@ -2696,6 +2773,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO:
     enum:
       ABRT_SLVFLUSH_TXFIFO_VOID:
@@ -2708,6 +2786,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST:
     enum:
       ABRT_SLV_ARBLOST_VOID:
@@ -2719,6 +2798,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX:
     enum:
       ABRT_SLVRD_INTX_VOID:
@@ -2731,6 +2811,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT:
     enum:
       ABRT_USER_ABRT_VOID:
@@ -2742,6 +2823,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_SLV_DATA_NACK_ONLY_NACK:
     enum:
       DISABLED:
@@ -2753,6 +2835,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_DMA_CR_RDMAE:
     enum:
       DISABLED:
@@ -2764,6 +2847,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_DMA_CR_TDMAE:
     enum:
       DISABLED:
@@ -2775,6 +2859,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL:
     enum:
       DISABLED:
@@ -2786,6 +2871,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ENABLE_STATUS_IC_EN:
     enum:
       DISABLED:
@@ -2797,6 +2883,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY:
     enum:
       INACTIVE:
@@ -2808,6 +2895,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
   I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST:
     enum:
       INACTIVE:
@@ -2819,3 +2907,4 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false

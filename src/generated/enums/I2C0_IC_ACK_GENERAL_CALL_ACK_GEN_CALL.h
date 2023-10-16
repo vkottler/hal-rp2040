@@ -17,8 +17,6 @@ enum class I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL : uint8_t
 };
 static_assert(sizeof(I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL) == 1);
 
-static constexpr uint16_t I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL_id = 140;
-
 /**
  * Converts I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL to a C string.
  *

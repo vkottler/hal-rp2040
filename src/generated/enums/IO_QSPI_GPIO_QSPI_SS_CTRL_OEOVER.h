@@ -23,8 +23,6 @@ enum class IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER : uint8_t
 };
 static_assert(sizeof(IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER) == 1);
 
-static constexpr uint16_t IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER_id = 301;
-
 /**
  * Converts IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER to a C string.
  *

@@ -17,8 +17,6 @@ enum class I2C0_IC_INTR_STAT_R_TX_OVER : uint8_t
 };
 static_assert(sizeof(I2C0_IC_INTR_STAT_R_TX_OVER) == 1);
 
-static constexpr uint16_t I2C0_IC_INTR_STAT_R_TX_OVER_id = 74;
-
 /**
  * Converts I2C0_IC_INTR_STAT_R_TX_OVER to a C string.
  *

@@ -19,8 +19,6 @@ enum class PADS_BANK0_GPIO21_DRIVE : uint8_t
 };
 static_assert(sizeof(PADS_BANK0_GPIO21_DRIVE) == 1);
 
-static constexpr uint16_t PADS_BANK0_GPIO21_DRIVE_id = 346;
-
 /**
  * Converts PADS_BANK0_GPIO21_DRIVE to a C string.
  *

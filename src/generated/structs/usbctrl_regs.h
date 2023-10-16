@@ -15,7 +15,6 @@ namespace RP2040
 struct [[gnu::packed]] usbctrl_regs
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1; /*!< usbctrl_regs's identifier. */
     static constexpr std::size_t size =
         156; /*!< usbctrl_regs's size in bytes. */
 

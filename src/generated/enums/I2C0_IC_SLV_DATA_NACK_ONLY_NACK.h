@@ -17,8 +17,6 @@ enum class I2C0_IC_SLV_DATA_NACK_ONLY_NACK : uint8_t
 };
 static_assert(sizeof(I2C0_IC_SLV_DATA_NACK_ONLY_NACK) == 1);
 
-static constexpr uint16_t I2C0_IC_SLV_DATA_NACK_ONLY_NACK_id = 137;
-
 /**
  * Converts I2C0_IC_SLV_DATA_NACK_ONLY_NACK to a C string.
  *

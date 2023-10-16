@@ -15,7 +15,6 @@ namespace RP2040
 struct [[gnu::packed]] rtc
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< rtc's identifier. */
     static constexpr std::size_t size = 48; /*!< rtc's size in bytes. */
 
     /* Fields. */

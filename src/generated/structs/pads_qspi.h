@@ -19,7 +19,6 @@ namespace RP2040
 struct [[gnu::packed]] pads_qspi
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< pads_qspi's identifier. */
     static constexpr std::size_t size = 28; /*!< pads_qspi's size in bytes. */
 
     /* Fields. */

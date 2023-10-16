@@ -18,7 +18,6 @@ namespace RP2040
 struct [[gnu::packed]] xosc
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< xosc's identifier. */
     static constexpr std::size_t size = 32; /*!< xosc's size in bytes. */
 
     /* Fields. */

@@ -19,8 +19,6 @@ enum class USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE : uint8_t
 };
 static_assert(sizeof(USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE) == 1);
 
-static constexpr uint16_t USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE_id = 409;
-
 /**
  * Converts USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE to a C string.
  *

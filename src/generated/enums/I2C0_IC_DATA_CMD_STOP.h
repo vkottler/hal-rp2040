@@ -17,8 +17,6 @@ enum class I2C0_IC_DATA_CMD_STOP : uint8_t
 };
 static_assert(sizeof(I2C0_IC_DATA_CMD_STOP) == 1);
 
-static constexpr uint16_t I2C0_IC_DATA_CMD_STOP_id = 68;
-
 /**
  * Converts I2C0_IC_DATA_CMD_STOP to a C string.
  *

@@ -17,8 +17,6 @@ enum class I2C0_IC_RAW_INTR_STAT_ACTIVITY : uint8_t
 };
 static_assert(sizeof(I2C0_IC_RAW_INTR_STAT_ACTIVITY) == 1);
 
-static constexpr uint16_t I2C0_IC_RAW_INTR_STAT_ACTIVITY_id = 105;
-
 /**
  * Converts I2C0_IC_RAW_INTR_STAT_ACTIVITY to a C string.
  *

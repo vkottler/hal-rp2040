@@ -246,6 +246,7 @@ structs:
     codec: false
     methods: false
     unit_test: false
+    identifier: false
 enums:
   ROSC_CTRL_FREQ_RANGE:
     enum:
@@ -260,6 +261,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t
   ROSC_CTRL_ENABLE:
     enum:
@@ -270,6 +272,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t
   ROSC_FREQA_PASSWD:
     enum:
@@ -278,6 +281,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t
   ROSC_FREQB_PASSWD:
     enum:
@@ -286,6 +290,7 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t
   ROSC_DIV_DIV:
     enum:
@@ -294,4 +299,5 @@ enums:
     unit_test: false
     json: false
     use_map: false
+    identifier: false
     underlying: uint16_t

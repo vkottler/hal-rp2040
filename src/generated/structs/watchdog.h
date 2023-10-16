@@ -12,7 +12,6 @@ namespace RP2040
 struct [[gnu::packed]] watchdog
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;       /*!< watchdog's identifier. */
     static constexpr std::size_t size = 48; /*!< watchdog's size in bytes. */
 
     /* Fields. */

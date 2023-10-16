@@ -12,7 +12,6 @@ namespace RP2040
 struct [[gnu::packed]] uart0
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;         /*!< uart0's identifier. */
     static constexpr std::size_t size = 4096; /*!< uart0's size in bytes. */
 
     /* Fields. */

@@ -17,7 +17,6 @@ namespace RP2040
 struct [[gnu::packed]] sio
 {
     /* Constant attributes. */
-    static constexpr uint16_t id = 1;        /*!< sio's identifier. */
     static constexpr std::size_t size = 384; /*!< sio's size in bytes. */
 
     /* Fields. */
