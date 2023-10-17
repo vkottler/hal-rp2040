@@ -117,7 +117,7 @@ structs:
 enums:
   XOSC_CTRL_FREQ_RANGE:
     enum:
-      1_15MHZ:
+      _1_15MHZ:
         value: 2720
       RESERVED_1:
         value: 2721
@@ -143,7 +143,7 @@ enums:
     underlying: uint16_t
   XOSC_STATUS_FREQ_RANGE:
     enum:
-      1_15MHZ:
+      _1_15MHZ:
         value: 0
       RESERVED_1:
         value: 1

@@ -5443,13 +5443,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5457,13 +5457,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5471,13 +5471,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5485,13 +5485,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5499,13 +5499,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5513,13 +5513,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5527,13 +5527,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5541,13 +5541,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5555,13 +5555,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5569,13 +5569,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5583,13 +5583,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5597,13 +5597,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5611,13 +5611,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5625,13 +5625,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5639,13 +5639,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5653,13 +5653,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5667,13 +5667,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5681,13 +5681,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5695,13 +5695,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5709,13 +5709,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5723,13 +5723,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5737,13 +5737,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5751,13 +5751,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5765,13 +5765,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5779,13 +5779,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5793,13 +5793,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5807,13 +5807,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5821,13 +5821,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5835,13 +5835,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5849,13 +5849,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5863,13 +5863,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false
@@ -5877,13 +5877,13 @@ enums:
     identifier: false
   USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET:
     enum:
-      '128':
+      _128:
         value: 0
-      '256':
+      _256:
         value: 1
-      '512':
+      _512:
         value: 2
-      '1024':
+      _1024:
         value: 3
     unit_test: false
     json: false

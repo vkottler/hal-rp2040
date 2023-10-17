@@ -1872,10 +1872,10 @@ enums:
     identifier: false
   I2C0_IC_CON_IC_10BITADDR_SLAVE:
     enum:
-      7BITS:
+      _7BITS:
         description: Slave 7Bit addressing
         value: 0
-      10BITS:
+      _10BITS:
         description: Slave 10Bit addressing
         value: 1
     unit_test: false
@@ -1884,10 +1884,10 @@ enums:
     identifier: false
   I2C0_IC_CON_IC_10BITADDR_MASTER:
     enum:
-      7BITS:
+      _7BITS:
         description: Master 7Bit addressing mode
         value: 0
-      10BITS:
+      _10BITS:
         description: Master 10Bit addressing mode
         value: 1
     unit_test: false

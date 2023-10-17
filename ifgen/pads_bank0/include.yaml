@@ -1593,10 +1593,10 @@ structs:
 enums:
   PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT:
     enum:
-      3v3:
+      _3v3:
         description: Set voltage to 3.3V (DVDD >= 2V5)
         value: 0
-      1v8:
+      _1v8:
         description: Set voltage to 1.8V (DVDD <= 1V8)
         value: 1
     unit_test: false
@@ -1605,13 +1605,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO0_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1619,13 +1619,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO1_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1633,13 +1633,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO2_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1647,13 +1647,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO3_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1661,13 +1661,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO4_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1675,13 +1675,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO5_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1689,13 +1689,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO6_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1703,13 +1703,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO7_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1717,13 +1717,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO8_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1731,13 +1731,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO9_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1745,13 +1745,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO10_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1759,13 +1759,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO11_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1773,13 +1773,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO12_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1787,13 +1787,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO13_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1801,13 +1801,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO14_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1815,13 +1815,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO15_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1829,13 +1829,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO16_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1843,13 +1843,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO17_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1857,13 +1857,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO18_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1871,13 +1871,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO19_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1885,13 +1885,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO20_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1899,13 +1899,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO21_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1913,13 +1913,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO22_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1927,13 +1927,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO23_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1941,13 +1941,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO24_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1955,13 +1955,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO25_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1969,13 +1969,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO26_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1983,13 +1983,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO27_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -1997,13 +1997,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO28_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -2011,13 +2011,13 @@ enums:
     identifier: false
   PADS_BANK0_GPIO29_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -2025,13 +2025,13 @@ enums:
     identifier: false
   PADS_BANK0_SWCLK_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false
@@ -2039,13 +2039,13 @@ enums:
     identifier: false
   PADS_BANK0_SWD_DRIVE:
     enum:
-      2mA:
+      _2mA:
         value: 0
-      4mA:
+      _4mA:
         value: 1
-      8mA:
+      _8mA:
         value: 2
-      12mA:
+      _12mA:
         value: 3
     unit_test: false
     json: false

@@ -689,14 +689,14 @@ enums:
     identifier: false
   XIP_SSI_SPI_CTRLR0_TRANS_TYPE:
     enum:
-      1C1A:
+      _1C1A:
         description: Command and address both in standard SPI frame format
         value: 0
-      1C2A:
+      _1C2A:
         description: Command in standard SPI format, address in format specified by
           FRF
         value: 1
-      2C2A:
+      _2C2A:
         description: Command and address both in format specified by FRF (e.g. Dual-SPI)
         value: 2
     unit_test: false
@@ -708,13 +708,13 @@ enums:
       NONE:
         description: No instruction
         value: 0
-      4B:
+      _4B:
         description: 4-bit instruction
         value: 1
-      8B:
+      _8B:
         description: 8-bit instruction
         value: 2
-      16B:
+      _16B:
         description: 16-bit instruction
         value: 3
     unit_test: false
