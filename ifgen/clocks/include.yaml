@@ -1736,11 +1736,11 @@ enums:
     identifier: false
   CLOCKS_CLK_REF_CTRL_AUXSRC:
     enum:
-      clksrc_pll_usb:
+      pll_usb:
         value: 0
-      clksrc_gpin0:
+      gpin0:
         value: 1
-      clksrc_gpin1:
+      gpin1:
         value: 2
     unit_test: false
     json: false
@@ -1748,9 +1748,9 @@ enums:
     identifier: false
   CLOCKS_CLK_SYS_CTRL_SRC:
     enum:
-      clk_ref:
+      _ref:
         value: 0
-      clksrc_clk_sys_aux:
+      src_clk_sys_aux:
         value: 1
     unit_test: false
     json: false

@@ -1872,10 +1872,10 @@ enums:
     identifier: false
   I2C0_IC_CON_IC_10BITADDR_SLAVE:
     enum:
-      ADDR_7BITS:
+      7BITS:
         description: Slave 7Bit addressing
         value: 0
-      ADDR_10BITS:
+      10BITS:
         description: Slave 10Bit addressing
         value: 1
     unit_test: false
@@ -1884,10 +1884,10 @@ enums:
     identifier: false
   I2C0_IC_CON_IC_10BITADDR_MASTER:
     enum:
-      ADDR_7BITS:
+      7BITS:
         description: Master 7Bit addressing mode
         value: 0
-      ADDR_10BITS:
+      10BITS:
         description: Master 10Bit addressing mode
         value: 1
     unit_test: false
@@ -1908,10 +1908,10 @@ enums:
     identifier: false
   I2C0_IC_CON_IC_SLAVE_DISABLE:
     enum:
-      SLAVE_ENABLED:
+      ENABLED:
         description: Slave mode is enabled
         value: 0
-      SLAVE_DISABLED:
+      DISABLED:
         description: Slave mode is disabled
         value: 1
     unit_test: false
@@ -2652,10 +2652,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK:
     enum:
-      ABRT_TXDATA_NOACK_VOID:
+      VOID:
         description: Transmitted data non-ACKed by addressed slave-scenario not present
         value: 0
-      ABRT_TXDATA_NOACK_GENERATED:
+      GENERATED:
         description: Transmitted data not ACKed by addressed slave
         value: 1
     unit_test: false
@@ -2664,10 +2664,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK:
     enum:
-      ABRT_GCALL_NOACK_VOID:
+      VOID:
         description: GCALL not ACKed by any slave-scenario not present
         value: 0
-      ABRT_GCALL_NOACK_GENERATED:
+      GENERATED:
         description: GCALL not ACKed by any slave
         value: 1
     unit_test: false
@@ -2676,10 +2676,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ:
     enum:
-      ABRT_GCALL_READ_VOID:
+      VOID:
         description: GCALL is followed by read from bus-scenario not present
         value: 0
-      ABRT_GCALL_READ_GENERATED:
+      GENERATED:
         description: GCALL is followed by read from bus
         value: 1
     unit_test: false
@@ -2688,10 +2688,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET:
     enum:
-      ABRT_HS_ACK_VOID:
+      VOID:
         description: HS Master code ACKed in HS Mode- scenario not present
         value: 0
-      ABRT_HS_ACK_GENERATED:
+      GENERATED:
         description: HS Master code ACKed in HS Mode
         value: 1
     unit_test: false
@@ -2700,10 +2700,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET:
     enum:
-      ABRT_SBYTE_ACKDET_VOID:
+      VOID:
         description: ACK detected for START byte- scenario not present
         value: 0
-      ABRT_SBYTE_ACKDET_GENERATED:
+      GENERATED:
         description: ACK detected for START byte
         value: 1
     unit_test: false
@@ -2712,11 +2712,11 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT:
     enum:
-      ABRT_HS_NORSTRT_VOID:
+      VOID:
         description: User trying to switch Master to HS mode when RESTART disabled-
           scenario not present
         value: 0
-      ABRT_HS_NORSTRT_GENERATED:
+      GENERATED:
         description: User trying to switch Master to HS mode when RESTART disabled
         value: 1
     unit_test: false
@@ -2725,11 +2725,11 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT:
     enum:
-      ABRT_SBYTE_NORSTRT_VOID:
+      VOID:
         description: User trying to send START byte when RESTART disabled- scenario
           not present
         value: 0
-      ABRT_SBYTE_NORSTRT_GENERATED:
+      GENERATED:
         description: User trying to send START byte when RESTART disabled
         value: 1
     unit_test: false
@@ -2738,11 +2738,11 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT:
     enum:
-      ABRT_10B_RD_VOID:
+      VOID:
         description: Master not trying to read in 10Bit addressing mode when RESTART
           disabled
         value: 0
-      ABRT_10B_RD_GENERATED:
+      GENERATED:
         description: Master trying to read in 10Bit addressing mode when RESTART disabled
         value: 1
     unit_test: false
@@ -2751,11 +2751,11 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS:
     enum:
-      ABRT_MASTER_DIS_VOID:
+      VOID:
         description: User initiating master operation when MASTER disabled- scenario
           not present
         value: 0
-      ABRT_MASTER_DIS_GENERATED:
+      GENERATED:
         description: User initiating master operation when MASTER disabled
         value: 1
     unit_test: false
@@ -2764,10 +2764,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ARB_LOST:
     enum:
-      ABRT_LOST_VOID:
+      VOID:
         description: Master or Slave-Transmitter lost arbitration- scenario not present
         value: 0
-      ABRT_LOST_GENERATED:
+      GENERATED:
         description: Master or Slave-Transmitter lost arbitration
         value: 1
     unit_test: false
@@ -2776,11 +2776,11 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO:
     enum:
-      ABRT_SLVFLUSH_TXFIFO_VOID:
+      VOID:
         description: Slave flushes existing data in TX-FIFO upon getting read command-
           scenario not present
         value: 0
-      ABRT_SLVFLUSH_TXFIFO_GENERATED:
+      GENERATED:
         description: Slave flushes existing data in TX-FIFO upon getting read command
         value: 1
     unit_test: false
@@ -2789,10 +2789,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST:
     enum:
-      ABRT_SLV_ARBLOST_VOID:
+      VOID:
         description: Slave lost arbitration to remote master- scenario not present
         value: 0
-      ABRT_SLV_ARBLOST_GENERATED:
+      GENERATED:
         description: Slave lost arbitration to remote master
         value: 1
     unit_test: false
@@ -2801,11 +2801,11 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX:
     enum:
-      ABRT_SLVRD_INTX_VOID:
+      VOID:
         description: Slave trying to transmit to remote master in read mode- scenario
           not present
         value: 0
-      ABRT_SLVRD_INTX_GENERATED:
+      GENERATED:
         description: Slave trying to transmit to remote master in read mode
         value: 1
     unit_test: false
@@ -2814,10 +2814,10 @@ enums:
     identifier: false
   I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT:
     enum:
-      ABRT_USER_ABRT_VOID:
+      VOID:
         description: Transfer abort detected by master- scenario not present
         value: 0
-      ABRT_USER_ABRT_GENERATED:
+      GENERATED:
         description: Transfer abort detected by master
         value: 1
     unit_test: false

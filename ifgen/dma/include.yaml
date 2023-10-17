@@ -3649,11 +3649,11 @@ structs:
 enums:
   DMA_CH0_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3690,11 +3690,11 @@ enums:
     identifier: false
   DMA_CH1_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3731,11 +3731,11 @@ enums:
     identifier: false
   DMA_CH2_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3772,11 +3772,11 @@ enums:
     identifier: false
   DMA_CH3_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3813,11 +3813,11 @@ enums:
     identifier: false
   DMA_CH4_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3854,11 +3854,11 @@ enums:
     identifier: false
   DMA_CH5_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3895,11 +3895,11 @@ enums:
     identifier: false
   DMA_CH6_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3936,11 +3936,11 @@ enums:
     identifier: false
   DMA_CH7_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -3977,11 +3977,11 @@ enums:
     identifier: false
   DMA_CH8_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -4018,11 +4018,11 @@ enums:
     identifier: false
   DMA_CH9_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -4059,11 +4059,11 @@ enums:
     identifier: false
   DMA_CH10_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
@@ -4100,11 +4100,11 @@ enums:
     identifier: false
   DMA_CH11_CTRL_TRIG_DATA_SIZE:
     enum:
-      SIZE_BYTE:
+      BYTE:
         value: 0
-      SIZE_HALFWORD:
+      HALFWORD:
         value: 1
-      SIZE_WORD:
+      WORD:
         value: 2
     unit_test: false
     json: false
