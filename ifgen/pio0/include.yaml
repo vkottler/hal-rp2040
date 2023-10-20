@@ -755,7 +755,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: PIO0_SM0_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
             description: After reaching wrap_top, execution is wrapped to this address.
             index: 7
@@ -1025,7 +1024,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: PIO0_SM1_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
             description: After reaching wrap_top, execution is wrapped to this address.
             index: 7
@@ -1295,7 +1293,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: PIO0_SM2_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
             description: After reaching wrap_top, execution is wrapped to this address.
             index: 7
@@ -1565,7 +1562,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: PIO0_SM3_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
             description: After reaching wrap_top, execution is wrapped to this address.
             index: 7
@@ -2265,52 +2261,4 @@ structs:
     methods: false
     unit_test: false
     identifier: false
-enums:
-  PIO0_SM0_EXECCTRL_STATUS_SEL:
-    enum:
-      TXLEVEL:
-        description: All-ones if TX FIFO level < N, otherwise all-zeroes
-        value: 0
-      RXLEVEL:
-        description: All-ones if RX FIFO level < N, otherwise all-zeroes
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  PIO0_SM1_EXECCTRL_STATUS_SEL:
-    enum:
-      TXLEVEL:
-        description: All-ones if TX FIFO level < N, otherwise all-zeroes
-        value: 0
-      RXLEVEL:
-        description: All-ones if RX FIFO level < N, otherwise all-zeroes
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  PIO0_SM2_EXECCTRL_STATUS_SEL:
-    enum:
-      TXLEVEL:
-        description: All-ones if TX FIFO level < N, otherwise all-zeroes
-        value: 0
-      RXLEVEL:
-        description: All-ones if RX FIFO level < N, otherwise all-zeroes
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  PIO0_SM3_EXECCTRL_STATUS_SEL:
-    enum:
-      TXLEVEL:
-        description: All-ones if TX FIFO level < N, otherwise all-zeroes
-        value: 0
-      RXLEVEL:
-        description: All-ones if RX FIFO level < N, otherwise all-zeroes
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
+enums: {}

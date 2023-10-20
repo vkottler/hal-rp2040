@@ -359,7 +359,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: CLOCKS_CLK_SYS_CTRL_SRC
           - name: AUXSRC
             description: Selects the auxiliary clock source, will glitch when switching
             index: 5
@@ -1742,16 +1741,6 @@ enums:
         value: 1
       gpin1:
         value: 2
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  CLOCKS_CLK_SYS_CTRL_SRC:
-    enum:
-      _ref:
-        value: 0
-      src_clk_sys_aux:
-        value: 1
     unit_test: false
     json: false
     use_map: false

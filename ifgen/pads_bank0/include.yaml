@@ -16,7 +16,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT
       - name: GPIO0
         type: uint32_t
         expected_size: 4
@@ -1591,18 +1590,6 @@ structs:
     unit_test: false
     identifier: false
 enums:
-  PADS_BANK0_VOLTAGE_SELECT_VOLTAGE_SELECT:
-    enum:
-      _3v3:
-        description: Set voltage to 3.3V (DVDD >= 2V5)
-        value: 0
-      _1v8:
-        description: Set voltage to 1.8V (DVDD <= 1V8)
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   PADS_BANK0_GPIO0_DRIVE:
     enum:
       _2mA:

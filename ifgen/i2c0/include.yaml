@@ -72,7 +72,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_MASTER_MODE
           - name: SPEED
             description: "These bits control at which speed the DW_apb_i2c operates;
               its setting is relevant only if one is operating the DW_apb_i2c in master
@@ -102,7 +101,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_IC_10BITADDR_SLAVE
           - name: IC_10BITADDR_MASTER
             description: 'Controls whether the DW_apb_i2c starts its transfers in
               7- or 10-bit addressing mode when acting as a master. - 0: 7-bit addressing
@@ -111,7 +109,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_IC_10BITADDR_MASTER
           - name: IC_RESTART_EN
             description: "Determines whether RESTART conditions may be sent when acting
               as a master. Some older slaves do not support handling RESTART conditions;
@@ -129,7 +126,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_IC_RESTART_EN
           - name: IC_SLAVE_DISABLE
             description: "This bit controls whether I2C has its slave disabled, which
               means once the presetn signal is applied, then this bit is set and the
@@ -142,7 +138,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_IC_SLAVE_DISABLE
           - name: STOP_DET_IFADDRESSED
             description: "In slave mode: - 1'b1:  issues the STOP_DET interrupt only
               when it is addressed. - 1'b0:  issues the STOP_DET irrespective of whether
@@ -156,7 +151,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_STOP_DET_IFADDRESSED
           - name: TX_EMPTY_CTRL
             description: "This bit controls the generation of the TX_EMPTY interrupt,
               as described in the IC_RAW_INTR_STAT register.\\n\\n\n             \
@@ -165,7 +159,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_TX_EMPTY_CTRL
           - name: RX_FIFO_FULL_HLD_CTRL
             description: "This bit controls whether DW_apb_i2c should hold the bus
               when the Rx FIFO is physically full to its RX_BUFFER_DEPTH, as described
@@ -175,7 +168,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL
           - name: STOP_DET_IF_MASTER_ACTIVE
             description: Master issues the STOP_DET interrupt irrespective of whether
               master is active or not
@@ -221,7 +213,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_TAR_GC_OR_START
           - name: SPECIAL
             description: 'This bit indicates whether software performs a Device-ID
               or General Call or START BYTE command. - 0: ignore bit 10 GC_OR_START
@@ -231,7 +222,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_TAR_SPECIAL
       - name: IC_SAR
         type: uint32_t
         expected_size: 4
@@ -296,7 +286,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_DATA_CMD_CMD
           - name: STOP
             description: "This bit controls whether a STOP is issued after the byte
               is sent or received.\\n\\n\n                - 1 - STOP is issued after
@@ -313,7 +302,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_DATA_CMD_STOP
           - name: RESTART
             description: "This bit controls whether a RESTART is issued before the
               byte is sent or received.\\n\\n\n                1 - If IC_RESTART_EN
@@ -329,7 +317,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_DATA_CMD_RESTART
           - name: FIRST_DATA_BYTE
             description: "Indicates the first data byte received after the address
               phase for receive transfer in Master receiver or Slave receiver mode.\\\
@@ -347,7 +334,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_DATA_CMD_FIRST_DATA_BYTE
       - name: IC_SS_SCL_HCNT
         type: uint32_t
         expected_size: 4
@@ -467,7 +453,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_RX_UNDER
           - name: R_RX_OVER
             description: "See IC_RAW_INTR_STAT for a detailed description of R_RX_OVER
               bit.\\n\\n\n                Reset value: 0x0"
@@ -475,7 +460,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_RX_OVER
           - name: R_RX_FULL
             description: "See IC_RAW_INTR_STAT for a detailed description of R_RX_FULL
               bit.\\n\\n\n                Reset value: 0x0"
@@ -483,7 +467,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_RX_FULL
           - name: R_TX_OVER
             description: "See IC_RAW_INTR_STAT for a detailed description of R_TX_OVER
               bit.\\n\\n\n                Reset value: 0x0"
@@ -491,7 +474,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_TX_OVER
           - name: R_TX_EMPTY
             description: "See IC_RAW_INTR_STAT for a detailed description of R_TX_EMPTY
               bit.\\n\\n\n                Reset value: 0x0"
@@ -499,7 +481,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_TX_EMPTY
           - name: R_RD_REQ
             description: "See IC_RAW_INTR_STAT for a detailed description of R_RD_REQ
               bit.\\n\\n\n                Reset value: 0x0"
@@ -507,7 +488,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_RD_REQ
           - name: R_TX_ABRT
             description: "See IC_RAW_INTR_STAT for a detailed description of R_TX_ABRT
               bit.\\n\\n\n                Reset value: 0x0"
@@ -515,7 +495,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_TX_ABRT
           - name: R_RX_DONE
             description: "See IC_RAW_INTR_STAT for a detailed description of R_RX_DONE
               bit.\\n\\n\n                Reset value: 0x0"
@@ -523,7 +502,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_RX_DONE
           - name: R_ACTIVITY
             description: "See IC_RAW_INTR_STAT for a detailed description of R_ACTIVITY
               bit.\\n\\n\n                Reset value: 0x0"
@@ -531,7 +509,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_ACTIVITY
           - name: R_STOP_DET
             description: "See IC_RAW_INTR_STAT for a detailed description of R_STOP_DET
               bit.\\n\\n\n                Reset value: 0x0"
@@ -539,7 +516,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_STOP_DET
           - name: R_START_DET
             description: "See IC_RAW_INTR_STAT for a detailed description of R_START_DET
               bit.\\n\\n\n                Reset value: 0x0"
@@ -547,7 +523,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_START_DET
           - name: R_GEN_CALL
             description: "See IC_RAW_INTR_STAT for a detailed description of R_GEN_CALL
               bit.\\n\\n\n                Reset value: 0x0"
@@ -555,7 +530,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_GEN_CALL
           - name: R_RESTART_DET
             description: "See IC_RAW_INTR_STAT for a detailed description of R_RESTART_DET
               bit.\\n\\n\n                Reset value: 0x0"
@@ -563,7 +537,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_INTR_STAT_R_RESTART_DET
       - name: IC_INTR_MASK
         type: uint32_t
         expected_size: 4
@@ -580,7 +553,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_RX_UNDER
           - name: M_RX_OVER
             description: "This bit masks the R_RX_OVER interrupt in IC_INTR_STAT register.\\\
               n\\n\n                Reset value: 0x1"
@@ -588,7 +560,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_RX_OVER
           - name: M_RX_FULL
             description: "This bit masks the R_RX_FULL interrupt in IC_INTR_STAT register.\\\
               n\\n\n                Reset value: 0x1"
@@ -596,7 +567,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_RX_FULL
           - name: M_TX_OVER
             description: "This bit masks the R_TX_OVER interrupt in IC_INTR_STAT register.\\\
               n\\n\n                Reset value: 0x1"
@@ -604,7 +574,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_TX_OVER
           - name: M_TX_EMPTY
             description: "This bit masks the R_TX_EMPTY interrupt in IC_INTR_STAT
               register.\\n\\n\n                Reset value: 0x1"
@@ -612,7 +581,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_TX_EMPTY
           - name: M_RD_REQ
             description: "This bit masks the R_RD_REQ interrupt in IC_INTR_STAT register.\\\
               n\\n\n                Reset value: 0x1"
@@ -620,7 +588,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_RD_REQ
           - name: M_TX_ABRT
             description: "This bit masks the R_TX_ABRT interrupt in IC_INTR_STAT register.\\\
               n\\n\n                Reset value: 0x1"
@@ -628,7 +595,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_TX_ABRT
           - name: M_RX_DONE
             description: "This bit masks the R_RX_DONE interrupt in IC_INTR_STAT register.\\\
               n\\n\n                Reset value: 0x1"
@@ -636,7 +602,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_RX_DONE
           - name: M_ACTIVITY
             description: "This bit masks the R_ACTIVITY interrupt in IC_INTR_STAT
               register.\\n\\n\n                Reset value: 0x0"
@@ -644,7 +609,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_ACTIVITY
           - name: M_STOP_DET
             description: "This bit masks the R_STOP_DET interrupt in IC_INTR_STAT
               register.\\n\\n\n                Reset value: 0x0"
@@ -652,7 +616,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_STOP_DET
           - name: M_START_DET
             description: "This bit masks the R_START_DET interrupt in IC_INTR_STAT
               register.\\n\\n\n                Reset value: 0x0"
@@ -660,7 +623,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_START_DET
           - name: M_GEN_CALL
             description: "This bit masks the R_GEN_CALL interrupt in IC_INTR_STAT
               register.\\n\\n\n                Reset value: 0x1"
@@ -668,7 +630,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_GEN_CALL
           - name: M_RESTART_DET
             description: "This bit masks the R_RESTART_DET interrupt in IC_INTR_STAT
               register.\\n\\n\n                Reset value: 0x0"
@@ -676,7 +637,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_INTR_MASK_M_RESTART_DET
       - name: IC_RAW_INTR_STAT
         type: uint32_t
         expected_size: 4
@@ -696,7 +656,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_RX_UNDER
           - name: RX_OVER
             description: "Set if the receive buffer is completely filled to IC_RX_BUFFER_DEPTH
               and an additional byte is received from an external I2C device. The
@@ -711,7 +670,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_RX_OVER
           - name: RX_FULL
             description: "Set when the receive buffer reaches or goes above the RX_TL
               threshold in the IC_RX_TL register. It is automatically cleared by hardware
@@ -724,7 +682,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_RX_FULL
           - name: TX_OVER
             description: "Set during transmit if the transmit buffer is filled to
               IC_TX_BUFFER_DEPTH and the processor attempts to issue another I2C command
@@ -736,7 +693,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_TX_OVER
           - name: TX_EMPTY
             description: "The behavior of the TX_EMPTY interrupt status differs based
               on the TX_EMPTY_CTRL selection in the IC_CON register. - When TX_EMPTY_CTRL
@@ -756,7 +712,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_TX_EMPTY
           - name: RD_REQ
             description: "This bit is set to 1 when DW_apb_i2c is acting as a slave
               and another I2C master is attempting to read data from DW_apb_i2c. The
@@ -770,7 +725,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_RD_REQ
           - name: TX_ABRT
             description: "This bit indicates if DW_apb_i2c, as an I2C transmitter,
               is unable to complete the intended actions on the contents of the transmit
@@ -788,7 +742,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_TX_ABRT
           - name: RX_DONE
             description: "When the DW_apb_i2c is acting as a slave-transmitter, this
               bit is set to 1 if the master does not acknowledge a transmitted byte.
@@ -798,7 +751,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_RX_DONE
           - name: ACTIVITY
             description: "This bit captures DW_apb_i2c activity and stays set until
               it is cleared. There are four ways to clear it: - Disabling the DW_apb_i2c
@@ -811,7 +763,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_ACTIVITY
           - name: STOP_DET
             description: "Indicates whether a STOP condition has occurred on the I2C
               interface regardless of whether DW_apb_i2c is operating in slave or
@@ -831,7 +782,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_STOP_DET
           - name: START_DET
             description: "Indicates whether a START or RESTART condition has occurred
               on the I2C interface regardless of whether DW_apb_i2c is operating in
@@ -840,7 +790,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_START_DET
           - name: GEN_CALL
             description: "Set only when a General Call address is received and it
               is acknowledged. It stays set until it is cleared either by disabling
@@ -851,7 +800,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_GEN_CALL
           - name: RESTART_DET
             description: "Indicates whether a RESTART condition has occurred on the
               I2C interface when DW_apb_i2c is operating in Slave mode and the slave
@@ -865,7 +813,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_RAW_INTR_STAT_RESTART_DET
       - name: IC_RX_TL
         type: uint32_t
         expected_size: 4
@@ -1107,7 +1054,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_ENABLE_ENABLE
           - name: ABORT
             description: "When set, the controller initiates the transfer abort. -
               0: ABORT not initiated or ABORT done - 1: ABORT operation in progress
@@ -1125,7 +1071,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_ENABLE_ABORT
           - name: TX_CMD_BLOCK
             description: "In Master mode: - 1'b1: Blocks the transmission of data
               on I2C bus even if Tx FIFO has data to transmit. - 1'b0: The transmission
@@ -1139,7 +1084,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_ENABLE_TX_CMD_BLOCK
       - name: IC_STATUS
         type: uint32_t
         expected_size: 4
@@ -1159,7 +1103,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_ACTIVITY
           - name: TFNF
             description: 'Transmit FIFO Not Full. Set when the transmit FIFO contains
               one or more empty locations, and is cleared when the FIFO is full. -
@@ -1169,7 +1112,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_TFNF
           - name: TFE
             description: 'Transmit FIFO Completely Empty. When the transmit FIFO is
               completely empty, this bit is set. When it contains one or more valid
@@ -1180,7 +1122,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_TFE
           - name: RFNE
             description: 'Receive FIFO Not Empty. This bit is set when the receive
               FIFO contains one or more entries; it is cleared when the receive FIFO
@@ -1190,7 +1131,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_RFNE
           - name: RFF
             description: 'Receive FIFO Completely Full. When the receive FIFO is completely
               full, this bit is set. When the receive FIFO contains one or more empty
@@ -1200,7 +1140,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_RFF
           - name: MST_ACTIVITY
             description: "Master FSM Activity Status. When the Master Finite State
               Machine (FSM) is not in the IDLE state, this bit is set. - 0: Master
@@ -1212,7 +1151,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_MST_ACTIVITY
           - name: SLV_ACTIVITY
             description: 'Slave FSM Activity Status. When the Slave Finite State Machine
               (FSM) is not in the IDLE state, this bit is set. - 0: Slave FSM is in
@@ -1223,7 +1161,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_STATUS_SLV_ACTIVITY
       - name: IC_TXFLR
         type: uint32_t
         expected_size: 4
@@ -1322,7 +1259,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK
           - name: ABRT_10ADDR1_NOACK
             description: "This field indicates that the Master is in 10-bit address
               mode and the first 10-bit address byte was not acknowledged by any slave.\\\
@@ -1332,7 +1268,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK
           - name: ABRT_10ADDR2_NOACK
             description: "This field indicates that the Master is in 10-bit address
               mode and that the second address byte of the 10-bit address was not
@@ -1342,7 +1277,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK
           - name: ABRT_TXDATA_NOACK
             description: "This field indicates the master-mode only bit. When the
               master receives an acknowledgement for the address, but when it sends
@@ -1353,7 +1287,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK
           - name: ABRT_GCALL_NOACK
             description: "This field indicates that DW_apb_i2c in master mode has
               sent a General Call and no slave on the bus acknowledged the General
@@ -1363,7 +1296,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK
           - name: ABRT_GCALL_READ
             description: "This field indicates that DW_apb_i2c in the master mode
               has sent a General Call but the user programmed the byte following the
@@ -1374,7 +1306,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ
           - name: ABRT_HS_ACKDET
             description: "This field indicates that the Master is in High Speed mode
               and the High Speed Master code was acknowledged (wrong behavior).\\\
@@ -1384,7 +1315,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET
           - name: ABRT_SBYTE_ACKDET
             description: "This field indicates that the Master has sent a START Byte
               and the START Byte was acknowledged (wrong behavior).\\n\\n\n      \
@@ -1394,7 +1324,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET
           - name: ABRT_HS_NORSTRT
             description: "This field indicates that the restart is disabled (IC_RESTART_EN
               bit (IC_CON[5]) =0) and the user is trying to use the master to transfer
@@ -1404,7 +1333,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT
           - name: ABRT_SBYTE_NORSTRT
             description: "To clear Bit 9, the source of the ABRT_SBYTE_NORSTRT must
               be fixed first; restart must be enabled (IC_CON[5]=1), the SPECIAL bit
@@ -1421,7 +1349,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT
           - name: ABRT_10B_RD_NORSTRT
             description: "This field indicates that the restart is disabled (IC_RESTART_EN
               bit (IC_CON[5]) =0) and the master sends a read command in 10-bit addressing
@@ -1431,7 +1358,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT
           - name: ABRT_MASTER_DIS
             description: "This field indicates that the User tries to initiate a Master
               operation with the Master mode disabled.\\n\\n\n                Reset
@@ -1441,7 +1367,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS
           - name: ARB_LOST
             description: "This field specifies that the Master has lost arbitration,
               or if IC_TX_ABRT_SOURCE[14] is also set, then the slave transmitter
@@ -1451,7 +1376,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ARB_LOST
           - name: ABRT_SLVFLUSH_TXFIFO
             description: "This field specifies that the Slave has received a read
               command and some data exists in the TX FIFO, so the slave issues a TX_ABRT
@@ -1461,7 +1385,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO
           - name: ABRT_SLV_ARBLOST
             description: "This field indicates that a Slave has lost the bus while
               transmitting data to a remote master. IC_TX_ABRT_SOURCE[12] is set at
@@ -1475,7 +1398,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST
           - name: ABRT_SLVRD_INTX
             description: "1: When the processor side responds to a slave mode request
               for data to be transmitted to a remote master and user writes a 1 in
@@ -1485,7 +1407,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX
           - name: ABRT_USER_ABRT
             description: "This is a master-mode-only bit. Master has detected the
               transfer abort (IC_ENABLE[1])\\n\\n\n                Reset value: 0x0\\\
@@ -1494,7 +1415,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT
           - name: TX_FLUSH_CNT
             description: "This field indicates the number of Tx FIFO Data Commands
               which are flushed due to TX_ABRT interrupt. It is cleared whenever I2C
@@ -1532,7 +1452,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_SLV_DATA_NACK_ONLY_NACK
       - name: IC_DMA_CR
         type: uint32_t
         expected_size: 4
@@ -1549,7 +1468,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_DMA_CR_RDMAE
           - name: TDMAE
             description: 'Transmit DMA Enable. This bit enables/disables the transmit
               FIFO DMA channel. Reset value: 0x0'
@@ -1557,7 +1475,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_DMA_CR_TDMAE
       - name: IC_DMA_TDLR
         type: uint32_t
         expected_size: 4
@@ -1636,7 +1553,6 @@ structs:
             width: 1
             read: true
             write: true
-            type: I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL
       - name: IC_ENABLE_STATUS
         type: uint32_t
         expected_size: 4
@@ -1664,7 +1580,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_ENABLE_STATUS_IC_EN
           - name: SLV_DISABLED_WHILE_BUSY
             description: "Slave Disabled While Busy (Transmit, Receive). This bit
               indicates if a potential or active Slave operation has been aborted
@@ -1690,7 +1605,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY
           - name: SLV_RX_DATA_LOST
             description: "Slave Received Data Lost. This bit indicates if a Slave-Receiver
               operation has been aborted with at least one data byte received from
@@ -1710,7 +1624,6 @@ structs:
             width: 1
             read: true
             write: false
-            type: I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST
       - name: IC_FS_SPKLEN
         type: uint32_t
         expected_size: 4
@@ -1843,18 +1756,6 @@ structs:
     unit_test: false
     identifier: false
 enums:
-  I2C0_IC_CON_MASTER_MODE:
-    enum:
-      DISABLED:
-        description: Master mode is disabled
-        value: 0
-      ENABLED:
-        description: Master mode is enabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   I2C0_IC_CON_SPEED:
     enum:
       STANDARD:
@@ -1866,1044 +1767,6 @@ enums:
       HIGH:
         description: High Speed mode of operation
         value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_IC_10BITADDR_SLAVE:
-    enum:
-      _7BITS:
-        description: Slave 7Bit addressing
-        value: 0
-      _10BITS:
-        description: Slave 10Bit addressing
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_IC_10BITADDR_MASTER:
-    enum:
-      _7BITS:
-        description: Master 7Bit addressing mode
-        value: 0
-      _10BITS:
-        description: Master 10Bit addressing mode
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_IC_RESTART_EN:
-    enum:
-      DISABLED:
-        description: Master restart disabled
-        value: 0
-      ENABLED:
-        description: Master restart enabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_IC_SLAVE_DISABLE:
-    enum:
-      ENABLED:
-        description: Slave mode is enabled
-        value: 0
-      DISABLED:
-        description: Slave mode is disabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_STOP_DET_IFADDRESSED:
-    enum:
-      DISABLED:
-        description: slave issues STOP_DET intr always
-        value: 0
-      ENABLED:
-        description: slave issues STOP_DET intr only if addressed
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_TX_EMPTY_CTRL:
-    enum:
-      DISABLED:
-        description: Default behaviour of TX_EMPTY interrupt
-        value: 0
-      ENABLED:
-        description: Controlled generation of TX_EMPTY interrupt
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_CON_RX_FIFO_FULL_HLD_CTRL:
-    enum:
-      DISABLED:
-        description: Overflow when RX_FIFO is full
-        value: 0
-      ENABLED:
-        description: Hold bus when RX_FIFO is full
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TAR_GC_OR_START:
-    enum:
-      GENERAL_CALL:
-        description: GENERAL_CALL byte transmission
-        value: 0
-      START_BYTE:
-        description: START byte transmission
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TAR_SPECIAL:
-    enum:
-      DISABLED:
-        description: Disables programming of GENERAL_CALL or START_BYTE transmission
-        value: 0
-      ENABLED:
-        description: Enables programming of GENERAL_CALL or START_BYTE transmission
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_DATA_CMD_CMD:
-    enum:
-      WRITE:
-        description: Master Write Command
-        value: 0
-      READ:
-        description: Master Read Command
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_DATA_CMD_STOP:
-    enum:
-      DISABLE:
-        description: Don't Issue STOP after this command
-        value: 0
-      ENABLE:
-        description: Issue STOP after this command
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_DATA_CMD_RESTART:
-    enum:
-      DISABLE:
-        description: Don't Issue RESTART before this command
-        value: 0
-      ENABLE:
-        description: Issue RESTART before this command
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_DATA_CMD_FIRST_DATA_BYTE:
-    enum:
-      INACTIVE:
-        description: Sequential data byte received
-        value: 0
-      ACTIVE:
-        description: Non sequential data byte received
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_RX_UNDER:
-    enum:
-      INACTIVE:
-        description: RX_UNDER interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RX_UNDER interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_RX_OVER:
-    enum:
-      INACTIVE:
-        description: R_RX_OVER interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_RX_OVER interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_RX_FULL:
-    enum:
-      INACTIVE:
-        description: R_RX_FULL interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_RX_FULL interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_TX_OVER:
-    enum:
-      INACTIVE:
-        description: R_TX_OVER interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_TX_OVER interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_TX_EMPTY:
-    enum:
-      INACTIVE:
-        description: R_TX_EMPTY interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_TX_EMPTY interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_RD_REQ:
-    enum:
-      INACTIVE:
-        description: R_RD_REQ interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_RD_REQ interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_TX_ABRT:
-    enum:
-      INACTIVE:
-        description: R_TX_ABRT interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_TX_ABRT interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_RX_DONE:
-    enum:
-      INACTIVE:
-        description: R_RX_DONE interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_RX_DONE interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_ACTIVITY:
-    enum:
-      INACTIVE:
-        description: R_ACTIVITY interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_ACTIVITY interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_STOP_DET:
-    enum:
-      INACTIVE:
-        description: R_STOP_DET interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_STOP_DET interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_START_DET:
-    enum:
-      INACTIVE:
-        description: R_START_DET interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_START_DET interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_GEN_CALL:
-    enum:
-      INACTIVE:
-        description: R_GEN_CALL interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_GEN_CALL interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_STAT_R_RESTART_DET:
-    enum:
-      INACTIVE:
-        description: R_RESTART_DET interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: R_RESTART_DET interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_RX_UNDER:
-    enum:
-      ENABLED:
-        description: RX_UNDER interrupt is masked
-        value: 0
-      DISABLED:
-        description: RX_UNDER interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_RX_OVER:
-    enum:
-      ENABLED:
-        description: RX_OVER interrupt is masked
-        value: 0
-      DISABLED:
-        description: RX_OVER interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_RX_FULL:
-    enum:
-      ENABLED:
-        description: RX_FULL interrupt is masked
-        value: 0
-      DISABLED:
-        description: RX_FULL interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_TX_OVER:
-    enum:
-      ENABLED:
-        description: TX_OVER interrupt is masked
-        value: 0
-      DISABLED:
-        description: TX_OVER interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_TX_EMPTY:
-    enum:
-      ENABLED:
-        description: TX_EMPTY interrupt is masked
-        value: 0
-      DISABLED:
-        description: TX_EMPTY interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_RD_REQ:
-    enum:
-      ENABLED:
-        description: RD_REQ interrupt is masked
-        value: 0
-      DISABLED:
-        description: RD_REQ interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_TX_ABRT:
-    enum:
-      ENABLED:
-        description: TX_ABORT interrupt is masked
-        value: 0
-      DISABLED:
-        description: TX_ABORT interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_RX_DONE:
-    enum:
-      ENABLED:
-        description: RX_DONE interrupt is masked
-        value: 0
-      DISABLED:
-        description: RX_DONE interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_ACTIVITY:
-    enum:
-      ENABLED:
-        description: ACTIVITY interrupt is masked
-        value: 0
-      DISABLED:
-        description: ACTIVITY interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_STOP_DET:
-    enum:
-      ENABLED:
-        description: STOP_DET interrupt is masked
-        value: 0
-      DISABLED:
-        description: STOP_DET interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_START_DET:
-    enum:
-      ENABLED:
-        description: START_DET interrupt is masked
-        value: 0
-      DISABLED:
-        description: START_DET interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_GEN_CALL:
-    enum:
-      ENABLED:
-        description: GEN_CALL interrupt is masked
-        value: 0
-      DISABLED:
-        description: GEN_CALL interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_INTR_MASK_M_RESTART_DET:
-    enum:
-      ENABLED:
-        description: RESTART_DET interrupt is masked
-        value: 0
-      DISABLED:
-        description: RESTART_DET interrupt is unmasked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_RX_UNDER:
-    enum:
-      INACTIVE:
-        description: RX_UNDER interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RX_UNDER interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_RX_OVER:
-    enum:
-      INACTIVE:
-        description: RX_OVER interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RX_OVER interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_RX_FULL:
-    enum:
-      INACTIVE:
-        description: RX_FULL interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RX_FULL interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_TX_OVER:
-    enum:
-      INACTIVE:
-        description: TX_OVER interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: TX_OVER interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_TX_EMPTY:
-    enum:
-      INACTIVE:
-        description: TX_EMPTY interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: TX_EMPTY interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_RD_REQ:
-    enum:
-      INACTIVE:
-        description: RD_REQ interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RD_REQ interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_TX_ABRT:
-    enum:
-      INACTIVE:
-        description: TX_ABRT interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: TX_ABRT interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_RX_DONE:
-    enum:
-      INACTIVE:
-        description: RX_DONE interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RX_DONE interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_ACTIVITY:
-    enum:
-      INACTIVE:
-        description: RAW_INTR_ACTIVITY interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RAW_INTR_ACTIVITY interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_STOP_DET:
-    enum:
-      INACTIVE:
-        description: STOP_DET interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: STOP_DET interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_START_DET:
-    enum:
-      INACTIVE:
-        description: START_DET interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: START_DET interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_GEN_CALL:
-    enum:
-      INACTIVE:
-        description: GEN_CALL interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: GEN_CALL interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_RAW_INTR_STAT_RESTART_DET:
-    enum:
-      INACTIVE:
-        description: RESTART_DET interrupt is inactive
-        value: 0
-      ACTIVE:
-        description: RESTART_DET interrupt is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ENABLE_ENABLE:
-    enum:
-      DISABLED:
-        description: I2C is disabled
-        value: 0
-      ENABLED:
-        description: I2C is enabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ENABLE_ABORT:
-    enum:
-      DISABLE:
-        description: ABORT operation not in progress
-        value: 0
-      ENABLED:
-        description: ABORT operation in progress
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ENABLE_TX_CMD_BLOCK:
-    enum:
-      NOT_BLOCKED:
-        description: Tx Command execution not blocked
-        value: 0
-      BLOCKED:
-        description: Tx Command execution blocked
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_ACTIVITY:
-    enum:
-      INACTIVE:
-        description: I2C is idle
-        value: 0
-      ACTIVE:
-        description: I2C is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_TFNF:
-    enum:
-      FULL:
-        description: Tx FIFO is full
-        value: 0
-      NOT_FULL:
-        description: Tx FIFO not full
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_TFE:
-    enum:
-      NON_EMPTY:
-        description: Tx FIFO not empty
-        value: 0
-      EMPTY:
-        description: Tx FIFO is empty
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_RFNE:
-    enum:
-      EMPTY:
-        description: Rx FIFO is empty
-        value: 0
-      NOT_EMPTY:
-        description: Rx FIFO not empty
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_RFF:
-    enum:
-      NOT_FULL:
-        description: Rx FIFO not full
-        value: 0
-      FULL:
-        description: Rx FIFO is full
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_MST_ACTIVITY:
-    enum:
-      IDLE:
-        description: Master is idle
-        value: 0
-      ACTIVE:
-        description: Master not idle
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_STATUS_SLV_ACTIVITY:
-    enum:
-      IDLE:
-        description: Slave is idle
-        value: 0
-      ACTIVE:
-        description: Slave not idle
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_7B_ADDR_NOACK:
-    enum:
-      INACTIVE:
-        description: This abort is not generated
-        value: 0
-      ACTIVE:
-        description: This abort is generated because of NOACK for 7-bit address
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR1_NOACK:
-    enum:
-      INACTIVE:
-        description: This abort is not generated
-        value: 0
-      ACTIVE:
-        description: Byte 1 of 10Bit Address not ACKed by any slave
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_10ADDR2_NOACK:
-    enum:
-      INACTIVE:
-        description: This abort is not generated
-        value: 0
-      ACTIVE:
-        description: Byte 2 of 10Bit Address not ACKed by any slave
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_TXDATA_NOACK:
-    enum:
-      VOID:
-        description: Transmitted data non-ACKed by addressed slave-scenario not present
-        value: 0
-      GENERATED:
-        description: Transmitted data not ACKed by addressed slave
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_NOACK:
-    enum:
-      VOID:
-        description: GCALL not ACKed by any slave-scenario not present
-        value: 0
-      GENERATED:
-        description: GCALL not ACKed by any slave
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_GCALL_READ:
-    enum:
-      VOID:
-        description: GCALL is followed by read from bus-scenario not present
-        value: 0
-      GENERATED:
-        description: GCALL is followed by read from bus
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_ACKDET:
-    enum:
-      VOID:
-        description: HS Master code ACKed in HS Mode- scenario not present
-        value: 0
-      GENERATED:
-        description: HS Master code ACKed in HS Mode
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_ACKDET:
-    enum:
-      VOID:
-        description: ACK detected for START byte- scenario not present
-        value: 0
-      GENERATED:
-        description: ACK detected for START byte
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_HS_NORSTRT:
-    enum:
-      VOID:
-        description: User trying to switch Master to HS mode when RESTART disabled-
-          scenario not present
-        value: 0
-      GENERATED:
-        description: User trying to switch Master to HS mode when RESTART disabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_SBYTE_NORSTRT:
-    enum:
-      VOID:
-        description: User trying to send START byte when RESTART disabled- scenario
-          not present
-        value: 0
-      GENERATED:
-        description: User trying to send START byte when RESTART disabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_10B_RD_NORSTRT:
-    enum:
-      VOID:
-        description: Master not trying to read in 10Bit addressing mode when RESTART
-          disabled
-        value: 0
-      GENERATED:
-        description: Master trying to read in 10Bit addressing mode when RESTART disabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_MASTER_DIS:
-    enum:
-      VOID:
-        description: User initiating master operation when MASTER disabled- scenario
-          not present
-        value: 0
-      GENERATED:
-        description: User initiating master operation when MASTER disabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ARB_LOST:
-    enum:
-      VOID:
-        description: Master or Slave-Transmitter lost arbitration- scenario not present
-        value: 0
-      GENERATED:
-        description: Master or Slave-Transmitter lost arbitration
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVFLUSH_TXFIFO:
-    enum:
-      VOID:
-        description: Slave flushes existing data in TX-FIFO upon getting read command-
-          scenario not present
-        value: 0
-      GENERATED:
-        description: Slave flushes existing data in TX-FIFO upon getting read command
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_SLV_ARBLOST:
-    enum:
-      VOID:
-        description: Slave lost arbitration to remote master- scenario not present
-        value: 0
-      GENERATED:
-        description: Slave lost arbitration to remote master
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_SLVRD_INTX:
-    enum:
-      VOID:
-        description: Slave trying to transmit to remote master in read mode- scenario
-          not present
-        value: 0
-      GENERATED:
-        description: Slave trying to transmit to remote master in read mode
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_TX_ABRT_SOURCE_ABRT_USER_ABRT:
-    enum:
-      VOID:
-        description: Transfer abort detected by master- scenario not present
-        value: 0
-      GENERATED:
-        description: Transfer abort detected by master
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_SLV_DATA_NACK_ONLY_NACK:
-    enum:
-      DISABLED:
-        description: Slave receiver generates NACK normally
-        value: 0
-      ENABLED:
-        description: Slave receiver generates NACK upon data reception only
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_DMA_CR_RDMAE:
-    enum:
-      DISABLED:
-        description: Receive FIFO DMA channel disabled
-        value: 0
-      ENABLED:
-        description: Receive FIFO DMA channel enabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_DMA_CR_TDMAE:
-    enum:
-      DISABLED:
-        description: transmit FIFO DMA channel disabled
-        value: 0
-      ENABLED:
-        description: Transmit FIFO DMA channel enabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ACK_GENERAL_CALL_ACK_GEN_CALL:
-    enum:
-      DISABLED:
-        description: Generate NACK for a General Call
-        value: 0
-      ENABLED:
-        description: Generate ACK for a General Call
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ENABLE_STATUS_IC_EN:
-    enum:
-      DISABLED:
-        description: I2C disabled
-        value: 0
-      ENABLED:
-        description: I2C enabled
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ENABLE_STATUS_SLV_DISABLED_WHILE_BUSY:
-    enum:
-      INACTIVE:
-        description: Slave is disabled when it is idle
-        value: 0
-      ACTIVE:
-        description: Slave is disabled when it is active
-        value: 1
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  I2C0_IC_ENABLE_STATUS_SLV_RX_DATA_LOST:
-    enum:
-      INACTIVE:
-        description: Slave RX Data is not lost
-        value: 0
-      ACTIVE:
-        description: Slave RX Data is lost
-        value: 1
     unit_test: false
     json: false
     use_map: false

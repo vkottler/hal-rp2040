@@ -3,6 +3,6 @@ name: hal-rp2040
 description: A hardware abstraction layer generated from the RP2040's SVD.
 
 version:
-  major: 0
-  minor: 4
-  patch: 6
+  major: 1
+  minor: 1
+  patch: 0
