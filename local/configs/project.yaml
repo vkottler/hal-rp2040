@@ -2,7 +2,10 @@
 name: hal-rp2040
 description: A hardware abstraction layer generated from the RP2040's SVD.
 
+# Documentation takes an extremely long time to generate! (longer than timeout)
+ci_docs: false
+
 version:
   major: 1
   minor: 1
-  patch: 0
+  patch: 1
