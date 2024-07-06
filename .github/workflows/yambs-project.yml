@@ -13,10 +13,10 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
-        python-version: [3.11, 3.12]
+        python-version: [3.12]
 
     env:
       PYTHON_VERSION: ${{matrix.python-version}}
@@ -42,17 +42,17 @@ jobs:
 
       - run: mk yaml python-lint python-sa
 
-      - name: setup clang 17
-        run: |
-          wget https://apt.llvm.org/llvm.sh
-          chmod +x ./llvm.sh
-          sudo ./llvm.sh 17
-          rm llvm.sh
+      # - name: setup clang 17
+      #   run: |
+      #     wget https://apt.llvm.org/llvm.sh
+      #     chmod +x ./llvm.sh
+      #     sudo ./llvm.sh 17
+      #     rm llvm.sh
 
-      - run: sudo apt-get install gcc-12 g++-12 lcov doxygen clang-17 clang-format-17
+      - run: sudo apt-get install gcc-13 g++-13 lcov doxygen clang-17 clang-format-17
       # List versions.
-      - run: gcc-12 --version
-      - run: g++-12 --version
+      - run: gcc-13 --version
+      - run: g++-13 --version
       - run: clang-17 --version
       - run: clang++-17 --version
 
@@ -70,7 +70,7 @@ jobs:
           gcov: true
           gcov_include: build/debug
           gcov_ignore: .mypy_cache
-          gcov_executable: gcov-12
+          gcov_executable: gcov-13
           fail_ci_if_error: true
           verbose: true
           token: ${{secrets.CODECOV_TOKEN}}
